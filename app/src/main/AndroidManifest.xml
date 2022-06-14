@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tennisbookingapp">
         <activity
+            android:name=".Done"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsPromotion"
+            android:exported="false" />
+        <activity
+            android:name=".Promotion"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpSuccess"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".Retrieval"
+            android:exported="false" />
+        <activity
             android:name=".ReadyLogin"
             android:exported="false" />
         <activity
