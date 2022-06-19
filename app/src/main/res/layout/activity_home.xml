@@ -1,9 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:alpha="0.99"
+        android:background="@color/green_header">
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="40dp"
+            app:srcCompat="@drawable/ic_location_svgrepo_com2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="38dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Đại học FPT" />
+
+        <ImageView
+            android:id="@+id/imgHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="74dp"
+            android:layout_marginBottom="39dp"
+            app:srcCompat="@drawable/ic_history_solid_svgrepo_com_1" />
+
+        <ImageView
+            android:id="@+id/imgUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="35dp"
+            app:srcCompat="@drawable/ic_user_svgrepo_com_1" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp">
+
+
+        <ImageView
+            android:id="@+id/imgSearchBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/ic_search_box" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="42dp"
+            app:srcCompat="@drawable/ic_magnifying_glass_svgrepo_com_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="37dp"
+            android:text="Find a court"
+            android:textColor="#B6A7A7"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="746dp"
+        android:layout_marginTop="150dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="175dp">
+
+            <ImageView
+                android:id="@+id/imgPromo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="111dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="250dp"
+                app:srcCompat="@drawable/ic_medal_svgrepo_com2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="65dp"
+                android:text="Promotions" />
+
+            <ImageView
+                android:id="@+id/imgLocation"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="250dp"
+                android:layout_marginLeft="225dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="111dp"
+                app:srcCompat="@drawable/ic_location_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="248dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="65dp"
+                android:layout_marginEnd="110dp"
+                android:layout_marginBottom="90dp"
+                android:text="Near me"
+                android:textSize="14sp" />
+
+
+            <ImageView
+                android:id="@+id/imgHard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="58dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="287dp"
+                app:srcCompat="@drawable/ic_hard" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="155dp"
+                android:text="Hard" />
+
+            <ImageView
+                android:id="@+id/imgClay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="176dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="173dp"
+                app:srcCompat="@drawable/ic_clay" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="195dp"
+                android:layout_marginTop="155dp"
+                android:text="Clay" />
+
+            <ImageView
+                android:id="@+id/imgGrass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="294dp"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="58dp"
+                app:srcCompat="@drawable/ic_grass" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="305dp"
+                android:layout_marginTop="155dp"
+                android:text="Grass" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
