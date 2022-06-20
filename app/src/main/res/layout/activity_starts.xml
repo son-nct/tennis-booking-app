@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartsActivity">
+
+    <EditText
+        android:id="@+id/tvnhap"
+        android:layout_width="370sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Quên mật khẩu thì click ở dưới"
+        android:textColor="@color/purple_300"
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="437dp" />
+
+    <TextView
+        android:id="@+id/tvmatKhau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Mật Khẩu"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="380dp" />
+
+    <TextView
+        android:id="@+id/tvStarts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Bắt đầu"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Tên tài khoản"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="228dp" />
+
+    <EditText
+        android:id="@+id/tvNhap"
+        android:layout_width="370sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Nhập đi còn chần chờ gì nữa"
+        android:textColor="@color/purple_300"
+        android:textSize="18sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <TextView
+        android:id="@+id/tvforgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Quên mật khẩu"
+        android:textColor="@color/teal_300"
+        android:textSize="14sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="301dp"
+        tools:layout_editor_absoluteY="500dp" />
+
+    <CheckBox
+        android:id="@+id/cbMessage"
+        android:layout_width="355dp"
+        android:layout_height="102dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đọc và đồng ý với Điều Khoản Dịch Vụ và Thông Báo Bảo Mật của chúng tôi."
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="579dp" />
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="350dp"
+        android:layout_height="50sp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/purple_400"
+        android:fontFamily="@font/alata"
+        android:text="Tiếp Tục"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="755dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

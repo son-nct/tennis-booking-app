@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SendFeedback">
+
+
+    <ImageView
+        android:id="@+id/imagePrevious1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:srcCompat="@drawable/previous"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="18dp"
+        tools:ignore="MissingConstraints"/>
+
+    <ImageView
+        android:id="@+id/imagePeople"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/people"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="111dp" />
+
+    <TextView
+        android:id="@+id/tvMessage3"
+        android:layout_width="326dp"
+        android:layout_height="75dp"
+        android:fontFamily="@font/alata"
+        android:text="Bạn thấy dịch vụ đặt sân Tennis thế nào?"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="21dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="294dp" />
+
+    <TextView
+        android:id="@+id/tvMessage4"
+        android:layout_width="326dp"
+        android:layout_height="75dp"
+        android:fontFamily="@font/alata"
+        android:text="Hãy giúp chúng tôi cải thiện trải nghiệm với Tennis App bằng cách đánh giá dịch vụ đặt sân Tennis này."
+        android:textAlignment="center"
+        android:textColor="@color/purple_300"
+        android:textSize="16dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="395dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        tools:ignore="MissingConstraints"
+        android:rating="3.5"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="493dp" />
+
+    <Button
+        android:id="@+id/btnSuccess1"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/green_100"
+        android:fontFamily="@font/alata"
+        android:text="Gửi đánh giá"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="662dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

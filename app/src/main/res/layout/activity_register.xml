@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <TextView
+        android:id="@+id/tvRetrieval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Bắt đầu"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Số di động"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <TextView
+        android:id="@+id/tvTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Tên"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đọc và đồng ý với Điều Khoản Dịch Vụ và Thông Báo Bảo Mật của chúng tôi."
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="623dp" />
+
+    <EditText
+        android:id="@+id/tvPhonee"
+        android:layout_width="120sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:minHeight="48dp"
+        android:text="                +84"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="196dp" />
+
+    <EditText
+        android:id="@+id/tvPhoneee"
+        android:layout_width="180sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:minHeight="48dp"
+        android:text="99 123 456"
+        android:textColor="@color/purple_300"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="196dp" />
+
+    <EditText
+        android:id="@+id/EdEmail"
+        android:layout_width="370sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:minHeight="48dp"
+        android:text="Hứa không spam tin nhắn"
+        android:textColor="@color/purple_300"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="344dp" />
+
+    <EditText
+        android:id="@+id/EdEmaill"
+        android:layout_width="370sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:minHeight="48dp"
+        android:text="Bạn thích mọi người gọi bằng tên gì"
+        android:textColor="@color/purple_300"
+        android:textSize="19sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="480dp" />
+
+    <Button
+        android:id="@+id/btnContinue2"
+        android:layout_width="350dp"
+        android:layout_height="50sp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/purple_400"
+        android:fontFamily="@font/alata"
+        android:text="Tiếp Tục"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="755dp"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="52dp"
+        android:layout_height="35dp"
+        app:srcCompat="@drawable/vietnam"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="196dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
