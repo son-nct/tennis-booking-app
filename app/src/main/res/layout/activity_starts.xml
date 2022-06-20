@@ -7,7 +7,7 @@
     tools:context=".StartsActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/tvnhap"
         android:layout_width="370sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

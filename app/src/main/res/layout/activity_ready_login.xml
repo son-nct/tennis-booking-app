@@ -103,6 +103,16 @@
             android:text="Đăng kí"
             android:textColor="@color/black" />
 
+        <Button
+            android:id="@+id/btnDang"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:backgroundTint="@color/white"
+            android:text="Đăng kí"
+            android:textColor="@color/black" />
+
     </RelativeLayout>
 
 </RelativeLayout>

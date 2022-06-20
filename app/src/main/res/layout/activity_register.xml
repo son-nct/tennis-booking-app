@@ -66,7 +66,7 @@
         android:fontFamily="@font/inter_bold"
         android:text="Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đọc và đồng ý với Điều Khoản Dịch Vụ và Thông Báo Bảo Mật của chúng tôi."
         android:textColor="@color/black"
-        android:textSize="19sp"
+        android:textSize="16sp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="21dp"
         tools:layout_editor_absoluteY="623dp" />
@@ -128,7 +128,7 @@
         tools:layout_editor_absoluteY="480dp" />
 
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/btnContinue2"
         android:layout_width="350dp"
         android:layout_height="50sp"
         android:layout_centerHorizontal="true"
