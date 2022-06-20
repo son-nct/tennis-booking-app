@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
         <item>@font/abhaya_libre_medium</item>
+<<<<<<< HEAD
         <item>@font/aclonica</item>
         <item>@font/acme</item>
         <item>@font/adamina</item>
@@ -10,5 +12,8 @@
         <item>@font/archivo_black</item>
         <item>@font/baloo</item>
         <item>@font/baloo_tamma</item>
+=======
+        <item>@font/monda_bold</item>
+>>>>>>> feature/home-login
     </array>
 </resources>

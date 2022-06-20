@@ -10,25 +10,44 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 public class ReadyLogin extends AppCompatActivity {
+<<<<<<< HEAD
      private Button btnDang;
     RelativeLayout layoutWait, layoutSelect;
+=======
+
+    RelativeLayout layoutWait;
+    Button btnLogin, btnRegister;
+>>>>>>> feature/home-login
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ready_login);
 
+<<<<<<< HEAD
         btnDang = (Button)findViewById(R.id.btnDang);
+=======
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
+>>>>>>> feature/home-login
         layoutWait = (RelativeLayout) findViewById(R.id.layoutWaiting);
-        layoutSelect = (RelativeLayout) findViewById(R.id.layoutSelect);
+//
+//        layoutSelect.setVisibility(View.GONE);
+//        final Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                layoutWait.setVisibility(View.GONE);
+//                layoutSelect.setVisibility(View.VISIBLE);
+//            }
+//        },1000);
 
-        layoutSelect.setVisibility(View.GONE);
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                layoutWait.setVisibility(View.GONE);
-                layoutSelect.setVisibility(View.VISIBLE);
+            public void onClick(View v) {
+                Intent intent = new Intent(ReadyLogin.this, LoginFacebookGoogleActivity.class);
+                startActivity(intent);
             }
+<<<<<<< HEAD
         },1000);
 
         btnDang.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +56,8 @@ public class ReadyLogin extends AppCompatActivity {
                 Intent intent = new Intent(ReadyLogin.this,Register.class);
                 startActivity(intent);
             }
+=======
+>>>>>>> feature/home-login
         });
     }
 }
