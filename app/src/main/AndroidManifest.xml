@@ -10,10 +10,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tennisbookingapp">
         <activity
+            android:name=".LichSu"
+            android:exported="false" />
+        <activity
+            android:name=".ThanhCong"
+            android:exported="false" />
+        <activity
+            android:name=".DangXuat"
+            android:exported="false" />
+        <activity
+            android:name=".HuySan"
+            android:exported="false" />
+        <activity
+            android:name=".KhuyenMai"
+            android:exported="false" />
+        <activity
+            android:name=".ChucMung"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmBooking"
+            android:exported="false" />
+        <activity
+            android:name=".Booking"
+            android:exported="false" />
+        <activity
             android:name=".ReadyLogin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".YardDetail"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +45,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
 
         <meta-data
             android:name="preloaded_fonts"
