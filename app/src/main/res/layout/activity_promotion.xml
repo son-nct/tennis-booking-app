@@ -10,42 +10,50 @@
         android:id="@+id/previous"
         android:layout_width="45dp"
         android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_arrow_arrow_left_left_svgrepo_com"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="30dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvPromotion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/inter_bold"
         android:text="Khuyến mãi"
         android:textColor="@color/black"
         android:textSize="25sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintStart_toEndOf="@+id/previous"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
 
     <ImageView
         android:id="@+id/imageSetting"
         android:layout_width="25dp"
         android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_basic_setting_ui_svgrepo_com"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="103dp" />
-
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageStraight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/straight"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="137dp"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPromo"
