@@ -6,7 +6,6 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-<<<<<<< HEAD
     <color name="white">#FFFFFFFF</color>
     <color name="purple_300">#B6A7A7</color>
     <color name="teal_300">#2947E9</color>
@@ -15,11 +14,8 @@
     <color name="red">#E11616</color>
     <color name="purple_100">#F1B47B</color>
     <color name="green_100">#22C866</color>
-
-=======
-    <color name="white">#FFFFFF</color>
     <color name="green_main">#22C866</color>
     <color name="green_header">#AFF8A3</color>
     <color name="white_small">#F2EFEF</color>
->>>>>>> feature/home-login
+
 </resources>
