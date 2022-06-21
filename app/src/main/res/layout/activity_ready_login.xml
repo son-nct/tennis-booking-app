@@ -77,10 +77,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
-<<<<<<< HEAD
-         />
-=======
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="210dp"
@@ -89,18 +85,12 @@
             android:backgroundTint="@color/white"
             android:text="Đăng nhập"
             android:textColor="@color/black" />
->>>>>>> feature/home-login
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp"
-=======
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
->>>>>>> feature/home-login
+            android:layout_marginTop="10dp"
             android:text="hoặc"
             android:textColor="@color/white"
             android:textSize="16dp" />
@@ -116,21 +106,7 @@
             android:text="Đăng kí"
             android:textColor="@color/black" />
 
-<<<<<<< HEAD
-        <Button
-            android:id="@+id/btnDang"
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:backgroundTint="@color/white"
-            android:text="Đăng kí"
-            android:textColor="@color/black" />
-
-    </RelativeLayout>
-=======
     </LinearLayout>
 
->>>>>>> feature/home-login
 
 </RelativeLayout>
