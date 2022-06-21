@@ -21,21 +21,11 @@ public class ReadyLogin extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnRegister = (Button) findViewById(R.id.btnRegister);
         layoutWait = (RelativeLayout) findViewById(R.id.layoutWaiting);
-//
-//        layoutSelect.setVisibility(View.GONE);
-//        final Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                layoutWait.setVisibility(View.GONE);
-//                layoutSelect.setVisibility(View.VISIBLE);
-//            }
-//        },1000);
 
-        btnDang.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReadyLogin.this,Register.class);
+                Intent intent = new Intent(ReadyLogin.this, LoginFacebookGoogleActivity.class);
                 startActivity(intent);
             }
         });
