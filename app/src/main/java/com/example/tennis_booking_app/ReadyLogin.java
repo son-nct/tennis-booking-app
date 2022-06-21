@@ -10,20 +10,26 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 public class ReadyLogin extends AppCompatActivity {
+<<<<<<< HEAD
      private Button btnDang;
     RelativeLayout layoutWait, layoutSelect;
+=======
 
-//    RelativeLayout layoutWait;
+    RelativeLayout layoutWait;
     Button btnLogin, btnRegister;
+>>>>>>> feature/home-login
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ready_login);
 
+<<<<<<< HEAD
         btnDang = (Button)findViewById(R.id.btnDang);
+=======
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnRegister = (Button) findViewById(R.id.btnRegister);
-//        layoutWait = (RelativeLayout) findViewById(R.id.layoutWaiting);
+>>>>>>> feature/home-login
+        layoutWait = (RelativeLayout) findViewById(R.id.layoutWaiting);
 //
 //        layoutSelect.setVisibility(View.GONE);
 //        final Handler handler = new Handler();
@@ -41,7 +47,8 @@ public class ReadyLogin extends AppCompatActivity {
                 Intent intent = new Intent(ReadyLogin.this, LoginFacebookGoogleActivity.class);
                 startActivity(intent);
             }
-        });
+<<<<<<< HEAD
+        },1000);
 
         btnDang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +56,8 @@ public class ReadyLogin extends AppCompatActivity {
                 Intent intent = new Intent(ReadyLogin.this,Register.class);
                 startActivity(intent);
             }
+=======
+>>>>>>> feature/home-login
         });
     }
 }
