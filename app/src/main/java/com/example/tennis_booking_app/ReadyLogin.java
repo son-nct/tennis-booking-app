@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 public class ReadyLogin extends AppCompatActivity {
-     private Button btnDang;
     RelativeLayout layoutWait, layoutSelect;
 
     Button btnLogin, btnRegister;
@@ -19,7 +18,6 @@ public class ReadyLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ready_login);
 
-        btnDang = (Button)findViewById(R.id.btnDang);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnRegister = (Button) findViewById(R.id.btnRegister);
         layoutWait = (RelativeLayout) findViewById(R.id.layoutWaiting);
