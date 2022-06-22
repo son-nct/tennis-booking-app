@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class KhuyenMai extends AppCompatActivity {
 
     ListView lvKhuyenmai;
-    PromoAdapter adapter;
+    KmAdapter adapter;
     ArrayList<Promo> arrPromo;
 
     @Override
@@ -23,7 +23,7 @@ public class KhuyenMai extends AppCompatActivity {
         arrPromo.add(new Promo("CUOITUAN","khuyến mãi cuối tuần","50,000vnd",R.drawable.promo));
         arrPromo.add(new Promo("NGAYLEDACBIET","Khuyến mãi ngày lế","50,000vnd",R.drawable.promo));
 
-        adapter=new PromoAdapter(this,R.layout.list_promo,arrPromo);
+        adapter=new KmAdapter(this,R.layout.list_promo,arrPromo);
         lvKhuyenmai.setAdapter(adapter);
 
         /*lvKhuyenmai.setOnItemClickListener(new AdapterView.OnItemClickListener() {

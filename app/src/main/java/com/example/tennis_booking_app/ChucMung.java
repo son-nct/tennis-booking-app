@@ -8,17 +8,17 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ChucMung extends AppCompatActivity {
-    ImageButton imgHome;
+    ImageButton imgCM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chuc_mung);
 
-        imgHome=(ImageButton) findViewById(R.id.imgHome);
-        imgHome.setOnClickListener(new View.OnClickListener() {
+        imgCM=(ImageButton) findViewById(R.id.imgHomeCM);
+        imgCM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ChucMung.this,YardDetail.class);
+                Intent intent=new Intent(ChucMung.this,HomeActivity.class);
                 startActivity(intent);
             }
         });

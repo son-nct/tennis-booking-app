@@ -1,4 +1,4 @@
-package com.example.copy;
+package com.example.tennis_booking_app;
 
 public class PromoClass {
     private int hinh,sao,the;

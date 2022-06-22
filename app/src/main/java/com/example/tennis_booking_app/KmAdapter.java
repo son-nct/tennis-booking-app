@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.tennis_booking_app;
 
 import android.content.Context;
 import android.view.LayoutInflater;

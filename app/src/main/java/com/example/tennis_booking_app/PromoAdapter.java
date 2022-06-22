@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,9 +14,9 @@ import java.util.ArrayList;
 
 public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> {
 
-    private ArrayList<com.example.copy.PromoClass> proList;
+    private ArrayList<PromoClass> proList;
 
-    public PromoAdapter(ArrayList<com.example.copy.PromoClass> proList) {
+    public PromoAdapter(ArrayList<PromoClass> proList) {
         this.proList = proList;
     }
 
@@ -36,7 +35,7 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        com.example.copy.PromoClass promo=proList.get(position);
+        PromoClass promo=proList.get(position);
         holder.txtPromo.setText(promo.getPromo());
         holder.txtTenSan.setText(promo.getTenSan());
         holder.txtDistant.setText(promo.getKhoangCach());
@@ -67,6 +66,5 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
             txtDistant=itemView.findViewById(R.id.txtDistant);
             txtMaPromo=itemView.findViewById(R.id.txtMaPromo);
         }
-
     }
 }

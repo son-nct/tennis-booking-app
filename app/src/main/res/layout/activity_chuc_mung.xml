@@ -13,7 +13,7 @@
         android:layout_height="160dp"
         android:layout_marginStart="124dp"
         android:layout_marginTop="80dp"
-        android:src="@drawable/check"
+        android:src="@drawable/succ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -31,7 +31,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imgHome"
+        android:id="@+id/imgHomeCM"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="152dp"
