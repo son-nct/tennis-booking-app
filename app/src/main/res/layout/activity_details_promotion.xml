@@ -9,10 +9,10 @@
     <ImageView
         android:id="@+id/imageBackground"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:src="@drawable/backgroundtennis"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-42dp" />
 
     <ImageView
@@ -29,18 +29,19 @@
         android:layout_width="178dp"
         android:layout_height="200dp"
         android:src="@drawable/sale"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="-63dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageRectangle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="413dp"
+        android:layout_height="586dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/rectangle"
+        app:layout_constraintTop_toTopOf="@+id/imageBackground"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteX="-2dp" />
 
     <EditText
         android:id="@+id/edtThuDuc"
@@ -51,8 +52,8 @@
         android:textColor="@color/black"
         android:textSize="35dp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="177dp"/>
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="152dp" />
 
     <ImageView
         android:id="@+id/imageStar5"
@@ -279,151 +280,13 @@
         tools:layout_editor_absoluteX="-2dp"
         tools:layout_editor_absoluteY="587dp" />
 
-    <ImageView
-        android:id="@+id/imagetennis1"
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/imgtennis1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="587dp" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/baloo"
-        android:text="Sân 1A - Sân đất nện"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="601dp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/lvSanKM"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="70.000 - 300.000 vnđ"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="657dp" />
+        android:layout_marginTop="600dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="36.57m x 18.29m"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="630dp" />
-
-    <ImageView
-        android:id="@+id/imageStraight5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/straight"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="687dp" />
-
-    <ImageView
-        android:id="@+id/imagetennis2"
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/imgtennis2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="687dp" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/baloo"
-        android:text="Sân 2A - Sân thảm PVC"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="697dp" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="36.57m x 18.29m"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="727dp" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100.000 - 350.000 vnđ"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="757dp" />
-
-    <ImageView
-        android:id="@+id/imageStraight6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/straight"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="787dp" />
-
-    <ImageView
-        android:id="@+id/imagetennis3"
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/imgtennis3"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="787dp" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="200dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/baloo"
-        android:text="Sân 1B - Sân nhựa "
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="801dp" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="36.57m x 18.29m"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="832dp" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100.000 - 350.000 vnđ"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="857dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
