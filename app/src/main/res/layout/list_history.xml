@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:id="@+id/txtTenHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imgLogo"
+        android:text="Ten San"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/txtCaHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTenHis"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/imgLogo"
+        android:text="Slot choi"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtNgayGio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCaHis"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/imgLogo"
+        android:text="ngay gio dat"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtTienHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="10dp"
+        android:text="Gia tien"
+        android:textSize="20dp" />
+
+</RelativeLayout>
