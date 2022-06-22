@@ -4,56 +4,69 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class PromoAdapter extends BaseAdapter {
+import java.util.ArrayList;
 
-    private Context context;
-    private int layout;
-    private List<Promo> promoList;
+public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> {
 
-    public PromoAdapter(Context context, int layout, List<Promo> promoList) {
-        this.context = context;
-        this.layout = layout;
-        this.promoList = promoList;
+    private ArrayList<com.example.copy.PromoClass> proList;
+
+    public PromoAdapter(ArrayList<com.example.copy.PromoClass> proList) {
+        this.proList = proList;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Context context=parent.getContext();
+        LayoutInflater inflater=LayoutInflater.from(context);
+
+        View view=inflater.inflate(R.layout.list_san_km,parent,false);
+
+        ViewHolder viewHolder=new ViewHolder(view);
+
+        return viewHolder;
     }
 
     @Override
-    public int getCount() {
-        return promoList.size();
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        com.example.copy.PromoClass promo=proList.get(position);
+        holder.txtPromo.setText(promo.getPromo());
+        holder.txtTenSan.setText(promo.getTenSan());
+        holder.txtDistant.setText(promo.getKhoangCach());
+        holder.txtMaPromo.setText(promo.getMaKM());
+        holder.imgHinhSan.setImageResource(promo.getHinh());
+        holder.imgStar.setImageResource(promo.getSao());
+        holder.imgThe.setImageResource(promo.getThe());
+
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public int getItemCount() {
+        return proList.size();
     }
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView=inflater.inflate(layout,null);
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgHinhSan,imgStar,imgThe;
+        TextView txtPromo,txtTenSan,txtDistant,txtMaPromo;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-        TextView txtTenPromo=(TextView) convertView.findViewById(R.id.txtTenPromo);
-        TextView txtMotaPromo=(TextView) convertView.findViewById(R.id.txtMotaPromo);
-        TextView txtCuthe=(TextView) convertView.findViewById(R.id.txtCuthe);
-        ImageView imgPromo=(ImageView) convertView.findViewById(R.id.imgPromo);
+            imgHinhSan=itemView.findViewById(R.id.imgHinhSan);
+            imgStar=itemView.findViewById(R.id.imgStar);
+            imgThe=itemView.findViewById(R.id.imgThePro);
+            txtPromo=itemView.findViewById(R.id.txtPromo);
+            txtTenSan=itemView.findViewById(R.id.txtTenSan);
+            txtDistant=itemView.findViewById(R.id.txtDistant);
+            txtMaPromo=itemView.findViewById(R.id.txtMaPromo);
+        }
 
-        Promo promo=promoList.get(position);
-
-        txtTenPromo.setText(promo.getTen());
-        txtMotaPromo.setText(promo.getMota());
-        txtCuthe.setText(promo.getCuthe());
-        imgPromo.setImageResource(promo.getHinh());
-
-        return convertView;
     }
 }
