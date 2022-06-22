@@ -10,8 +10,12 @@
         android:id="@+id/imageCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.402"
         app:srcCompat="@drawable/check1"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="249dp"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,9 +15,13 @@
         android:text="Quên mật khẩu thì click ở dưới"
         android:textColor="@color/purple_300"
         android:textSize="18sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="437dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.488"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvmatKhau"
@@ -28,9 +32,13 @@
         android:text="Mật Khẩu"
         android:textColor="@color/black"
         android:textSize="19sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="380dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.406"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvStarts"
@@ -41,9 +49,13 @@
         android:text="Bắt đầu"
         android:textColor="@color/black"
         android:textSize="30sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="33dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvUserName"
@@ -54,9 +66,13 @@
         android:text="Tên tài khoản"
         android:textColor="@color/black"
         android:textSize="19sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="228dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.223"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/tvNhap"
@@ -67,9 +83,13 @@
         android:text="Nhập đi còn chần chờ gì nữa"
         android:textColor="@color/purple_300"
         android:textSize="18sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="291dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.309"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvforgotPassword"
@@ -80,9 +100,13 @@
         android:text="Quên mật khẩu"
         android:textColor="@color/teal_300"
         android:textSize="14sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="301dp"
-        tools:layout_editor_absoluteY="500dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.552"
+        tools:ignore="MissingConstraints" />
 
     <CheckBox
         android:id="@+id/cbMessage"
@@ -93,9 +117,12 @@
         android:text="Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đọc và đồng ý với Điều Khoản Dịch Vụ và Thông Báo Bảo Mật của chúng tôi."
         android:textColor="@color/black"
         android:textSize="14sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="579dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnContinue"
@@ -107,7 +134,11 @@
         android:text="Tiếp Tục"
         android:textColor="@color/white"
         android:textSize="21sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="755dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.902"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
