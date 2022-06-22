@@ -19,7 +19,6 @@
             app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
 
         <TextView
-            android:id="@+id/txtType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
