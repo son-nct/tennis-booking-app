@@ -14,21 +14,26 @@
         android:id="@+id/txtTensanKM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/imgHinhKM"
-        android:text="Ten San"
+        android:fontFamily="@font/inter"
+        android:text="Tên Sân"
+        android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/txtDientichKM"
-        android:layout_toRightOf="@id/imgHinhKM"
-        android:layout_below="@+id/txtTensanKM"
-        android:text="Dien Tich"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTensanKM"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/imgHinhKM"
+        android:text="Diện Tích"
+        android:textSize="20dp"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/txtTienKM"
@@ -37,7 +42,9 @@
         android:layout_below="@+id/txtDientichKM"
         android:layout_toRightOf="@id/imgHinhKM"
         android:layout_marginLeft="10dp"
-        android:text="Gia Tien"
-        android:textSize="20dp" />
+        android:text="Giá Tiền"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter"/>
 
 </RelativeLayout>

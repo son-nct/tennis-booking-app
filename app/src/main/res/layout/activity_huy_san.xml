@@ -10,71 +10,70 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:background="@drawable/green"
+        android:background="@drawable/green_headd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="290dp"
-        android:background="@drawable/logo"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        android:id="@+id/imagePrevious2"
+        android:layout_width="69dp"
+        android:layout_height="34dp"
+        android:src="@drawable/previos_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/inter"
         android:text="Hủy Đặt Sân"
-        android:textSize="30dp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_width="232dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="140dp"
-        android:text="Lý do hủy đặt sân"
-        android:textSize="30dp"
-        android:textStyle="bold"
+        android:fontFamily="@font/inter"
+        android:text="Sao lại hủy đặt sân vậy bạn ơi?"
+        android:textColor="@color/black"
+        android:textSize="23dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="330dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="236dp"
+        android:fontFamily="@font/inter"
         android:text="Những đóng góp của bạn sẽ giúp chúng tôi phát triển hệ thống"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="300dp"
-        android:background="#CACFCC"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
     <EditText
-        android:hint="Vui lòng nhập lý do ở đây(Bắt buộc)"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginStart="70dp"
+        android:layout_width="243dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="356dp"
+        android:hint="Vui lòng nhập lý do ở đây (bắt buộc)"
+        android:fontFamily="@font/inter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -83,13 +82,21 @@
         android:id="@+id/btGui"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="650dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="724dp"
         android:backgroundTint="@color/green_main"
         android:text="Gửi"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="364dp"
+        android:layout_height="308dp"
+        app:srcCompat="@drawable/rectange"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="335dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

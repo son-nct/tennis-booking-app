@@ -14,19 +14,23 @@
         android:id="@+id/txtTensan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/imgHinh"
-        android:text="Ten San"
+        android:text="Tên Sân"
         android:textSize="25dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"/>
     <TextView
         android:id="@+id/txtDientich"
         android:layout_toRightOf="@id/imgHinh"
         android:layout_below="@+id/txtTensan"
-        android:text="Dien Tich"
+        android:text="Diện Tích"
         android:textSize="20dp"
         android:layout_marginLeft="10dp"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -37,6 +41,8 @@
         android:layout_below="@+id/txtDientich"
         android:layout_toRightOf="@id/imgHinh"
         android:layout_marginLeft="10dp"
-        android:text="Gia Tien"
-        android:textSize="20dp" />
+        android:text="Giá Tiền"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter"/>
 </RelativeLayout>

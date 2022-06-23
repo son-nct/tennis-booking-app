@@ -14,10 +14,12 @@
         android:id="@+id/txtTenHis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="18dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/imgLogo"
-        android:text="Ten San"
+        android:fontFamily="@font/inter"
+        android:text="Tên Sân"
+        android:textColor="@color/black"
         android:textSize="25dp" />
 
     <TextView
@@ -26,8 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtTenHis"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="-1dp"
         android:layout_toRightOf="@+id/imgLogo"
-        android:text="Slot choi"
+        android:fontFamily="@font/inter"
+        android:text="Slot chơi"
+        android:textColor="@color/black"
         android:textSize="20dp" />
 
     <TextView
@@ -37,7 +42,9 @@
         android:layout_below="@+id/txtCaHis"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/imgLogo"
-        android:text="ngay gio dat"
+        android:text="Ngày giờ đặt"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"
         android:textSize="20dp" />
 
     <TextView
@@ -46,7 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="320dp"
         android:layout_marginTop="10dp"
-        android:text="Gia tien"
-        android:textSize="20dp" />
+        android:text="Giá Tiền"
+        android:textSize="20dp"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"/>
 
 </RelativeLayout>

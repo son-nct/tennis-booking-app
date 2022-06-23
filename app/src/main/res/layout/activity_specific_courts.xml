@@ -24,7 +24,9 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="31dp"
             android:text="court-type-here"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/black"/>
 
         <ImageView
             android:id="@+id/imgFilter"

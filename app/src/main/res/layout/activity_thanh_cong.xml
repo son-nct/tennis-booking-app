@@ -25,6 +25,8 @@
         android:layout_marginTop="310dp"
         android:text="Bạn đã hủy sân thành công"
         android:textSize="20dp"
+        android:fontFamily="@font/alata"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -38,12 +40,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
-        android:layout_marginTop="612dp"
+        android:layout_marginTop="608dp"
+        android:fontFamily="@font/alata"
         android:text="Màn Hình Chính"
+        android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
