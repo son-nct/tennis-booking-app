@@ -10,9 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class HomeActivity extends AppCompatActivity {
-
     ImageView imgPromo;
-    ImageView imgSearchBar, imgHard, imgClay, imgGrass;
+    ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +23,36 @@ public class HomeActivity extends AppCompatActivity {
         imgClay = (ImageView) findViewById(R.id.imgClay);
         imgHard = (ImageView) findViewById(R.id.imgHard);
         imgGrass = (ImageView) findViewById(R.id.imgGrass);
+        imgUser = (ImageView) findViewById(R.id.imgUser);
+        imgHistory = (ImageView) findViewById(R.id.imgHistory);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#AFF8A3"));
         }
+
+        imgPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, Promotion.class);
+                startActivity(intent);
+            }
+        });
+
+        imgUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, DangXuat.class);
+                startActivity(intent);
+            }
+        });
+
+        imgHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, LichSu.class);
+                startActivity(intent);
+            }
+        });
 
         imgSearchBar.setOnClickListener(new View.OnClickListener() {
             @Override
