@@ -1,6 +1,7 @@
 package com.example.tennis_booking_app;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,23 +26,29 @@ public class DangXuat extends AppCompatActivity {
         });
     }
 
-    private void DialogDX() {
-        AlertDialog.Builder dialogDX = new AlertDialog.Builder(this);
-        dialogDX.setMessage("Ban co muon dang xuat?");
+    private void DialogDX(){
+       Dialog dialog=new Dialog(this);
+       dialog.setContentView(R.layout.dialog_dang_xuat);
+       dialog.setCanceledOnTouchOutside(false);
 
-        dialogDX.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(DangXuat.this, ReadyLogin.class);
-                startActivity(intent);
-            }
-        });
-        dialogDX.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+       Button btYes=(Button) dialog.findViewById(R.id.btYes);
+       Button btNo=(Button) dialog.findViewById(R.id.btNo);
 
-            }
-        });
-        dialogDX.show();
+       btYes.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent=new Intent(DangXuat.this,ReadyLogin.class);
+               startActivity(intent);
+           }
+       });
+
+       btNo.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               dialog.dismiss();
+           }
+       });
+
+       dialog.show();
     }
 }
