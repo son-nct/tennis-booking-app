@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 public class ReadyLogin extends AppCompatActivity {
-    RelativeLayout layoutWait, layoutSelect;
+    RelativeLayout layoutWait;
 
     Button btnLogin, btnRegister;
     @Override

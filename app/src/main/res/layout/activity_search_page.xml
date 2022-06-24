@@ -20,11 +20,14 @@
             app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
 
         <EditText
+            android:id="@+id/txtSearch"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="20dp"
-            android:hint="Bạn đang tìm gì đấy" />
+            android:hint="Bạn đang tìm gì đấy"
+            android:inputType="text"
+            android:imeOptions="actionSearch" />
     </RelativeLayout>
 
     <RelativeLayout
