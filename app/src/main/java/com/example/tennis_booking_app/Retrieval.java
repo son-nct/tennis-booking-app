@@ -2,6 +2,7 @@ package com.example.tennis_booking_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,8 @@ public class Retrieval extends AppCompatActivity {
         btnContinue1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(Retrieval.this, SignUpSuccess.class);
+                startActivity(intent);
             }
         });
     }

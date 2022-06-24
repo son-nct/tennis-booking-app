@@ -1,6 +1,8 @@
 package com.example.tennis_booking_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,5 +45,12 @@ public class Promotion extends AppCompatActivity {
         PromoAdapter adapter=new PromoAdapter(arrPromo);
         rvPromo.setAdapter(adapter);
         rvPromo.setLayoutManager(new LinearLayoutManager(this));
+        rvPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Promotion.this,DetailsPromotion.class);
+                startActivity(intent);
+            }
+        });
     }
 }

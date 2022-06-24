@@ -44,13 +44,8 @@ public class StartsActivity extends AppCompatActivity {
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userName = tvNhap.getText().toString();
-                String pass= tvnhap.getText().toString();
-                //nếu tài khoản mật khẩu đúng thì qua SignupSucess
-                if(userName.equals("thinhltd@gmail.com") && pass.equals("a")){
-                    Intent intent = new Intent(StartsActivity.this,SignUpSuccess.class);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(StartsActivity.this, SignUpSuccess.class);
+                startActivity(intent);
             }
         });
     }

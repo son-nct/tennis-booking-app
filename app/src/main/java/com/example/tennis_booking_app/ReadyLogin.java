@@ -29,5 +29,12 @@ public class ReadyLogin extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReadyLogin.this,Register.class);
+                startActivity(intent);
+            }
+        });
     }
 }

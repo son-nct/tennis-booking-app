@@ -55,5 +55,6 @@ public class KmAdapter extends BaseAdapter {
         imgPromo.setImageResource(promo.getHinh());
 
         return convertView;
+
     }
 }
