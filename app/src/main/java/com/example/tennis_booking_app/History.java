@@ -1,6 +1,8 @@
 package com.example.tennis_booking_app;
 
-public class History {
+import java.io.Serializable;
+
+public class History implements Serializable {
     private int anh;
     private String ten,ca,ngaygio,tien;
 

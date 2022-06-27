@@ -1,10 +1,14 @@
 package com.example.tennis_booking_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class LichSu extends AppCompatActivity {
@@ -26,5 +30,15 @@ public class LichSu extends AppCompatActivity {
 
         adapter=new LichSuAdapter(this,R.layout.list_history,arrHis);
         lvHis.setAdapter(adapter);
+
+        lvHis.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(LichSu.this, DetailActivity.class);
+                History san = arrHis.get(position);
+                intent.putExtra("detailBooking", (Serializable) san);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -94,7 +94,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="746dp"
+        android:layout_height="175dp"
         android:layout_marginTop="150dp">
 
         <RelativeLayout
@@ -207,6 +207,34 @@
                 android:layout_marginTop="155dp"
                 android:text="Grass" />
         </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="325dp"
+        app:srcCompat="@drawable/line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="335dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Ưu đãi của tuần này"
+            android:textStyle="italic" />
+
+        <ListView
+            android:id="@+id/lvUuDai"
+            android:layout_width="match_parent"
+            android:layout_height="461dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="49dp" />
 
     </RelativeLayout>
 
