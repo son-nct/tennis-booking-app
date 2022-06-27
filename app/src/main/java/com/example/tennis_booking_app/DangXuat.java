@@ -25,17 +25,18 @@ public class DangXuat extends AppCompatActivity {
         });
     }
 
-    private void DialogDX() {
-        AlertDialog.Builder dialogDX = new AlertDialog.Builder(this);
+    private void DialogDX(){
+        AlertDialog.Builder dialogDX=new AlertDialog.Builder(this);
         dialogDX.setMessage("Ban co muon dang xuat?");
 
         dialogDX.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(DangXuat.this, ReadyLogin.class);
+                Intent intent =new Intent(DangXuat.this,ReadyLogin.class);
                 startActivity(intent);
             }
         });
+
         dialogDX.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
