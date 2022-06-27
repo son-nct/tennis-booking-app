@@ -20,6 +20,7 @@
             app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
 
         <TextView
+            android:id="@+id/txtTenSan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -29,7 +30,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/imgHinhSan"
             android:layout_width="150dp"
             android:layout_height="110dp"
             android:layout_centerHorizontal="true"
@@ -37,6 +38,7 @@
             app:srcCompat="@drawable/san1a" />
 
         <TextView
+            android:id="@+id/txtSanSoBaoNhieu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -87,8 +89,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             android:text="Giá: 150.000 đồng"
             android:textColor="@color/white"
             android:textSize="24dp" />
