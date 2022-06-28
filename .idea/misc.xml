@@ -10,30 +10,11 @@
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_login_facebook_google.xml" value="0.23851351351351352" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_ready_login.xml" value="0.3052586575459598" />
-<<<<<<< HEAD
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/drawable/ic_arrow_arrow_left.xml" value="0.2185" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/drawable/ic_arrow_arrow_left_left_svgrepo_com.xml" value="0.2185" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/drawable/ic_arrow_forward_navigation_svgrepo_com.xml" value="0.2185" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/drawable/ic_basic_setting_ui_svgrepo_com.xml" value="0.2185" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2185" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/drawable/ic_star_svgrepo_com.xml" value="0.2185" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/drawable/previous.xml" value="0.2185" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_details_promotion.xml" value="0.264" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_done.xml" value="0.1936725096194955" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_main.xml" value="0.20521590423257802" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_promotion.xml" value="0.264" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_ready_login.xml" value="0.20521590423257802" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_register.xml" value="0.1936725096194955" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_retrieval.xml" value="0.20521590423257802" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_send_feedback.xml" value="0.20521590423257802" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_sign_up_success.xml" value="0.20521590423257802" />
-        <entry key="..\:/Tai Lieu/CN7/HCI/tennis-booking-app/app/src/main/res/layout/activity_starts.xml" value="0.2" />
-=======
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_search_page.xml" value="0.5" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_specific_courts.xml" value="0.22" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/settings_activity.xml" value="0.24121621621621622" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/xml/root_preferences.xml" value="0.12432432432432433" />
->>>>>>> feature/home-login
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/Tennis - mobile/tennis-booking-app/app/src/main/res/layout/activity_starts.xml" value="0.33" />
       </map>
     </option>
   </component>
