@@ -85,7 +85,6 @@ public class StartsActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-
                             startActivity(new Intent(StartsActivity.this, HomeActivity.class).putExtra("data", loginResponse.getToken().getUserName()));
                         }
                     }, 700);
