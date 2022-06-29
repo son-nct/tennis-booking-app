@@ -7,14 +7,14 @@
     tools:context=".StartsActivity">
 
     <EditText
-        android:id="@+id/tvnhap"
+        android:id="@+id/txtPassword"
         android:layout_width="370sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
-        android:text="Quên mật khẩu thì click ở dưới"
         android:textColor="@color/purple_300"
         android:textSize="18sp"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
@@ -24,14 +24,14 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tvmatKhau"
+        android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
-        android:text="Mật Khẩu"
         android:textColor="@color/black"
         android:textSize="19sp"
+        android:text="Mật khẩu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.063"
@@ -75,12 +75,12 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/tvNhap"
+        android:id="@+id/txtUsername"
         android:layout_width="370sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
-        android:text="Nhập đi còn chần chờ gì nữa"
+        android:text="username"
         android:textColor="@color/purple_300"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
