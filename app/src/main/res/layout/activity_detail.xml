@@ -5,7 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
+    <Button
+        android:id="@+id/btnDanhGia"
+        android:layout_width="150dp"
+        android:layout_height="50sp"
+        android:backgroundTint="@color/black_100"
+        android:fontFamily="@font/alata"
+        android:text="Đánh Giá"
+        android:layout_marginTop="750dp"
+        android:layout_marginStart="40dp"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        tools:ignore="MissingConstraints" />
 
+
+    <Button
+        android:id="@+id/btnHuy"
+        android:layout_width="150dp"
+        android:layout_height="50sp"
+        android:backgroundTint="@color/black_100"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="750dp"
+        android:fontFamily="@font/alata"
+        android:text="Hủy"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        tools:ignore="MissingConstraints" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="380dp"
@@ -98,8 +123,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_marginTop="430dp">
+        android:layout_marginTop="430dp"
+        android:background="@color/white">
 
         <TextView
             android:layout_width="wrap_content"

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/rcKM"
     android:layout_height="180dp">
 
     <LinearLayout
@@ -14,8 +13,8 @@
 
         <ImageView
             android:id="@+id/imgHinhSan"
-            android:layout_width="155dp"
-            android:layout_height="172dp"
+            android:layout_width="163dp"
+            android:layout_height="146dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="10dp"
@@ -26,11 +25,11 @@
         <LinearLayout
             android:layout_width="235dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@android:dimen/system_app_widget_inner_radius"
+            android:layout_marginLeft="@android:dimen/system_app_widget_background_radius"
             android:layout_marginRight="30dp"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints,NewApi"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="100dp">
 
             <TextView

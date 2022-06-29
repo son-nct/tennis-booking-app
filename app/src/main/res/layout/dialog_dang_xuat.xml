@@ -12,7 +12,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="Bạn có muốn đăng xuất?"
-        android:textSize="25dp"
+        android:textSize="23dp"
+        android:fontFamily="@font/alata"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -26,6 +27,7 @@
         android:text="Yes"
         android:textColor="@color/black"
         android:textSize="15dp"
+        android:fontFamily="@font/inter_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -39,6 +41,7 @@
         android:text="No"
         android:textColor="@color/black"
         android:textSize="15dp"
+        android:fontFamily="@font/inter_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
