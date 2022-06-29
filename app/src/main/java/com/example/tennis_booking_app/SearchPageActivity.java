@@ -32,7 +32,7 @@ public class SearchPageActivity extends AppCompatActivity {
                 String searchText = txtSearch.getText().toString().trim();
                 if(actionId == EditorInfo.IME_ACTION_SEARCH){
                     Intent intent = new Intent(SearchPageActivity.this, SpecificCourtsActivity.class);
-                    intent.putExtra("Type", searchText);
+                    intent.putExtra("sandetail", searchText);
                     startActivity(intent);
                     return true;
                 }

@@ -3,14 +3,15 @@ package com.example.tennis_booking_app;
 import java.io.Serializable;
 
 public class SanTennis implements Serializable {
-    private String ten,dientich,tien;
+    private String ten,dientich,tien, khoangCach;
     private int hinh;
 
-    public SanTennis(String ten, String dientich, String tien, int hinh) {
+    public SanTennis(String ten, String dientich, String tien, int hinh, String khoangCach) {
         this.ten = ten;
         this.dientich = dientich;
         this.tien = tien;
         this.hinh = hinh;
+        this.khoangCach = khoangCach;
     }
 
     public String getTen() {
@@ -43,5 +44,13 @@ public class SanTennis implements Serializable {
 
     public void setHinh(int hinh) {
         this.hinh = hinh;
+    }
+
+    public String getKhoangCach() {
+        return khoangCach;
+    }
+
+    public void setKhoangCach(String khoangCach) {
+        this.khoangCach = khoangCach;
     }
 }

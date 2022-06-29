@@ -1,31 +1,39 @@
 package com.example.tennis_booking_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     ImageView imgPromo;
     ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory;
-    ArrayList<SanTennis> arrSan;
-    SanAdapter sanAdapter;
-    ListView lvUuDai;
+    List<SanKM> arrSanPromo, arrLovedCourt;
+    Adapter sanAdapter;
+    HorizontalAdapter horizontalAdapter, horizontalAdapterLoved;
+    RecyclerView viewPromo, viewLoved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        lvUuDai = (ListView) findViewById(R.id.lvUuDai);
+
         imgSearchBar = (ImageView) findViewById(R.id.imgSearchBar);
         imgPromo = (ImageView) findViewById(R.id.imgPromo);
         imgClay = (ImageView) findViewById(R.id.imgClay);
@@ -34,7 +42,26 @@ public class HomeActivity extends AppCompatActivity {
         imgUser = (ImageView) findViewById(R.id.imgUser);
         imgHistory = (ImageView) findViewById(R.id.imgHistory);
 
-        AnhXa();
+        viewPromo = (RecyclerView) findViewById(R.id.viewPromo);
+        viewLoved = (RecyclerView) findViewById(R.id.viewLovedCourt);
+        arrSanPromo = new ArrayList<>();
+        arrLovedCourt = new ArrayList<>();
+        horizontalAdapter = new HorizontalAdapter(this, arrSanPromo);
+        horizontalAdapterLoved = new HorizontalAdapter(this, arrLovedCourt);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        LinearLayoutManager mLayoutLoved = new LinearLayoutManager(getApplicationContext());
+        mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mLayoutLoved.setOrientation(LinearLayoutManager.HORIZONTAL);
+        viewPromo.setLayoutManager(mLayoutManager);
+        viewPromo.setItemAnimator(new DefaultItemAnimator());
+        viewPromo.setAdapter(horizontalAdapter);
+
+        viewLoved.setLayoutManager(mLayoutLoved);
+        viewLoved.setItemAnimator(new DefaultItemAnimator());
+        viewLoved.setAdapter(horizontalAdapterLoved);
+
+        initData();
+        initDataLoved();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#AFF8A3"));
@@ -76,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("Type", "Hard");
+                intent.putExtra("sandetail", "Hard");
                 startActivity(intent);
             }
         });
@@ -85,7 +112,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("Type", "Clay");
+                intent.putExtra("sandetail", "Clay");
                 startActivity(intent);
             }
         });
@@ -94,32 +121,34 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("Type", "Grass");
-                startActivity(intent);
-            }
-        });
-
-        lvUuDai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HomeActivity.this, YardDetail.class);
-                SanTennis sanTennis =arrSan.get(position);
-                intent.putExtra("sandetail", (Serializable) sanTennis );
+                intent.putExtra("sandetail", "Grass");
                 startActivity(intent);
             }
         });
     }
 
     private void AnhXa(){
-        arrSan = new ArrayList<>();
-        arrSan.add(new SanTennis("Sân Thủ Đức", "300m2", "150.000 đồng", R.drawable.san1a));
-        arrSan.add(new SanTennis("Sân Thủ Đức 1", "300m2", "150.000 đồng", R.drawable.san1a));
-        arrSan.add(new SanTennis("Sân Thủ Đức 2", "300m2", "150.000 đồng", R.drawable.san1a));
-        arrSan.add(new SanTennis("Sân Thủ Đức 3", "300m2", "150.000 đồng", R.drawable.san1a));
-        arrSan.add(new SanTennis("Sân Thủ Đức 4", "300m2", "150.000 đồng", R.drawable.san1a));
-        arrSan.add(new SanTennis("Sân Thủ Đức 5", "300m2", "150.000 đồng", R.drawable.san1a));
-        arrSan.add(new SanTennis("Sân Thủ Đức 6", "300m2", "150.000 đồng", R.drawable.san1a));
-        sanAdapter = new SanAdapter(this, R.layout.list_san, arrSan);
-        lvUuDai.setAdapter(sanAdapter);
     }
+
+    private void initData(){
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        horizontalAdapter.notifyDataSetChanged();
+    }
+
+    private void initDataLoved(){
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        horizontalAdapterLoved.notifyDataSetChanged();
+    }
+
+
 }

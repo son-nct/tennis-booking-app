@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rvSan"
+    android:layout_width="150dp"
+    android:layout_height="210dp">
+
+
+    <ImageView
+        android:id="@+id/imgHinhPromo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/txtTenSanPromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:text="Tên sân nè"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/txtDienTichPromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:text="Diện tích"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/txtCodePromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:text="Discount code"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/txtGiaPromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:text="giá tiền"
+        android:textSize="18dp" />
+</RelativeLayout>

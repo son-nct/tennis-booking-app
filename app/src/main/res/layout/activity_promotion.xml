@@ -18,13 +18,14 @@
         app:srcCompat="@drawable/ic_arrow_arrow_left_left_svgrepo_com"
         tools:ignore="MissingConstraints" />
 
+
     <TextView
         android:id="@+id/tvPromotion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/inter_bold"
         android:text="Khuyến mãi"
         android:textColor="@color/black"
@@ -32,7 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
 
     <ImageView
         android:id="@+id/imageSetting"

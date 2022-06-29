@@ -19,10 +19,16 @@
             android:name=".HomeActivity"
             android:exported="false"/>
         <activity
+            android:name=".YardDetail"
+            android:exported="false"/>
+        <activity
             android:name=".LoginFacebookGoogleActivity"
             android:exported="false" />
         <activity
             android:name=".Done"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
             android:exported="false" />
         <activity
             android:name=".DetailsPromotion"
@@ -79,7 +85,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"

@@ -3,14 +3,22 @@ package com.example.tennis_booking_app;
 import java.io.Serializable;
 
 public class SanKM implements Serializable {
-    private String ten,dientich,tien;
+    private String ten,dientich,tien, promoCode;
     private int hinh;
 
-    public SanKM(String ten, String dientich, String tien, int hinh) {
+    public SanKM(String ten, String dientich, String tien, String promoCode, int hinh) {
         this.ten = ten;
         this.dientich = dientich;
         this.tien = tien;
+        this.promoCode = promoCode;
         this.hinh = hinh;
+    }
+    public String getPromoCode() {
+        return promoCode;
+    }
+
+    public void setPromoCode(String promoCode) {
+        this.promoCode = promoCode;
     }
 
     public String getTen() {

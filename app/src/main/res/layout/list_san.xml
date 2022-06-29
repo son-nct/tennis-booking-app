@@ -14,14 +14,15 @@
         android:id="@+id/txtTensan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="9dp"
         android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/imgHinh"
-        android:text="Tên Sân"
-        android:textSize="25dp"
-        android:textStyle="bold"
         android:fontFamily="@font/inter"
-        android:textColor="@color/black"/>
+        android:text="Tên Sân"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/txtDientich"
         android:layout_toRightOf="@id/imgHinh"
@@ -39,10 +40,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtDientich"
-        android:layout_toRightOf="@id/imgHinh"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/imgHinh"
+        android:fontFamily="@font/inter"
         android:text="Giá Tiền"
-        android:textSize="20dp"
         android:textColor="@color/black"
-        android:fontFamily="@font/inter"/>
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtKhoangCach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTien"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/imgHinh"
+        android:text="Khoảng cách" />
 </RelativeLayout>
