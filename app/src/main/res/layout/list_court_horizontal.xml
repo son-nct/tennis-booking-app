@@ -2,22 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rvSan"
-    android:layout_width="190dp"
-    android:layout_height="230dp">
+    android:layout_width="wrap_content"
+    android:layout_height="270dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp">
 
 
     <ImageView
         android:id="@+id/imgHinhPromo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="140dp"
+        android:layout_height="140dp" />
 
     <TextView
         android:id="@+id/txtTenSanPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="110dp"
         android:text="Tên sân nè"
         android:textSize="18dp" />
 
@@ -25,8 +25,7 @@
         android:id="@+id/txtDienTichPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="140dp"
         android:text="Diện tích"
         android:textSize="14dp" />
 
@@ -34,90 +33,50 @@
         android:id="@+id/txtCodePromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="170dp"
         android:text="Discount code"
-        android:textSize="14dp" />
+        android:textColor="@color/red"
+        android:textSize="14dp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/txtGiaPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="200dp"
         android:text="giá tiền"
         android:textSize="18dp" />
 
 
-    <RelativeLayout
-        android:id="@+id/loRating"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="189dp"
-        android:layout_marginBottom="11dp">
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txtRating"
-            android:layout_width="25dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="29dp"
             android:text="rate" />
 
         <ImageView
-            android:id="@+id/imgStar"
             android:layout_width="13dp"
             android:layout_height="14dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="39dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="3dp"
             app:srcCompat="@drawable/ic_star_svgrepo_com" />
 
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="58dp"
-        android:layout_height="27dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="13dp"
-        android:layout_toEndOf="@+id/loRating">
-
         <TextView
-            android:id="@+id/txtKhoangCach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="6dp"
-            android:layout_toStartOf="@+id/imgLocation"
-            android:text="8km" />
+            android:id="@+id/txtKhoangCach"
+            android:text="distance" />
 
         <ImageView
-            android:id="@+id/imgLocation"
             android:layout_width="20dp"
-            android:layout_height="25dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="1dp"
+            android:layout_height="20dp"
             app:srcCompat="@drawable/ic_location" />
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>

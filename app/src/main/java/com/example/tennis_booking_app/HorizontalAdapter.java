@@ -66,7 +66,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
         holder.txtGiaPromo.getText().toString().trim();
         if(holder.txtGiaPromo.length() == 0 || holder.txtGiaPromo.equals("") || holder.txtGiaPromo == null){
-            holder.txtGiaPromo.setVisibility(View.GONE);
         }
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -104,7 +104,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("sandetail", "Hard");
+                intent.putExtra("sandetail", "Sân cứng");
                 startActivity(intent);
             }
         });
@@ -113,7 +113,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("sandetail", "Clay");
+                intent.putExtra("sandetail", "Sân đất nện");
                 startActivity(intent);
             }
         });
@@ -122,7 +122,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("sandetail", "Grass");
+                intent.putExtra("sandetail", "Sân cỏ");
                 startActivity(intent);
             }
         });
@@ -131,7 +131,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("sandetail", "Near Me");
+                intent.putExtra("sandetail", "Gần tôi");
                 startActivity(intent);
             }
         });

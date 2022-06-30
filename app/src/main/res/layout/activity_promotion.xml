@@ -18,22 +18,6 @@
             android:layout_marginTop="35dp"
             app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
 
-<<<<<<< HEAD
-
-    <TextView
-        android:id="@+id/tvPromotion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="Khuyến mãi"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageSetting"
@@ -45,7 +29,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_basic_setting_ui_svgrepo_com"
         tools:ignore="MissingConstraints" />
-=======
         <TextView
             android:id="@+id/tvPromotion"
             android:layout_width="wrap_content"
@@ -69,8 +52,6 @@
             app:srcCompat="@drawable/ic_combine" />
 
     </RelativeLayout>
->>>>>>> release/Thinh
-
     <RelativeLayout
         android:id="@+id/layoutHard"
         android:layout_width="match_parent"

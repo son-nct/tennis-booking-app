@@ -48,13 +48,13 @@ public class ConfirmBooking extends AppCompatActivity {
         txtNgay.setText(d);
         txtNote.setText(n);
 
-        edtPromo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent1=new Intent(ConfirmBooking.this,KhuyenMai.class);
-                startActivity(intent1);
-            }
-        });
+//        edtPromo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                intent1=new Intent(ConfirmBooking.this,KhuyenMai.class);
+//                startActivity(intent1);
+//            }
+//        });
 
         /*Promo promo=(Promo)intent1.getSerializableExtra("khuyenmai");
         edtPromo.setText(promo.getCuthe());*/

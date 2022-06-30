@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="410dp"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="85dp"
                     android:layout_marginTop="37dp"
-                    android:text="Find a court"
+                    android:text="Bạn muốn tìm gì"
                     android:textColor="#B6A7A7"
                     android:textSize="18dp" />
 
@@ -129,7 +129,7 @@
                         android:layout_marginStart="100dp"
                         android:layout_marginLeft="100dp"
                         android:layout_marginTop="65dp"
-                        android:text="Promotions" />
+                        android:text="Khuyến mãi" />
 
                     <ImageView
                         android:id="@+id/imgLocation"
@@ -143,6 +143,7 @@
                         android:layout_marginEnd="111dp"
                         app:srcCompat="@drawable/ic_location_red" />
 
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
@@ -150,14 +151,13 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginStart="248dp"
+                        android:layout_marginStart="250dp"
                         android:layout_marginLeft="300dp"
                         android:layout_marginTop="65dp"
-                        android:layout_marginEnd="110dp"
+                        android:layout_marginEnd="108dp"
                         android:layout_marginBottom="90dp"
-                        android:text="Near me"
+                        android:text="Gần tôi"
                         android:textSize="14sp" />
-
 
                     <ImageView
                         android:id="@+id/imgHard"
@@ -174,9 +174,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="75dp"
+                        android:layout_marginLeft="60dp"
                         android:layout_marginTop="155dp"
-                        android:text="Hard" />
+                        android:text="Sân cứng" />
 
                     <ImageView
                         android:id="@+id/imgClay"
@@ -193,9 +193,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="195dp"
+                        android:layout_marginLeft="170dp"
                         android:layout_marginTop="155dp"
-                        android:text="Clay" />
+                        android:text="Sân đất nện" />
 
                     <ImageView
                         android:id="@+id/imgGrass"
@@ -212,9 +212,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="305dp"
+                        android:layout_marginLeft="300dp"
                         android:layout_marginTop="155dp"
-                        android:text="Grass" />
+                        android:text="Sân cỏ" />
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -227,7 +227,7 @@
             <LinearLayout
                 android:id="@+id/linearView"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="280dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -241,14 +241,14 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/viewPromo"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp" />
+                    android:layout_height="280dp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linear1"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="280dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -262,7 +262,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/viewLovedCourt"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp" />
+                    android:layout_height="280dp" />
 
             </LinearLayout>
         </LinearLayout>
