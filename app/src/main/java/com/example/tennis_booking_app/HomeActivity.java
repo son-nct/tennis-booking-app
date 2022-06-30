@@ -141,22 +141,22 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initData(){
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.9", "4.3"));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.1", "4.3"));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.2", "4.3"));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.9", "4.3"));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "Khuyến mãi 5%", R.drawable.san1a, "4.9", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "Khuyến mãi 5%", R.drawable.san1a, "4.1", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "Khuyến mãi 5%", R.drawable.san1a, "4.2", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "Khuyến mãi 5%", R.drawable.san1a, "4.9", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2","Khuyến mãi 5%", R.drawable.san1a, "5", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2","Khuyến mãi 5%", R.drawable.san1a, "5", "4.3"));
         horizontalAdapter.notifyDataSetChanged();
     }
 
     private void initDataLoved(){
         arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.9","4.3"));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "ABCXYZ", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "AAAAAA", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "XXXXXXX", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "ZZZZZ", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "DAASDASDAD", R.drawable.san1a, "5", "4.3"));
         horizontalAdapterLoved.notifyDataSetChanged();
     }
 

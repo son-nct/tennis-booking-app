@@ -76,8 +76,8 @@
 
     <TextView
         android:id="@+id/tvMessage"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
+        android:layout_width="302dp"
+        android:layout_height="56dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
         android:text="Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đọc và đồng ý với Điều Khoản Dịch Vụ và Thông Báo Bảo Mật của chúng tôi."
@@ -85,43 +85,26 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.658"
+        app:layout_constraintHorizontal_bias="0.761"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/tvPhonee"
-        android:layout_width="120sp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:minHeight="48dp"
-        android:text="                +84"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.246"
+        app:layout_constraintVertical_bias="0.751"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/tvPhoneee"
-        android:layout_width="180sp"
-        android:layout_height="wrap_content"
+        android:layout_width="370dp"
+        android:inputType="phone"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
+        android:hint="0123456789"
         android:minHeight="48dp"
-        android:text="99 123 456"
         android:textColor="@color/purple_300"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.792"
+        app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.245"
@@ -129,12 +112,12 @@
 
     <EditText
         android:id="@+id/EdEmail"
-        android:layout_width="370sp"
-        android:layout_height="wrap_content"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
         android:minHeight="48dp"
-        android:text="Hứa không spam tin nhắn"
+        android:hint="Hứa không spam tin nhắn"
         android:textColor="@color/purple_300"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -147,12 +130,12 @@
 
     <EditText
         android:id="@+id/EdEmaill"
-        android:layout_width="370sp"
-        android:layout_height="wrap_content"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
         android:minHeight="48dp"
-        android:text="Bạn thích mọi người gọi bằng tên gì"
+        android:hint="Bạn thích mọi người gọi bằng tên gì"
         android:textColor="@color/purple_300"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -162,6 +145,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.583"
         tools:ignore="MissingConstraints" />
+
+<!--    <CheckBox-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+
+<!--        />-->
 
     <Button
         android:id="@+id/btnContinue2"
@@ -181,16 +171,4 @@
         app:layout_constraintVertical_bias="0.914"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="52dp"
-        android:layout_height="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241"
-        app:srcCompat="@drawable/vietnam"
-        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

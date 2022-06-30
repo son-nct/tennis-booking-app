@@ -21,6 +21,7 @@ public class Register extends AppCompatActivity {
         EdEmail = (EditText) findViewById(R.id.EdEmail);
         EdEmaill =(EditText) findViewById(R.id.EdEmaill);
         btnContinue2 = (Button) findViewById(R.id.btnContinue2);
+
         btnContinue2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
