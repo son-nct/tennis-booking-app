@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Promotion">
+    tools:context=".SpecificCourtsActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
 
-    <ImageView
-        android:id="@+id/previous"
-        android:layout_width="45dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_arrow_left_left_svgrepo_com"
-        tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/imagePrevious"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
 
+<<<<<<< HEAD
 
     <TextView
         android:id="@+id/tvPromotion"
@@ -44,25 +45,44 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_basic_setting_ui_svgrepo_com"
         tools:ignore="MissingConstraints" />
+=======
+        <TextView
+            android:id="@+id/tvPromotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="31dp"
+            android:fontFamily="@font/inter"
+            android:text="Khuyến mãi"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
 
-    <ImageView
-        android:id="@+id/imageStraight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/straight"
-        tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/imgSetting"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="80dp"
+            app:srcCompat="@drawable/ic_combine" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPromo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="140dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+>>>>>>> release/Thinh
 
+    <RelativeLayout
+        android:id="@+id/layoutHard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPromo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -40,7 +40,7 @@
         android:layout_marginStart="300dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/inter_bold"
-        android:hint="Gia tien"
+        android:hint="Giá tiền"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
