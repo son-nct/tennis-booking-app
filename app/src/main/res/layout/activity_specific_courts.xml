@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp">
+        android:layout_height="90dp">
 
         <ImageView
             android:id="@+id/imgBack"
@@ -24,28 +24,28 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="31dp"
-            android:text="court-type-here"
-            android:textSize="24dp"
             android:fontFamily="@font/inter"
-            android:textColor="@color/black"/>
+            android:text="court-type-here"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
 
-        <ImageView
-            android:id="@+id/imgFilter"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="80dp"
-            app:srcCompat="@drawable/ic_combine" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgFilter"-->
+        <!--            android:layout_width="50dp"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:layout_alignParentStart="true"-->
+        <!--            android:layout_alignParentTop="true"-->
+        <!--            android:layout_alignParentBottom="true"-->
+        <!--            android:layout_marginStart="30dp"-->
+        <!--            android:layout_marginTop="80dp"-->
+        <!--            app:srcCompat="@drawable/ic_combine" />-->
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/layoutHard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="130dp">
+        android:layout_marginTop="90dp">
 
 
         <ListView

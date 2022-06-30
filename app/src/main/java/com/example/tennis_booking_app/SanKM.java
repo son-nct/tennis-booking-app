@@ -3,16 +3,35 @@ package com.example.tennis_booking_app;
 import java.io.Serializable;
 
 public class SanKM implements Serializable {
-    private String ten,dientich,tien, promoCode;
+    private String ten,dientich,tien, promoCode, rating, khoangCach;
     private int hinh;
 
-    public SanKM(String ten, String dientich, String tien, String promoCode, int hinh) {
+    public SanKM(String ten, String dientich, String tien, String promoCode, int hinh, String rating, String khoangCach) {
         this.ten = ten;
         this.dientich = dientich;
         this.tien = tien;
         this.promoCode = promoCode;
         this.hinh = hinh;
+        this.rating = rating;
+        this.khoangCach = khoangCach;
     }
+
+    public String getKhoangCach() {
+        return khoangCach;
+    }
+
+    public void setKhoangCach(String khoangCach) {
+        this.khoangCach = khoangCach;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
     public String getPromoCode() {
         return promoCode;
     }

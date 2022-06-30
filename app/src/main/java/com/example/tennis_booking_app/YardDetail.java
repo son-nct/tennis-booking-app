@@ -24,9 +24,9 @@ public class YardDetail extends AppCompatActivity {
 
         lvSan=(ListView) findViewById(R.id.lvSan);
         arrSan=new ArrayList<>();
-        arrSan.add(new SanTennis("Sân 1A - Sân đất nện","36.57m x 18.29m","70.000 - 300.000 vnđ",R.drawable.san1a, "3 km"));
-        arrSan.add(new SanTennis("Sân 2A - Sân PVC","36.57m x 18.29m","100.000 - 350.000 vnđ",R.drawable.san2a, "3 km"));
-        arrSan.add(new SanTennis("Sân 2B - Sân cỏ","36.57m x 18.29m","150.00 - 400.000 vnđ",R.drawable.san2b, "3 km"));
+        arrSan.add(new SanTennis("Sân 1A - Sân đất nện","36.57m x 18.29m","70.000 - 300.000 vnđ",R.drawable.san1a, "3 km", "4.3"));
+        arrSan.add(new SanTennis("Sân 2A - Sân PVC","36.57m x 18.29m","100.000 - 350.000 vnđ",R.drawable.san2a, "3 km", "4.5"));
+        arrSan.add(new SanTennis("Sân 2B - Sân cỏ","36.57m x 18.29m","150.00 - 400.000 vnđ",R.drawable.san2b, "3 km", "4.8"));
 
         adapter=new SanAdapter(this,R.layout.list_san,arrSan);
         lvSan.setAdapter(adapter);

@@ -55,49 +55,59 @@ public class SpecificCourtsActivity extends AppCompatActivity {
         noiDung = intent.getStringExtra("sandetail");
         txtType.setText(noiDung);
         if (noiDung.equals("Clay")) {
-            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3 km"));
-            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3 km"));
-            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3 km"));
-            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3 km"));
-            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3 km"));
-            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3 km"));
-            sanAdapter = new SanAdapter(this, R.layout.list_san, arrSan);
+            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3km", "4.2"));
+            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3km", "4.2"));
+            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3km", "4.2"));
+            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3km", "4.2"));
+            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3km", "4.2"));
+            arrSan.add(new SanTennis("Sân đất nện", "300m2", "150.000 đồng", R.drawable.ic_clay, "4.3km", "4.2"));
+            sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);
         } else if (noiDung.equals("Hard")) {
-            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "3 km"));
-            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "9.1 km"));
-            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "4.9 km"));
-            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "4 km"));
-            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "3 km"));
-            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "6.1 km"));
-            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "1 km"));
-            sanAdapter = new SanAdapter(this, R.layout.list_san, arrSan);
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "3 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "9.1 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "4.9 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "4 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "3 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "6.1 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "1 km", "4.2"));
+            sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);
         } else if (noiDung.equals("Grass")) {
-            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "500 m"));
-            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "2.2 km"));
-            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "4.3 km"));
-            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "4.5 km"));
-            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "9 km"));
-            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "4 km"));
-            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "8.4 km"));
-            sanAdapter = new SanAdapter(this, R.layout.list_san, arrSan);
+            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "500 m", "4.2"));
+            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "2.2 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "4.3 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "4.5 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "9 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "4 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cỏ", "300m2", "150.000 đồng", R.drawable.ic_grass, "8.4 km", "4.2"));
+            sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
+            lvSpecific.setAdapter((ListAdapter) sanAdapter);
+        } else if (noiDung.equals("Near Me")) {
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "3 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "9.1 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "4.9 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "4 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "3 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "6.1 km", "4.2"));
+            arrSan.add(new SanTennis("Sân cứng", "300m2", "150.000 đồng", R.drawable.ic_hard, "1 km", "4.2"));
+            sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);
         }else{
-            arrSan.add(new SanTennis("Sân Hoàng Văn Thụ", "20m2", "100.000 đồng", R.drawable.san2a, "19km"));
-            arrSan.add(new SanTennis("Sân Cỏ nhân tạo quận 3", "20m2", "100.000 đồng", R.drawable.san2a, "12km"));
-            arrSan.add(new SanTennis("Sân Lê Thị Riêng", "20m2", "100.000 đồng", R.drawable.san2a, "20km"));
-            arrSan.add(new SanTennis("Sân Đồng Nai", "20m2", "100.000 đồng", R.drawable.san2a, "9km"));
-            arrSan.add(new SanTennis("Sân Thủ Đức", "20m2", "100.000 đồng", R.drawable.san2a, "2km"));
-            arrSan.add(new SanTennis("Sân Hóc Môn", "20m2", "100.000 đồng", R.drawable.san2a, "30km"));
-            arrSan.add(new SanTennis("Sân Suối Tiên", "20m2", "100.000 đồng", R.drawable.san2a, "7km"));
-            arrSan.add(new SanTennis("Sân Suối Tiên 2", "20m2", "100.000 đồng", R.drawable.san2a, "8km"));
-            arrSan.add(new SanTennis("Sân 399", "20m2", "100.000 đồng", R.drawable.san2a, "1km"));
-            arrSan.add(new SanTennis("Sân Quận 12", "20m2", "100.000 đồng", R.drawable.san2a, "21km"));
+            arrSan.add(new SanTennis("Sân Hoàng Văn Thụ", "20m2", "100.000 đồng", R.drawable.san2a, "19km", "4.2"));
+            arrSan.add(new SanTennis("Sân Cỏ nhân tạo quận 3", "20m2", "100.000 đồng", R.drawable.san2a, "12km", "4.2"));
+            arrSan.add(new SanTennis("Sân Lê Thị Riêng", "20m2", "100.000 đồng", R.drawable.san2a, "20km", "4.2"));
+            arrSan.add(new SanTennis("Sân Đồng Nai", "20m2", "100.000 đồng", R.drawable.san2a, "9km", "4.2"));
+            arrSan.add(new SanTennis("Sân Thủ Đức", "20m2", "100.000 đồng", R.drawable.san2a, "2km", "4.2"));
+            arrSan.add(new SanTennis("Sân Hóc Môn", "20m2", "100.000 đồng", R.drawable.san2a, "30km", "4.2"));
+            arrSan.add(new SanTennis("Sân Suối Tiên", "20m2", "100.000 đồng", R.drawable.san2a, "7km", "4.2"));
+            arrSan.add(new SanTennis("Sân Suối Tiên 2", "20m2", "100.000 đồng", R.drawable.san2a, "8km", "4.2"));
+            arrSan.add(new SanTennis("Sân 399", "20m2", "100.000 đồng", R.drawable.san2a, "1km", "4.2"));
+            arrSan.add(new SanTennis("Sân Quận 12", "20m2", "100.000 đồng", R.drawable.san2a, "21km", "4.2"));
             for (int i=0; i<arrSan.size(); i++){
                 if((arrSan.get(i).getTen().toLowerCase().contains(noiDung.toLowerCase()))){
                     arrSearch.add(arrSan.get(i));
-                    sanAdapter = new SanAdapter(this, R.layout.list_san, arrSearch);
+                    sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSearch);
                     lvSpecific.setAdapter((ListAdapter) sanAdapter);
                 }
             }

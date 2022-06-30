@@ -47,6 +47,7 @@ public class SanAdapter extends BaseAdapter {
         TextView txtDientich=(TextView) convertView.findViewById(R.id.txtDientich);
         TextView txtTien=(TextView) convertView.findViewById(R.id.txtTien);
         TextView txtKhoangCach =(TextView) convertView.findViewById(R.id.txtKhoangCach);
+        TextView txtRating =(TextView) convertView.findViewById(R.id.txtRating);
 
         SanTennis san=sanTennisList.get(position);
 
@@ -55,6 +56,7 @@ public class SanAdapter extends BaseAdapter {
         txtDientich.setText(san.getDientich());
         txtTien.setText(san.getTien());
         txtKhoangCach.setText(san.getKhoangCach());
+        txtRating.setText(san.getRating());
 
         return convertView;
     }

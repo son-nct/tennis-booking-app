@@ -22,7 +22,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imgHinh;
-        TextView txtTenSanPromo, txtDienTichPromo, txtPromoCode, txtGiaPromo;
+        TextView txtTenSanPromo, txtDienTichPromo, txtPromoCode, txtGiaPromo, txtRating, txtKhoangCach;
         RelativeLayout rvSan;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -32,6 +32,8 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             txtDienTichPromo = itemView.findViewById(R.id.txtDienTichPromo);
             txtPromoCode = itemView.findViewById(R.id.txtCodePromo);
             txtGiaPromo = itemView.findViewById(R.id.txtGiaPromo);
+            txtKhoangCach = itemView.findViewById(R.id.txtKhoangCach);
+            txtRating = itemView.findViewById(R.id.txtRating);
             rvSan = itemView.findViewById(R.id.rvSan);
         }
     }
@@ -54,14 +56,13 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         SanKM sanKM = arrKMList.get(position);
-        System.out.println("1333333333333333333333333333333333333333321" + arrKMList.get(position).getHinh());
-        System.out.println("8888888888888888888888888888888888888888888" + holder);
-        System.out.println("999999999999999999999999999999999999999" + holder.imgHinh);
         holder.imgHinh.setImageResource(sanKM.getHinh());
         holder.txtTenSanPromo.setText(sanKM.getTen());
         holder.txtDienTichPromo.setText(sanKM.getDientich());
         holder.txtPromoCode.setText(sanKM.getPromoCode());
         holder.txtGiaPromo.setText(sanKM.getTien());
+        holder.txtRating.setText(sanKM.getRating());
+        holder.txtKhoangCach.setText(sanKM.getKhoangCach());
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

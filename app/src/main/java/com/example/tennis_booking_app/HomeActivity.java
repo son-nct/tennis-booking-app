@@ -23,7 +23,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     ImageView imgPromo;
-    ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory;
+    ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory, imgNearMe;
     List<SanKM> arrSanPromo, arrLovedCourt;
     Adapter sanAdapter;
     HorizontalAdapter horizontalAdapter, horizontalAdapterLoved;
@@ -41,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         imgGrass = (ImageView) findViewById(R.id.imgGrass);
         imgUser = (ImageView) findViewById(R.id.imgUser);
         imgHistory = (ImageView) findViewById(R.id.imgHistory);
+        imgNearMe = (ImageView) findViewById(R.id.imgLocation);
 
         viewPromo = (RecyclerView) findViewById(R.id.viewPromo);
         viewLoved = (RecyclerView) findViewById(R.id.viewLovedCourt);
@@ -125,28 +126,37 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imgNearMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
+                intent.putExtra("sandetail", "Near Me");
+                startActivity(intent);
+            }
+        });
     }
 
     private void AnhXa(){
     }
 
     private void initData(){
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.9", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.1", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.2", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.9", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
         horizontalAdapter.notifyDataSetChanged();
     }
 
     private void initDataLoved(){
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
-        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.9","4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
+        arrLovedCourt.add(new SanKM("Sân Thủ Đức", "100m2", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "5", "4.3"));
         horizontalAdapterLoved.notifyDataSetChanged();
     }
 
