@@ -20,11 +20,7 @@
         android:fontFamily="@font/inter"
         android:text="Tên Sân"
         android:textColor="@color/black"
-<<<<<<< HEAD
         android:textSize="25dp"
-=======
-        android:textSize="20dp"
->>>>>>> release/Thinh
         android:textStyle="bold" />
 
     <TextView
@@ -37,11 +33,8 @@
         android:fontFamily="@font/inter"
         android:text="Diện Tích"
         android:textColor="@color/black"
-<<<<<<< HEAD
         android:textSize="20dp" />
-=======
         android:textSize="18dp" />
->>>>>>> release/Thinh
 
     <TextView
         android:id="@+id/txtTien"
@@ -53,7 +46,6 @@
         android:fontFamily="@font/inter"
         android:text="Giá Tiền"
         android:textColor="@color/black"
-<<<<<<< HEAD
         android:textSize="20dp" />
 
     <TextView
@@ -65,7 +57,4 @@
         android:layout_marginTop="3dp"
         android:layout_toEndOf="@+id/imgHinh"
         android:text="Khoảng cách" />
-=======
-        android:textSize="17dp" />
->>>>>>> release/Thinh
 </RelativeLayout>
