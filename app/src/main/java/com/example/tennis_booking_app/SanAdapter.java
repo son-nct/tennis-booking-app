@@ -49,7 +49,7 @@ public class SanAdapter extends BaseAdapter {
         TextView txtKhoangCach =(TextView) convertView.findViewById(R.id.txtKhoangCach);
         TextView txtRating =(TextView) convertView.findViewById(R.id.txtRating);
 
-        SanTennis san=sanTennisList.get(position);
+        SanTennis san= sanTennisList.get(position);
 
         imgHinh.setImageResource(san.getHinh());
         txtTen.setText(san.getTen());

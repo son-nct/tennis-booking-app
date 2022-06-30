@@ -57,4 +57,16 @@
         android:layout_marginTop="3dp"
         android:layout_toEndOf="@+id/imgHinh"
         android:text="Khoảng cách" />
+
+    <TextView
+        android:id="@+id/txtRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="72dp"
+        android:layout_toEndOf="@+id/txtTien"
+        android:text="Rating" />
 </RelativeLayout>
