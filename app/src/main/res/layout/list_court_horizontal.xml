@@ -19,7 +19,7 @@
         android:id="@+id/txtTenSanPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="90dp"
         android:text="Tên sân nè"
         android:textSize="18dp" />
 
@@ -27,7 +27,7 @@
         android:id="@+id/txtDienTichPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="115dp"
         android:text="Diện tích"
         android:textSize="14dp" />
 
@@ -35,7 +35,7 @@
         android:id="@+id/txtCodePromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="135dp"
         android:text="Discount code"
         android:textColor="@color/red"
         android:textSize="14dp"
@@ -45,7 +45,9 @@
         android:id="@+id/txtGiaPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="155dp"
+        android:textStyle="italic"
+        android:textColor="@color/red"
         android:text="giá tiền"
         android:textSize="18dp" />
 
@@ -54,7 +56,7 @@
         android:id="@+id/loRatingDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="205dp"
+        android:layout_marginTop="185dp"
         android:orientation="horizontal">
 
         <TextView
