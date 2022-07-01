@@ -116,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Giá: 150.000 đồng"
+            android:text="Tổng: 150.000 đồng"
             android:textColor="@color/white"
             android:textSize="24dp" />
     </RelativeLayout>

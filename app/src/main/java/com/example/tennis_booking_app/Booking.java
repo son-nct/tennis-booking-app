@@ -24,7 +24,7 @@ public class Booking extends AppCompatActivity {
     ListView lvCaChoi;
     CaChoiAdapter adapter;
     ArrayList<CaChoi> arrCachoi;
-    Intent intent;
+    Intent intent, intentKM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +37,16 @@ public class Booking extends AppCompatActivity {
         txtNote=(EditText)findViewById(R.id.edtNote);
 
         intent=getIntent();
-        SanTennis ten=(SanTennis) intent.getSerializableExtra("sandetail");
+        intentKM =getIntent();
 
-        txtTennis.setText(ten.getTen());
+        SanTennis ten=(SanTennis) intent.getSerializableExtra("sandetail");
+        SanKM sanKM=(SanKM) intentKM.getSerializableExtra("sanKMDetail");
+
+        if(ten == null){
+            txtTennis.setText(sanKM.getTen());
+        }else {
+            txtTennis.setText(ten.getTen());
+        }
 
         edtTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +61,12 @@ public class Booking extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 intent=new Intent(Booking.this,ConfirmBooking.class);
-                intent.putExtra("sandetail2",(Serializable) ten);
+                if(ten != null){
+                    intent.putExtra("sandetail2",(Serializable) ten);
+                }
+                if(sanKM != null){
+                    intent.putExtra("sandetailKM",(Serializable) sanKM);
+                }
                 CaChoi ca=arrCachoi.get(position);
                 intent.putExtra("cadetail",(Serializable) ca);
                 intent.putExtra("date",edtTime.getText().toString());

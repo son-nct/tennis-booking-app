@@ -9,10 +9,13 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class SendFeedback extends AppCompatActivity {
      private RatingBar ratingBar;
      private Button btnSuccess1;
-
+    Timer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,15 @@ public class SendFeedback extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplication(), "Tổng số ngôi sao:"+ratingBar.getNumStars()+" \nSố lượng đánh giá:"+ratingBar.getRating(), Toast.LENGTH_LONG).show();
+
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(SendFeedback.this, HomeActivity.class);
+                        startActivity(intent);
+                    }
+                }, 1000);
             }
         });
     }

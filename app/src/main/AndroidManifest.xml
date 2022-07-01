@@ -20,6 +20,9 @@
             android:name=".SearchPageActivity"
             android:exported="false" />
         <activity
+            android:name=".SendFeedback"
+            android:exported="false" />
+        <activity
             android:name=".SpecificCourtsActivity"
             android:exported="false" />
         <activity

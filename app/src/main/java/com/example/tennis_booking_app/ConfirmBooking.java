@@ -14,7 +14,7 @@ public class ConfirmBooking extends AppCompatActivity {
             txtSlot,txtGia,txtNgay,txtGia2,txtTong;
     EditText edtPromo;
     Button btNhan;
-    Intent intent1;
+    Intent intent1, intentKM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,20 +33,44 @@ public class ConfirmBooking extends AppCompatActivity {
         txtNote=(TextView)findViewById(R.id.txtNote);
 
         intent1=getIntent();
-        SanTennis ten2=(SanTennis) intent1.getSerializableExtra("sandetail2");
-        CaChoi caChoi2=(CaChoi)intent1.getSerializableExtra("cadetail");
-        String d=intent1.getStringExtra("date");
-        String n=intent1.getStringExtra("note");
+        intentKM=getIntent();
 
-        txtTennis2.setText(ten2.getTen());
-        txtTennis21.setText(ten2.getTen());
-        txtDientich2.setText(ten2.getDientich());
-        txtSlot.setText(caChoi2.getThoiluong());
-        txtGia.setText(caChoi2.getGia());
-        txtGia2.setText(caChoi2.getGia());
-        txtTong.setText(caChoi2.getGia());
-        txtNgay.setText(d);
-        txtNote.setText(n);
+        SanTennis ten2=(SanTennis) intent1.getSerializableExtra("sandetail2");
+        SanKM tenKM=(SanKM) intentKM.getSerializableExtra("sandetailKM");
+
+        if(ten2!=null){
+            CaChoi caChoi2=(CaChoi)intent1.getSerializableExtra("cadetail");
+            String d=intent1.getStringExtra("date");
+            String n=intent1.getStringExtra("note");
+            txtTennis2.setText(ten2.getTen());
+            txtTennis21.setText(ten2.getTen());
+            txtDientich2.setText(ten2.getDientich());
+            txtSlot.setText(caChoi2.getThoiluong());
+            txtGia.setText(caChoi2.getGia());
+            txtGia2.setText(caChoi2.getGia());
+            txtTong.setText(caChoi2.getGia());
+            txtNgay.setText(d);
+            txtNote.setText(n);
+        }
+
+        if(tenKM!=null){
+            CaChoi caChoiKM=(CaChoi)intentKM.getSerializableExtra("cadetail");
+            String dateKM=intentKM.getStringExtra("date");
+            String noteKM=intentKM.getStringExtra("note");
+            txtTennis2.setText(tenKM.getTen());
+            txtTennis21.setText(tenKM.getTen());
+            txtDientich2.setText(tenKM.getDientich());
+            txtSlot.setText(caChoiKM.getThoiluong());
+            txtGia.setText(caChoiKM.getGia());
+            txtGia2.setText(caChoiKM.getGia());
+            txtTong.setText(caChoiKM.getGia());
+            txtNgay.setText(dateKM);
+            txtNote.setText(noteKM);
+        }
+
+
+
+
 
 //        edtPromo.setOnClickListener(new View.OnClickListener() {
 //            @Override
