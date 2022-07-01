@@ -59,29 +59,30 @@
         android:id="@+id/edtThuDuc"
         android:layout_width="280dp"
         android:layout_height="60dp"
+        android:layout_marginTop="-20dp"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/baloo"
         android:text="Kim Sa Tennis"
         android:textColor="@color/black"
-        android:layout_marginTop="-30dp"
         android:textSize="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182"
+        app:layout_constraintVertical_bias="0.189"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="9dp" />
+        tools:layout_editor_absoluteX="24dp" />
 
     <ImageView
         android:id="@+id/imageStar5"
         android:layout_width="22dp"
         android:layout_height="22dp"
+        android:layout_marginTop="-60dp"
         android:src="@drawable/ic_star_svgrepo_com"
-        android:layout_marginTop="-70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277"
+        app:layout_constraintVertical_bias="0.282"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -92,7 +93,7 @@
         android:text="4.8(901)"
         android:textColor="@color/black"
         android:textSize="14dp"
-        android:layout_marginTop="-70dp"
+        android:layout_marginTop="-56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.182"
@@ -105,14 +106,14 @@
         android:id="@+id/imageDot"
         android:layout_width="14dp"
         android:layout_height="7dp"
+        android:layout_marginTop="-60dp"
         android:src="@drawable/dot"
-        android:layout_marginTop="-70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.291"
+        app:layout_constraintVertical_bias="0.289"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -122,7 +123,7 @@
         android:text="Ratings and reviewd"
         android:textColor="@color/black"
         android:textSize="14dp"
-        android:layout_marginTop="-70dp"
+        android:layout_marginTop="-56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.772"
@@ -151,10 +152,10 @@
         android:layout_marginTop="-105dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351"
+        app:layout_constraintVertical_bias="0.354"
         app:srcCompat="@drawable/bookcontact"
         tools:ignore="MissingConstraints" />
 
@@ -319,7 +320,7 @@
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.526"
+        app:layout_constraintVertical_bias="0.509"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -331,7 +332,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"
+        app:layout_constraintVertical_bias="0.534"
         app:srcCompat="@drawable/straight"
         tools:ignore="MissingConstraints" />
 
@@ -339,7 +340,7 @@
         android:id="@+id/lvSanKM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="444dp"
+        android:layout_marginTop="416dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 

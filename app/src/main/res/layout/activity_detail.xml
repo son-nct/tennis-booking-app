@@ -12,10 +12,10 @@
         android:backgroundTint="@color/black_100"
         android:fontFamily="@font/alata"
         android:text="Đánh Giá"
-        android:layout_marginTop="750dp"
+        android:layout_marginTop="710dp"
         android:layout_marginStart="40dp"
         android:textColor="@color/black"
-        android:textSize="21sp"
+        android:textSize="19sp"
         tools:ignore="MissingConstraints" />
 
 
@@ -25,12 +25,13 @@
         android:layout_height="50sp"
         android:backgroundTint="@color/black_100"
         android:layout_marginStart="240dp"
-        android:layout_marginTop="750dp"
+        android:layout_marginTop="710dp"
         android:fontFamily="@font/alata"
         android:text="Hủy"
         android:textColor="@color/black"
-        android:textSize="21sp"
+        android:textSize="19sp"
         tools:ignore="MissingConstraints" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="380dp"
@@ -132,7 +133,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:text="Ưu đãi:"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
@@ -141,7 +142,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="50dp"
             android:text="Some promotion here"
-            android:textSize="24dp"
+            android:textSize="21dp"
             android:textStyle="italic" />
 
         <TextView
@@ -150,7 +151,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="100dp"
             android:text="Content:"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
@@ -159,7 +160,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="140dp"
             android:text="Some content here"
-            android:textSize="24dp"
+            android:textSize="21dp"
             android:textStyle="italic" />
 
         <TextView
@@ -168,7 +169,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="190dp"
             android:text="Content:"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView

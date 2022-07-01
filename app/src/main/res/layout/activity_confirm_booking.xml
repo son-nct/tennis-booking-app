@@ -37,16 +37,6 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:layout_width="169dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="@drawable/green"
@@ -63,7 +53,7 @@
         android:fontFamily="@font/abhaya_libre_medium"
         android:text="Tên Sân"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="23dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -78,7 +68,7 @@
         android:fontFamily="@font/inter_bold"
         android:text="Địa Chỉ: "
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -115,7 +105,7 @@
         android:fontFamily="@font/inter_bold"
         android:text="Xác Nhận:"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

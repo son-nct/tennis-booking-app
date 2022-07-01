@@ -41,7 +41,7 @@ public class ConfirmBooking extends AppCompatActivity {
         txtTennis2.setText(ten2.getTen());
         txtTennis21.setText(ten2.getTen());
         txtDientich2.setText(ten2.getDientich());
-        txtSlot.setText(caChoi2.getSlot());
+        txtSlot.setText(caChoi2.getThoiluong());
         txtGia.setText(caChoi2.getGia());
         txtGia2.setText(caChoi2.getGia());
         txtTong.setText(caChoi2.getGia());
