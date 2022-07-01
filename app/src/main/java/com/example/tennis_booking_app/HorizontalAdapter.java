@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         ImageView imgHinh;
         TextView txtTenSanPromo, txtDienTichPromo, txtPromoCode, txtGiaPromo, txtRating, txtKhoangCach;
         RelativeLayout rvSan;
+        LinearLayout loRatingDistance;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -35,6 +37,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             txtKhoangCach = itemView.findViewById(R.id.txtKhoangCach);
             txtRating = itemView.findViewById(R.id.txtRating);
             rvSan = itemView.findViewById(R.id.rvSan);
+            loRatingDistance = itemView.findViewById(R.id.loRatingDistance);
         }
     }
 
@@ -66,6 +69,11 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
         holder.txtGiaPromo.getText().toString().trim();
         if(holder.txtGiaPromo.length() == 0 || holder.txtGiaPromo.equals("") || holder.txtGiaPromo == null){
+            holder.txtGiaPromo.setVisibility(View.GONE);
+
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(0, -100, 0, 0);
         }
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override

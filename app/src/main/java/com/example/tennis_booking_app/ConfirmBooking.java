@@ -72,17 +72,6 @@ public class ConfirmBooking extends AppCompatActivity {
 
 
 
-//        edtPromo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                intent1=new Intent(ConfirmBooking.this,KhuyenMai.class);
-//                startActivity(intent1);
-//            }
-//        });
-
-        /*Promo promo=(Promo)intent1.getSerializableExtra("khuyenmai");
-        edtPromo.setText(promo.getCuthe());*/
-
         btNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rvSan"
     android:layout_width="wrap_content"
-    android:layout_height="270dp"
+    android:layout_height="240dp"
     android:paddingLeft="12dp"
     android:paddingRight="12dp">
 
@@ -11,6 +11,8 @@
     <ImageView
         android:id="@+id/imgHinhPromo"
         android:layout_width="140dp"
+        app:srcCompat="@drawable/san1a"
+        android:layout_marginTop="-25dp"
         android:layout_height="140dp" />
 
     <TextView
@@ -25,7 +27,7 @@
         android:id="@+id/txtDienTichPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="135dp"
         android:text="Diện tích"
         android:textSize="14dp" />
 
@@ -33,7 +35,7 @@
         android:id="@+id/txtCodePromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="155dp"
         android:text="Discount code"
         android:textColor="@color/red"
         android:textSize="14dp"
@@ -43,15 +45,16 @@
         android:id="@+id/txtGiaPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="175dp"
         android:text="giá tiền"
         android:textSize="18dp" />
 
 
     <LinearLayout
+        android:id="@+id/loRatingDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="205dp"
         android:orientation="horizontal">
 
         <TextView
