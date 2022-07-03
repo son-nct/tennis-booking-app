@@ -234,13 +234,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/edtPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
-        android:layout_marginTop="532dp"
-        android:hint="Nhập mã khuyến mãi"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="540dp"
+        android:hint="LANDAU123"
         android:textColor="@color/green_main"
         android:textSize="20dp"
         android:textStyle="italic"

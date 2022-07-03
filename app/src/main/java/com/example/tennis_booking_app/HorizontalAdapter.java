@@ -24,7 +24,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imgHinh;
         TextView txtTenSanPromo, txtDienTichPromo, txtPromoCode, txtGiaPromo, txtRating, txtKhoangCach;
-        RelativeLayout rvSan;
+        RelativeLayout rvSan, rvLoved;
         LinearLayout loRatingDistance;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -37,6 +37,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             txtKhoangCach = itemView.findViewById(R.id.txtKhoangCach);
             txtRating = itemView.findViewById(R.id.txtRating);
             rvSan = itemView.findViewById(R.id.rvSan);
+            rvLoved = itemView.findViewById(R.id.rvLoved);
             loRatingDistance = itemView.findViewById(R.id.loRatingDistance);
         }
     }
@@ -68,13 +69,14 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         holder.txtKhoangCach.setText(sanKM.getKhoangCach());
 
         holder.txtGiaPromo.getText().toString().trim();
-        if(holder.txtGiaPromo.length() == 0 || holder.txtGiaPromo.equals("") || holder.txtGiaPromo == null){
-            holder.txtGiaPromo.setVisibility(View.GONE);
-
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            layoutParams.setMargins(0, -100, 0, 0);
-        }
+        holder.rvSan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, YardDetail.class);
+                intent.putExtra("sandetail", (Serializable) sanKM);
+                context.startActivity(intent);
+            }
+        });
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ConfirmBooking extends AppCompatActivity {
     TextView txtTennis2,txtTennis21,txtDientich2,txtNote,
             txtSlot,txtGia,txtNgay,txtGia2,txtTong;
-    EditText edtPromo;
+    TextView edtPromo;
     Button btNhan;
     Intent intent1, intentKM;
     @Override
@@ -28,7 +28,7 @@ public class ConfirmBooking extends AppCompatActivity {
         txtGia2=(TextView)findViewById(R.id.txtGia2);
         txtTong=(TextView)findViewById(R.id.txtTong);
         txtNgay=(TextView)findViewById(R.id.txtNgay);
-        edtPromo=(EditText) findViewById(R.id.edtPromo);
+        edtPromo=(TextView) findViewById(R.id.edtPromo);
         btNhan=(Button)findViewById(R.id.btNhan);
         txtNote=(TextView)findViewById(R.id.txtNote);
 
@@ -63,7 +63,7 @@ public class ConfirmBooking extends AppCompatActivity {
             txtSlot.setText(caChoiKM.getThoiluong());
             txtGia.setText(caChoiKM.getGia());
             txtGia2.setText(caChoiKM.getGia());
-            txtTong.setText(caChoiKM.getGia());
+            txtTong.setText(Integer.parseInt(caChoiKM.getGia())- 10000);
             txtNgay.setText(dateKM);
             txtNote.setText(noteKM);
         }

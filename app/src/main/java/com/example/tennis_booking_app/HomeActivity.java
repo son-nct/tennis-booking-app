@@ -141,22 +141,23 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initData(){
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "Quận Thủ Đức", "Khuyến mãi 5%", "Tặng 2 nước",  R.drawable.san1a, "4.9", "2.3km"));
-        arrSanPromo.add(new SanKM("Sân Kim Sa", "Quận 10", "Khuyến mãi 5%","Tặng 2 nước", R.drawable.san1a, "4.1", "10.4km"));
-        arrSanPromo.add(new SanKM("Sân Lam Sơn", "Quận Tân Bình", "Khuyến mãi 5%", "Tặng 2 nước",R.drawable.san1a, "4.2", "20km"));
-        arrSanPromo.add(new SanKM("Sân Hoàng Sa", "Quận 5", "Khuyến mãi 5%","Tặng 2 nước", R.drawable.san1a, "4.9", "12km"));
-        arrSanPromo.add(new SanKM("Sân Trường Sa", "Quận 5","Khuyến mãi 5%", "Tặng 2 nước",R.drawable.san1a, "5", "12.8km"));
-        arrSanPromo.add(new SanKM("Sân Quận 7", "Quận 7","Khuyến mãi 5%","Tặng 2 nước", R.drawable.san1a, "5", "9.6km"));
+        // String ten, String dientich, String tien, String promotionStatus, int hinh, String rating, String khoangCach
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "Quận Thủ Đức", "Từ 100.000 đến 300.000 vnđ",  "Khuyến mãi đến 50 000 vnd",  R.drawable.san1a, "4.9", "2.3km"));
+        arrSanPromo.add(new SanKM("Sân Kim Sa", "Quận 10","Từ 100.000 đến 300.000 vnđ", "Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "4.1", "10.4km"));
+        arrSanPromo.add(new SanKM("Sân Lam Sơn", "Quận Tân Bình", "Từ 100.000 đến 300.000 vnđ","Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "4.2", "20km"));
+        arrSanPromo.add(new SanKM("Sân Hoàng Sa", "Quận 5", "Từ 100.000 đến 300.000 vnđ","Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "4.9", "12km"));
+        arrSanPromo.add(new SanKM("Sân Trường Sa", "Quận 5","Từ 100.000 đến 300.000 vnđ","Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "5", "12.8km"));
+        arrSanPromo.add(new SanKM("Sân Quận 7", "Quận 7","Từ 100.000 đến 300.000 vnđ","Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "5", "9.6km"));
         horizontalAdapter.notifyDataSetChanged();
     }
 
     private void initDataLoved(){
-        arrLovedCourt.add(new SanKM("Sân 1A", "36.57m x 18.29m", "100.000 đồng", "TENNISTODAY", R.drawable.san1a, "4.9","4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 2A", "36.57m x 18.29m", "100.000 đồng", "ABCXYZ", R.drawable.san1a, "5", "4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 2B", "36.57m x 18.29m", "100.000 đồng", "AAAAAA", R.drawable.san1a, "5", "4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 3C", "36.57m x 18.29m", "100.000 đồng", "XXXXXXX", R.drawable.san1a, "5", "4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 2C", "36.57m x 18.29m", "100.000 đồng", "ZZZZZ", R.drawable.san1a, "5", "4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 4", "36.57m x 18.29m", "100.000 đồng", "DAASDASDAD", R.drawable.san1a, "5", "4.3km"));
+        arrLovedCourt.add(new SanKM("Sân 1A", "36.57m x 18.29m", "100.000 vnd", "TENNISTODAY", R.drawable.san1a, "4.9","4.3km"));
+        arrLovedCourt.add(new SanKM("Sân 2A", "36.57m x 18.29m", "100.000 vnd", "ABCXYZ", R.drawable.san1a, "5", "4.3km"));
+        arrLovedCourt.add(new SanKM("Sân 2B", "36.57m x 18.29m", "100.000 vnd", "AAAAAA", R.drawable.san1a, "5", "4.3km"));
+        arrLovedCourt.add(new SanKM("Sân 3C", "36.57m x 18.29m", "100.000 vnd", "XXXXXXX", R.drawable.san1a, "5", "4.3km"));
+        arrLovedCourt.add(new SanKM("Sân 2C", "36.57m x 18.29m", "100.000 vnd", "ZZZZZ", R.drawable.san1a, "5", "4.3km"));
+        arrLovedCourt.add(new SanKM("Sân 4", "36.57m x 18.29m", "100.000 vnd", "DAASDASDAD", R.drawable.san1a, "5", "4.3km"));
         horizontalAdapterLoved.notifyDataSetChanged();
     }
 

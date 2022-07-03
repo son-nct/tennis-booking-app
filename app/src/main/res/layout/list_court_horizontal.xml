@@ -46,17 +46,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="155dp"
-        android:textStyle="italic"
-        android:textColor="@color/red"
         android:text="giá tiền"
-        android:textSize="18dp" />
+        android:textSize="12dp"
+        android:textStyle="italic" />
 
 
     <LinearLayout
         android:id="@+id/loRatingDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="185dp"
+        android:layout_marginTop="175dp"
         android:orientation="horizontal">
 
         <TextView
