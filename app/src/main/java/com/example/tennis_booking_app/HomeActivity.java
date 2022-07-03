@@ -24,10 +24,12 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
     ImageView imgPromo;
     ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory, imgNearMe;
-    List<SanKM> arrSanPromo, arrLovedCourt;
+    List<SanKM> arrSanPromo;
+    List<Court> arrCourtFav;
     Adapter sanAdapter;
     HorizontalAdapter horizontalAdapter, horizontalAdapterLoved;
-    RecyclerView viewPromo, viewLoved;
+    CourtFavouriteAdapter courtFavouriteAdapter;
+    RecyclerView viewPromo, viewFavCourt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,25 +46,27 @@ public class HomeActivity extends AppCompatActivity {
         imgNearMe = (ImageView) findViewById(R.id.imgLocation);
 
         viewPromo = (RecyclerView) findViewById(R.id.viewPromo);
-        viewLoved = (RecyclerView) findViewById(R.id.viewLovedCourt);
+        viewFavCourt = (RecyclerView) findViewById(R.id.viewFavCourt);
         arrSanPromo = new ArrayList<>();
-        arrLovedCourt = new ArrayList<>();
+        arrCourtFav = new ArrayList<>();
         horizontalAdapter = new HorizontalAdapter(this, arrSanPromo);
-        horizontalAdapterLoved = new HorizontalAdapter(this, arrLovedCourt);
+        courtFavouriteAdapter = new CourtFavouriteAdapter(this, arrCourtFav);
+
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        LinearLayoutManager mLayoutLoved = new LinearLayoutManager(getApplicationContext());
+        LinearLayoutManager mLayoutFavourite = new LinearLayoutManager(getApplicationContext());
         mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mLayoutLoved.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mLayoutFavourite.setOrientation(LinearLayoutManager.HORIZONTAL);
+
         viewPromo.setLayoutManager(mLayoutManager);
         viewPromo.setItemAnimator(new DefaultItemAnimator());
         viewPromo.setAdapter(horizontalAdapter);
 
-        viewLoved.setLayoutManager(mLayoutLoved);
-        viewLoved.setItemAnimator(new DefaultItemAnimator());
-        viewLoved.setAdapter(horizontalAdapterLoved);
+        viewFavCourt.setLayoutManager(mLayoutFavourite);
+        viewFavCourt.setItemAnimator(new DefaultItemAnimator());
+        viewFavCourt.setAdapter(courtFavouriteAdapter);
 
         initData();
-        initDataLoved();
+        initCourtFavourite();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#AFF8A3"));
@@ -137,28 +141,25 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void AnhXa(){
+    private void AnhXa() {
     }
 
-    private void initData(){
-        // String ten, String dientich, String tien, String promotionStatus, int hinh, String rating, String khoangCach
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "Quận Thủ Đức", "Từ 100.000 đến 300.000 vnđ",  "Khuyến mãi đến 50 000 vnd",  R.drawable.san1a, "4.9", "2.3km"));
-        arrSanPromo.add(new SanKM("Sân Kim Sa", "Quận 10","Từ 100.000 đến 300.000 vnđ", "Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "4.1", "10.4km"));
-        arrSanPromo.add(new SanKM("Sân Lam Sơn", "Quận Tân Bình", "Từ 100.000 đến 300.000 vnđ","Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "4.2", "20km"));
-        arrSanPromo.add(new SanKM("Sân Hoàng Sa", "Quận 5", "Từ 100.000 đến 300.000 vnđ","Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "4.9", "12km"));
-        arrSanPromo.add(new SanKM("Sân Trường Sa", "Quận 5","Từ 100.000 đến 300.000 vnđ","Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "5", "12.8km"));
-        arrSanPromo.add(new SanKM("Sân Quận 7", "Quận 7","Từ 100.000 đến 300.000 vnđ","Khuyến mãi đến 50 000 vnd", R.drawable.san1a, "5", "9.6km"));
+    private void initData() {
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "Ưu Đãi Đến 45k", "", "Khuyễn Mãi", R.drawable.store_img, "4.9", "2.3km"));
+        arrSanPromo.add(new SanKM("Sân Kim Sa", "Siêu Giảm Giá", "", "Khuyễn Mãi", R.drawable.store_img, "4.1", "10.4km"));
+        arrSanPromo.add(new SanKM("Sân Lam Sơn", "Nhập LANDAU23...", "", "Khuyễn Mãi", R.drawable.store_img, "4.2", "20km"));
+        arrSanPromo.add(new SanKM("Sân Hoàng Sa", "Quận 5", "", "Khuyễn Mãi", R.drawable.store_img, "4.9", "12km"));
+        arrSanPromo.add(new SanKM("Sân Trường Sa", "Quận 5", "", "Khuyễn Mãi", R.drawable.store_img, "5", "12.8km"));
+        arrSanPromo.add(new SanKM("Sân Quận 7", "Quận 7", "", "Khuyễn Mãi", R.drawable.store_img, "5", "9.6km"));
         horizontalAdapter.notifyDataSetChanged();
     }
 
-    private void initDataLoved(){
-        arrLovedCourt.add(new SanKM("Sân 1A", "36.57m x 18.29m", "100.000 vnd", "TENNISTODAY", R.drawable.san1a, "4.9","4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 2A", "36.57m x 18.29m", "100.000 vnd", "ABCXYZ", R.drawable.san1a, "5", "4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 2B", "36.57m x 18.29m", "100.000 vnd", "AAAAAA", R.drawable.san1a, "5", "4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 3C", "36.57m x 18.29m", "100.000 vnd", "XXXXXXX", R.drawable.san1a, "5", "4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 2C", "36.57m x 18.29m", "100.000 vnd", "ZZZZZ", R.drawable.san1a, "5", "4.3km"));
-        arrLovedCourt.add(new SanKM("Sân 4", "36.57m x 18.29m", "100.000 vnd", "DAASDASDAD", R.drawable.san1a, "5", "4.3km"));
-        horizontalAdapterLoved.notifyDataSetChanged();
+    private void initCourtFavourite() {
+        arrCourtFav.add(new Court("Sân Cỏ 1A Hoàng Minh", "Hoàng Minh Tennis", "40", "20", "150.000 ~ 200.000đ", R.drawable.tennis_grass));
+        arrCourtFav.add(new Court("Sân Đất Nện Thủ Đức", "Thủ Đức Tennis", "36.57", "18.29", "200.000 ~ 350.000đ", R.drawable.tennis_clay));
+        arrCourtFav.add(new Court("Sân Cỏ Hoàng Diệu", "Đại Học Ngân Hàng Tennis", "34.75", "17.07", "80.000 ~ 180.000đ", R.drawable.tennis_grass));
+        arrCourtFav.add(new Court("Sân Cỏ Chuẩn Thi Đấu", "FPT Tennis", "36.57", "18.29", "150.000 ~ 300.000đ", R.drawable.tennis_clay));
+        courtFavouriteAdapter.notifyDataSetChanged();
     }
 
 
