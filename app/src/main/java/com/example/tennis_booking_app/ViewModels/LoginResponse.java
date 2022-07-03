@@ -1,9 +1,11 @@
-package com.example.tennis_booking_app.Models;
+package com.example.tennis_booking_app.ViewModels;
+
+import com.example.tennis_booking_app.Models.Token;
 
 public class LoginResponse {
     private int StatusCode;
     private  String Message;
-    Token Token;
+    com.example.tennis_booking_app.Models.Token Token;
 
     public LoginResponse(int statusCode, String message, com.example.tennis_booking_app.Models.Token token) {
         StatusCode = statusCode;

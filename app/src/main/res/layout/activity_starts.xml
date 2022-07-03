@@ -12,15 +12,16 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
         android:textColor="@color/purple_300"
         android:textSize="18sp"
-        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488"
+        app:layout_constraintVertical_bias="0.58"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -29,15 +30,14 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
+        android:text="Mật khẩu"
         android:textColor="@color/black"
         android:textSize="19sp"
-        android:text="Mật khẩu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -71,7 +71,7 @@
         app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223"
+        app:layout_constraintVertical_bias="0.307"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
-        android:text="username"
+        android:hint="Tên đăng nhập"
         android:textColor="@color/purple_300"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,7 +88,7 @@
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309"
+        app:layout_constraintVertical_bias="0.392"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -105,23 +105,7 @@
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552"
-        tools:ignore="MissingConstraints" />
-
-    <CheckBox
-        android:id="@+id/cbMessage"
-        android:layout_width="355dp"
-        android:layout_height="102dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Bằng cách tiếp tục, bạn xác nhận rằng bạn đã đọc và đồng ý với Điều Khoản Dịch Vụ và Thông Báo Bảo Mật của chúng tôi."
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74"
+        app:layout_constraintVertical_bias="0.631"
         tools:ignore="MissingConstraints" />
 
     <Button

@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     Adapter sanAdapter;
     HorizontalAdapter horizontalAdapter, horizontalAdapterLoved;
     RecyclerView viewPromo, viewLoved;
+    TextView txtWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         imgUser = (ImageView) findViewById(R.id.imgUser);
         imgHistory = (ImageView) findViewById(R.id.imgHistory);
         imgNearMe = (ImageView) findViewById(R.id.imgLocation);
+        txtWelcome = (TextView) findViewById(R.id.txtWelcome);
 
         viewPromo = (RecyclerView) findViewById(R.id.viewPromo);
         viewLoved = (RecyclerView) findViewById(R.id.viewLovedCourt);
@@ -135,6 +138,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setWelcome(){
+        Intent intent = getIntent();
+        String welcome = intent.getStringExtra("data");
+        txtWelcome.setText("Xin chào " + welcome);
     }
 
     private void AnhXa(){
