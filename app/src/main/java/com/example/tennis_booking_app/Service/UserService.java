@@ -1,9 +1,9 @@
 package com.example.tennis_booking_app.Service;
 
-import com.example.tennis_booking_app.ViewModels.LoginRequest;
-import com.example.tennis_booking_app.ViewModels.LoginResponse;
-import com.example.tennis_booking_app.ViewModels.RegisterRequest;
-import com.example.tennis_booking_app.ViewModels.RegisterResponse;
+import com.example.tennis_booking_app.ViewModels.Login.LoginRequest;
+import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
+import com.example.tennis_booking_app.ViewModels.Register.RegisterRequest;
+import com.example.tennis_booking_app.ViewModels.Register.RegisterResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

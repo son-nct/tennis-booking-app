@@ -1,6 +1,5 @@
-package com.example.tennis_booking_app.ViewModels;
+package com.example.tennis_booking_app.ViewModels.Login;
 
-import com.example.tennis_booking_app.Models.Token;
 
 public class LoginResponse {
     private int StatusCode;

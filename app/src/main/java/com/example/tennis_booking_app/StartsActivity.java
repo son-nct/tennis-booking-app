@@ -14,8 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
-import com.example.tennis_booking_app.ViewModels.LoginRequest;
-import com.example.tennis_booking_app.ViewModels.LoginResponse;
+import com.example.tennis_booking_app.ViewModels.Login.LoginRequest;
+import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
+import com.example.tennis_booking_app.activity.home.HomeActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app.ViewModels;
+package com.example.tennis_booking_app.ViewModels.Login;
 
 public class LoginRequest {
     private String Username;
