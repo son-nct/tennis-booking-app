@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tennisbookingapp">
         <activity
+            android:name=".DanhGia"
+            android:exported="false" />
+        <activity
             android:name=".ListCourtNear"
             android:exported="false" />
         <activity

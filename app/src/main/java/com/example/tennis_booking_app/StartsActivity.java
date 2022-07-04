@@ -80,7 +80,7 @@ public class StartsActivity extends AppCompatActivity {
                         public void run() {
 //                            startActivity(new Intent(StartsActivity.this, HomeActivity.class)putExtra("data", loginResponse.getToken().getUserName()));
                             Intent intent = new Intent(StartsActivity.this, HomeActivity.class);
-                            intent.putExtra("data", loginResponse.getToken().getUserName());
+                            intent.putExtra("data", loginResponse.getToken().getFullName());
                             startActivity(intent);
                         }
                     }, 700);

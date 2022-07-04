@@ -24,7 +24,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imgHinh;
         TextView txtTenSanPromo, txtDienTichPromo, txtPromoCode, txtGiaPromo, txtRating, txtKhoangCach;
-        RelativeLayout rvSan, rvLoved;
+        LinearLayout rvSan;
         LinearLayout loRatingDistance;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -37,7 +37,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             txtKhoangCach = itemView.findViewById(R.id.txtKhoangCach);
             txtRating = itemView.findViewById(R.id.txtRating);
             rvSan = itemView.findViewById(R.id.rvSan);
-            rvLoved = itemView.findViewById(R.id.rvLoved);
             loRatingDistance = itemView.findViewById(R.id.loRatingDistance);
         }
     }

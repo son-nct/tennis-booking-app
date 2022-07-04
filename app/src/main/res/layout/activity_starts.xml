@@ -6,23 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".StartsActivity">
 
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="370sp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Mật khẩu"
-        android:inputType="textPassword"
-        android:textColor="@color/purple_300"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58"
-        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvPassword"
@@ -89,6 +72,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.392"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="370sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:textColor="@color/purple_300"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58"
         tools:ignore="MissingConstraints" />
 
     <TextView

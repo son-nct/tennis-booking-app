@@ -117,10 +117,10 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtRatingnReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ratings and reviewd"
+        android:text="Ratings and review"
         android:textColor="@color/black"
         android:textSize="14dp"
         android:layout_marginTop="-56dp"
