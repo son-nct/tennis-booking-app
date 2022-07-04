@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,13 +16,18 @@ import java.util.ArrayList;
 public class DetailsPromotion extends AppCompatActivity {
     ListView lvSanKM;
     SanKmAdapter adapter;
+    EditText edtCourtName;
     ArrayList<SanKM> arrSanKM;
+    TextView txtRatingnReview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_promotion);
 
         lvSanKM=(ListView) findViewById(R.id.lvSanKM);
+//        edtCourtName = findViewById(R.id.edtThuDuc);
+//        txtRatingnReview = findViewById(R.id.txtRatingnReview);
+        edtCourtName.setEnabled(false);
         arrSanKM=new ArrayList<>();
 
         // String ten, String dientich, String tien, String promoCode, int hinh
@@ -31,6 +38,14 @@ public class DetailsPromotion extends AppCompatActivity {
 
         adapter=new SanKmAdapter(this,R.layout.list_san_promo,arrSanKM);
         lvSanKM.setAdapter(adapter);
+
+        txtRatingnReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);
+                startActivity(intent);
+            }
+        });
 
         lvSanKM.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

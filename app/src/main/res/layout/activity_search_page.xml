@@ -4,30 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchPageActivity">
+    tools:context=".PhucHLH.SearchPageActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp">
 
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
-
         <EditText
             android:id="@+id/txtSearch"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="60dp"
+            android:layout_width="350dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Bạn đang tìm gì đấy"
-            android:inputType="text"
-            android:imeOptions="actionSearch" />
+            android:imeOptions="actionSearch"
+            android:inputType="text" />
     </RelativeLayout>
 
     <RelativeLayout

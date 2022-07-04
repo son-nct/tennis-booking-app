@@ -4,64 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SpecificCourtsActivity">
+    tools:context=".PhucHLH.SpecificCourtsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp">
-
-        <ImageView
-            android:id="@+id/imagePrevious"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
+        android:layout_height="90dp">
 
 
-    <ImageView
-        android:id="@+id/imageSetting"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="84dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_basic_setting_ui_svgrepo_com"
-        tools:ignore="MissingConstraints" />
         <TextView
             android:id="@+id/tvPromotion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="31dp"
             android:fontFamily="@font/inter"
-            android:text="Khuyến mãi"
+            android:text="court-type-here"
             android:textColor="@color/black"
             android:textSize="24dp" />
-
-        <ImageView
-            android:id="@+id/imgSetting"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="80dp"
-            app:srcCompat="@drawable/ic_combine" />
-
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/layoutHard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="130dp">
+        android:layout_marginTop="90dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPromo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="712dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </RelativeLayout>

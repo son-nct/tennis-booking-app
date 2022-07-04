@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app.Models.Login;
+package com.example.tennis_booking_app.Models;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

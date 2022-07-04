@@ -16,23 +16,10 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/imagePrevious2"
-        android:layout_width="69dp"
-        android:layout_height="34dp"
-        android:src="@drawable/previos_white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044"
-        tools:ignore="MissingConstraints" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/inter"
         android:text="Hủy Đặt Sân"

@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
-import com.example.tennis_booking_app.Models.Login.LoginRequest;
-import com.example.tennis_booking_app.Models.Login.LoginResponse;
+import com.example.tennis_booking_app.ViewModels.Login.LoginRequest;
+import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
 import com.example.tennis_booking_app.activity.home.HomeActivity;
 
 import retrofit2.Call;
@@ -26,7 +26,6 @@ public class StartsActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnContinue;
-    private CheckBox cbMessage;
     private TextView tvforgotPassword;
 
     @Override
@@ -37,7 +36,6 @@ public class StartsActivity extends AppCompatActivity {
         etUsername = (EditText) findViewById(R.id.txtUsername);
         etPassword = (EditText) findViewById(R.id.txtPassword);
         btnContinue = (Button) findViewById(R.id.btnContinue);
-        cbMessage = (CheckBox) findViewById(R.id.cbMessage);
         tvforgotPassword = (TextView) findViewById(R.id.tvforgotPassword);
 
         tvforgotPassword.setOnClickListener(new View.OnClickListener() {
@@ -49,12 +47,6 @@ public class StartsActivity extends AppCompatActivity {
         });
         //clicktieptuc
 
-        cbMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,12 +73,16 @@ public class StartsActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
                 if (response.isSuccessful()) {
-                    Toast.makeText(StartsActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
+                    Toast.makeText(StartsActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                     LoginResponse loginResponse = response.body();
+                    System.out.println(loginResponse);
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(StartsActivity.this, HomeActivity.class).putExtra("data", loginResponse.getToken().getUserName()));
+//                            startActivity(new Intent(StartsActivity.this, HomeActivity.class)putExtra("data", loginResponse.getToken().getUserName()));
+                            Intent intent = new Intent(StartsActivity.this, HomeActivity.class);
+                            intent.putExtra("data", loginResponse.getToken().getFullName());
+                            startActivity(intent);
                         }
                     }, 700);
 
