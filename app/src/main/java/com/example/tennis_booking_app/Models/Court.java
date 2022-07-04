@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app;
+package com.example.tennis_booking_app.Models;
 
 import java.io.Serializable;
 

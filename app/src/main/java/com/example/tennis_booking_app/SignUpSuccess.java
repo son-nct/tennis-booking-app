@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.tennis_booking_app.activity.home.HomeActivity;
+
 public class SignUpSuccess extends AppCompatActivity {
      private Button btnSuccess;
     @Override
@@ -17,7 +19,7 @@ public class SignUpSuccess extends AppCompatActivity {
         btnSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignUpSuccess.this,HomeActivity.class);
+                Intent intent = new Intent(SignUpSuccess.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
