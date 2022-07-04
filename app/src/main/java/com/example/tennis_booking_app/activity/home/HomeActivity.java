@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app;
+package com.example.tennis_booking_app.activity.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -11,13 +11,19 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
-import java.io.Serializable;
+import com.example.tennis_booking_app.adapter.home.CourtFavouriteAdapter;
+import com.example.tennis_booking_app.DangXuat;
+import com.example.tennis_booking_app.adapter.home.HorizontalAdapter;
+import com.example.tennis_booking_app.LichSu;
+import com.example.tennis_booking_app.Models.Court;
+import com.example.tennis_booking_app.Promotion;
+import com.example.tennis_booking_app.R;
+import com.example.tennis_booking_app.SanKM;
+import com.example.tennis_booking_app.SearchPageActivity;
+import com.example.tennis_booking_app.SpecificCourtsActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 

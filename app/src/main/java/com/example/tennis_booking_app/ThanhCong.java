@@ -2,12 +2,12 @@ package com.example.tennis_booking_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tennis_booking_app.activity.home.HomeActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;

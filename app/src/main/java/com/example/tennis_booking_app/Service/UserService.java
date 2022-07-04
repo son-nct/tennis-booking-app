@@ -1,7 +1,7 @@
 package com.example.tennis_booking_app.Service;
 
-import com.example.tennis_booking_app.Models.LoginRequest;
-import com.example.tennis_booking_app.Models.LoginResponse;
+import com.example.tennis_booking_app.Models.Login.LoginRequest;
+import com.example.tennis_booking_app.Models.Login.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

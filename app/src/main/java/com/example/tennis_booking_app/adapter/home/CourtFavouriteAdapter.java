@@ -1,20 +1,19 @@
-package com.example.tennis_booking_app;
+package com.example.tennis_booking_app.adapter.home;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
-import java.util.ArrayList;
+import com.example.tennis_booking_app.Models.Court;
+import com.example.tennis_booking_app.R;
+
 import java.util.List;
 
 public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAdapter.MyViewHolder> {

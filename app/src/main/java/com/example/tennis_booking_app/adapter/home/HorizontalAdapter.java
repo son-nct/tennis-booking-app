@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app;
+package com.example.tennis_booking_app.adapter.home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,14 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tennis_booking_app.R;
+import com.example.tennis_booking_app.SanKM;
+import com.example.tennis_booking_app.YardDetail;
+
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.MyViewHolder> {
@@ -37,7 +39,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             txtKhoangCach = itemView.findViewById(R.id.txtKhoangCach);
             txtRating = itemView.findViewById(R.id.txtRating);
             rvSan = itemView.findViewById(R.id.rvSan);
-            rvLoved = itemView.findViewById(R.id.rvLoved);
             loRatingDistance = itemView.findViewById(R.id.loRatingDistance);
         }
     }
