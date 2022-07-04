@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,13 +15,11 @@ public class DetailsPromotion extends AppCompatActivity {
     ListView lvSanKM;
     SanKmAdapter adapter;
     ArrayList<SanKM> arrSanKM;
-    TextView txtRate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_promotion);
 
-        txtRate=(TextView) findViewById(R.id.txtRate);
         lvSanKM=(ListView) findViewById(R.id.lvSanKM);
         arrSanKM=new ArrayList<>();
 
@@ -41,14 +38,6 @@ public class DetailsPromotion extends AppCompatActivity {
                 SanKM sanKM = arrSanKM.get(position);
                 Intent intent = new Intent(DetailsPromotion.this, Booking.class);
                 intent.putExtra("sanKMDetail", (Serializable) sanKM);
-                startActivity(intent);
-            }
-        });
-
-        txtRate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);
                 startActivity(intent);
             }
         });
