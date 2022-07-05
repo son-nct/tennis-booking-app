@@ -43,19 +43,18 @@
                 android:fontFamily="@font/alata"
                 android:text="Diện Tích"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/txtTienKM"
-                android:layout_marginTop="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:fontFamily="@font/inter"
                 android:text="Giá Tiền"
                 android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                />
+                android:textSize="14dp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

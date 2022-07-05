@@ -8,7 +8,7 @@
     tools:context=".ChucMung">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgHomeCM"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginStart="124dp"
