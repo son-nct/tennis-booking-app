@@ -71,14 +71,12 @@
             android:name=".HuySan"
             android:exported="false" />
         <activity
-            android:name=".KhuyenMai"
-            android:exported="false" />
-        <activity
             android:name=".ChucMung"
             android:exported="false" />
         <activity
             android:name=".ConfirmBooking"
             android:exported="false" />
+
         <activity
             android:name=".Booking"
             android:exported="false" />
