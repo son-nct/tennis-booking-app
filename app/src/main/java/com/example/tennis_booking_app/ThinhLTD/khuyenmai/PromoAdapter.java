@@ -13,7 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tennis_booking_app.R;
-import com.example.tennis_booking_app.ThinhLTD.sancokm.SancoKM;
+import com.example.tennis_booking_app.ThinhLTD.sancokm.DetailsPromotion;
 
 import java.util.ArrayList;
 
@@ -55,7 +55,7 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
         holder.rcKM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, SancoKM.class);
+                Intent intent=new Intent(context, DetailsPromotion.class);
                 context.startActivity(intent);
             }
         });

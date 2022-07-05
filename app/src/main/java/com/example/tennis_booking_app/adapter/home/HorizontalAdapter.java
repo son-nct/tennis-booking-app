@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.ThinhLTD.sancokm.SanKM;
+import com.example.tennis_booking_app.ThinhLTD.sancokm.DetailsPromotion;
 
 import java.io.Serializable;
 import java.util.List;
@@ -72,7 +73,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, .class);
+                Intent intent=new Intent(context, DetailsPromotion.class);
                 intent.putExtra("sandetail", (Serializable) sanKM);
                 context.startActivity(intent);
             }
@@ -80,7 +81,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, YardDetail.class);
+                Intent intent=new Intent(context, DetailsPromotion.class);
                 intent.putExtra("sandetail", (Serializable) sanKM);
                 context.startActivity(intent);
             }
