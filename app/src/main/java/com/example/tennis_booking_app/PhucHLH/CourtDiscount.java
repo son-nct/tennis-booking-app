@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app.PhucHLH.CourtDiscount;
+package com.example.tennis_booking_app.PhucHLH;
 
 public class CourtDiscount {
 

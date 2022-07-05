@@ -10,14 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.tennis_booking_app.R;
-import com.example.tennis_booking_app.TruongNL.danhgia.DanhGia;
 import com.example.tennis_booking_app.TruongNL.datsan.Booking;
 
-import com.example.tennis_booking_app.PhucHLH.CourtDiscount.CourtDiscount;
-import com.example.tennis_booking_app.PhucHLH.CourtDiscount.CourtDiscountHorizontalAdapter;
+import com.example.tennis_booking_app.PhucHLH.CourtDiscount;
+import com.example.tennis_booking_app.PhucHLH.CourtDiscountHorizontalAdapter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -76,7 +74,7 @@ public class SancoKM extends AppCompatActivity {
         txtRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SancoKM.this, DanhGia.class);
+                Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);
                 startActivity(intent);
             }
         });
