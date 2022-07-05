@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.tennis_booking_app.adapter.home.CourtFavouriteAdapter;
 import com.example.tennis_booking_app.DangXuat;
@@ -21,8 +22,8 @@ import com.example.tennis_booking_app.Models.Court;
 import com.example.tennis_booking_app.Promotion;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanKM;
-import com.example.tennis_booking_app.SearchPageActivity;
-import com.example.tennis_booking_app.SpecificCourtsActivity;
+import com.example.tennis_booking_app.PhucHLH.SearchPageActivity;
+import com.example.tennis_booking_app.PhucHLH.SpecificCourtsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     HorizontalAdapter horizontalAdapter, horizontalAdapterLoved;
     CourtFavouriteAdapter courtFavouriteAdapter;
     RecyclerView viewPromo, viewFavCourt;
+    TextView txtWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         imgUser = (ImageView) findViewById(R.id.imgUser);
         imgHistory = (ImageView) findViewById(R.id.imgHistory);
         imgNearMe = (ImageView) findViewById(R.id.imgLocation);
+        txtWelcome = (TextView) findViewById(R.id.txtWelcome);
 
         viewPromo = (RecyclerView) findViewById(R.id.viewPromo);
         viewFavCourt = (RecyclerView) findViewById(R.id.viewFavCourt);
@@ -70,6 +73,9 @@ public class HomeActivity extends AppCompatActivity {
         viewFavCourt.setLayoutManager(mLayoutFavourite);
         viewFavCourt.setItemAnimator(new DefaultItemAnimator());
         viewFavCourt.setAdapter(courtFavouriteAdapter);
+
+
+        setWelcome();
 
         initData();
         initCourtFavourite();
@@ -147,7 +153,10 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void AnhXa() {
+    private void setWelcome() {
+        Intent intent = getIntent();
+        String welcome = intent.getStringExtra("data");
+        txtWelcome.setText("Xin chào " + welcome);
     }
 
     private void initData() {

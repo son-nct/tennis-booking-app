@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app;
+package com.example.tennis_booking_app.PhucHLH;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,11 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.tennis_booking_app.R;
 
 public class SearchPageActivity extends AppCompatActivity {
 

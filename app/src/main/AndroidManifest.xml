@@ -14,16 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tennisbookingapp">
         <activity
-            android:name=".ListCourtNear"
+            android:name=".DanhGia"
             android:exported="false" />
         <activity
-            android:name=".SearchPageActivity"
+            android:name=".PhucHLH.ListCourtNear"
+            android:exported="false" />
+        <activity
+            android:name=".PhucHLH.SearchPageActivity"
             android:exported="false" />
         <activity
             android:name=".SendFeedback"
             android:exported="false" />
         <activity
-            android:name=".SpecificCourtsActivity"
+            android:name=".PhucHLH.SpecificCourtsActivity"
             android:exported="false" />
         <activity
             android:name=".activity.home.HomeActivity"
@@ -32,7 +35,7 @@
             android:name=".YardDetail"
             android:exported="false" />
         <activity
-            android:name=".LoginFacebookGoogleActivity"
+            android:name=".PhucHLH.LoginFacebookGoogleActivity"
             android:exported="false" />
         <activity
             android:name=".Done"
@@ -81,10 +84,10 @@
             android:name=".StartsActivity"
             android:exported="false" />
         <activity
-            android:name=".ReadyLogin"
+            android:name=".PhucHLH.ReadyLogin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".PhucHLH.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,8 +1,7 @@
-package com.example.tennis_booking_app;
+package com.example.tennis_booking_app.PhucHLH;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +9,12 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.TextView;
+
+import com.example.tennis_booking_app.R;
+import com.example.tennis_booking_app.SanAdapter;
+import com.example.tennis_booking_app.SanTennis;
+import com.example.tennis_booking_app.YardDetail;
 
 import java.io.Serializable;
 import java.util.ArrayList;

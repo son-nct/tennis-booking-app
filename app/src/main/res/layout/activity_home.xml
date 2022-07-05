@@ -67,6 +67,12 @@
                     android:layout_marginBottom="35dp"
                     app:srcCompat="@drawable/ic_user_svgrepo_com_1" />
 
+                <TextView
+                    android:id="@+id/txtWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+
             </RelativeLayout>
 
             <RelativeLayout

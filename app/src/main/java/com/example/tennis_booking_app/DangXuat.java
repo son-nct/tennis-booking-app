@@ -1,14 +1,14 @@
 package com.example.tennis_booking_app;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tennis_booking_app.PhucHLH.ReadyLogin;
 
 public class DangXuat extends AppCompatActivity {
     Button btDangxuat;
@@ -37,7 +37,7 @@ public class DangXuat extends AppCompatActivity {
        btYes.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent intent=new Intent(DangXuat.this,ReadyLogin.class);
+               Intent intent=new Intent(DangXuat.this, ReadyLogin.class);
                startActivity(intent);
            }
        });

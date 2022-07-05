@@ -1,11 +1,12 @@
-package com.example.tennis_booking_app.Models.Login;
+package com.example.tennis_booking_app.ViewModels.Login;
+
 
 public class LoginResponse {
     private int StatusCode;
     private  String Message;
-    Token Token;
+    com.example.tennis_booking_app.Models.Token Token;
 
-    public LoginResponse(int statusCode, String message, com.example.tennis_booking_app.Models.Login.Token token) {
+    public LoginResponse(int statusCode, String message, com.example.tennis_booking_app.Models.Token token) {
         StatusCode = statusCode;
         Message = message;
         Token = token;
@@ -27,11 +28,11 @@ public class LoginResponse {
         Message = message;
     }
 
-    public com.example.tennis_booking_app.Models.Login.Token getToken() {
+    public com.example.tennis_booking_app.Models.Token getToken() {
         return Token;
     }
 
-    public void setToken(com.example.tennis_booking_app.Models.Login.Token token) {
+    public void setToken(com.example.tennis_booking_app.Models.Token token) {
         Token = token;
     }
 }
