@@ -23,7 +23,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailsPromotion extends AppCompatActivity {
+public class SancoKM extends AppCompatActivity {
     ListView lvSanKM;
     SanKmAdapter adapter;
 //    EditText edtCourtName;
@@ -76,7 +76,7 @@ public class DetailsPromotion extends AppCompatActivity {
         txtRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);
+                Intent intent = new Intent(SancoKM.this, DanhGia.class);
                 startActivity(intent);
             }
         });
@@ -85,7 +85,7 @@ public class DetailsPromotion extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SanKM sanKM = arrSanKM.get(position);
-                Intent intent = new Intent(DetailsPromotion.this, Booking.class);
+                Intent intent = new Intent(SancoKM.this, Booking.class);
                 intent.putExtra("sanKMDetail", (Serializable) sanKM);
                 startActivity(intent);
             }
