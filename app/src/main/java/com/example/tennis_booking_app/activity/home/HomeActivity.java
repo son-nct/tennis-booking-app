@@ -33,8 +33,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory, imgNearMe;
     List<SanKM> arrSanPromo;
     List<Court> arrCourtFav;
-    Adapter sanAdapter;
-    HorizontalAdapter horizontalAdapter, horizontalAdapterLoved;
+    HorizontalAdapter horizontalAdapter;
     CourtFavouriteAdapter courtFavouriteAdapter;
     RecyclerView viewPromo, viewFavCourt;
     TextView txtWelcome;
