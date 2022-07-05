@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app.PhucHLH;
+package com.example.tennis_booking_app.PhucHLH.CourtDiscount;
 
 import android.content.Context;
 import android.graphics.Paint;
