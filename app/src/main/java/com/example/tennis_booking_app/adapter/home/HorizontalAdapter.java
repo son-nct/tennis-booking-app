@@ -13,8 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tennis_booking_app.R;
-import com.example.tennis_booking_app.SanKM;
-import com.example.tennis_booking_app.YardDetail;
+import com.example.tennis_booking_app.ThinhLTD.sancokm.SanKM;
 
 import java.io.Serializable;
 import java.util.List;

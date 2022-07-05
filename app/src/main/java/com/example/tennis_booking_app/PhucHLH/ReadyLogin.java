@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.example.tennis_booking_app.R;
-import com.example.tennis_booking_app.Register;
+import com.example.tennis_booking_app.ThinhLTD.Register;
 
 public class ReadyLogin extends AppCompatActivity {
     RelativeLayout layoutWait;
