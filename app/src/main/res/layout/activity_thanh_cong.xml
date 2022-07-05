@@ -8,7 +8,7 @@
     tools:context=".ThanhCong">
 
     <ImageView
-        android:id="@+id/imgSuc"
+        android:id="@+id/imgHomeTC"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginStart="144dp"

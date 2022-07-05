@@ -16,18 +16,16 @@ import java.util.ArrayList;
 public class DetailsPromotion extends AppCompatActivity {
     ListView lvSanKM;
     SanKmAdapter adapter;
-    EditText edtCourtName;
+//    EditText edtCourtName;
     ArrayList<SanKM> arrSanKM;
-    TextView txtRatingnReview;
+//    TextView txtRatingnReview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_promotion);
 
         lvSanKM=(ListView) findViewById(R.id.lvSanKM);
-//        edtCourtName = findViewById(R.id.edtThuDuc);
-//        txtRatingnReview = findViewById(R.id.txtRatingnReview);
-        edtCourtName.setEnabled(false);
+//        edtCourtName.setEnabled(false);
         arrSanKM=new ArrayList<>();
 
         // String ten, String dientich, String tien, String promoCode, int hinh
@@ -39,13 +37,13 @@ public class DetailsPromotion extends AppCompatActivity {
         adapter=new SanKmAdapter(this,R.layout.list_san_promo,arrSanKM);
         lvSanKM.setAdapter(adapter);
 
-        txtRatingnReview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);
-                startActivity(intent);
-            }
-        });
+//        txtRatingnReview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);
+//                startActivity(intent);
+//            }
+//        });
 
         lvSanKM.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
