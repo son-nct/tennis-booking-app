@@ -1,13 +1,18 @@
 package com.example.tennis_booking_app;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class ConfirmBooking extends AppCompatActivity {
     TextView txtTennis2,txtTennis21,txtDientich2,txtNote,
@@ -68,9 +73,12 @@ public class ConfirmBooking extends AppCompatActivity {
             txtNote.setText(noteKM);
         }
 
-
-
-
+        edtPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogKM();
+            }
+        });
 
         btNhan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,5 +88,13 @@ public class ConfirmBooking extends AppCompatActivity {
             }
         });
 
+    }
+    private void DialogKM(){
+        Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_khuyen_mai);
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.show();
     }
 }
