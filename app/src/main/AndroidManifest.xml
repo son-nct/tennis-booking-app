@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tennisbookingapp">
         <activity
-            android:name=".DanhGia"
+            android:name=".TruongNL.danhgia.DanhGia"
             android:exported="false" />
         <activity
             android:name=".PhucHLH.ListCourtNear"
@@ -23,7 +23,7 @@
             android:name=".PhucHLH.SearchPageActivity"
             android:exported="false" />
         <activity
-            android:name=".SendFeedback"
+            android:name=".ThinhLTD.SendFeedback"
             android:exported="false" />
         <activity
             android:name=".PhucHLH.SpecificCourtsActivity"
@@ -32,56 +32,53 @@
             android:name=".activity.home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".YardDetail"
-            android:exported="false" />
-        <activity
             android:name=".PhucHLH.LoginFacebookGoogleActivity"
             android:exported="false" />
         <activity
-            android:name=".Done"
+            android:name=".ThinhLTD.Done"
             android:exported="false" />
         <activity
-            android:name=".DetailActivity"
+            android:name=".ThinhLTD.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailsPromotion"
+            android:name=".ThinhLTD.sancokm.SancoKM"
             android:exported="false" />
         <activity
-            android:name=".Promotion"
+            android:name=".ThinhLTD.khuyenmai.Promotion"
             android:exported="false" />
         <activity
-            android:name=".SignUpSuccess"
+            android:name=".ThinhLTD.SignUpSuccess"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".ThinhLTD.Register"
             android:exported="false" />
         <activity
-            android:name=".Retrieval"
+            android:name=".ThinhLTD.Retrieval"
             android:exported="false" />
         <activity
-            android:name=".LichSu"
+            android:name=".TruongNL.lichsu.LichSu"
             android:exported="false" />
         <activity
-            android:name=".ThanhCong"
+            android:name=".TruongNL.ThanhCong"
             android:exported="false" />
         <activity
-            android:name=".DangXuat"
+            android:name=".TruongNL.DangXuat"
             android:exported="false" />
         <activity
-            android:name=".HuySan"
+            android:name=".TruongNL.HuySan"
             android:exported="false" />
         <activity
-            android:name=".ChucMung"
+            android:name=".TruongNL.ChucMung"
             android:exported="false" />
         <activity
-            android:name=".ConfirmBooking"
+            android:name=".TruongNL.ConfirmBooking"
             android:exported="false" />
 
         <activity
-            android:name=".Booking"
+            android:name=".TruongNL.datsan.Booking"
             android:exported="false" />
         <activity
-            android:name=".StartsActivity"
+            android:name=".ThinhLTD.StartsActivity"
             android:exported="false" />
         <activity
             android:name=".PhucHLH.ReadyLogin"

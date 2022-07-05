@@ -15,13 +15,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tennis_booking_app.adapter.home.CourtFavouriteAdapter;
-import com.example.tennis_booking_app.DangXuat;
+import com.example.tennis_booking_app.TruongNL.DangXuat;
 import com.example.tennis_booking_app.adapter.home.HorizontalAdapter;
-import com.example.tennis_booking_app.LichSu;
+import com.example.tennis_booking_app.TruongNL.lichsu.LichSu;
 import com.example.tennis_booking_app.Models.Court;
-import com.example.tennis_booking_app.Promotion;
+import com.example.tennis_booking_app.ThinhLTD.khuyenmai.Promotion;
 import com.example.tennis_booking_app.R;
-import com.example.tennis_booking_app.SanKM;
+import com.example.tennis_booking_app.ThinhLTD.sancokm.SanKM;
 import com.example.tennis_booking_app.PhucHLH.SearchPageActivity;
 import com.example.tennis_booking_app.PhucHLH.SpecificCourtsActivity;
 
