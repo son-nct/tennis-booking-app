@@ -4,11 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_detail.xml" value="0.24121621621621622" />
-        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_home.xml" value="0.12432432432432433" />
+        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_details_promotion.xml" value="0.25" />
+        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_lich_su.xml" value="0.24121621621621622" />
+        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_ca_choi.xml" value="0.15625" />
+        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_court_favourite.xml" value="0.24121621621621622" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_court_horizontal.xml" value="0.24121621621621622" />
+        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_court_near.xml" value="0.15625" />
+        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_danh_gia.xml" value="0.15625" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_history.xml" value="0.24121621621621622" />
+        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_san.xml" value="0.15625" />
+        <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_san_promo.xml" value="0.15625" />
       </map>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

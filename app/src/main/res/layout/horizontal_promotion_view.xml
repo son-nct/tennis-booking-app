@@ -6,11 +6,12 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/txtCourtNameHorizontalPromo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -20,6 +21,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txtPriceAfterDiscount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-95dp"
@@ -29,6 +31,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txtPriceBeforeDiscount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -39,14 +42,15 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="55dp"
+            android:layout_marginLeft="5dp"
             app:srcCompat="@drawable/ic_tag_svgrepo_com" />
 
         <ImageView
+            android:id="@+id/imgCourtPromoHorizontal"
             android:layout_width="150dp"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/store_img" />
+            android:layout_marginLeft="10dp"
+            android:layout_height="150dp" />
     </LinearLayout>
 
 </RelativeLayout>
