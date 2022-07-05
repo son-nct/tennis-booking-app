@@ -16,19 +16,17 @@ import java.util.ArrayList;
 public class DetailsPromotion extends AppCompatActivity {
     ListView lvSanKM;
     SanKmAdapter adapter;
-    EditText edtCourtName;
     ArrayList<SanKM> arrSanKM;
-    TextView txtRatingnReview;
+    TextView txtRating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_promotion);
 
         lvSanKM=(ListView) findViewById(R.id.lvSanKM);
-//        edtCourtName = findViewById(R.id.edtThuDuc);
-//        txtRatingnReview = findViewById(R.id.txtRatingnReview);
-        edtCourtName.setEnabled(false);
+        txtRating = findViewById(R.id.txtRatingAndReview);
         arrSanKM=new ArrayList<>();
+        System.out.println("99999999999999999999999 "+ txtRating);
 
         // String ten, String dientich, String tien, String promoCode, int hinh
 
@@ -39,7 +37,7 @@ public class DetailsPromotion extends AppCompatActivity {
         adapter=new SanKmAdapter(this,R.layout.list_san_promo,arrSanKM);
         lvSanKM.setAdapter(adapter);
 
-        txtRatingnReview.setOnClickListener(new View.OnClickListener() {
+        txtRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);

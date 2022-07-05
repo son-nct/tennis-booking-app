@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.tennis_booking_app.adapter.home.CourtFavouriteAdapter;
 import com.example.tennis_booking_app.DangXuat;
@@ -32,8 +33,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory, imgNearMe;
     List<SanKM> arrSanPromo;
     List<Court> arrCourtFav;
-    Adapter sanAdapter;
-    HorizontalAdapter horizontalAdapter, horizontalAdapterLoved;
+    HorizontalAdapter horizontalAdapter;
     CourtFavouriteAdapter courtFavouriteAdapter;
     RecyclerView viewPromo, viewFavCourt;
     TextView txtWelcome;

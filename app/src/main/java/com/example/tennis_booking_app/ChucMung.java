@@ -20,8 +20,6 @@ public class ChucMung extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chuc_mung);
 
-        imgCM=(ImageButton) findViewById(R.id.imgHomeCM);
-
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
