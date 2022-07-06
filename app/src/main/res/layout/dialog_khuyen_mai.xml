@@ -16,6 +16,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"/>
 
+
     <Button
         android:id="@+id/btKM1"
         android:layout_width="400dp"
@@ -23,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
         android:background="@drawable/cus"
-        android:text="REVLRA"
+        android:text="GIA 20.000VND DAT TREN 3 LAN"
         android:textColor="@color/green" />
 
     <Button
@@ -33,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="260dp"
         android:background="@drawable/cus"
-        android:text="REVLRA"
+        android:text="CUOI TUAN VUI VE GIAM 30.000VND"
         android:textColor="@color/green" />
 
     <Button
@@ -43,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="320dp"
         android:background="@drawable/cus"
-        android:text="REVLRA"
+        android:text="LAN DAU DAT GIAM 50.000NVD"
         android:textColor="@color/green" />
 
 </RelativeLayout>
