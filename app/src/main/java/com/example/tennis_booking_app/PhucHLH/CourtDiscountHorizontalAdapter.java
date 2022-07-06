@@ -1,18 +1,25 @@
 package com.example.tennis_booking_app.PhucHLH;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.tennis_booking_app.DetailsPromotion;
+import com.example.tennis_booking_app.R;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tennis_booking_app.R;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class CourtDiscountHorizontalAdapter extends RecyclerView.Adapter<CourtDiscountHorizontalAdapter.MyDiscountHorizontalViewHolder> {
@@ -40,9 +47,26 @@ public class CourtDiscountHorizontalAdapter extends RecyclerView.Adapter<CourtDi
         CourtDiscount courtDiscount = arrCourtDiscount.get(position);
         holder.imgHinh.setImageResource(courtDiscount.getCourtImage());
         holder.txtTen.setText(courtDiscount.getCourtName());
-        holder.txtGiaSauGiam.setText(courtDiscount.getPriceAfter());
-        holder.txtGiaTruocGiam.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        holder.txtGiaTruocGiam.setText(courtDiscount.getPriceBefore());
+        holder.txtDiscountText.setText(courtDiscount.getDiscountText());
+
+        holder.rcvPromoCourt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(context);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog_promo);
+                dialog.setCanceledOnTouchOutside(true);
+
+                TextView txtPromoTitle = dialog.findViewById(R.id.txtPromoTitle);
+                TextView txtShortDiscount = dialog.findViewById(R.id.txtShortDiscount);
+                TextView txtDiscountDescription = dialog.findViewById(R.id.txtDiscountDescription);
+
+                txtPromoTitle.setText(courtDiscount.getCourtName());
+                txtShortDiscount.setText(courtDiscount.getDiscountText());
+                txtDiscountDescription.setText(courtDiscount.getDiscountDescription());
+                dialog.show();
+            }
+        });
     }
 
     @Override
@@ -53,14 +77,15 @@ public class CourtDiscountHorizontalAdapter extends RecyclerView.Adapter<CourtDi
 
     public class MyDiscountHorizontalViewHolder extends RecyclerView.ViewHolder{
         ImageView imgHinh;
-        TextView txtTen, txtGiaTruocGiam, txtGiaSauGiam;
+        TextView txtTen, txtDiscountText;
+        LinearLayout rcvPromoCourt;
 
         public MyDiscountHorizontalViewHolder(@NonNull View itemView) {
             super(itemView);
             imgHinh = itemView.findViewById(R.id.imgCourtPromoHorizontal);
+            txtDiscountText = itemView.findViewById(R.id.txtDiscount);
             txtTen = itemView.findViewById(R.id.txtCourtNameHorizontalPromo);
-            txtGiaTruocGiam = itemView.findViewById(R.id.txtPriceBeforeDiscount);
-            txtGiaSauGiam = itemView.findViewById(R.id.txtPriceAfterDiscount);
+            rcvPromoCourt = itemView.findViewById(R.id.rcvPromoCourt);
         }
     }
 }

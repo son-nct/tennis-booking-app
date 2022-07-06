@@ -1,48 +1,60 @@
 package com.example.tennis_booking_app.PhucHLH;
 
-public class CourtDiscount {
+import java.io.Serializable;
+
+public class CourtDiscount implements Serializable {
 
     private String courtName;
-    private String priceBefore;
-    private String priceAfter;
+    private String discountText;
     private int courtImage;
+    private String discountDescription;
 
-    public CourtDiscount(String courtName, String priceBefore, String priceAfter, int courtImage) {
+    public CourtDiscount(String courtName, String discountText, int courtImage, String discountDescription) {
         this.courtName = courtName;
-        this.priceBefore = priceBefore;
-        this.priceAfter = priceAfter;
+        this.discountText = discountText;
         this.courtImage = courtImage;
+        this.discountDescription = discountDescription;
+    }
+
+    public String getDiscountDescription() {
+        return discountDescription;
+    }
+
+    public void setDiscountDescription(String discountDescription) {
+        this.discountDescription = discountDescription;
     }
 
     public String getCourtName() {
-        return courtName;
+        return this.courtName;
     }
 
     public void setCourtName(String courtName) {
         this.courtName = courtName;
     }
 
-    public String getPriceBefore() {
-        return priceBefore;
+    public String getDiscountText() {
+        return this.discountText;
     }
 
-    public void setPriceBefore(String priceBefore) {
-        this.priceBefore = priceBefore;
-    }
-
-    public String getPriceAfter() {
-        return priceAfter;
-    }
-
-    public void setPriceAfter(String priceAfter) {
-        this.priceAfter = priceAfter;
+    public void setDiscountText(String discountText) {
+        this.discountText = discountText;
     }
 
     public int getCourtImage() {
-        return courtImage;
+        return this.courtImage;
     }
 
     public void setCourtImage(int courtImage) {
         this.courtImage = courtImage;
+    }
+
+    @Override
+    public String toString() {
+        return "CourtDiscount{" +
+                "courtName='" + courtName + '\'' +
+                ", discountText='" + discountText + '\'' +
+                ", courtImage=" + courtImage +
+                ", discountDescription='" + discountDescription + '\'' +
+                '}';
     }
 }
