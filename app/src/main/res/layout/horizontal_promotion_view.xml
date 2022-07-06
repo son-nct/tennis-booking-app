@@ -8,6 +8,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/grounded_edge"
+        android:elevation="5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -42,15 +46,15 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="55dp"
             app:srcCompat="@drawable/ic_tag_svgrepo_com" />
 
         <ImageView
             android:id="@+id/imgCourtPromoHorizontal"
             android:layout_width="150dp"
-            android:layout_marginLeft="10dp"
-            android:layout_height="150dp" />
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp" />
     </LinearLayout>
 
 </RelativeLayout>
