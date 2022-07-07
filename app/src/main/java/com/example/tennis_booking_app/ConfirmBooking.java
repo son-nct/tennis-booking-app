@@ -13,12 +13,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ConfirmBooking extends AppCompatActivity {
     TextView txtTennis2,txtTennis21,txtDientich2,txtNote,
             txtSlot,txtGia,txtNgay,txtGia2,txtTong;
     TextView edtPromo;
-    Button btNhan;
+    Button btNhan,btKM1,btKM2,btKM3;
     Intent intent1, intentKM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class ConfirmBooking extends AppCompatActivity {
         edtPromo=(TextView) findViewById(R.id.edtPromo);
         btNhan=(Button)findViewById(R.id.btNhan);
         txtNote=(TextView)findViewById(R.id.txtNote);
+
 
         intent1=getIntent();
         intentKM=getIntent();
@@ -68,7 +70,6 @@ public class ConfirmBooking extends AppCompatActivity {
             txtSlot.setText(caChoiKM.getThoiluong());
             txtGia.setText(caChoiKM.getGia());
             txtGia2.setText(caChoiKM.getGia());
-            txtTong.setText(Integer.parseInt(caChoiKM.getGia())- 10000);
             txtNgay.setText(dateKM);
             txtNote.setText(noteKM);
         }
@@ -79,6 +80,8 @@ public class ConfirmBooking extends AppCompatActivity {
                 DialogKM();
             }
         });
+
+
 
         btNhan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +97,33 @@ public class ConfirmBooking extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_khuyen_mai);
         dialog.setCanceledOnTouchOutside(false);
-
+        btKM1=(Button)dialog.findViewById(R.id.btKM1);
+        btKM2=(Button)dialog.findViewById(R.id.btKM2);
+        btKM3=(Button)dialog.findViewById(R.id.btKM3);
+        btKM1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtPromo.setText("20.0000 vnd");
+                txtTong.setText("130.000 vnd");
+                dialog.dismiss();
+            }
+        });
+        btKM2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtPromo.setText("30.0000 vnd");
+                txtTong.setText("120.000 vnd");
+                dialog.dismiss();
+            }
+        });
+        btKM3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtPromo.setText("40.0000 vnd");
+                txtTong.setText("110.000 vnd");
+                dialog.dismiss();
+            }
+        });
         dialog.show();
     }
 }
