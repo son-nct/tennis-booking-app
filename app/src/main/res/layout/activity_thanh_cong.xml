@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_main"
-    tools:context=".ThanhCong">
+    tools:context=".TruongNL.ThanhCong">
 
     <ImageView
         android:id="@+id/imgHomeTC"
