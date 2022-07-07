@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.apachat:loadingbutton-android:1.0.11@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6426e2723ddd91e9a07e5501c8a9ce5d/transformed/loadingbutton-android-1.0.11/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6426e2723ddd91e9a07e5501c8a9ce5d/transformed/loadingbutton-android-1.0.11/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6426e2723ddd91e9a07e5501c8a9ce5d/transformed/loadingbutton-android-1.0.11/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.apachat/loadingbutton-android/1.0.11/8b8c3b8195221704d7f87eb31c3ddd577090288a/loadingbutton-android-1.0.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
