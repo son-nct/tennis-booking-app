@@ -69,6 +69,8 @@ public class CourtDiscountHorizontalAdapter extends RecyclerView.Adapter<CourtDi
         });
     }
 
+
+
     @Override
     public int getItemCount() {
         return arrCourtDiscount.size();

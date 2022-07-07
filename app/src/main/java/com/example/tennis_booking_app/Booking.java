@@ -95,14 +95,14 @@ public class Booking extends AppCompatActivity {
 
     private void anhxa(){
         arrCachoi=new ArrayList<>();
-        arrCachoi.add(new CaChoi("Slot 1","7:00-8:30","100,000vnd"));
-        arrCachoi.add(new CaChoi("Slot 2","8:45-10:15","100,000vnd"));
-        arrCachoi.add(new CaChoi("Slot 3","10:30-12:00","200,000vnd"));
-        arrCachoi.add(new CaChoi("Slot 4","12:30-14:00","200,000vnd"));
-        arrCachoi.add(new CaChoi("Slot 5","14:00-15:45","300,000vnd"));
-        arrCachoi.add(new CaChoi("Slot 6","16:00-17:30","300,000vnd"));
-        arrCachoi.add(new CaChoi("Slot 7","17:45-19:15","350,000vnd"));
-        arrCachoi.add(new CaChoi("Slot 8","19:30-21:00","350,000vnd"));
+        arrCachoi.add(new CaChoi("Slot 1","7:00-8:30","150,000vnd"));
+        arrCachoi.add(new CaChoi("Slot 2","8:45-10:15","150,000vnd"));
+        arrCachoi.add(new CaChoi("Slot 3","10:30-12:00","150,000vnd"));
+        arrCachoi.add(new CaChoi("Slot 4","12:30-14:00","150,000vnd"));
+        arrCachoi.add(new CaChoi("Slot 5","14:00-15:45","150,000vnd"));
+        arrCachoi.add(new CaChoi("Slot 6","16:00-17:30","150,000vnd"));
+        arrCachoi.add(new CaChoi("Slot 7","17:45-19:15","150,000vnd"));
+        arrCachoi.add(new CaChoi("Slot 8","19:30-21:00","150,000vnd"));
 
         adapter =new CaChoiAdapter(this,R.layout.list_ca_choi,arrCachoi);
         lvCaChoi.setAdapter(adapter);
