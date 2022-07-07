@@ -8,7 +8,28 @@
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/activity_lich_su.xml" value="0.24121621621621622" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_court_horizontal.xml" value="0.24121621621621622" />
         <entry key="..\:/FPT/Sem 7/booking-app/app/src/main/res/layout/list_history.xml" value="0.24121621621621622" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable-xxhdpi/ic_add_img.xml" value="0.1165" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable-xxhdpi/ic_back_img.xml" value="0.1865" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable-xxhdpi/ic_launcher_foreground.xml" value="0.136" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable-xxhdpi/ic_login_hero.xml" value="0.136" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable-xxhdpi/ic_register_hero.xml" value="0.136" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable/button_background_blue.xml" value="0.1" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable/ic_add_img.xml" value="0.1165" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable/ic_back_img.xml" value="0.1165" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable/ic_history_solid_svgrepo_com_1.xml" value="0.1165" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.136" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable/ic_login_hero.xml" value="0.1165" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/drawable/ic_register_hero.xml" value="0.136" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/font/adamina.xml" value="0.15572916666666667" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/font/allerta.xml" value="0.15572916666666667" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/layout/activity_booking.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/layout/activity_ready_login.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/layout/activity_starts.xml" value="0.22962962962962963" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.136" />
+        <entry key="..\:/Users/neopi/Desktop/Semester 7/HCI201/tennis - mobile app/tennis-booking-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.136" />
       </map>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
