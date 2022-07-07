@@ -43,14 +43,10 @@ public class Register extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(chkCheck.isChecked()){
-                    if(checkCondition()){
-                        register();
-                    }else{
-                        Toast.makeText(Register.this, "Có vẻ bạn chưa điền mục nào đấy, kiểm tra giúp mình nha", Toast.LENGTH_SHORT).show();
-                    }
+                if(checkCondition()){
+                    register();
                 }else{
-                    Toast.makeText(Register.this, "Bạn cần phải đồng ý để đăng kí tài khoản", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Input your empty field and try again", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -91,7 +87,7 @@ public class Register extends AppCompatActivity {
                         }
                     }, 700);
                 }else{
-                    Toast.makeText(Register.this, response.body().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }
 
