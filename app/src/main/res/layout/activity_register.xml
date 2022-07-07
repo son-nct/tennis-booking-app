@@ -38,6 +38,25 @@
         app:layout_constraintVertical_bias="0.097"
         tools:ignore="MissingConstraints" />
 
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="302dp"
+        android:layout_height="47dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:hint="Bạn muốn đăng nhập bằng tên gì?"
+        android:minHeight="48dp"
+        android:textColor="@color/purple_300"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.147"
+        tools:ignore="MissingConstraints" />
+
+
     <TextView
         android:id="@+id/lbEmail"
         android:layout_width="wrap_content"
@@ -56,13 +75,121 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="302dp"
+        android:layout_height="47dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:hint="Hứa sẽ không spam"
+        android:minHeight="48dp"
+        android:textColor="@color/purple_300"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.272"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/lbPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Mật khẩu"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.341"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="302dp"
+        android:layout_height="47dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:hint="Mật khẩu chỉ mình bạn biết"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="@color/purple_300"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.401"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/lbConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Nhập lại mật khẩu"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/txtConfirm"
+        android:layout_width="302dp"
+        android:layout_height="47dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:hint="Nhập lại mật khẩu"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="@color/purple_300"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.531"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/lbFullname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Tên đầy đủ"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.597"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
         android:id="@+id/txtFullname"
         android:layout_width="302dp"
         android:layout_height="47dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
         android:hint="Bạn tên gì vậy"
-        android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColor="@color/purple_300"
         android:textSize="19sp"
@@ -91,40 +218,6 @@
         app:layout_constraintVertical_bias="0.724"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Hứa sẽ không spam"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/lbPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Mật khẩu"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341"
-        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/txtPhone"
@@ -133,7 +226,7 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
         android:hint="Nếu như bạn không phiền"
-        android:inputType="textPassword"
+        android:inputType="phone"
         android:minHeight="48dp"
         android:textColor="@color/purple_300"
         android:textSize="19sp"
@@ -145,95 +238,6 @@
         app:layout_constraintVertical_bias="0.793"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/lbConfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Nhập lại mật khẩu"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/lbFullname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Tên đầy đủ"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.597"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Mật khẩu chỉ mình bạn biết"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtConfirm"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Nhập lại mật khẩu"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.531"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtUsername"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Bạn muốn đăng nhập bằng tên gì?"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147"
-        tools:ignore="MissingConstraints" />
 
     <CheckBox
         android:id="@+id/chkCheck"
