@@ -11,6 +11,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.tennis_booking_app.DetailsPromotion;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanAdapter;
 import com.example.tennis_booking_app.SanTennis;
@@ -40,7 +41,7 @@ public class SpecificCourtsActivity extends AppCompatActivity {
         lvSpecific.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(SpecificCourtsActivity.this, YardDetail.class);
+                Intent intent = new Intent(SpecificCourtsActivity.this, DetailsPromotion.class);
                 SanTennis sanTennis = arrSan.get(position);
                 intent.putExtra("sandetail", (Serializable) sanTennis);
                 startActivity(intent);
