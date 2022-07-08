@@ -3,37 +3,37 @@ package com.example.tennis_booking_app.Models;
 import java.util.List;
 
 public class UserError {
-    private List<Token> FullName;
-    private List<Token> Username;
-    private List<Token> PhoneNumber;
+    private String[] FullName;
+    private String[] Username;
+    private String[] PhoneNumber;
 
-    public UserError(List<Token> fullName, List<Token> username, List<Token> phoneNumber) {
+    public UserError(String[] fullName, String[] username, String[] phoneNumber) {
         FullName = fullName;
         Username = username;
         PhoneNumber = phoneNumber;
     }
 
-    public List<Token> getFullName() {
+    public String[] getFullName() {
         return FullName;
     }
 
-    public void setFullName(List<Token> fullName) {
+    public void setFullName(String[] fullName) {
         FullName = fullName;
     }
 
-    public List<Token> getUsername() {
+    public String[] getUsername() {
         return Username;
     }
 
-    public void setUsername(List<Token> username) {
+    public void setUsername(String[] username) {
         Username = username;
     }
 
-    public List<Token> getPhoneNumber() {
+    public String[] getPhoneNumber() {
         return PhoneNumber;
     }
 
-    public void setPhoneNumber(List<Token> phoneNumber) {
+    public void setPhoneNumber(String[] phoneNumber) {
         PhoneNumber = phoneNumber;
     }
 }
