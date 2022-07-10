@@ -36,7 +36,6 @@ public class ConfirmBooking extends AppCompatActivity {
         txtNgay=(TextView)findViewById(R.id.txtNgay);
         edtPromo=(TextView) findViewById(R.id.edtPromo);
         btNhan=(Button)findViewById(R.id.btNhan);
-        txtNote=(TextView)findViewById(R.id.txtNote);
 
 
         intent1=getIntent();
@@ -48,7 +47,6 @@ public class ConfirmBooking extends AppCompatActivity {
         if(ten2!=null){
             CaChoi caChoi2=(CaChoi)intent1.getSerializableExtra("cadetail");
             String d=intent1.getStringExtra("date");
-            String n=intent1.getStringExtra("note");
             txtTennis2.setText(ten2.getTen());
             txtTennis21.setText(ten2.getTen());
             txtDientich2.setText(ten2.getDientich());
@@ -57,13 +55,11 @@ public class ConfirmBooking extends AppCompatActivity {
             txtGia2.setText(caChoi2.getGia());
             txtTong.setText(caChoi2.getGia());
             txtNgay.setText(d);
-            txtNote.setText(n);
         }
 
         if(tenKM!=null){
             CaChoi caChoiKM=(CaChoi)intentKM.getSerializableExtra("cadetail");
             String dateKM=intentKM.getStringExtra("date");
-            String noteKM=intentKM.getStringExtra("note");
             txtTennis2.setText(tenKM.getTen());
             txtTennis21.setText(tenKM.getTen());
             txtDientich2.setText(tenKM.getDientich());
@@ -71,7 +67,6 @@ public class ConfirmBooking extends AppCompatActivity {
             txtGia.setText(caChoiKM.getGia());
             txtGia2.setText(caChoiKM.getGia());
             txtNgay.setText(dateKM);
-            txtNote.setText(noteKM);
         }
 
         edtPromo.setOnClickListener(new View.OnClickListener() {

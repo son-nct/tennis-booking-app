@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class CaChoi implements Serializable {
     private String slot,thoiluong,gia;
+    private boolean cb;
 
     public CaChoi(String slot, String thoiluong, String gia) {
         this.slot = slot;
@@ -21,6 +22,13 @@ public class CaChoi implements Serializable {
 
     public String getGia() {
         return gia;
+    }
+    public boolean isCb() {
+        return cb;
+    }
+
+    public void setCb(boolean cb) {
+        this.cb = cb;
     }
 
     public void setSlot(String slot) {

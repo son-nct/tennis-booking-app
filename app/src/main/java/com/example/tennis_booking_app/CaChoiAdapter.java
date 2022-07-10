@@ -1,12 +1,15 @@
 package com.example.tennis_booking_app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class CaChoiAdapter extends BaseAdapter {
@@ -45,9 +48,16 @@ public class CaChoiAdapter extends BaseAdapter {
         TextView btCa=(TextView) convertView.findViewById(R.id.btSLot);
         TextView txtThoiluong=(TextView) convertView.findViewById(R.id.txtThoi);
         TextView txtGia=(TextView) convertView.findViewById(R.id.txtGia);
+        CheckBox cbCachoi=(CheckBox)convertView.findViewById(R.id.cbCaChoi);
 
         CaChoi caChoi=caChoiList.get(position);
 
+        if(cbCachoi.isChecked()){
+            caChoi.setCb(true);
+            Intent intent=new Intent();
+            intent.putExtra("cachoi",(Serializable) caChoi);
+            context.startActivity(intent);
+        }
         btCa.setText(caChoi.getSlot());
         txtThoiluong.setText(caChoi.getThoiluong());
         txtGia.setText(caChoi.getGia());

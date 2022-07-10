@@ -135,18 +135,15 @@
         app:layout_constraintTop_toTopOf="@+id/imageView3"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/edtNote"
-        android:layout_width="342dp"
+    <Button
+        android:id="@+id/btOK"
+        android:layout_width="340dp"
         android:layout_height="45dp"
         android:layout_marginBottom="24dp"
-        android:hint="Ghi chú"
+        android:text="Ok day"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

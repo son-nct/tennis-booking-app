@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -25,6 +26,7 @@ public class Booking extends AppCompatActivity {
     CaChoiAdapter adapter;
     ArrayList<CaChoi> arrCachoi;
     Intent intent, intentKM;
+    Button btOK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +37,21 @@ public class Booking extends AppCompatActivity {
         edtTime=(EditText) findViewById(R.id.edtTime);
         lvCaChoi=(ListView)findViewById(R.id.lvCaChoi);
         txtNote=(EditText)findViewById(R.id.edtNote);
+        btOK = (Button) findViewById(R.id.btOK);
 
         intent=getIntent();
         intentKM =getIntent();
 
         SanTennis ten=(SanTennis) intent.getSerializableExtra("sandetail");
         SanKM sanKM=(SanKM) intentKM.getSerializableExtra("sanKMDetail");
+        CaChoi caChoi = (CaChoi) intent.getSerializableExtra("cachoi");
 
         if(ten == null){
             txtTennis.setText(sanKM.getTen());
         }else {
             txtTennis.setText(ten.getTen());
         }
+
 
         edtTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +62,18 @@ public class Booking extends AppCompatActivity {
 
         anhxa();
 
-        lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        btOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (caChoi.isCb() == true) {
+                    intent = new Intent(Booking.this, ConfirmBooking.class);
+                    intent.putExtra("cachoi2", caChoi);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        /*lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 intent=new Intent(Booking.this,ConfirmBooking.class);
@@ -73,7 +89,7 @@ public class Booking extends AppCompatActivity {
                 intent.putExtra("note",txtNote.getText().toString());
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     private void chonngay() {
