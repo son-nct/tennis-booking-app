@@ -48,16 +48,17 @@ public class CaChoiAdapter extends BaseAdapter {
         TextView btCa=(TextView) convertView.findViewById(R.id.btSLot);
         TextView txtThoiluong=(TextView) convertView.findViewById(R.id.txtThoi);
         TextView txtGia=(TextView) convertView.findViewById(R.id.txtGia);
-        CheckBox cbCachoi=(CheckBox)convertView.findViewById(R.id.cbCaChoi);
+        CheckBox cbCachoi=(CheckBox) convertView.findViewById(R.id.cbCaChoi);
+        cbCachoi.setFocusable(false);
 
         CaChoi caChoi=caChoiList.get(position);
 
-        if(cbCachoi.isChecked()){
+       /* if(cbCachoi.isChecked()){
             caChoi.setCb(true);
             Intent intent=new Intent();
             intent.putExtra("cachoi",(Serializable) caChoi);
             context.startActivity(intent);
-        }
+        }*/
         btCa.setText(caChoi.getSlot());
         txtThoiluong.setText(caChoi.getThoiluong());
         txtGia.setText(caChoi.getGia());

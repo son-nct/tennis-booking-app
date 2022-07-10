@@ -4,12 +4,22 @@ import java.io.Serializable;
 
 public class CaChoi implements Serializable {
     private String slot,thoiluong,gia;
-    private boolean cb;
+    private int id;
 
-    public CaChoi(String slot, String thoiluong, String gia) {
+    public CaChoi(int id,String slot, String thoiluong, String gia) {
+        this.id=id;
         this.slot = slot;
         this.thoiluong = thoiluong;
         this.gia= gia;
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSlot() {
@@ -23,13 +33,7 @@ public class CaChoi implements Serializable {
     public String getGia() {
         return gia;
     }
-    public boolean isCb() {
-        return cb;
-    }
 
-    public void setCb(boolean cb) {
-        this.cb = cb;
-    }
 
     public void setSlot(String slot) {
         this.slot = slot;
