@@ -154,8 +154,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setWelcome() {
         Intent intent = getIntent();
-        String welcome = intent.getStringExtra("data");
-        txtWelcome.setText("Xin chào " + welcome);
+//        String welcome = intent.getStringExtra("data");
+//        txtWelcome.setText("Xin chào " + welcome);
     }
 
     private void initData() {
