@@ -36,15 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="380dp"
         android:background="#22C866">
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp"
-            app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
-
         <TextView
             android:id="@+id/txtTenSan"
             android:layout_width="wrap_content"

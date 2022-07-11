@@ -21,16 +21,16 @@ public class LichSu extends AppCompatActivity {
         setContentView(R.layout.activity_lich_su);
         lvHis=(ListView) findViewById(R.id.lvLichsu);
         arrHis=new ArrayList<>();
-        arrHis.add(new History(R.drawable.tennis,"Sân 1A","Slot 7: 17:45-19:15"," 2 Apr 2022, 8:34","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Cộng Hòa Tennis","Slot 2: 8:45-10:15","  4 Apr 2022, 10:00","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Thủ Thiêm","Slot 7: 17:00 - 18:30"," 2 Apr 2022, 8:34","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Thủ Đức Tennis","Slot 7: 17:00 - 18:30"," 2 Apr 2022, 8:34","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Thủ Đức Tennis","Slot 7: 17:00 - 18:30"," 2 Apr 2022, 8:34","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Sa Sa Tennis","Slot 7: 17:00 - 18:30"," 20 Apr 2022, 9:34","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Kim Sa","Slot 7: 17:00 - 18:30"," 2 Apr 2022, 12:34","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Hoàng Sa Tennis","Slot 7: 17:00 - 18:30"," 2 Apr 2022, 15:34","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Trường Sa Tennis","Slot 7: 17:00 - 18:30"," 2 Apr 2022, 9:34","150,000vnd"));
-        arrHis.add(new History(R.drawable.tennis,"Kim Tennis","Slot 7: 17:00 - 18:30"," 2 Apr 2022, 13:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Sân 1A","Slot 7: 17:45-19:15","2/4/2022, 8:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Cộng Hòa Tennis","Slot 2: 8:45-10:15","4/4/2022, 10:00","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Thủ Thiêm","Slot 7: 17:00 - 18:30","2/4/2022, 8:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Thủ Đức Tennis","Slot 7: 17:00 - 18:30","2/4/2022, 8:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Thủ Đức Tennis","Slot 7: 17:00 - 18:30","2/4/2022, 8:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Sa Sa Tennis","Slot 7: 17:00 - 18:30","20/4/2022, 8:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Kim Sa","Slot 7: 17:00 - 18:30","2/4/2022, 8:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Hoàng Sa Tennis","Slot 7: 17:00 - 18:30","2/4/2022, 8:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Trường Sa Tennis","Slot 7: 17:00 - 18:30","2/4/2022, 8:34","150,000vnd"));
+        arrHis.add(new History(R.drawable.tennis,"Kim Tennis","Slot 7: 17:00 - 18:30","2/4/2022, 8:34","150,000vnd"));
 
 
         adapter=new LichSuAdapter(this,R.layout.list_history,arrHis);
