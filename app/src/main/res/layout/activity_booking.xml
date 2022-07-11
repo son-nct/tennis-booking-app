@@ -138,13 +138,28 @@
 
     <Button
         android:id="@+id/btOK"
-        android:layout_width="340dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:drawableTint="@color/green_main"
         android:text="Tiếp Tục"
-        android:textSize="20dp"
+        android:layout_marginBottom="18dp"
+        android:fontFamily="@font/allerta"
+        android:backgroundTint="@color/green_main"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
+<!--    <Button-->
+<!--        android:layout_width="340dp"-->
+<!--        android:background="re"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        android:text="Tiếp Tục"-->
+<!--        android:textSize="20dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:ignore="MissingConstraints" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

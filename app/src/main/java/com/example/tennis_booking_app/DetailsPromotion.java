@@ -101,10 +101,9 @@ public class DetailsPromotion extends AppCompatActivity {
     }
 
     private void initdata() {
-        arrCourtDiscount.add(new CourtDiscount("Sân đất nện", "Giảm 20.000đ", R.drawable.tennis_clay, "Nhập mã BANCUAPHUC để được ưu đãi 20.000đ khi đặt sân"));
-        arrCourtDiscount.add(new CourtDiscount("Sân cỏ 1A", "Giảm 25.000đ", R.drawable.tennis_grass, "Nhập mã BANCUAPHUC để được ưu đãi 20.000đ khi đặt sân"));
-        arrCourtDiscount.add(new CourtDiscount("Sân cỏ 2B", "Giảm 10.000đ", R.drawable.tennis_grass, "Nhập mã BANCUAPHUC để được ưu đãi 20.000đ khi đặt sân"));
-        arrCourtDiscount.add(new CourtDiscount("Sân cứng FPT", "Giảm 20.000đ", R.drawable.tennisq7, "Nhập mã BANCUAPHUC để được ưu đãi 20.000đ khi đặt sân"));
+        arrCourtDiscount.add(new CourtDiscount("Khách Quen Thân Yêu", "Giảm 20.000đ", R.drawable.tennis_clay, "Nhập mã KHACHQUEN để được ưu đãi 20.000đ khi đặt sân từ 3 lần trở lên"));
+        arrCourtDiscount.add(new CourtDiscount("Cuối Tuần Vui Vẻ", "Giảm 30.000đ", R.drawable.tennis_grass, "Nhập mã CUOITUAN để được ưu đãi 30.000đ khi đặt sân vào T7 & Chủ Nhật"));
+        arrCourtDiscount.add(new CourtDiscount("Mời bạn Lần Đầu", "Giảm 50.000đ", R.drawable.tennis_grass, "Nhập mã LANDAU để được ưu đãi 50.000đ khi đặt sân lần đầu"));
         courtDiscountHorizontalAdapter.notifyDataSetChanged();
     }
 }

@@ -18,7 +18,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="31dp"
             android:fontFamily="@font/inter"
-            android:text="court-type-here"
+            android:text="Danh Sách Cửa Hàng Khuyến Mãi"
             android:textColor="@color/black"
             android:textSize="24dp" />
     </RelativeLayout>

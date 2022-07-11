@@ -46,6 +46,7 @@ public class ConfirmBooking extends AppCompatActivity {
         Bundle bundle = intent1.getBundleExtra("data");
         arrSelected = (ArrayList<CaChoi>) bundle.getSerializable("arrSlotSelected");
 
+
        /* if (ten2 != null) {
             CaChoi caChoi2 = (CaChoi) intent1.getSerializableExtra("cadetail");
             String d = bundle.getString("date");
@@ -81,12 +82,12 @@ public class ConfirmBooking extends AppCompatActivity {
                     selected_slot_price += caChoi.getThoiluong()+ ", ";
                     sum += Integer.parseInt(caChoi.getGia());
 
-
                 }
 
                 txtSlot.setText(selected_slot);
                 txtGia.setText(selected_slot_price);
                 txtGia2.setText(sum+" vnđ");
+                txtTong.setText(sum+" vnđ");
 //                    txtTong.setText(sum);
 
 //                System.out.println("slot : "+ selected_slot);

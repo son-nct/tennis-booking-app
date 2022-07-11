@@ -89,7 +89,7 @@ public class Booking extends AppCompatActivity {
 
                 }
 
-                Toast.makeText(Booking.this, "đã thêm", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Booking.this, "đã chọn", Toast.LENGTH_SHORT).show();
             }
         });
 

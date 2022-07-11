@@ -240,7 +240,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:layout_marginTop="540dp"
-        android:text="LANDAU123"
+        android:text="Chọn Khuyến Mãi"
         android:textColor="@color/green"
         android:textSize="20dp"
         android:textStyle="italic"
