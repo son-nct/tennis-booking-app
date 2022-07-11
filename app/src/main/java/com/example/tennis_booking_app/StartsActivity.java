@@ -35,7 +35,7 @@ public class StartsActivity extends AppCompatActivity {
 
         etUsername = (EditText) findViewById(R.id.txtUsername);
         etPassword = (EditText) findViewById(R.id.txtPassword);
-        btnContinue = (Button) findViewById(R.id.btnLogin);
+        btnContinue = (Button) findViewById(R.id.btnLoginAcocunt);
 
 //        tvforgotPassword.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -62,6 +62,7 @@ public class StartsActivity extends AppCompatActivity {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername(etUsername.getText().toString());
         loginRequest.setPassword(etPassword.getText().toString());
+        System.out.println("username + password " + etUsername.getText().toString() + " - " + etPassword.getText().toString());
         loginRequest.setClientId(3);
         loginRequest.setAutoSignIn(true);
 
