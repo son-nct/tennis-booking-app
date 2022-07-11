@@ -79,14 +79,14 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
                 context.startActivity(intent);
             }
         });
-        holder.rvSan.setOnClickListener(new View.OnClickListener() {
+        /*holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, DetailsPromotion.class);
                 intent.putExtra("sandetail", (Serializable) sanKM);
                 context.startActivity(intent);
             }
-        });
+        });*/
     }
 
     @Override

@@ -65,7 +65,7 @@ public class DetailsPromotion extends AppCompatActivity {
 
         arrSanKM = new ArrayList<>();
 
-        arrSanKM.add(new SanKM("Sân 1A - Sân đất nện", "36.57m x 18.29m", "70.000 - 300.000 đ", "TENNIS10", R.drawable.tennis_clay, "5", "4.3"));
+        arrSanKM.add(new SanKM("Sân 1A - Sân đất nện", "36.57m x 18.29m", "100.000 - 300.000 đ", "TENNIS10", R.drawable.tennis_clay, "5", "4.3"));
         arrSanKM.add(new SanKM("Sân 2A - Sân PVC", "36.57m x 18.29m", "100.000 - 350.000 đ", "TENNIS10", R.drawable.tennis_grass, "4.6", "4.3"));
         arrSanKM.add(new SanKM("Sân 2B - Sân cỏ", "36.57m x 18.29m", "150.000 - 400.000 đ", "TENNIS10", R.drawable.tennis_grass, "5", "4.3"));
 
