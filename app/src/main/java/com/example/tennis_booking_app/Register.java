@@ -122,29 +122,32 @@ public class Register extends AppCompatActivity {
 
     private boolean checkCondition() {
         getData();
-        boolean check = true;
-        if (check) {
-            if (username.length() == 0) {
-                setError(txtUsername, "Username không được để trống");
-            }
-            if (email.length() == 0) {
-                setError(txtEmail, "Email không được để trống");
-            }
-            if (phone.length() == 0) {
-                setError(txtConfirm, "Số điện thoại không được để trống");
-            }
-            if (password.length() == 0) {
-                setError(txtPassword, "Mật khẩu không được để trống");
-            }
-            if (confirmPass.length() == 0 && !password.equals(confirmPass)) {
-                setError(txtConfirm, "Nhập lại mật khẩu không chính xác");
-            }
-            if (fullname.length() == 0) {
-                setError(txtConfirm, "Tên đầy đủ không được để trống");
-            }
-            return false;
-        } else
-            return true;
+        boolean isValid = true;
+        if (username.length() == 0) {
+            setError(txtUsername, "Username không được để trống");
+            isValid = false;
+        }
+        if (email.length() == 0) {
+            setError(txtEmail, "Email không được để trống");
+            isValid = false;
+        }
+        if (phone.length() == 0) {
+            setError(txtConfirm, "Số điện thoại không được để trống");
+            isValid = false;
+        }
+        if (password.length() == 0) {
+            setError(txtPassword, "Mật khẩu không được để trống");
+            isValid = false;
+        }
+        if (confirmPass.length() == 0 || !password.equals(confirmPass)) {
+            setError(txtConfirm, "Nhập lại mật khẩu không chính xác");
+            isValid = false;
+        }
+        if (fullname.length() == 0) {
+            setError(txtConfirm, "Tên đầy đủ không được để trống");
+            isValid = false;
+        }
+        return isValid;
     }
 
     private void changeStatusBarColor() {
