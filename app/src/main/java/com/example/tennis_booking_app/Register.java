@@ -1,7 +1,5 @@
 package com.example.tennis_booking_app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,16 +12,15 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.UserError;
 import com.example.tennis_booking_app.ViewModels.Register.RegisterRequest;
 import com.example.tennis_booking_app.ViewModels.Register.RegisterResponse;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
 import java.util.Scanner;
 
 import okhttp3.ResponseBody;
@@ -107,8 +104,14 @@ public class Register extends AppCompatActivity {
                     ResponseBody rsErrBody = response.errorBody();
                     Scanner s = new Scanner(rsErrBody.byteStream()).useDelimiter("\\A");
                     String result = s.hasNext() ? s.next() : "";
-                    System.out.println("res body" + result);   // lấy được array báo lỗi rồi, giờ chỉ việc lọc ra, add vào UserError
-                    JsonArray jsonArray = new JsonArray();
+                    Gson g = new Gson();
+                    UserError userErr = g.fromJson(result, UserError.class);
+                    String[] fullName = userErr.getFullName();
+                    String[] username = userErr.getUsername();
+                    String[] phoneNumber = userErr.getPhoneNumber();
+
+
+                    // lấy được array báo lỗi rồi, giờ chỉ việc lọc ra, add vào UserError
                 }
             }
 
