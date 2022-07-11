@@ -71,6 +71,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         holder.txtKhoangCach.setText(sanKM.getKhoangCach());
 
         holder.txtGiaPromo.getText().toString().trim();
+
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +80,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
                 context.startActivity(intent);
             }
         });
+
         /*holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,6 +1,7 @@
 package com.example.tennis_booking_app.adapter.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tennis_booking_app.DetailsPromotion;
 import com.example.tennis_booking_app.Models.Court;
 import com.example.tennis_booking_app.R;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAdapter.MyViewHolder> {
@@ -24,6 +27,7 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
         ImageView imgCourt;
         TextView txtCourtName, txtAddress, txtSize, txtPrice;
         LinearLayout courtContainer;
+        LinearLayout rvFavCourt;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -32,6 +36,7 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
             txtAddress = itemView.findViewById(R.id.txtAddress);
             txtSize = itemView.findViewById(R.id.txtSize);
             txtPrice = itemView.findViewById(R.id.txtCourtPrice);
+            rvFavCourt = itemView.findViewById(R.id.courtContainer);
             courtContainer = itemView.findViewById(R.id.courtContainer);
         }
     }
@@ -60,7 +65,14 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
         holder.txtSize.setText(court_fav.getWidth()+ "m" + " x " + court_fav.getHeight()+ "m" );
         holder.txtPrice.setText(court_fav.getPrice());
 
-
+        holder.rvFavCourt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, DetailsPromotion.class);
+                intent.putExtra("sandetail1", (Serializable) court_fav);
+                context.startActivity(intent);
+            }
+        });
 //
 //        holder.rvSan.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -269,7 +269,6 @@
                 app:srcCompat="@drawable/line" />
 
             <LinearLayout
-                android:id="@+id/linear1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -286,7 +285,6 @@
                     android:textStyle="normal" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/viewFavCourt"
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
                     android:layout_marginBottom="18dp" />
