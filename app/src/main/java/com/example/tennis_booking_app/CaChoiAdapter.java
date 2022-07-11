@@ -61,7 +61,7 @@ public class CaChoiAdapter extends BaseAdapter {
         }*/
         btCa.setText(caChoi.getSlot());
         txtThoiluong.setText(caChoi.getThoiluong());
-        txtGia.setText(caChoi.getGia());
+        txtGia.setText(caChoi.getPriceByName());
 
         return convertView;
     }

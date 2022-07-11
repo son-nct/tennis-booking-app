@@ -19,6 +19,7 @@ public class ConfirmBooking extends AppCompatActivity {
     Button btNhan, btKM1, btKM2, btKM3;
     Intent intent1, intentKM;
     ArrayList<CaChoi> arrSelected;
+    int sum=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,14 +73,25 @@ public class ConfirmBooking extends AppCompatActivity {
             txtTennis21.setText(tenKM.getTen());
             txtDientich2.setText(tenKM.getDientich());
             if (arrSelected.size() > 0) {
-                int sum=0;
+                String selected_slot = "";
+                String selected_slot_price = "";
+
                 for (CaChoi caChoi : arrSelected) {
-                    txtSlot.setText(caChoi.getThoiluong() + ", ");
-                    txtGia.setText(caChoi.getGia() + ", ");
-                    txtGia2.setText(caChoi.getGia() + ", ");
-                    sum+= Integer.parseInt(caChoi.getGia());
-                    txtTong.setText(sum);
+                    selected_slot += caChoi.getSlot()+ ", ";
+                    selected_slot_price += caChoi.getThoiluong()+ ", ";
+                    sum += Integer.parseInt(caChoi.getGia());
+
+
                 }
+
+                txtSlot.setText(selected_slot);
+                txtGia.setText(selected_slot_price);
+                txtGia2.setText(sum+" vnđ");
+//                    txtTong.setText(sum);
+
+//                System.out.println("slot : "+ selected_slot);
+//                System.out.println("price_slot : "+ selected_slot_price);
+//                System.out.println("price : "+ sum);
             }
 
             txtNgay.setText(d);
@@ -114,24 +126,27 @@ public class ConfirmBooking extends AppCompatActivity {
         btKM1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                edtPromo.setText("20.0000 vnd");
-                txtTong.setText("130.000 vnd");
+                edtPromo.setText("NGUOIQUEN");
+                int total = sum - 20000;
+                txtTong.setText(total+" vnđ");
                 dialog.dismiss();
             }
         });
         btKM2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                edtPromo.setText("30.0000 vnd");
-                txtTong.setText("120.000 vnd");
+                edtPromo.setText("CUOITUAN");
+                int total = sum - 30000;
+                txtTong.setText(total+" vnđ");
                 dialog.dismiss();
             }
         });
         btKM3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                edtPromo.setText("40.0000 vnd");
-                txtTong.setText("110.000 vnd");
+                edtPromo.setText("LANDAU");
+                int total = sum - 50000;
+                txtTong.setText(total+" vnđ");
                 dialog.dismiss();
             }
         });

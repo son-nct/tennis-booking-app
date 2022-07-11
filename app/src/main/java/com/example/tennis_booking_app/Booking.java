@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,6 +45,8 @@ public class Booking extends AppCompatActivity {
         intent = getIntent();
         intentKM = getIntent();
 
+        arrSlotSelected = new ArrayList<CaChoi>();
+
         SanTennis ten = (SanTennis) intent.getSerializableExtra("sandetail");
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
         //CaChoi caChoi = (CaChoi) intent.getSerializableExtra("cachoi");
@@ -63,18 +66,16 @@ public class Booking extends AppCompatActivity {
         });
 
         anhxa();
-        lvCaChoi.setClickable(false);
 
         lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CaChoi ca = arrCachoi.get(position);
-                if(cbCachoi.isChecked()){
-                    cbCachoi.setChecked(false);
-                }else{
-                    cbCachoi.setChecked(true);
-                }
-                if (!cbCachoi.isChecked()) {
+                CheckBox cb_slot = (CheckBox) view.findViewById(R.id.cbCaChoi);
+
+                if (cb_slot.isChecked()) {
+                    cb_slot.setChecked(false);
+
                     if (arrSlotSelected.size() > 0) {
                         for (CaChoi caChoi : arrSlotSelected) {
                             if (caChoi.getId() == ca.getId()) {
@@ -83,12 +84,16 @@ public class Booking extends AppCompatActivity {
                         }
                     }
                 } else {
-                    arrSlotSelected.add(ca);
+                    cb_slot.setChecked(true);
+                    addSelectedSlot(ca);
 
                 }
 
+                Toast.makeText(Booking.this, "đã thêm", Toast.LENGTH_SHORT).show();
             }
         });
+
+
         btOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,14 +104,33 @@ public class Booking extends AppCompatActivity {
                 if (sanKM != null) {
                     intent.putExtra("sandetailKM", (Serializable) sanKM);
                 }
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("arrSlotSelected", (Serializable) arrSlotSelected);
-                bundle.putString("date", edtTime.getText().toString());
 
-                intent.putExtra("data", bundle);
-                startActivity(intent);
+                if (arrSlotSelected.size() == 0) {
+                    Toast.makeText(Booking.this, "Xin vui lòng chọn ca chơi !", Toast.LENGTH_LONG).show();
+                } else {
+                    if (edtTime.length() == 0) {
+                        Toast.makeText(Booking.this, "Xin vui lòng chọn ngày đặt !", Toast.LENGTH_LONG).show();
+                    } else {
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("arrSlotSelected", (Serializable) arrSlotSelected);
+                        bundle.putString("date", edtTime.getText().toString());
+
+                        intent.putExtra("data", bundle);
+                        startActivity(intent);
+                    }
+                }
+
             }
         });
+    }
+
+    private void addSelectedSlot(CaChoi ca) {
+        arrSlotSelected.add(ca);
+        System.out.println("size: " + arrSlotSelected.size());
+        for (CaChoi cachoi : arrSlotSelected
+        ) {
+            System.out.println(cachoi.toString());
+        }
     }
 
     private void chonngay() {
@@ -128,14 +152,14 @@ public class Booking extends AppCompatActivity {
 
     private void anhxa() {
         arrCachoi = new ArrayList<>();
-        arrCachoi.add(new CaChoi(1, "Slot 1", "7:00-8:30", "150,000"));
-        arrCachoi.add(new CaChoi(2, "Slot 2", "8:45-10:15", "150,000"));
-        arrCachoi.add(new CaChoi(3, "Slot 3", "10:30-12:00", "150,000"));
-        arrCachoi.add(new CaChoi(4, "Slot 4", "12:30-14:00", "150,000"));
-        arrCachoi.add(new CaChoi(5, "Slot 5", "14:00-15:45", "150,000"));
-        arrCachoi.add(new CaChoi(6, "Slot 6", "16:00-17:30", "150,000"));
-        arrCachoi.add(new CaChoi(7, "Slot 7", "17:45-19:15", "150,000"));
-        arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "150,000"));
+        arrCachoi.add(new CaChoi(1, "Slot 1", "7:00-8:30", "150000","150000 vnđ"));
+        arrCachoi.add(new CaChoi(2, "Slot 2", "8:45-10:15", "150000","150000 vnđ"));
+        arrCachoi.add(new CaChoi(3, "Slot 3", "10:30-12:00", "150000", "150000 vnđ"));
+        arrCachoi.add(new CaChoi(4, "Slot 4", "12:30-14:00", "170000","170000 vnđ"));
+        arrCachoi.add(new CaChoi(5, "Slot 5", "14:00-15:45", "170000","170000 vnđ"));
+        arrCachoi.add(new CaChoi(6, "Slot 6", "16:00-17:30", "170000","170000 vnđ"));
+        arrCachoi.add(new CaChoi(7, "Slot 7", "17:45-19:15", "200000","200000 vnđ"));
+        arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000","200000 vnđ"));
 
         adapter = new CaChoiAdapter(this, R.layout.list_ca_choi, arrCachoi);
         lvCaChoi.setAdapter(adapter);
