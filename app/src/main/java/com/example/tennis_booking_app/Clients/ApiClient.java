@@ -15,7 +15,7 @@ public class ApiClient {
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://171.244.136.52:5511/api/")
+                .baseUrl("https://coreapi.softek.com.vn/api/ ")
                 .client(okHttpClient)
                 .build();
     }
