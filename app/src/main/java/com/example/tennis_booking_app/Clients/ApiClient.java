@@ -5,8 +5,6 @@ import androidx.annotation.NonNull;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.Service.UserService;
 import com.example.tennis_booking_app.Service.CourtService;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
