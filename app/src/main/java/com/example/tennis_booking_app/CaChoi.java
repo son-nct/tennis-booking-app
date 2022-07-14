@@ -3,12 +3,24 @@ package com.example.tennis_booking_app;
 import java.io.Serializable;
 
 public class CaChoi implements Serializable {
-    private String slot,thoiluong,gia;
+    private String slot,thoiluong,gia,priceByName;
+    private int id;
 
-    public CaChoi(String slot, String thoiluong, String gia) {
+    public CaChoi(int id,String slot, String thoiluong, String gia,String priceByName) {
+        this.id=id;
         this.slot = slot;
         this.thoiluong = thoiluong;
         this.gia= gia;
+        this.priceByName = priceByName;
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSlot() {
@@ -23,6 +35,7 @@ public class CaChoi implements Serializable {
         return gia;
     }
 
+
     public void setSlot(String slot) {
         this.slot = slot;
     }
@@ -33,5 +46,23 @@ public class CaChoi implements Serializable {
 
     public void setGia(String gia) {
         this.gia = gia;
+    }
+
+    public String getPriceByName() {
+        return priceByName;
+    }
+
+    public void setPriceByName(String priceByName) {
+        this.priceByName = priceByName;
+    }
+
+    @Override
+    public String toString() {
+        return "CaChoi{" +
+                "slot='" + slot + '\'' +
+                ", thoiluong='" + thoiluong + '\'' +
+                ", gia='" + gia + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

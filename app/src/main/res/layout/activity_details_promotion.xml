@@ -182,7 +182,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="-2dp"
-                        android:text="Giờ Hoạt Động : 5:00 - 22:00"
+                        android:text="Giờ Hoạt Động : 7:00 - 21:00"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -251,7 +251,6 @@
         android:layout_height="220dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="380dp"
-        android:padding="10dp"
         tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView

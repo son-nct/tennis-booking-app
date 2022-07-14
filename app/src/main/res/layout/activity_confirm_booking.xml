@@ -240,7 +240,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:layout_marginTop="540dp"
-        android:text="LANDAU123"
+        android:text="Chọn Khuyến Mãi"
         android:textColor="@color/green"
         android:textSize="20dp"
         android:textStyle="italic"
@@ -270,34 +270,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="640dp"
-        android:text="Ghi Chú:"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/txtTong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:layout_marginTop="600dp"
         android:text="Tổng phí"
-        android:textStyle="italic"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/txtNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="640dp"
-        android:text="Note"
         android:textStyle="italic"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"

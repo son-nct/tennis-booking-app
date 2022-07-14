@@ -12,12 +12,11 @@
         android:backgroundTint="@color/black_100"
         android:fontFamily="@font/alata"
         android:text="Đánh Giá"
-        android:layout_marginTop="710dp"
+        android:layout_marginTop="730dp"
         android:layout_marginStart="40dp"
         android:textColor="@color/black"
         android:textSize="19sp"
         tools:ignore="MissingConstraints" />
-
 
     <Button
         android:id="@+id/btnHuy"
@@ -25,7 +24,7 @@
         android:layout_height="50sp"
         android:backgroundTint="@color/black_100"
         android:layout_marginStart="240dp"
-        android:layout_marginTop="710dp"
+        android:layout_marginTop="730dp"
         android:fontFamily="@font/alata"
         android:text="Hủy"
         android:textColor="@color/black"
@@ -36,15 +35,6 @@
         android:layout_width="match_parent"
         android:layout_height="380dp"
         android:background="#22C866">
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp"
-            app:srcCompat="@drawable/ic_previous_svgrepo_com_1" />
-
         <TextView
             android:id="@+id/txtTenSan"
             android:layout_width="wrap_content"
@@ -102,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="340dp"
-            android:text="Mở cửa 24/24"
+            android:text="Mở cửa từ 7:00 - 21:00"
             android:textSize="18dp" />
     </RelativeLayout>
 
@@ -116,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Tổng: 150.000 đồng"
+            android:text="Tổng: 290.000 vnđ"
             android:textColor="@color/white"
             android:textSize="24dp" />
     </RelativeLayout>
@@ -141,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="50dp"
-            android:text="Some promotion here"
+            android:text="LANDAU"
             android:textSize="21dp"
             android:textStyle="italic" />
 
@@ -150,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="100dp"
-            android:text="Content:"
+            android:text="Ca chơi:"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -159,7 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="140dp"
-            android:text="Some content here"
+            android:text="Ca 4: 12:30 - 14:00 - 170.000 vnđ\nCa 5: 14:15 - 15:45 - 170.000 vnđ"
             android:textSize="21dp"
             android:textStyle="italic" />
 
@@ -167,8 +157,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="190dp"
-            android:text="Content:"
+            android:layout_marginTop="200dp"
+            android:text="Trạng thái:"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -176,8 +166,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="230dp"
-            android:text="Không biết địa chỉ đâu đừng hỏi tui"
+            android:layout_marginTop="240dp"
+            android:text="Đã thanh toán"
             android:textSize="21dp"
             android:textStyle="italic" />
 

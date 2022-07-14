@@ -168,17 +168,17 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setWelcome() {
         Intent intent = getIntent();
-        String welcome = intent.getStringExtra("data");
-        txtWelcome.setText("Xin chào " + welcome);
+//        String welcome = intent.getStringExtra("data");
+//        txtWelcome.setText("Xin chào " + welcome);
     }
 
     private void initData() {
-        arrSanPromo.add(new SanKM("Sân Thủ Đức", "Ưu Đãi Đến 45k", "", "Khuyễn Mãi", R.drawable.store_img, "4.9", "2.3km"));
-        arrSanPromo.add(new SanKM("Sân Kim Sa", "Siêu Giảm Giá", "", "Khuyễn Mãi", R.drawable.store_img, "4.1", "10.4km"));
-        arrSanPromo.add(new SanKM("Sân Lam Sơn", "Nhập LANDAU23...", "", "Khuyễn Mãi", R.drawable.store_img, "4.2", "20km"));
-        arrSanPromo.add(new SanKM("Sân Hoàng Sa", "Quận 5", "", "Khuyễn Mãi", R.drawable.store_img, "4.9", "12km"));
-        arrSanPromo.add(new SanKM("Sân Trường Sa", "Quận 5", "", "Khuyễn Mãi", R.drawable.store_img, "5", "12.8km"));
-        arrSanPromo.add(new SanKM("Sân Quận 7", "Quận 7", "", "Khuyễn Mãi", R.drawable.store_img, "5", "9.6km"));
+        arrSanPromo.add(new SanKM("Sân Thủ Đức", "Ưu Đãi Đến 50k", "", "Khuyễn Mãi", R.drawable.tennis_grass, "4.9", "2.3km"));
+        arrSanPromo.add(new SanKM("Sân Kim Sa", "Ưu Đãi Đến 50k", "", "Khuyễn Mãi", R.drawable.tennis_grass, "4.1", "10.4km"));
+        arrSanPromo.add(new SanKM("Sân Lam Sơn", "Ưu Đãi Đến 50k", "", "Khuyễn Mãi", R.drawable.tennis_grass, "4.2", "20km"));
+        arrSanPromo.add(new SanKM("Sân Hoàng Sa", "Ưu Đãi Đến 50k", "", "Khuyễn Mãi", R.drawable.tennis_grass, "4.9", "12km"));
+        arrSanPromo.add(new SanKM("Sân Trường Sa", "Ưu Đãi Đến 50k", "", "Khuyễn Mãi", R.drawable.tennis_grass, "5", "12.8km"));
+        arrSanPromo.add(new SanKM("Sân Quận 7", "Ưu Đãi Đến 50k", "", "Khuyễn Mãi", R.drawable.tennis_grass, "5", "9.6km"));
         horizontalAdapter.notifyDataSetChanged();
     }
 
