@@ -1,268 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/register_bk_color"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
     tools:context=".Register">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true">
 
-    <TextView
-        android:id="@+id/textView10"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Here’s\nyour first\nstep with \nus! "
+                    android:textColor="@color/whiteTextColor" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_login_hero" />
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/whiteTextColor"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputName"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/txtName"
+                            style="@style/modifiedEditText"
+                            android:hint="Username"
+                            android:inputType="textPersonName"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputEmail"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/txtEmail"
+                            style="@style/modifiedEditText"
+                            android:hint="@string/login_email_hint"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputMobile"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/txtPhoneNumber"
+                            style="@style/modifiedEditText"
+                            android:hint="Mobile Number"
+                            android:inputType="phone"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputPassword"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/txtPassword"
+                            style="@style/modifiedEditText"
+                            android:hint="@string/login_password_hint"
+                            android:inputType="textPassword"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputConfirmPassword"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/txtConfirm"
+                            style="@style/modifiedEditText"
+                            android:hint="@string/login_confirm_password_hint"
+                            android:inputType="textPassword"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputFullName"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/txtFullname"
+                            style="@style/modifiedEditText"
+                            android:hint="@string/login_fullname_hint"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btnRegister"
+                        style="@style/loginButton"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:text="Register" />
+                    <!--                        app:initialCornerAngle="27dp"-->
+                    <!--                        app:spinning_bar_color="#FFF"-->
+                    <!--                        app:spinning_bar_padding="6dp"-->
+                    <!--                        app:spinning_bar_width="4dp"-->
+
+
+                    <TextView
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:onClick="onLoginClick"
+                        android:text="Already have an account?"
+                        android:textAlignment="center"
+                        android:textColor="@color/themeColor"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:gravity="center"-->
+<!--                android:weightSum="12">-->
+
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_weight="3"-->
+<!--                    android:background="@color/whiteTextColor" />-->
+
+<!--                <TextView-->
+<!--                    style="@style/viewParent.headerText.NoMode"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="6"-->
+<!--                    android:text="Use other Methods"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/whiteTextColor"-->
+<!--                    android:textSize="12sp" />-->
+
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_weight="3"-->
+<!--                    android:background="@color/whiteTextColor" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginBottom="30dp"-->
+<!--                android:gravity="center">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_facebook" />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:src="@drawable/ic_google_plus" />-->
+<!--            </LinearLayout>-->
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_side_bg" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đăng kí"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019" />
-
-    <TextView
-        android:id="@+id/lbUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Tên người dùng"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/lbEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Email"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.074"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtFullname"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Bạn tên gì vậy"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/lbPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Số điện thoại"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Hứa sẽ không spam"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/lbPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Mật khẩu"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtPhone"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Nếu như bạn không phiền"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/lbConfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Nhập lại mật khẩu"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/lbFullname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="Tên đầy đủ"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.597"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Mật khẩu chỉ mình bạn biết"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtConfirm"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Nhập lại mật khẩu"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.531"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/txtUsername"
-        android:layout_width="302dp"
-        android:layout_height="47dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/inter_bold"
-        android:hint="Bạn muốn đăng nhập bằng tên gì?"
-        android:minHeight="48dp"
-        android:textColor="@color/purple_300"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.376"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147"
-        tools:ignore="MissingConstraints" />
-
-    <CheckBox
-        android:id="@+id/chkCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ABC XYZ gì đó ở chỗ này"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.431"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="350dp"
-        android:layout_height="50sp"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/purple_400"
-        android:fontFamily="@font/alata"
-        android:text="Đăng kí"
-        android:textColor="@color/white"
-        android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934"
-        tools:ignore="MissingConstraints" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="30dp"
+        android:adjustViewBounds="false"
+        android:onClick="onLoginClick"
+        android:src="@drawable/ic_back_img" />
+</RelativeLayout>

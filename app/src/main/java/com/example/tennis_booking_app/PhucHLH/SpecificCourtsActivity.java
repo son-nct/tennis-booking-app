@@ -2,7 +2,9 @@ package com.example.tennis_booking_app.PhucHLH;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -10,15 +12,28 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tennis_booking_app.DetailsPromotion;
+import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.PagedCourtValue;
+import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanAdapter;
 import com.example.tennis_booking_app.SanTennis;
+import com.example.tennis_booking_app.StartsActivity;
+import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
+import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.example.tennis_booking_app.YardDetail;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SpecificCourtsActivity extends AppCompatActivity {
 
@@ -27,15 +42,28 @@ public class SpecificCourtsActivity extends AppCompatActivity {
     ArrayList<SanTennis> arrSan, arrSearch;
     Adapter sanAdapter;
     String noiDung = null;
+    List<PagedCourtResponse> arrPagedCourtResponses;
+    Token TOKEN;
+    String AUTHORIZATION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specific_courts);
 
+        arrPagedCourtResponses = new ArrayList<>();
         txtType = findViewById(R.id.txtType);
         lvSpecific = (ListView) findViewById(R.id.lvSpecificCourt);
         arrSearch = new ArrayList<>();
+
+        //get sharedPreference
+        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sh.getString("TOKEN","");
+        TOKEN = gson.fromJson(json,Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
+
         AnhXa();
 
         lvSpecific.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -83,6 +111,19 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "8.4 km", "4.2"));
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);
+        }
+        else if (noiDung.equals("UD")) {
+            loadPromoCourt();
+            txtType.setText("Sân đang có ưu đãi");
+        }
+        else if (noiDung.equals("Gần tôi")) {
+            arrSan.add(new SanTennis("CLB Tennis Linh Trung", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis1, "3 km", "4.2"));
+            arrSan.add(new SanTennis("Tennis Hoàng Diệu", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis2, "9.1 km", "4.2"));
+            arrSan.add(new SanTennis("Sân Biên Hòa", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis1, "7.9 km", "4.2"));
+            arrSan.add(new SanTennis("Sân Cát Lái", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis3, "4 km", "4.2"));
+            arrSan.add(new SanTennis("Sân Suối Tiên 1", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis1, "3 km", "4.2"));
+            arrSan.add(new SanTennis("Sân Suối Tiên 2", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis1, "3 km", "4.2"));
+            arrSan.add(new SanTennis("Sân Vinhomes", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.ic_hard, "4 km", "4.2"));
         } else if (noiDung.equals("Gần tôi")) {
             arrSan.add(new SanTennis("CLB Tennis Linh Trung", "36.57m x 18.29m", "100.000 vnđ - 300.000 đồng", R.drawable.imgtennis1, "3 km", "4.2"));
             arrSan.add(new SanTennis("Tennis Hoàng Diệu", "36.57m x 18.29m", "100.000 vnđ - 300.000 đồng", R.drawable.imgtennis2, "9.1 km", "4.2"));
@@ -93,7 +134,8 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             arrSan.add(new SanTennis("Sân Vinhomes", "36.57m x 18.29m", "100.000 vnđ - 300.000 đồng", R.drawable.ic_hard, "4 km", "4.2"));
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);
-        }else{
+        }
+        else {
             arrSan.add(new SanTennis("Sân Hoàng Văn Thụ", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "19km", "4.2"));
             arrSan.add(new SanTennis("Sân Cỏ nhân tạo quận 3", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "12km", "4.2"));
             arrSan.add(new SanTennis("Sân Lê Thị Riêng", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "20km", "4.2"));
@@ -104,8 +146,8 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             arrSan.add(new SanTennis("Sân Suối Tiên 2", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "8km", "4.2"));
             arrSan.add(new SanTennis("Sân 399", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "1km", "4.2"));
             arrSan.add(new SanTennis("Sân Quận 12", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "21km", "4.2"));
-            for (int i=0; i<arrSan.size(); i++){
-                if((arrSan.get(i).getTen().toLowerCase().contains(noiDung.toLowerCase()))){
+            for (int i = 0; i < arrSan.size(); i++) {
+                if ((arrSan.get(i).getTen().toLowerCase().contains(noiDung.toLowerCase()))) {
                     arrSearch.add(arrSan.get(i));
                     sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSearch);
                     lvSpecific.setAdapter((ListAdapter) sanAdapter);
@@ -113,4 +155,42 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void loadPromoCourt() {
+
+        Call<List<PagedCourtResponse>> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(AUTHORIZATION,11, 5, "a", 1);
+        System.out.println("request url \n" + pagedCourtResponseCall.request().url());
+        pagedCourtResponseCall.enqueue(new Callback<List<PagedCourtResponse>>() {
+            @Override
+            public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
+                System.out.println(response);
+//                if(response.isSuccessful()){
+//                    System.out.println("success");
+//                    Toast.makeText(SpecificCourtsActivity.this, "dc", Toast.LENGTH_SHORT).show();
+//                }else{
+//                    System.out.println("failed");
+//                    Toast.makeText(SpecificCourtsActivity.this, "ko dc", Toast.LENGTH_SHORT).show();
+//                }
+            }
+
+            @Override
+            public void onFailure(Call<List<PagedCourtResponse>> call, Throwable t) {
+                Toast.makeText(SpecificCourtsActivity.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG);
+            }
+        });
+    }
+
+//    private void loadPromoCourt(){
+//        ApiClient.getVendorService().getPagedPromoCourt(11).enqueue(new Callback<List<PagedCourtResponse>>() {
+//            @Override
+//            public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
+//                System.out.println("response body " + response.body());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<PagedCourtResponse>> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 }

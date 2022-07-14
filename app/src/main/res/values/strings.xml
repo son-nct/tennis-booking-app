@@ -16,4 +16,9 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_confirm_password_hint">Confirm password</string>
+    <string name="login_fullname_hint">Fullname</string>
 </resources>
