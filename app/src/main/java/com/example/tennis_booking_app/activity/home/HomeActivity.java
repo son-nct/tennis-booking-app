@@ -90,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
 
         initData();
 //        initCourtFavourite();
-        loadFavCourt();
+//        loadFavCourt();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#AFF8A3"));

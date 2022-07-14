@@ -48,7 +48,8 @@ public class ApiClient {
                 .baseUrl("https://coreapi.softek.com.vn/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-    }*/
+    }
+    */
 
     public static UserService getUserService() {
         return getRetrofit().create(UserService.class);

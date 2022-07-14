@@ -37,6 +37,8 @@ public class SpecificCourtsActivity extends AppCompatActivity {
     Adapter sanAdapter;
     String noiDung = null;
     List<PagedCourtResponse> arrPagedCourtResponses;
+    String TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2dyb3Vwc2lkIjoiIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJwaHVjaGxoMSIsImZhbWlseV9uYW1lIjoiSG9uZyBQaHVjIiwiaWF0IjoiNy8xMy8yMDIyIDM6MTQ6MDUgQU0iLCJqdGkiOiI3YzdjYjIzOC0yM2FlLTRkNjgtODhmOS00MDA1ZGU5ZjAwOWMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJub3JtYWxVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwOS8wOS9pZGVudGl0eS9jbGFpbXMvYWN0b3IiOiIzIiwiZXhwIjoxNjg5MTkyODQ1LCJpc3MiOiJodHRwczovL2h1dm55LnRlY2giLCJhdWQiOiJodHRwczovL2h1dm55LnRlY2gifQ.ajxshCp0KqBea7hWQ28mMhX_mYpuOhTMJuVL3WWFCDc";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,12 +135,12 @@ public class SpecificCourtsActivity extends AppCompatActivity {
     }
 
     private void loadPromoCourt() {
-        Call<List<PagedCourtResponse>> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(11, 5, "a", 1);
+        Call<List<PagedCourtResponse>> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(TOKEN,11, 5, "a", 1);
         System.out.println("request url \n" + pagedCourtResponseCall.request().url());
         pagedCourtResponseCall.enqueue(new Callback<List<PagedCourtResponse>>() {
             @Override
             public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
-                if(response.isSuccessful()){
+                if(response.body()){
                     System.out.println("success");
                     Toast.makeText(SpecificCourtsActivity.this, "dc", Toast.LENGTH_SHORT).show();
                 }else{
