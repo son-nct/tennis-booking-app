@@ -31,9 +31,9 @@ import retrofit2.Response;
 public class Register extends AppCompatActivity {
 
     EditText txtUsername, txtEmail, txtPassword, txtConfirm, txtFullname, txtPhone;
-    CheckBox chkCheck;
     Button btnRegister;
     String username, email, password, confirmPass, fullname, phone;
+    UserError userError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                 if (response.isSuccessful()) {
+                    Toast.makeText(Register.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
                     Toast.makeText(Register.this, response.message(), Toast.LENGTH_SHORT).show();
                     RegisterResponse registerResponse = response.body();
                     new Handler().postDelayed(new Runnable() {
@@ -97,27 +98,35 @@ public class Register extends AppCompatActivity {
                     }, 700);
                 } else {
                     Toast.makeText(Register.this, "Failed", Toast.LENGTH_SHORT).show();
-//                      UserError  userErr = response.body();
-//                      userErr!=null
-//                      check từng thằng, thằng nào có thì set vào error
-//                      dúng setError để hiển thị thằng nào lỗi
                     ResponseBody rsErrBody = response.errorBody();
                     Scanner s = new Scanner(rsErrBody.byteStream()).useDelimiter("\\A");
                     String result = s.hasNext() ? s.next() : "";
                     Gson g = new Gson();
                     UserError userErr = g.fromJson(result, UserError.class);
-                    String[] fullName = userErr.getFullName();
-                    String[] username = userErr.getUsername();
-                    String[] phoneNumber = userErr.getPhoneNumber();
+                    userError = new UserError();
+                    String[] fullnameErr = userErr.getFullName();
+                    String[] eMailErr = userErr.getEmail();
+                    String[] usernameErr = userErr.getUsername();
+                    String[] phoneNumberErr = userErr.getPhoneNumber();
 
-
-                    // lấy được array báo lỗi rồi, giờ chỉ việc lọc ra, add vào UserError
+                    if(fullnameErr.length != 0){
+                        setError(txtFullname, fullnameErr[0]);
+                    }
+                    if(eMailErr.length != 0){
+                        setError(txtEmail, eMailErr[0]);
+                    }
+                    if(usernameErr.length != 0){
+                        setError(txtUsername, usernameErr[0]);
+                    }
+                    if(phoneNumberErr.length != 0){
+                        setError(txtPhone, phoneNumberErr[0]);
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                Toast.makeText(Register.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(Register.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -6,11 +6,24 @@ public class UserError {
     private String[] FullName;
     private String[] Username;
     private String[] PhoneNumber;
+    private String[] Email;
 
-    public UserError(String[] fullName, String[] username, String[] phoneNumber) {
+    public UserError(String[] fullName, String[] username, String[] phoneNumber, String[] email) {
         FullName = fullName;
         Username = username;
         PhoneNumber = phoneNumber;
+        Email = email;
+    }
+
+    public UserError() {
+    }
+
+    public String[] getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String[] email) {
+        Email = email;
     }
 
     public String[] getFullName() {

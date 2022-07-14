@@ -2,24 +2,28 @@ package com.example.tennis_booking_app.activity.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
+import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.example.tennis_booking_app.adapter.home.CourtFavouriteAdapter;
 import com.example.tennis_booking_app.DangXuat;
 import com.example.tennis_booking_app.adapter.home.HorizontalAdapter;
 import com.example.tennis_booking_app.LichSu;
 import com.example.tennis_booking_app.Models.Court;
-import com.example.tennis_booking_app.Promotion;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanKM;
 import com.example.tennis_booking_app.PhucHLH.SearchPageActivity;
@@ -28,9 +32,12 @@ import com.example.tennis_booking_app.PhucHLH.SpecificCourtsActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class HomeActivity extends AppCompatActivity {
-    ImageView imgPromo;
-    ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory, imgNearMe;
+    ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory, imgNearMe, imgPromo;
     List<SanKM> arrSanPromo;
     List<Court> arrCourtFav;
     HorizontalAdapter horizontalAdapter;
@@ -38,13 +45,15 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView viewPromo, viewFavCourt;
     TextView txtWelcome;
 
+
+    List<PagedCourtResponse> arrAPIPaged;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         imgSearchBar = (ImageView) findViewById(R.id.imgSearchBar);
-        imgPromo = (ImageView) findViewById(R.id.imgPromo);
         imgClay = (ImageView) findViewById(R.id.imgClay);
         imgHard = (ImageView) findViewById(R.id.imgHard);
         imgGrass = (ImageView) findViewById(R.id.imgGrass);
@@ -52,6 +61,8 @@ public class HomeActivity extends AppCompatActivity {
         imgHistory = (ImageView) findViewById(R.id.imgHistory);
         imgNearMe = (ImageView) findViewById(R.id.imgLocation);
         txtWelcome = (TextView) findViewById(R.id.txtWelcome);
+        imgPromo = (ImageView) findViewById(R.id.imgPromo);
+        arrAPIPaged = new ArrayList<>();
 
         viewPromo = (RecyclerView) findViewById(R.id.viewPromo);
         viewFavCourt = (RecyclerView) findViewById(R.id.viewFavCourt);
@@ -74,10 +85,12 @@ public class HomeActivity extends AppCompatActivity {
         viewFavCourt.setAdapter(courtFavouriteAdapter);
 
 
+
         setWelcome();
 
         initData();
-        initCourtFavourite();
+//        initCourtFavourite();
+        loadFavCourt();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#AFF8A3"));
@@ -86,7 +99,8 @@ public class HomeActivity extends AppCompatActivity {
         imgPromo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, Promotion.class);
+                Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
+                intent.putExtra("sandetail", "UD");
                 startActivity(intent);
             }
         });
@@ -168,13 +182,26 @@ public class HomeActivity extends AppCompatActivity {
         horizontalAdapter.notifyDataSetChanged();
     }
 
-    private void initCourtFavourite() {
-        arrCourtFav.add(new Court("Sân Cỏ 1A Hoàng Minh", "Hoàng Minh Tennis", "40", "20", "150.000 ~ 200.000đ", R.drawable.tennis_grass));
-        arrCourtFav.add(new Court("Sân Đất Nện Thủ Đức", "Thủ Đức Tennis", "36.57", "18.29", "200.000 ~ 350.000đ", R.drawable.tennis_clay));
-        arrCourtFav.add(new Court("Sân Cỏ Hoàng Diệu", "Đại Học Ngân Hàng Tennis", "34.75", "17.07", "80.000 ~ 180.000đ", R.drawable.tennis_grass));
-        arrCourtFav.add(new Court("Sân Cỏ Chuẩn Thi Đấu", "FPT Tennis", "36.57", "18.29", "150.000 ~ 300.000đ", R.drawable.tennis_clay));
-        courtFavouriteAdapter.notifyDataSetChanged();
-    }
+//    private void initCourtFavourite() {
+//        arrCourtFav.add(new Court("Sân Cỏ 1A Hoàng Minh", "Hoàng Minh Tennis", "40", "20", "150.000 ~ 200.000đ", R.drawable.tennis_grass));
+//        arrCourtFav.add(new Court("Sân Đất Nện Thủ Đức", "Thủ Đức Tennis", "36.57", "18.29", "200.000 ~ 350.000đ", R.drawable.tennis_clay));
+//        arrCourtFav.add(new Court("Sân Cỏ Hoàng Diệu", "Đại Học Ngân Hàng Tennis", "34.75", "17.07", "80.000 ~ 180.000đ", R.drawable.tennis_grass));
+//        arrCourtFav.add(new Court("Sân Cỏ Chuẩn Thi Đấu", "FPT Tennis", "36.57", "18.29", "150.000 ~ 300.000đ", R.drawable.tennis_clay));
+//        courtFavouriteAdapter.notifyDataSetChanged();
+//    }
 
+    private void loadFavCourt(){
+        ApiClient.getVendorService().getPagedCourt("11").enqueue(new Callback<List<PagedCourtResponse>>() {
+            @Override
+            public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
+                arrAPIPaged = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<List<PagedCourtResponse>> call, Throwable t) {
+
+            }
+        });
+    }
 
 }

@@ -1,26 +1,28 @@
 package com.example.tennis_booking_app.ViewModels.PagedCourt;
 
 public class PagedCourtRequest {
-    private int shopID;
+    private int vendorID;
     private int pageSize;
-    private String q;
-    private int page;
-    private int tab;
+    private String queryString;
+    private int currentPage;
 
-    public PagedCourtRequest(int shopID, int pageSize, String q, int page, int tab) {
-        this.shopID = shopID;
+
+    public PagedCourtRequest() {
+    }
+
+    public PagedCourtRequest(int vendorID, int pageSize, String queryString, int currentPage) {
+        this.vendorID = vendorID;
         this.pageSize = pageSize;
-        this.q = q;
-        this.page = page;
-        this.tab = tab;
+        this.queryString = queryString;
+        this.currentPage = currentPage;
     }
 
-    public int getShopID() {
-        return shopID;
+    public int getVendorID() {
+        return vendorID;
     }
 
-    public void setShopID(int shopID) {
-        this.shopID = shopID;
+    public void setVendorID(int vendorID) {
+        this.vendorID = vendorID;
     }
 
     public int getPageSize() {
@@ -31,27 +33,19 @@ public class PagedCourtRequest {
         this.pageSize = pageSize;
     }
 
-    public String getQ() {
-        return q;
+    public String getQueryString() {
+        return queryString;
     }
 
-    public void setQ(String q) {
-        this.q = q;
+    public void setQueryString(String queryString) {
+        this.queryString = queryString;
     }
 
-    public int getPage() {
-        return page;
+    public int getCurrentPage() {
+        return currentPage;
     }
 
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public int getTab() {
-        return tab;
-    }
-
-    public void setTab(int tab) {
-        this.tab = tab;
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
     }
 }
