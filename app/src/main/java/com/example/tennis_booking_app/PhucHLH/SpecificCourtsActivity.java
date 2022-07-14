@@ -2,7 +2,9 @@ package com.example.tennis_booking_app.PhucHLH;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -14,12 +16,15 @@ import android.widget.Toast;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
+import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanAdapter;
 import com.example.tennis_booking_app.SanTennis;
 import com.example.tennis_booking_app.StartsActivity;
+import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.example.tennis_booking_app.YardDetail;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,8 +42,8 @@ public class SpecificCourtsActivity extends AppCompatActivity {
     Adapter sanAdapter;
     String noiDung = null;
     List<PagedCourtResponse> arrPagedCourtResponses;
-    String TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2dyb3Vwc2lkIjoiIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIzMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJwaHVjaGxoMSIsImZhbWlseV9uYW1lIjoiSG9uZyBQaHVjIiwiaWF0IjoiNy8xMy8yMDIyIDM6MTQ6MDUgQU0iLCJqdGkiOiI3YzdjYjIzOC0yM2FlLTRkNjgtODhmOS00MDA1ZGU5ZjAwOWMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJub3JtYWxVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwOS8wOS9pZGVudGl0eS9jbGFpbXMvYWN0b3IiOiIzIiwiZXhwIjoxNjg5MTkyODQ1LCJpc3MiOiJodHRwczovL2h1dm55LnRlY2giLCJhdWQiOiJodHRwczovL2h1dm55LnRlY2gifQ.ajxshCp0KqBea7hWQ28mMhX_mYpuOhTMJuVL3WWFCDc";
-
+    Token TOKEN;
+    String AUTHORIZATION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,14 @@ public class SpecificCourtsActivity extends AppCompatActivity {
         txtType = findViewById(R.id.txtType);
         lvSpecific = (ListView) findViewById(R.id.lvSpecificCourt);
         arrSearch = new ArrayList<>();
+
+        //get sharedPreference
+        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sh.getString("TOKEN","");
+        TOKEN = gson.fromJson(json,Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
 
         AnhXa();
 
@@ -135,18 +148,20 @@ public class SpecificCourtsActivity extends AppCompatActivity {
     }
 
     private void loadPromoCourt() {
-        Call<List<PagedCourtResponse>> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(TOKEN,11, 5, "a", 1);
+
+        Call<List<PagedCourtResponse>> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(AUTHORIZATION,11, 5, "a", 1);
         System.out.println("request url \n" + pagedCourtResponseCall.request().url());
         pagedCourtResponseCall.enqueue(new Callback<List<PagedCourtResponse>>() {
             @Override
             public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
-                if(response.body()){
-                    System.out.println("success");
-                    Toast.makeText(SpecificCourtsActivity.this, "dc", Toast.LENGTH_SHORT).show();
-                }else{
-                    System.out.println("failed");
-                    Toast.makeText(SpecificCourtsActivity.this, "ko dc", Toast.LENGTH_SHORT).show();
-                }
+                System.out.println(response);
+//                if(response.isSuccessful()){
+//                    System.out.println("success");
+//                    Toast.makeText(SpecificCourtsActivity.this, "dc", Toast.LENGTH_SHORT).show();
+//                }else{
+//                    System.out.println("failed");
+//                    Toast.makeText(SpecificCourtsActivity.this, "ko dc", Toast.LENGTH_SHORT).show();
+//                }
             }
 
             @Override

@@ -3,6 +3,7 @@ package com.example.tennis_booking_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -14,9 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.ViewModels.Login.LoginRequest;
 import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
 import com.example.tennis_booking_app.activity.home.HomeActivity;
+import com.google.gson.Gson;
+
+import java.io.Serializable;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -74,7 +79,17 @@ public class StartsActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Toast.makeText(StartsActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                     LoginResponse loginResponse = response.body();
-                    System.out.println(loginResponse);
+                    Token token = loginResponse.getToken();
+
+                    // save token to shared preferent
+                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",0);
+                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+
+                    Gson gson = new Gson();
+                    String json = gson.toJson(token);
+                    myEdit.putString("TOKEN", json);
+                    myEdit.commit(); // save to shared preference
+
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
