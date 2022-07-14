@@ -1,14 +1,18 @@
 package com.example.tennis_booking_app.Models.booking;
 
-public class PagedList {
+import android.hardware.lights.LightState;
+
+import java.util.List;
+
+public class PagedListRespone {
     private int count,firstItemOnPage,pageNumber,pageCount,pageSize,lastItemOnPage;
     private boolean hasNextPage,hasPreviousPage,isFirstPage,isLastPage;
-    public Value value;
+    List<Value> value;
 
-    public PagedList() {
+    public PagedListRespone() {
     }
 
-    public PagedList(int count, int firstItemOnPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, Value value) {
+    public PagedListRespone(int count, int firstItemOnPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, List<Value> value) {
         this.count = count;
         this.firstItemOnPage = firstItemOnPage;
         this.pageNumber = pageNumber;
@@ -62,10 +66,6 @@ public class PagedList {
         return isLastPage;
     }
 
-    public Value getValue() {
-        return value;
-    }
-
     public void setCount(int count) {
         this.count = count;
     }
@@ -106,7 +106,11 @@ public class PagedList {
         isLastPage = lastPage;
     }
 
-    public void setValue(Value value) {
+    public List<Value> getValue() {
+        return value;
+    }
+
+    public void setValue(List<Value> value) {
         this.value = value;
     }
 }

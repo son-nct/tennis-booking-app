@@ -8,9 +8,9 @@ public class BookingDetail {
     private Date bookedPlayDate,insertedDate,updatedDate;
     private String note;
     private boolean active;
-    public Payment payment;
 
-    public BookingDetail(int id, int bookingId, int courtId, int slotId, int totalPrice, int totalPriceAfterDiscount, int voucherId, int statusId, int insertedBy, int updateBy, int ratedStar, Date bookedPlayDate, Date insertedDate, Date updatedDate, String note, boolean active,Payment payment) {
+
+    public BookingDetail(int id, int bookingId, int courtId, int slotId, int totalPrice, int totalPriceAfterDiscount, int voucherId, int statusId, int insertedBy, int updateBy, int ratedStar, Date bookedPlayDate, Date insertedDate, Date updatedDate, String note, boolean active) {
         this.id = id;
         this.bookingId = bookingId;
         this.courtId = courtId;
@@ -27,16 +27,8 @@ public class BookingDetail {
         this.updatedDate = updatedDate;
         this.note = note;
         this.active = active;
-        this.payment=payment;
     }
 
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
 
     public int getId() {
         return id;

@@ -8,9 +8,10 @@ public class Value {
     private String note;
     private boolean active;
     public BookingDetail bookingDetail;
+    public Payment payment;
 
 
-    public Value(int id, int vendorId, int totalPrice, int updatedBy, int statusId, int paymentId, Date insertedDate, Date updatedDate, String note, boolean active, BookingDetail bookingDetail) {
+    public Value(int id, int vendorId, int totalPrice, int updatedBy, int statusId, int paymentId, Date insertedDate, Date updatedDate, String note, boolean active, BookingDetail bookingDetail, Payment payment) {
         this.id = id;
         this.vendorId = vendorId;
         this.totalPrice = totalPrice;
@@ -22,8 +23,8 @@ public class Value {
         this.note = note;
         this.active = active;
         this.bookingDetail = bookingDetail;
+        this.payment = payment;
     }
-
 
 
     public int getId() {

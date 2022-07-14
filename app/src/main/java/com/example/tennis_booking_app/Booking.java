@@ -15,10 +15,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.booking.PagedListRespone;
+import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Booking extends AppCompatActivity {
     EditText edtTime;
@@ -30,6 +39,7 @@ public class Booking extends AppCompatActivity {
     ArrayList<CaChoi> arrSlotSelected;
     Button btOK;
     CheckBox cbCachoi;
+    List<PagedListRespone> arrAPIPaged;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +56,7 @@ public class Booking extends AppCompatActivity {
         intentKM = getIntent();
 
         arrSlotSelected = new ArrayList<CaChoi>();
+        arrAPIPaged = new ArrayList<>();
 
         SanTennis ten = (SanTennis) intent.getSerializableExtra("sandetail");
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
@@ -163,5 +174,18 @@ public class Booking extends AppCompatActivity {
         adapter = new CaChoiAdapter(this, R.layout.list_ca_choi, arrCachoi);
         lvCaChoi.setAdapter(adapter);
     }
+   /* private void loadListYard(){
+        ApiClient.getVendorBookingService().getPagedList("11").enqueue(new Callback<PagedListRespone>() {
+            @Override
+            public void onResponse(Call<PagedListRespone> call, Response<PagedListRespone> response) {
+                arrAPIPaged = response.body();
+            }
 
+            @Override
+            public void onFailure(Call<PagedListRespone> call, Throwable t) {
+
+            }
+        });
+    }
+*/
 }
