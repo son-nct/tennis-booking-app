@@ -2,119 +2,123 @@ package com.example.tennis_booking_app.ViewModels.PagedCourt;
 
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 
+import java.util.List;
+
 public class PagedCourtResponse {
-    private int count;
-    private int firstItemOnPage;
-    private boolean hasNextPage;
-    private boolean hasPreviousPage;
-    private boolean isFirstPage;
-    private boolean isLastPage;
-    private int pageNumber;
-    private int pageCount;
-    private int pageSize;
-    private int lastItemOnPage;
+    private int Count;
+    private int FirstItemOnPage;
+    private boolean HasNextPage;
+    private boolean HasPreviousPage;
+    private boolean IsFirstPage;
+    private boolean IsLastPage;
+    private int PageNumber;
+    private int PageCount;
+    private int PageSize;
+    private int LastItemOnPage;
 
-    PagedCourtValue value;
+    List<PagedCourtValue> Value;
 
-    public PagedCourtResponse(int count, int firstItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, PagedCourtValue value) {
-        this.count = count;
-        this.firstItemOnPage = firstItemOnPage;
-        this.hasNextPage = hasNextPage;
-        this.hasPreviousPage = hasPreviousPage;
-        this.isFirstPage = isFirstPage;
-        this.isLastPage = isLastPage;
-        this.pageNumber = pageNumber;
-        this.pageCount = pageCount;
-        this.pageSize = pageSize;
-        this.lastItemOnPage = lastItemOnPage;
-        this.value = value;
+    public PagedCourtResponse(int count, int firstItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, List<PagedCourtValue> value) {
+        Count = count;
+        FirstItemOnPage = firstItemOnPage;
+        HasNextPage = hasNextPage;
+        HasPreviousPage = hasPreviousPage;
+        IsFirstPage = isFirstPage;
+        IsLastPage = isLastPage;
+        PageNumber = pageNumber;
+        PageCount = pageCount;
+        PageSize = pageSize;
+        LastItemOnPage = lastItemOnPage;
+        this.Value = value;
     }
 
     public int getCount() {
-        return count;
+        return Count;
     }
 
     public void setCount(int count) {
-        this.count = count;
+        Count = count;
     }
 
     public int getFirstItemOnPage() {
-        return firstItemOnPage;
+        return FirstItemOnPage;
     }
 
     public void setFirstItemOnPage(int firstItemOnPage) {
-        this.firstItemOnPage = firstItemOnPage;
+        FirstItemOnPage = firstItemOnPage;
     }
 
     public boolean isHasNextPage() {
-        return hasNextPage;
+        return HasNextPage;
     }
 
     public void setHasNextPage(boolean hasNextPage) {
-        this.hasNextPage = hasNextPage;
+        HasNextPage = hasNextPage;
     }
 
     public boolean isHasPreviousPage() {
-        return hasPreviousPage;
+        return HasPreviousPage;
     }
 
     public void setHasPreviousPage(boolean hasPreviousPage) {
-        this.hasPreviousPage = hasPreviousPage;
+        HasPreviousPage = hasPreviousPage;
     }
 
     public boolean isFirstPage() {
-        return isFirstPage;
+        return IsFirstPage;
     }
 
     public void setFirstPage(boolean firstPage) {
-        isFirstPage = firstPage;
+        IsFirstPage = firstPage;
     }
 
     public boolean isLastPage() {
-        return isLastPage;
+        return IsLastPage;
     }
 
     public void setLastPage(boolean lastPage) {
-        isLastPage = lastPage;
+        IsLastPage = lastPage;
     }
 
     public int getPageNumber() {
-        return pageNumber;
+        return PageNumber;
     }
 
     public void setPageNumber(int pageNumber) {
-        this.pageNumber = pageNumber;
+        PageNumber = pageNumber;
     }
 
     public int getPageCount() {
-        return pageCount;
+        return PageCount;
     }
 
     public void setPageCount(int pageCount) {
-        this.pageCount = pageCount;
+        PageCount = pageCount;
     }
 
     public int getPageSize() {
-        return pageSize;
+        return PageSize;
     }
 
     public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
+        PageSize = pageSize;
     }
 
     public int getLastItemOnPage() {
-        return lastItemOnPage;
+        return LastItemOnPage;
     }
 
     public void setLastItemOnPage(int lastItemOnPage) {
-        this.lastItemOnPage = lastItemOnPage;
+        LastItemOnPage = lastItemOnPage;
     }
 
-    public PagedCourtValue getValue() {
-        return value;
+    public List<PagedCourtValue> getValue() {
+        return Value;
     }
 
-    public void setValue(PagedCourtValue value) {
-        this.value = value;
+    public void setValue(List<PagedCourtValue> value) {
+        this.Value = value;
     }
 }
+
+

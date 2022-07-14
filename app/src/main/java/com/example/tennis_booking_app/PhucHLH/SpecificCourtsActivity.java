@@ -23,6 +23,7 @@ import com.example.tennis_booking_app.SanAdapter;
 import com.example.tennis_booking_app.SanTennis;
 import com.example.tennis_booking_app.StartsActivity;
 import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
+import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.example.tennis_booking_app.YardDetail;
 import com.google.gson.Gson;
@@ -60,8 +61,8 @@ public class SpecificCourtsActivity extends AppCompatActivity {
         SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
         //parse JSON TOKEN to object Token
         Gson gson = new Gson();
-        String json = sh.getString("TOKEN", "");
-        TOKEN = gson.fromJson(json, Token.class);
+        String json = sh.getString("TOKEN","");
+        TOKEN = gson.fromJson(json,Token.class);
         AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
 
         AnhXa();
@@ -111,9 +112,12 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "8.4 km", "4.2"));
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);
-        } else if (noiDung.equals("UD")) {
+        }
+        else if (noiDung.equals("UD")) {
             loadPromoCourt();
-        } else if (noiDung.equals("Gần tôi")) {
+            txtType.setText("Sân đang có ưu đãi");
+        }
+        else if (noiDung.equals("Gần tôi")) {
             arrSan.add(new SanTennis("CLB Tennis Linh Trung", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis1, "3 km", "4.2"));
             arrSan.add(new SanTennis("Tennis Hoàng Diệu", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis2, "9.1 km", "4.2"));
             arrSan.add(new SanTennis("Sân Biên Hòa", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis1, "7.9 km", "4.2"));
@@ -131,7 +135,8 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             arrSan.add(new SanTennis("Sân Vinhomes", "36.57m x 18.29m", "100.000 vnđ - 300.000 đồng", R.drawable.ic_hard, "4 km", "4.2"));
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);
-        } else {
+        }
+        else {
             arrSan.add(new SanTennis("Sân Hoàng Văn Thụ", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "19km", "4.2"));
             arrSan.add(new SanTennis("Sân Cỏ nhân tạo quận 3", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "12km", "4.2"));
             arrSan.add(new SanTennis("Sân Lê Thị Riêng", "36.57m x 18.29m", "100.000 đồng", R.drawable.san2a, "20km", "4.2"));
@@ -153,40 +158,37 @@ public class SpecificCourtsActivity extends AppCompatActivity {
     }
 
     private void loadPromoCourt() {
-        Call<List<PagedCourtResponse>> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(AUTHORIZATION, 11, 5, "a", 1);
-        txtType.setText("Sân đang có ưu đãi");
+        PagedCourtRequest param_request = new PagedCourtRequest();
+        param_request.setPageSize(5);
+        param_request.setVendorID(11);
+        param_request.setQueryString("");
+        param_request.setCurrentPage(1);
+
+
+        Call<PagedCourtResponse> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(AUTHORIZATION,param_request.getVendorID(), param_request.getPageSize(), param_request.getQueryString(), param_request.getCurrentPage());
         System.out.println("request url \n" + pagedCourtResponseCall.request().url());
-        pagedCourtResponseCall.enqueue(new Callback<List<PagedCourtResponse>>() {
+
+        pagedCourtResponseCall.enqueue(new Callback<PagedCourtResponse>() {
             @Override
-            public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
-                System.out.println(response);
-                if (response.code() == 200) {
-                    System.out.println("success");
-                    System.out.println(response.body().get(1));
-                    Toast.makeText(SpecificCourtsActivity.this, "dc", Toast.LENGTH_SHORT).show();
-                } else {
-                    System.out.println("failed");
-                    Toast.makeText(SpecificCourtsActivity.this, "ko dc", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<PagedCourtResponse> call, Response<PagedCourtResponse> response) {
+                if(response.body() != null) {
+                    System.out.println("body: " + response.body());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<PagedCourtResponse>> call, Throwable t) {
-                Toast.makeText(SpecificCourtsActivity.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG);
+            public void onFailure(Call<PagedCourtResponse> call, Throwable t) {
+
             }
         });
+
     }
 
 //    private void loadPromoCourt(){
-//        ApiClient.getVendorService().getPagedPromoCourt(TOKEN, 11, 5, "", 1).enqueue(new Callback<List<PagedCourtResponse>>() {
+//        ApiClient.getVendorService().getPagedPromoCourt(11).enqueue(new Callback<List<PagedCourtResponse>>() {
 //            @Override
 //            public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
-//                System.out.println("code " + response.code());
-//                if(response.code() == 200){
-//                    txtType.setText("Sân đang có ưu đãi");
-//                    Toast.makeText(SpecificCourtsActivity.this, "200", Toast.LENGTH_SHORT).show();
-//                }else
-//                    Toast.makeText(SpecificCourtsActivity.this, "!= 200", Toast.LENGTH_SHORT).show();
+//                System.out.println("response body " + response.body());
 //            }
 //
 //            @Override
@@ -194,5 +196,5 @@ public class SpecificCourtsActivity extends AppCompatActivity {
 //
 //            }
 //        });
-//    }
+
 }
