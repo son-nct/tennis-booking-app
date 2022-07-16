@@ -71,11 +71,9 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         holder.txtTenSanPromo.setText(sanKM.getTen());
         holder.txtDienTichPromo.setText(sanKM.getDientich());
         holder.txtPromoCode.setText(sanKM.getPromotionStatus());
-        holder.txtGiaPromo.setText(sanKM.getTien());
         holder.txtRating.setText(sanKM.getRating());
         holder.txtKhoangCach.setText(sanKM.getKhoangCach());
 
-        holder.txtGiaPromo.getText().toString().trim();
 
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override

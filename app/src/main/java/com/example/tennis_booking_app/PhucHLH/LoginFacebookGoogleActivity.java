@@ -13,14 +13,16 @@ import com.example.tennis_booking_app.activity.home.HomeActivity;
 
 public class LoginFacebookGoogleActivity extends AppCompatActivity {
 
-    Button btnPhone;
+    Button  btnPhone;
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_facebook_google);
 
+
         btnPhone = (Button) findViewById(R.id.btnLoginWithPhoneNumber);
+
 
         btnPhone.setOnClickListener(new View.OnClickListener() {
             @Override

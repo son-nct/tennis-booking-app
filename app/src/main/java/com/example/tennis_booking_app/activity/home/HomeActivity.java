@@ -2,17 +2,14 @@ package com.example.tennis_booking_app.activity.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +19,6 @@ import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.CourtSizeValue;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
-import com.example.tennis_booking_app.PromoAdapter;
 import com.example.tennis_booking_app.Promotion;
 import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
 import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeResponse;
@@ -58,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
     List<PagedCourtResponse> arrAPIPaged;
     Token TOKEN;
     String AUTHORIZATION;
+    SharedPreferences sharedPreferences;
     ArrayList<CourtSizeValue> arrSizeResponse;
 
     @Override
@@ -91,10 +88,10 @@ public class HomeActivity extends AppCompatActivity {
         arrSizeResponse = new ArrayList<>();
 
         //get sharedPreference
-        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        sharedPreferences = getSharedPreferences("MySharedPref", 0);
         //parse JSON TOKEN to object Token
         Gson gson = new Gson();
-        String json = sh.getString("TOKEN", "");
+        String json = sharedPreferences.getString("TOKEN", "");
         TOKEN = gson.fromJson(json, Token.class);
         AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
 
@@ -102,6 +99,8 @@ public class HomeActivity extends AppCompatActivity {
         setWelcome();
 
 //        initData();
+
+        callSize();
 
         loadHighRating();
         loadPromo();
@@ -256,7 +255,7 @@ public class HomeActivity extends AppCompatActivity {
                         PagedCourtResponse pagedCourtResponse = response.body();
                         arrFavHome = (ArrayList) pagedCourtResponse.getValue();
                         System.out.println("arr promo home " + arrFavHome);
-                        CourtFavouriteAdapter courtFavAdapter = new CourtFavouriteAdapter(HomeActivity.this, arrFavHome);
+                        CourtFavouriteAdapter courtFavAdapter = new CourtFavouriteAdapter(HomeActivity.this, arrFavHome, sharedPreferences);
                         // set adapter
                         viewFavCourt.setLayoutManager(mLayoutFavourite);
                         viewFavCourt.setAdapter(courtFavAdapter);
@@ -287,13 +286,26 @@ public class HomeActivity extends AppCompatActivity {
                     CourtSizeResponse courtSizeResponse = response.body();
                     arrSizeResponse = (ArrayList<CourtSizeValue>) courtSizeResponse.getValue();
                     String status = "size";
-                    System.out.println(" call size " + arrSizeResponse.size());
+                    for (CourtSizeValue coursize : arrSizeResponse) {
+                        System.out.println(coursize.toString());
+                    }
+
+                    //get sharedPreference
+                    SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+                    SharedPreferences.Editor myEdit = sh.edit();
+
+                    Gson gson = new Gson();
+                    String json = gson.toJson(arrSizeResponse);
+                    myEdit.putString("LIST_COURT_SIZE", json);
+                    myEdit.commit(); // save to shared preference
+
+
                 }
             }
 
             @Override
             public void onFailure(Call<CourtSizeResponse> call, Throwable t) {
-
+                Toast.makeText(HomeActivity.this, "Đã có lỗi xảy ra !", Toast.LENGTH_SHORT).show();
             }
         });
     }
