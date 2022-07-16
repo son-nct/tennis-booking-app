@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.Register;
+import com.example.tennis_booking_app.StartsActivity;
 
 public class ReadyLogin extends AppCompatActivity {
     RelativeLayout layoutWait;
@@ -27,7 +28,7 @@ public class ReadyLogin extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReadyLogin.this, LoginFacebookGoogleActivity.class);
+                Intent intent = new Intent(ReadyLogin.this, StartsActivity.class);
                 startActivity(intent);
             }
         });
