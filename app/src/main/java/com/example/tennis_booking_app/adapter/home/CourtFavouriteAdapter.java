@@ -2,6 +2,7 @@ package com.example.tennis_booking_app.adapter.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,29 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.DetailsPromotion;
 import com.example.tennis_booking_app.Models.Court;
+import com.example.tennis_booking_app.Models.CourtSizeValue;
+import com.example.tennis_booking_app.Models.PagedCourtValue;
+import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.R;
+import com.example.tennis_booking_app.Service.CourtSizeService;
+import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
+import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeResponse;
+import com.example.tennis_booking_app.activity.home.HomeActivity;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAdapter.MyViewHolder> {
-    private List<Court> arrCourtFav;
+    private ArrayList<PagedCourtValue> arrPageCourtValue;
     Context context;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -41,8 +56,8 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
         }
     }
 
-    public CourtFavouriteAdapter(Context context, List<Court> arrCourtFav) {
-        this.arrCourtFav = arrCourtFav;
+    public CourtFavouriteAdapter(Context context, ArrayList<PagedCourtValue> arrPageCourtValue) {
+        this.arrPageCourtValue = arrPageCourtValue;
         this.context = context;
     }
 
@@ -58,21 +73,35 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Court court_fav = arrCourtFav.get(position);
-        holder.imgCourt.setImageResource(court_fav.getImgCourt());
-        holder.txtCourtName.setText(court_fav.getName());
-        holder.txtAddress.setText(court_fav.getAddress());
-        holder.txtSize.setText(court_fav.getWidth()+ "m" + " x " + court_fav.getHeight()+ "m" );
-        holder.txtPrice.setText(court_fav.getPrice());
+        // array trả về từ Home
+        PagedCourtValue pagedCourtValue = arrPageCourtValue.get(position);
+        // array size trả về từ CourtFavAdapter
+//        System.out.println("arr size " + arrSize.size());
+        if (pagedCourtValue.getCourtSizeId() == 2) {
+            holder.txtSize.setText("50m " + "x" + " 50m");
+        } else if (pagedCourtValue.getCourtSizeId() == 3) {
+            holder.txtSize.setText("40m " + "x" + " 40m");
+        } else if (pagedCourtValue.getCourtSizeId() == 4) {
+            holder.txtSize.setText("30m " + "x" + " 30m");
+        }
+        holder.txtCourtName.setText(pagedCourtValue.getName());
+        holder.txtAddress.setText("AAA");
+        holder.txtPrice.setText("123123123");
 
-        holder.rvFavCourt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(context, DetailsPromotion.class);
-                intent.putExtra("sandetail1", (Serializable) court_fav);
-                context.startActivity(intent);
-            }
-        });
+//        holder.imgCourt.setImageResource(court_fav.getImgCourt());
+//        holder.txtCourtName.setText(court_fav.getName());
+//        holder.txtAddress.setText(court_fav.getAddress());
+//        holder.txtSize.setText(court_fav.getWidth() + "m" + " x " + court_fav.getHeight() + "m");
+//        holder.txtPrice.setText(court_fav.getPrice());
+
+//        holder.rvFavCourt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(context, DetailsPromotion.class);
+//                intent.putExtra("sandetail1", (Serializable) court_fav);
+//                context.startActivity(intent);
+//            }
+//        });
 //
 //        holder.rvSan.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -86,7 +115,6 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
 
     @Override
     public int getItemCount() {
-        return arrCourtFav.size();
+        return arrPageCourtValue.size();
     }
-
 }

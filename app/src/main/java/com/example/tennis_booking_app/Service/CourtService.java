@@ -24,4 +24,7 @@ public interface CourtService {
 
     @GET(COURT + "/GetPagedListPromotingCourt")
     Call<PagedCourtResponse> getPagedPromoCourt(@Header("Authorization") String access_token, @Query("VendorId") int VendorId, @Query("PageSize") int pagesize, @Query("queryString") String queryString, @Query("CurrentPage") int currentPage);
+
+    @GET(COURT + "/GetPagedListHighRatingCourt")
+    Call<PagedCourtResponse> getPagedListHighRating(@Header("Authorization") String access_token, @Query("VendorId") int VendorId, @Query("PageSize") int pagesize, @Query("queryString") String queryString, @Query("CurrentPage") int currentPage);
 }

@@ -1,16 +1,15 @@
-package com.example.tennis_booking_app.ViewModels.PagedCourt;
+package com.example.tennis_booking_app.ViewModels.CourtSize;
 
-public class PagedCourtRequest {
+public class CourtSizeRequest {
     private int VendorId;
     private int PageSize;
     private String queryString;
     private int CurrentPage;
 
-
-    public PagedCourtRequest() {
+    public CourtSizeRequest() {
     }
 
-    public PagedCourtRequest(int vendorId, int pageSize, String queryString, int currentPage) {
+    public CourtSizeRequest(int vendorId, int pageSize, String queryString, int currentPage) {
         VendorId = vendorId;
         PageSize = pageSize;
         this.queryString = queryString;

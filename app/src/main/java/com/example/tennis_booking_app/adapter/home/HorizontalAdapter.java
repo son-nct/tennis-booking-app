@@ -13,15 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tennis_booking_app.DetailsPromotion;
+import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanKM;
 import com.example.tennis_booking_app.YardDetail;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.MyViewHolder> {
-    private List<SanKM> arrKMList;
+    private ArrayList<PagedCourtValue> arrPromoValue;
     Context context;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -44,8 +46,8 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         }
     }
 
-    public HorizontalAdapter(Context context, List<SanKM> arrKMList) {
-        this.arrKMList = arrKMList;
+    public HorizontalAdapter(Context context, ArrayList<PagedCourtValue> arrPromoValue) {
+        this.arrPromoValue = arrPromoValue;
         this.context = context;
     }
 
@@ -61,7 +63,11 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        SanKM sanKM = arrKMList.get(position);
+        PagedCourtValue pagedCourtValue = arrPromoValue.get(position);
+        holder.txtTenSanPromo.setText(pagedCourtValue.getName());
+        holder.txtRating.setText(String.valueOf(pagedCourtValue.getRatingAverage()));
+        holder.txtPromoCode.setText("Ưu đãi đến 50k");
+        /*
         holder.imgHinh.setImageResource(sanKM.getHinh());
         holder.txtTenSanPromo.setText(sanKM.getTen());
         holder.txtDienTichPromo.setText(sanKM.getDientich());
@@ -80,6 +86,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
                 context.startActivity(intent);
             }
         });
+         */
 
         /*holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +100,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
     @Override
     public int getItemCount() {
-        return arrKMList.size();
+        return arrPromoValue.size();
     }
 
 }

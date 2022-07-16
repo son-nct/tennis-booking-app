@@ -3,6 +3,7 @@ package com.example.tennis_booking_app.Clients;
 import androidx.annotation.NonNull;
 
 import com.example.tennis_booking_app.Models.Token;
+import com.example.tennis_booking_app.Service.CourtSizeService;
 import com.example.tennis_booking_app.Service.UserService;
 import com.example.tennis_booking_app.Service.CourtService;
 
@@ -57,5 +58,9 @@ public class ApiClient {
 
     public static CourtService getVendorService() {
         return getRetrofit().create(CourtService.class);
+    }
+
+    public static CourtSizeService getCourtSizeService(){
+        return getRetrofit().create(CourtSizeService.class);
     }
 }

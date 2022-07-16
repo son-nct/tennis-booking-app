@@ -22,69 +22,31 @@
             android:textColor="@color/white"
             android:textSize="50sp" />
 
-    <TextView
-        android:layout_width="342dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp"
-        android:fontFamily="@font/aref_ruqaa"
-        android:letterSpacing="0.05"
-        android:text="Siêu ứng dụng đáp ứng mọi nhu cầu hằng ngày"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp" />
+        <TextView
+            android:layout_width="342dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
+            android:fontFamily="@font/aref_ruqaa"
+            android:letterSpacing="0.05"
+            android:text="Siêu ứng dụng đáp ứng mọi nhu cầu hằng ngày"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_marginTop="390dp">
+        android:layout_marginTop="190dp">
 
-        <Button
-            android:id="@+id/btnLoginWithFacebook"
-            android:layout_width="340dp"
-            android:layout_height="60dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"
-            android:backgroundTint="#FFFFFF"
-            android:drawableLeft="@drawable/ic_facebook_2_logo_svgrepo_com_1"
-            android:text="Tiếp tục với Facebook"
-            android:textColor="@color/black"
-            android:textSize="14dp" />
-
-        <Button
-            android:id="@+id/btnLoginWithGoogle"
-            android:layout_width="340dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/btnLoginWithFacebook"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
-            android:drawableLeft="@drawable/ic_google_svgrepo_com_1"
-            android:text="Tiếp tục với Google"
-            android:textColor="@color/black"
-            android:textSize="14dp" />
-
-        <TextView
-            android:id="@+id/lbHoac"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnLoginWithGoogle"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_bold"
-            android:text="hoặc"
-            android:textColor="@color/white"
-            android:textSize="24dp" />
 
         <Button
             android:id="@+id/btnLoginWithPhoneNumber"
             android:layout_width="340dp"
             android:layout_height="60dp"
-            android:layout_below="@+id/lbHoac"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
             android:backgroundTint="#FFFFFF"
             android:drawableLeft="@drawable/ic_call"
             android:text="Đăng nhập bằng tài khoản"

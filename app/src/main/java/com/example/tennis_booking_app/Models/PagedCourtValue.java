@@ -3,127 +3,127 @@ package com.example.tennis_booking_app.Models;
 import java.util.Date;
 
 public class PagedCourtValue {
-    private int id;
-    private String name;
-    private int vendorId;
-    private int typeId;
-    private int courtSizeId;
-    private Date insertedDate;
-    private int insertedBy;
-    private Date updatedDate;
-    private int updatedBy;
-    private boolean active;
-    private int ratingAverage;
-    private String imageUrl;
+    private int Id;
+    private String Name;
+    private int VendorId;
+    private int TypeId;
+    private int CourtSizeId;
+    private Date InsertedDate;
+    private int InsertedBy;
+    private Date UpdatedDate;
+    private int UpdatedBy;
+    private boolean Active;
+    private int RatingAverage;
+    private String ImageUrl;
 
     public PagedCourtValue(int id, String name, int vendorId, int typeId, int courtSizeId, Date insertedDate, int insertedBy, Date updatedDate, int updatedBy, boolean active, int ratingAverage, String imageUrl) {
-        this.id = id;
-        this.name = name;
-        this.vendorId = vendorId;
-        this.typeId = typeId;
-        this.courtSizeId = courtSizeId;
-        this.insertedDate = insertedDate;
-        this.insertedBy = insertedBy;
-        this.updatedDate = updatedDate;
-        this.updatedBy = updatedBy;
-        this.active = active;
-        this.ratingAverage = ratingAverage;
-        this.imageUrl = imageUrl;
+        Id = id;
+        Name = name;
+        VendorId = vendorId;
+        TypeId = typeId;
+        CourtSizeId = courtSizeId;
+        InsertedDate = insertedDate;
+        InsertedBy = insertedBy;
+        UpdatedDate = updatedDate;
+        UpdatedBy = updatedBy;
+        Active = active;
+        RatingAverage = ratingAverage;
+        ImageUrl = imageUrl;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        Id = id;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
     public int getVendorId() {
-        return vendorId;
+        return VendorId;
     }
 
     public void setVendorId(int vendorId) {
-        this.vendorId = vendorId;
+        VendorId = vendorId;
     }
 
     public int getTypeId() {
-        return typeId;
+        return TypeId;
     }
 
     public void setTypeId(int typeId) {
-        this.typeId = typeId;
+        TypeId = typeId;
     }
 
     public int getCourtSizeId() {
-        return courtSizeId;
+        return CourtSizeId;
     }
 
     public void setCourtSizeId(int courtSizeId) {
-        this.courtSizeId = courtSizeId;
+        CourtSizeId = courtSizeId;
     }
 
     public Date getInsertedDate() {
-        return insertedDate;
+        return InsertedDate;
     }
 
     public void setInsertedDate(Date insertedDate) {
-        this.insertedDate = insertedDate;
+        InsertedDate = insertedDate;
     }
 
     public int getInsertedBy() {
-        return insertedBy;
+        return InsertedBy;
     }
 
     public void setInsertedBy(int insertedBy) {
-        this.insertedBy = insertedBy;
+        InsertedBy = insertedBy;
     }
 
     public Date getUpdatedDate() {
-        return updatedDate;
+        return UpdatedDate;
     }
 
     public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+        UpdatedDate = updatedDate;
     }
 
     public int getUpdatedBy() {
-        return updatedBy;
+        return UpdatedBy;
     }
 
     public void setUpdatedBy(int updatedBy) {
-        this.updatedBy = updatedBy;
+        UpdatedBy = updatedBy;
     }
 
     public boolean isActive() {
-        return active;
+        return Active;
     }
 
     public void setActive(boolean active) {
-        this.active = active;
+        Active = active;
     }
 
     public int getRatingAverage() {
-        return ratingAverage;
+        return RatingAverage;
     }
 
     public void setRatingAverage(int ratingAverage) {
-        this.ratingAverage = ratingAverage;
+        RatingAverage = ratingAverage;
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return ImageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        ImageUrl = imageUrl;
     }
 }

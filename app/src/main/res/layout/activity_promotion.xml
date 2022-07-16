@@ -12,13 +12,13 @@
 
 
         <TextView
-            android:id="@+id/tvPromotion"
+            android:id="@+id/txtType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="31dp"
             android:fontFamily="@font/inter"
-            android:text="Danh Sách Cửa Hàng Khuyến Mãi"
+            android:text="Sân đang có khuyến mãi"
             android:textColor="@color/black"
             android:textSize="24dp" />
     </RelativeLayout>
@@ -32,7 +32,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPromo"
             android:layout_width="match_parent"
-            android:layout_height="712dp"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </RelativeLayout>

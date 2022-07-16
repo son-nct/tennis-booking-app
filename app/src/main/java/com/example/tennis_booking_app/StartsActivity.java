@@ -32,6 +32,7 @@ public class StartsActivity extends AppCompatActivity {
     private EditText etPassword;
     private Button btnContinue;
     private TextView tvforgotPassword;
+    LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class StartsActivity extends AppCompatActivity {
         etUsername = (EditText) findViewById(R.id.txtUsername);
         etPassword = (EditText) findViewById(R.id.txtPassword);
         btnContinue = (Button) findViewById(R.id.btnLoginAcocunt);
+        loadingDialog = new LoadingDialog(StartsActivity.this);
 
 //        tvforgotPassword.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -72,17 +74,25 @@ public class StartsActivity extends AppCompatActivity {
         loginRequest.setAutoSignIn(true);
 
         Call<LoginResponse> loginResponseCall = ApiClient.getUserService().userLogin(loginRequest);
+        loadingDialog.startLoadingDialog();
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
                 if (response.isSuccessful()) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingDialog.dissmisDialog();
+                        }
+                    }, 1500);
+
                     Toast.makeText(StartsActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                     LoginResponse loginResponse = response.body();
                     Token token = loginResponse.getToken();
 
                     // save token to shared preferent
-                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",0);
+                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", 0);
                     SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
                     Gson gson = new Gson();

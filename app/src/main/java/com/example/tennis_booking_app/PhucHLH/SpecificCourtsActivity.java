@@ -12,20 +12,17 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tennis_booking_app.DetailsPromotion;
 import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
+import com.example.tennis_booking_app.PromoAdapter;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanAdapter;
 import com.example.tennis_booking_app.SanTennis;
-import com.example.tennis_booking_app.StartsActivity;
-import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
-import com.example.tennis_booking_app.YardDetail;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
@@ -43,7 +40,6 @@ public class SpecificCourtsActivity extends AppCompatActivity {
     ArrayList<SanTennis> arrSan, arrSearch;
     Adapter sanAdapter;
     String noiDung = null;
-    List<PagedCourtResponse> arrPagedCourtResponses;
     Token TOKEN;
     String AUTHORIZATION;
 
@@ -51,8 +47,6 @@ public class SpecificCourtsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specific_courts);
-
-        arrPagedCourtResponses = new ArrayList<>();
         txtType = findViewById(R.id.txtType);
         lvSpecific = (ListView) findViewById(R.id.lvSpecificCourt);
         arrSearch = new ArrayList<>();
@@ -113,10 +107,6 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);
         }
-        else if (noiDung.equals("UD")) {
-            loadPromoCourt();
-            txtType.setText("Sân đang có ưu đãi");
-        }
         else if (noiDung.equals("Gần tôi")) {
             arrSan.add(new SanTennis("CLB Tennis Linh Trung", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis1, "3 km", "4.2"));
             arrSan.add(new SanTennis("Tennis Hoàng Diệu", "36.57m x 18.29m", "100.000 - 300.000 đồng", R.drawable.imgtennis2, "9.1 km", "4.2"));
@@ -156,45 +146,4 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             }
         }
     }
-
-    private void loadPromoCourt() {
-        PagedCourtRequest param_request = new PagedCourtRequest();
-        param_request.setPageSize(5);
-        param_request.setVendorID(11);
-        param_request.setQueryString("");
-        param_request.setCurrentPage(1);
-
-
-        Call<PagedCourtResponse> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(AUTHORIZATION,param_request.getVendorID(), param_request.getPageSize(), param_request.getQueryString(), param_request.getCurrentPage());
-        System.out.println("request url \n" + pagedCourtResponseCall.request().url());
-
-        pagedCourtResponseCall.enqueue(new Callback<PagedCourtResponse>() {
-            @Override
-            public void onResponse(Call<PagedCourtResponse> call, Response<PagedCourtResponse> response) {
-                if(response.body() != null) {
-                    System.out.println("body: " + response.body());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PagedCourtResponse> call, Throwable t) {
-
-            }
-        });
-
-    }
-
-//    private void loadPromoCourt(){
-//        ApiClient.getVendorService().getPagedPromoCourt(11).enqueue(new Callback<List<PagedCourtResponse>>() {
-//            @Override
-//            public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
-//                System.out.println("response body " + response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<PagedCourtResponse>> call, Throwable t) {
-//
-//            }
-//        });
-
 }

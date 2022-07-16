@@ -1,11 +1,12 @@
-package com.example.tennis_booking_app.ViewModels.PagedCourt;
+package com.example.tennis_booking_app.ViewModels.CourtSize;
 
-import com.example.tennis_booking_app.Models.PagedCourtValue;
+import com.example.tennis_booking_app.Models.CourtSizeValue;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class PagedCourtResponse {
+public class CourtSizeResponse {
     private int Count;
     private int FirstItemOnPage;
     private boolean HasNextPage;
@@ -17,9 +18,9 @@ public class PagedCourtResponse {
     private int PageSize;
     private int LastItemOnPage;
 
-    ArrayList<PagedCourtValue> Value;
+    ArrayList<CourtSizeValue> Value;
 
-    public PagedCourtResponse(int count, int firstItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, ArrayList<PagedCourtValue> value) {
+    public CourtSizeResponse(int count, int firstItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, ArrayList<CourtSizeValue> value) {
         Count = count;
         FirstItemOnPage = firstItemOnPage;
         HasNextPage = hasNextPage;
@@ -113,13 +114,11 @@ public class PagedCourtResponse {
         LastItemOnPage = lastItemOnPage;
     }
 
-    public ArrayList<PagedCourtValue> getValue() {
+    public ArrayList<CourtSizeValue> getValue() {
         return Value;
     }
 
-    public void setValue(ArrayList<PagedCourtValue> value) {
+    public void setValue(ArrayList<CourtSizeValue> value) {
         Value = value;
     }
 }
-
-
