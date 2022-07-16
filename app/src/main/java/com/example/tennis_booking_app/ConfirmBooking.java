@@ -2,6 +2,7 @@ package com.example.tennis_booking_app;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -10,7 +11,18 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.BookingDetail.BookingDetailRequest;
+import com.example.tennis_booking_app.Models.BookingDetail.BookingDetailRespone;
+import com.example.tennis_booking_app.Models.Token;
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class ConfirmBooking extends AppCompatActivity {
     TextView txtTennis2, txtTennis21, txtDientich2, txtNote,
@@ -19,7 +31,9 @@ public class ConfirmBooking extends AppCompatActivity {
     Button btNhan, btKM1, btKM2, btKM3;
     Intent intent1, intentKM;
     ArrayList<CaChoi> arrSelected;
-    int sum=0;
+    int sum = 0;
+    Token TOKEN;
+    String AUTHORIZATION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,34 +55,21 @@ public class ConfirmBooking extends AppCompatActivity {
         intent1 = getIntent();
         intentKM = getIntent();
 
+        //get sharedPreference
+        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sh.getString("TOKEN","");
+        TOKEN = gson.fromJson(json,Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
+
         //SanTennis ten2 = (SanTennis) intent1.getSerializableExtra("sandetail2");
         SanKM tenKM = (SanKM) intentKM.getSerializableExtra("sandetailKM");
         Bundle bundle = intent1.getBundleExtra("data");
         arrSelected = (ArrayList<CaChoi>) bundle.getSerializable("arrSlotSelected");
 
 
-       /* if (ten2 != null) {
-            CaChoi caChoi2 = (CaChoi) intent1.getSerializableExtra("cadetail");
-            String d = bundle.getString("date");
-            txtTennis2.setText(ten2.getTen());
-            txtTennis21.setText(ten2.getTen());
-            txtDientich2.setText(ten2.getDientich());
-            if (arrSelected.size() > 0) {
-                int sum=0;
-                for (CaChoi caChoi : arrSelected) {
-                    txtSlot.setText(caChoi.getThoiluong() + ", ");
-                    txtGia.setText(caChoi.getGia() + ", ");
-                    txtGia2.setText(caChoi.getGia() + ", ");
-                    sum+= Integer.parseInt(caChoi.getGia());
-                    txtTong.setText(sum);
-                }
-            }
-
-            txtNgay.setText(d);
-        }*/
-
         if (tenKM != null) {
-            //CaChoi caChoi2 = (CaChoi) intent1.getSerializableExtra("cadetail");
             String d = bundle.getString("date");
             txtTennis2.setText(tenKM.getTen());
             txtTennis21.setText(tenKM.getTen());
@@ -78,21 +79,17 @@ public class ConfirmBooking extends AppCompatActivity {
                 String selected_slot_price = "";
 
                 for (CaChoi caChoi : arrSelected) {
-                    selected_slot += caChoi.getSlot()+ ", ";
-                    selected_slot_price += caChoi.getThoiluong()+ ", ";
+                    selected_slot += caChoi.getSlot() + ", ";
+                    selected_slot_price += caChoi.getThoiluong() + ", ";
                     sum += Integer.parseInt(caChoi.getGia());
 
                 }
 
                 txtSlot.setText(selected_slot);
                 txtGia.setText(selected_slot_price);
-                txtGia2.setText(sum+" vnđ");
-                txtTong.setText(sum+" vnđ");
-//                    txtTong.setText(sum);
-
-//                System.out.println("slot : "+ selected_slot);
-//                System.out.println("price_slot : "+ selected_slot_price);
-//                System.out.println("price : "+ sum);
+                txtGia2.setText(sum + " vnđ");
+                txtTong.setText(sum + " vnđ");
+                System.out.println("price : " + sum);
             }
 
             txtNgay.setText(d);
@@ -129,7 +126,7 @@ public class ConfirmBooking extends AppCompatActivity {
             public void onClick(View v) {
                 edtPromo.setText("NGUOIQUEN");
                 int total = sum - 20000;
-                txtTong.setText(total+" vnđ");
+                txtTong.setText(total + " vnđ");
                 dialog.dismiss();
             }
         });
@@ -138,7 +135,7 @@ public class ConfirmBooking extends AppCompatActivity {
             public void onClick(View v) {
                 edtPromo.setText("CUOITUAN");
                 int total = sum - 30000;
-                txtTong.setText(total+" vnđ");
+                txtTong.setText(total + " vnđ");
                 dialog.dismiss();
             }
         });
@@ -147,10 +144,31 @@ public class ConfirmBooking extends AppCompatActivity {
             public void onClick(View v) {
                 edtPromo.setText("LANDAU");
                 int total = sum - 50000;
-                txtTong.setText(total+" vnđ");
+                txtTong.setText(total + " vnđ");
                 dialog.dismiss();
             }
         });
         dialog.show();
+    }
+    private void LoadConfirmBooing(){
+        BookingDetailRequest bookingDetailRequest=new BookingDetailRequest();
+        bookingDetailRequest.setId(1);
+
+        Call<BookingDetailRespone> bookingDetailResponeCall= ApiClient.getBookingDetailServiec().getBookingDetail(AUTHORIZATION,bookingDetailRequest.getId());
+        System.out.println("request url \n" + bookingDetailResponeCall.request().url());
+
+        bookingDetailResponeCall.enqueue(new Callback<BookingDetailRespone>() {
+            @Override
+            public void onResponse(Call<BookingDetailRespone> call, Response<BookingDetailRespone> response) {
+                if(response.body() != null) {
+                    System.out.println("body: " + response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BookingDetailRespone> call, Throwable t) {
+
+            }
+        });
     }
 }

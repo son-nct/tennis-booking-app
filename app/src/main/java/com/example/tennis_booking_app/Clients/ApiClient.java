@@ -1,18 +1,11 @@
 package com.example.tennis_booking_app.Clients;
 
-import androidx.annotation.NonNull;
-
-import com.example.tennis_booking_app.Models.Token;
-import com.example.tennis_booking_app.Service.BookingPagedList;
+import com.example.tennis_booking_app.Service.BookingDetailService;
+import com.example.tennis_booking_app.Service.SlotCourtService;
 import com.example.tennis_booking_app.Service.UserService;
 import com.example.tennis_booking_app.Service.CourtService;
 
-import java.io.IOException;
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -32,25 +25,7 @@ public class ApiClient {
                 .build();
     }
 
-    /*private static Retrofit getRetrofit(){
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
-            @NonNull
-            @Override
-            public Response intercept(@NonNull Chain chain) throws IOException {
-                Request newRequest = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer " + BEARER_TOKEN)
-                        .build();
-                return chain.proceed(newRequest);
-            }
-        }).build();
 
-        return new Retrofit.Builder()
-                .client(client)
-                .baseUrl("https://coreapi.softek.com.vn/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-    }
-    */
 
     public static UserService getUserService() {
         return getRetrofit().create(UserService.class);
@@ -59,7 +34,10 @@ public class ApiClient {
     public static CourtService getVendorService() {
         return getRetrofit().create(CourtService.class);
     }
-    public static BookingPagedList getVendorBookingService() {
-        return getRetrofit().create(BookingPagedList.class);
+    public static SlotCourtService getSlotCourtService() {
+        return getRetrofit().create(SlotCourtService.class);
+    }
+    public static BookingDetailService getBookingDetailServiec(){
+        return getRetrofit().create(BookingDetailService.class);
     }
 }

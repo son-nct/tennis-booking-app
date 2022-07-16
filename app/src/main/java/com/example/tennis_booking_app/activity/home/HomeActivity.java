@@ -189,7 +189,7 @@ public class HomeActivity extends AppCompatActivity {
 //        arrCourtFav.add(new Court("Sân Cỏ Chuẩn Thi Đấu", "FPT Tennis", "36.57", "18.29", "150.000 ~ 300.000đ", R.drawable.tennis_clay));
 //        courtFavouriteAdapter.notifyDataSetChanged();
 //    }
-
+/*
     private void loadFavCourt(){
         ApiClient.getVendorService().getPagedCourt("11").enqueue(new Callback<List<PagedCourtResponse>>() {
             @Override
@@ -202,6 +202,6 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 }

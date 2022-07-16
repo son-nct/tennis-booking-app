@@ -16,12 +16,6 @@ import retrofit2.http.Query;
 public interface CourtService {
     String COURT = "Court";
 
-    @GET("Court/GetPromotingCourtHome")
-    Call<List<PagedCourtResponse>> getPagedCourt(@Query("pageSize") String vendorID);
-
-//    @GET("COURT")
-//    Call<List<PagedCourtResponse>> getPagedPromoCourt(@Query("VendorId") int VendorId);
-
     @GET(COURT + "/GetPagedListPromotingCourt")
     Call<PagedCourtResponse> getPagedPromoCourt(@Header("Authorization") String access_token, @Query("VendorId") int VendorId, @Query("PageSize") int pagesize, @Query("queryString") String queryString, @Query("CurrentPage") int currentPage);
 }

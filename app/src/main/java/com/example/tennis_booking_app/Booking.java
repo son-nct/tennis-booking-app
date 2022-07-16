@@ -2,6 +2,7 @@ package com.example.tennis_booking_app;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,8 +17,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
-import com.example.tennis_booking_app.Models.booking.PagedListRespone;
-import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
+import com.example.tennis_booking_app.Models.Token;
+import com.example.tennis_booking_app.ViewModels.SlotCourt.SlotCourRequest;
+import com.example.tennis_booking_app.ViewModels.SlotCourt.SlotCourtRespone;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -39,7 +42,9 @@ public class Booking extends AppCompatActivity {
     ArrayList<CaChoi> arrSlotSelected;
     Button btOK;
     CheckBox cbCachoi;
-    List<PagedListRespone> arrAPIPaged;
+    Token TOKEN;
+    String AUTHORIZATION;
+    List<SlotCourtRespone> arrSlotCourtRespone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +61,13 @@ public class Booking extends AppCompatActivity {
         intentKM = getIntent();
 
         arrSlotSelected = new ArrayList<CaChoi>();
-        arrAPIPaged = new ArrayList<>();
+
+        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sh.getString("TOKEN","");
+        TOKEN = gson.fromJson(json, Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
 
         SanTennis ten = (SanTennis) intent.getSerializableExtra("sandetail");
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
@@ -161,7 +172,7 @@ public class Booking extends AppCompatActivity {
     }
 
     private void anhxa() {
-        arrCachoi = new ArrayList<>();
+        /*arrCachoi = new ArrayList<>();
         arrCachoi.add(new CaChoi(1, "Slot 1", "7:00-8:30", "150000", "150000 vnđ"));
         arrCachoi.add(new CaChoi(2, "Slot 2", "8:45-10:15", "150000", "150000 vnđ"));
         arrCachoi.add(new CaChoi(3, "Slot 3", "10:30-12:00", "150000", "150000 vnđ"));
@@ -169,23 +180,34 @@ public class Booking extends AppCompatActivity {
         arrCachoi.add(new CaChoi(5, "Slot 5", "14:00-15:45", "170000", "170000 vnđ"));
         arrCachoi.add(new CaChoi(6, "Slot 6", "16:00-17:30", "170000", "170000 vnđ"));
         arrCachoi.add(new CaChoi(7, "Slot 7", "17:45-19:15", "200000", "200000 vnđ"));
-        arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000", "200000 vnđ"));
+        arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000", "200000 vnđ"));*/
+        LoadSlotCourt();
 
         adapter = new CaChoiAdapter(this, R.layout.list_ca_choi, arrCachoi);
         lvCaChoi.setAdapter(adapter);
     }
-   /* private void loadListYard(){
-        ApiClient.getVendorBookingService().getPagedList("11").enqueue(new Callback<PagedListRespone>() {
+    private void LoadSlotCourt(){
+        SlotCourRequest slotCourRequest =new SlotCourRequest();
+        slotCourRequest.setPageSize(5);
+        slotCourRequest.setVendorID(11);
+        slotCourRequest.setQueryString("");
+        slotCourRequest.setCurrentPage(1);
+
+        Call<SlotCourtRespone> SlotCourtResponeCall=ApiClient.getSlotCourtService().getSlotCourt(AUTHORIZATION,slotCourRequest.getVendorID(), slotCourRequest.getPageSize(), slotCourRequest.getQueryString(), slotCourRequest.getCurrentPage());
+        System.out.println("request url \n" + SlotCourtResponeCall.request().url());
+
+        SlotCourtResponeCall.enqueue(new Callback<SlotCourtRespone>() {
             @Override
-            public void onResponse(Call<PagedListRespone> call, Response<PagedListRespone> response) {
-                arrAPIPaged = response.body();
+            public void onResponse(Call<SlotCourtRespone> call, Response<SlotCourtRespone> response) {
+                if(response.body() != null) {
+                    System.out.println("body: " + response.body());
+                }
             }
 
             @Override
-            public void onFailure(Call<PagedListRespone> call, Throwable t) {
+            public void onFailure(Call<SlotCourtRespone> call, Throwable t) {
 
             }
         });
     }
-*/
 }
