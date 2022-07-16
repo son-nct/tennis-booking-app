@@ -1,7 +1,6 @@
 package com.example.tennis_booking_app.adapter.home;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,30 +12,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tennis_booking_app.Clients.ApiClient;
-import com.example.tennis_booking_app.DetailsPromotion;
-import com.example.tennis_booking_app.Models.Court;
 import com.example.tennis_booking_app.Models.CourtSizeValue;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.R;
-import com.example.tennis_booking_app.Service.CourtSizeService;
-import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
-import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeResponse;
-import com.example.tennis_booking_app.activity.home.HomeActivity;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.reflect.TypeToken;
 
-import java.io.Serializable;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAdapter.MyViewHolder> {
     private ArrayList<PagedCourtValue> arrPageCourtValue;
     Context context;
+    private SharedPreferences sharedPrefs;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imgCourt;
@@ -56,9 +47,10 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
         }
     }
 
-    public CourtFavouriteAdapter(Context context, ArrayList<PagedCourtValue> arrPageCourtValue) {
+    public CourtFavouriteAdapter(Context context, ArrayList<PagedCourtValue> arrPageCourtValue, SharedPreferences sharedPrefs) {
         this.arrPageCourtValue = arrPageCourtValue;
         this.context = context;
+        this.sharedPrefs = sharedPrefs;
     }
 
     @NonNull
@@ -75,15 +67,35 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         // array trả về từ Home
         PagedCourtValue pagedCourtValue = arrPageCourtValue.get(position);
-        // array size trả về từ CourtFavAdapter
-//        System.out.println("arr size " + arrSize.size());
-        if (pagedCourtValue.getCourtSizeId() == 2) {
-            holder.txtSize.setText("50m " + "x" + " 50m");
-        } else if (pagedCourtValue.getCourtSizeId() == 3) {
-            holder.txtSize.setText("40m " + "x" + " 40m");
-        } else if (pagedCourtValue.getCourtSizeId() == 4) {
-            holder.txtSize.setText("30m " + "x" + " 30m");
+
+        //get sharedPreference
+
+
+//        Gson gson = new Gson();
+//        String json = sharedPrefs.getString("LIST_COURT_SIZE","");
+//        CourtSizeValue arrSize = gson.fromJson(json, CourtSizeValue.class);
+
+//        sharedPreferences = getSharedPreferences("MySharedPref", 0);
+//        //parse JSON TOKEN to object Token
+//        Gson gson = new Gson();
+//        String json = sharedPreferences.getString("TOKEN", "");
+//        TOKEN = gson.fromJson(json, Token.class);
+//        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
+
+        sharedPrefs = context.getSharedPreferences("MySharedPref", 0);
+        Gson gson = new Gson();
+        String json = sharedPrefs.getString("LIST_COURT_SIZE", "[]");
+        Type type = new TypeToken<ArrayList<CourtSizeValue>>() {}.getType();
+        List<CourtSizeValue> listCourtSize = gson.fromJson(json,type);
+
+
+        for (CourtSizeValue size : listCourtSize) {
+            if(size.getId() == pagedCourtValue.getCourtSizeId()) {
+                holder.txtSize.setText(size.getWidth() + "m " + "x" + size.getHeight() + "m ");
+            }
         }
+
+
         holder.txtCourtName.setText(pagedCourtValue.getName());
         holder.txtAddress.setText("AAA");
         holder.txtPrice.setText("123123123");

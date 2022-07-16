@@ -28,7 +28,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imgHinh;
-        TextView txtTenSanPromo, txtDienTichPromo, txtPromoCode, txtGiaPromo, txtRating, txtKhoangCach;
+        TextView txtTenSanPromo, txtDienTichPromo, txtPromoCode, txtRating, txtKhoangCach;
         LinearLayout rvSan;
         LinearLayout loRatingDistance;
 
@@ -38,7 +38,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             txtTenSanPromo = itemView.findViewById(R.id.txtTenSanPromo);
             txtDienTichPromo = itemView.findViewById(R.id.txtDienTichPromo);
             txtPromoCode = itemView.findViewById(R.id.txtCodePromo);
-            txtGiaPromo = itemView.findViewById(R.id.txtGiaPromo);
             txtKhoangCach = itemView.findViewById(R.id.txtKhoangCach);
             txtRating = itemView.findViewById(R.id.txtRating);
             rvSan = itemView.findViewById(R.id.rvSan);
@@ -72,11 +71,9 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         holder.txtTenSanPromo.setText(sanKM.getTen());
         holder.txtDienTichPromo.setText(sanKM.getDientich());
         holder.txtPromoCode.setText(sanKM.getPromotionStatus());
-        holder.txtGiaPromo.setText(sanKM.getTien());
         holder.txtRating.setText(sanKM.getRating());
         holder.txtKhoangCach.setText(sanKM.getKhoangCach());
 
-        holder.txtGiaPromo.getText().toString().trim();
 
         holder.rvSan.setOnClickListener(new View.OnClickListener() {
             @Override

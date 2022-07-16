@@ -253,6 +253,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:padding="12dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Ưu đãi hôm nay:"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -269,7 +270,9 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/viewPromo"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    />
 
             </LinearLayout>
 
@@ -292,6 +295,7 @@
                     android:layout_marginLeft="5dp"
                     android:padding="12dp"
                     android:text="Sân được yêu thích:"
+                    android:layout_marginBottom="10dp"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="normal" />
@@ -308,7 +312,9 @@
                     android:id="@+id/viewFavCourt"
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
-                    android:layout_marginBottom="18dp" />
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginTop="15dp"
+                    />
 
             </LinearLayout>
         </LinearLayout>
