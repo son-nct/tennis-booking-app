@@ -1,28 +1,28 @@
 package com.example.tennis_booking_app.ViewModels.SlotCourt;
 
 public class SlotCourRequest{
-        private int VendorID;
+        private int VendorId;
         private int PageSize;
-        private String QueryString;
+        private String queryString;
         private int CurrentPage;
 
 
     public SlotCourRequest() {
     }
 
-    public SlotCourRequest(int vendorID, int pageSize, String queryString, int currentPage) {
-        VendorID = vendorID;
+    public SlotCourRequest(int vendorId, int pageSize, String queryString, int currentPage) {
+        VendorId = vendorId;
         PageSize = pageSize;
-        QueryString = queryString;
+        this.queryString = queryString;
         CurrentPage = currentPage;
     }
 
-    public int getVendorID() {
-        return VendorID;
+    public int getVendorId() {
+        return VendorId;
     }
 
-    public void setVendorID(int vendorID) {
-        VendorID = vendorID;
+    public void setVendorId(int vendorId) {
+        VendorId = vendorId;
     }
 
     public int getPageSize() {
@@ -34,11 +34,11 @@ public class SlotCourRequest{
     }
 
     public String getQueryString() {
-        return QueryString;
+        return queryString;
     }
 
     public void setQueryString(String queryString) {
-        QueryString = queryString;
+        this.queryString = queryString;
     }
 
     public int getCurrentPage() {

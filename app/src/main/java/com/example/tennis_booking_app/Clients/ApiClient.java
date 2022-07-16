@@ -37,7 +37,7 @@ public class ApiClient {
     public static SlotCourtService getSlotCourtService() {
         return getRetrofit().create(SlotCourtService.class);
     }
-    public static BookingDetailService getBookingDetailServiec(){
+    public static BookingDetailService getBookingDetailService(){
         return getRetrofit().create(BookingDetailService.class);
     }
 }

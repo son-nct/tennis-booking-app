@@ -9,9 +9,9 @@ public class Booking {
     private String note;
     private boolean active;
     List<BookingDetail> bookingDetail;
-    List<Payment> paymen;
+    List<Payment> payment;
 
-    public Booking(int id, int vendorId, int totalPrice, int insertedBy, int updatedBy, int statusId, int paymentId, Date insertedDate, Date updatedDate, String note, boolean active, List<BookingDetail> bookingDetail, List<Payment> paymen) {
+    public Booking(int id, int vendorId, int totalPrice, int insertedBy, int updatedBy, int statusId, int paymentId, Date insertedDate, Date updatedDate, String note, boolean active, List<BookingDetail> bookingDetail, List<Payment> payment) {
         this.id = id;
         this.vendorId = vendorId;
         this.totalPrice = totalPrice;
@@ -24,7 +24,7 @@ public class Booking {
         this.note = note;
         this.active = active;
         this.bookingDetail = bookingDetail;
-        this.paymen = paymen;
+        this.payment = payment;
     }
 
     public int getId() {
@@ -123,11 +123,11 @@ public class Booking {
         this.bookingDetail = bookingDetail;
     }
 
-    public List<Payment> getPaymen() {
-        return paymen;
+    public List<Payment> getPayment() {
+        return payment;
     }
 
-    public void setPaymen(List<Payment> paymen) {
-        this.paymen = paymen;
+    public void setPayment(List<Payment> payment) {
+        this.payment = payment;
     }
 }

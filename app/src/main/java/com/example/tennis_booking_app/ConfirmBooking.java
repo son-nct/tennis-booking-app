@@ -150,11 +150,12 @@ public class ConfirmBooking extends AppCompatActivity {
         });
         dialog.show();
     }
+
     private void LoadConfirmBooing(){
         BookingDetailRequest bookingDetailRequest=new BookingDetailRequest();
         bookingDetailRequest.setId(1);
 
-        Call<BookingDetailRespone> bookingDetailResponeCall= ApiClient.getBookingDetailServiec().getBookingDetail(AUTHORIZATION,bookingDetailRequest.getId());
+        Call<BookingDetailRespone> bookingDetailResponeCall= ApiClient.getBookingDetailService().getBookingDetail(AUTHORIZATION,bookingDetailRequest.getId());
         System.out.println("request url \n" + bookingDetailResponeCall.request().url());
 
         bookingDetailResponeCall.enqueue(new Callback<BookingDetailRespone>() {
