@@ -189,11 +189,11 @@ public class Booking extends AppCompatActivity {
     private void LoadSlotCourt(){
         SlotCourRequest slotCourRequest =new SlotCourRequest();
         slotCourRequest.setPageSize(5);
-        slotCourRequest.setVendorID(11);
+        slotCourRequest.setVendorId(11);
         slotCourRequest.setQueryString("");
         slotCourRequest.setCurrentPage(1);
 
-        Call<SlotCourtRespone> SlotCourtResponeCall=ApiClient.getSlotCourtService().getSlotCourt(AUTHORIZATION,slotCourRequest.getVendorID(), slotCourRequest.getPageSize(), slotCourRequest.getQueryString(), slotCourRequest.getCurrentPage());
+        Call<SlotCourtRespone> SlotCourtResponeCall=ApiClient.getSlotCourtService().getSlotCourt(AUTHORIZATION,slotCourRequest.getVendorId(), slotCourRequest.getPageSize(), slotCourRequest.getQueryString(), slotCourRequest.getCurrentPage());
         System.out.println("request url \n" + SlotCourtResponeCall.request().url());
 
         SlotCourtResponeCall.enqueue(new Callback<SlotCourtRespone>() {
