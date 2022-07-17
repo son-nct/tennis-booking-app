@@ -5,13 +5,15 @@ import java.io.Serializable;
 public class CaChoi implements Serializable {
     private String slot,thoiluong,gia,priceByName;
     private int id;
+    private int status;
 
-    public CaChoi(int id,String slot, String thoiluong, String gia,String priceByName) {
+    public CaChoi(int id,String slot, String thoiluong, String gia,String priceByName, int status) {
         this.id=id;
         this.slot = slot;
         this.thoiluong = thoiluong;
         this.gia= gia;
         this.priceByName = priceByName;
+        this.status = status;
 
     }
 
@@ -54,6 +56,14 @@ public class CaChoi implements Serializable {
 
     public void setPriceByName(String priceByName) {
         this.priceByName = priceByName;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override
