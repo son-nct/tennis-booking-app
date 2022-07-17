@@ -53,12 +53,19 @@ public class CaChoiAdapter extends BaseAdapter {
 
         CaChoi caChoi=caChoiList.get(position);
 
-       /* if(cbCachoi.isChecked()){
-            caChoi.setCb(true);
-            Intent intent=new Intent();
-            intent.putExtra("cachoi",(Serializable) caChoi);
-            context.startActivity(intent);
-        }*/
+
+
+        if(caChoi.getStatus() == 2) {
+
+            btCa.setTextColor(R.drawable.green);
+            txtThoiluong.setTextColor(R.drawable.green);
+            txtGia.setTextColor(R.drawable.green);
+            cbCachoi.setVisibility(View.INVISIBLE);
+
+        }else {
+            cbCachoi.setVisibility(View.VISIBLE);
+        }
+
         btCa.setText(caChoi.getSlot());
         txtThoiluong.setText(caChoi.getThoiluong());
         txtGia.setText(caChoi.getPriceByName());

@@ -31,6 +31,7 @@ public class Booking extends AppCompatActivity {
     Button btOK;
     CheckBox cbCachoi;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,21 +74,24 @@ public class Booking extends AppCompatActivity {
                 CaChoi ca = arrCachoi.get(position);
                 CheckBox cb_slot = (CheckBox) view.findViewById(R.id.cbCaChoi);
 
-                if (cb_slot.isChecked()) {
-                    cb_slot.setChecked(false);
+                if(cb_slot.getVisibility() == View.VISIBLE) {
+                    if (cb_slot.isChecked()) {
+                        cb_slot.setChecked(false);
 
-                    if (arrSlotSelected.size() > 0) {
-                        for (CaChoi caChoi : arrSlotSelected) {
-                            if (caChoi.getId() == ca.getId()) {
-                                arrSlotSelected.remove(caChoi);
+                        if (arrSlotSelected.size() > 0) {
+                            for (CaChoi caChoi : arrSlotSelected) {
+                                if (caChoi.getId() == ca.getId()) {
+                                    arrSlotSelected.remove(caChoi);
+                                }
                             }
                         }
+                    } else {
+                        cb_slot.setChecked(true);
+                        addSelectedSlot(ca);
                     }
-                } else {
-                    cb_slot.setChecked(true);
-                    addSelectedSlot(ca);
-
                 }
+
+
 
             }
         });
@@ -151,14 +155,14 @@ public class Booking extends AppCompatActivity {
 
     private void anhxa() {
         arrCachoi = new ArrayList<>();
-        arrCachoi.add(new CaChoi(1, "Slot 1", "7:00-8:30", "150000", "150000 vnđ"));
-        arrCachoi.add(new CaChoi(2, "Slot 2", "8:45-10:15", "150000", "150000 vnđ"));
-        arrCachoi.add(new CaChoi(3, "Slot 3", "10:30-12:00", "150000", "150000 vnđ"));
-        arrCachoi.add(new CaChoi(4, "Slot 4", "12:30-14:00", "170000", "170000 vnđ"));
-        arrCachoi.add(new CaChoi(5, "Slot 5", "14:00-15:45", "170000", "170000 vnđ"));
-        arrCachoi.add(new CaChoi(6, "Slot 6", "16:00-17:30", "170000", "170000 vnđ"));
-        arrCachoi.add(new CaChoi(7, "Slot 7", "17:45-19:15", "200000", "200000 vnđ"));
-        arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000", "200000 vnđ"));
+        arrCachoi.add(new CaChoi(1, "Slot 1", "7:00-8:30", "150000", "150000 vnđ",1));
+        arrCachoi.add(new CaChoi(2, "Slot 2", "8:45-10:15", "150000", "150000 vnđ",2));
+        arrCachoi.add(new CaChoi(3, "Slot 3", "10:30-12:00", "150000", "150000 vnđ",2));
+        arrCachoi.add(new CaChoi(4, "Slot 4", "12:30-14:00", "170000", "170000 vnđ",1));
+        arrCachoi.add(new CaChoi(5, "Slot 5", "14:00-15:45", "170000", "170000 vnđ",1));
+        arrCachoi.add(new CaChoi(6, "Slot 6", "16:00-17:30", "170000", "170000 vnđ",2));
+        arrCachoi.add(new CaChoi(7, "Slot 7", "17:45-19:15", "200000", "200000 vnđ",1));
+        arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000", "200000 vnđ",1));
 
         adapter = new CaChoiAdapter(this, R.layout.list_ca_choi, arrCachoi);
         lvCaChoi.setAdapter(adapter);
