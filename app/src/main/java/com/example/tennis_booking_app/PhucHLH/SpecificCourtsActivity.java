@@ -2,7 +2,6 @@ package com.example.tennis_booking_app.PhucHLH;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,20 +11,17 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tennis_booking_app.DetailsPromotion;
 import com.example.tennis_booking_app.Clients.ApiClient;
-import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanAdapter;
 import com.example.tennis_booking_app.SanTennis;
-import com.example.tennis_booking_app.StartsActivity;
-import com.example.tennis_booking_app.ViewModels.Login.LoginResponse;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
-import com.example.tennis_booking_app.YardDetail;
+import com.example.tennis_booking_app.ViewModels.PagedCourtByType.PagedCourtTypeRespone;
+import com.example.tennis_booking_app.ViewModels.PagedCourtByType.PagedCoutTypeRequest;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
@@ -84,16 +80,18 @@ public class SpecificCourtsActivity extends AppCompatActivity {
         noiDung = intent.getStringExtra("sandetail");
         txtType.setText(noiDung);
         if (noiDung.equals("Sân đất nện")) {
-            arrSan.add(new SanTennis("Sân đất nện", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_clay, "4.3km", "4.2"));
+            /*arrSan.add(new SanTennis("Sân đất nện", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_clay, "4.3km", "4.2"));
             arrSan.add(new SanTennis("Sân đất nện", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_clay, "4.3km", "4.2"));
             arrSan.add(new SanTennis("Sân đất nện", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_clay, "4.3km", "4.2"));
             arrSan.add(new SanTennis("Sân đất nện", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_clay, "4.3km", "4.2"));
             arrSan.add(new SanTennis("Sân đất nện", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_clay, "4.3km", "4.2"));
             arrSan.add(new SanTennis("Sân đất nện", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_clay, "4.3km", "4.2"));
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
-            lvSpecific.setAdapter((ListAdapter) sanAdapter);
+            lvSpecific.setAdapter((ListAdapter) sanAdapter);*/
+            LoadCourtType(2);
+            txtType.setText("Sân đang có ưu đãi");
         } else if (noiDung.equals("Sân cứng")) {
-            arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "3 km", "4.2"));
+           /* arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "3 km", "4.2"));
             arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "9.1 km", "4.2"));
             arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "4.9 km", "4.2"));
             arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "4 km", "4.2"));
@@ -101,9 +99,11 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "6.1 km", "4.2"));
             arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "1 km", "4.2"));
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
-            lvSpecific.setAdapter((ListAdapter) sanAdapter);
+            lvSpecific.setAdapter((ListAdapter) sanAdapter);*/
+            LoadCourtType(3);
+            txtType.setText("Sân đang có ưu đãi");
         } else if (noiDung.equals("Sân cỏ")) {
-            arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "500 m", "4.2"));
+            /*arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "500 m", "4.2"));
             arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "2.2 km", "4.2"));
             arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "4.3 km", "4.2"));
             arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "4.5 km", "4.2"));
@@ -111,7 +111,10 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "4 km", "4.2"));
             arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "8.4 km", "4.2"));
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
-            lvSpecific.setAdapter((ListAdapter) sanAdapter);
+            lvSpecific.setAdapter((ListAdapter) sanAdapter);*/
+
+            LoadCourtType(1);
+            txtType.setText("Sân đang có ưu đãi");
         }
         else if (noiDung.equals("UD")) {
             loadPromoCourt();
@@ -184,17 +187,30 @@ public class SpecificCourtsActivity extends AppCompatActivity {
 
     }
 
-//    private void loadPromoCourt(){
-//        ApiClient.getVendorService().getPagedPromoCourt(11).enqueue(new Callback<List<PagedCourtResponse>>() {
-//            @Override
-//            public void onResponse(Call<List<PagedCourtResponse>> call, Response<List<PagedCourtResponse>> response) {
-//                System.out.println("response body " + response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<PagedCourtResponse>> call, Throwable t) {
-//
-//            }
-//        });
+    private void LoadCourtType(int id){
+        PagedCoutTypeRequest param_request= new PagedCoutTypeRequest();
+        param_request.setPageSize(5);
+        param_request.setVendorID(11);
+        param_request.setQueryString("");
+        param_request.setCurrentPage(1);
+
+        Call<PagedCourtTypeRespone> pagedCourtTypeResponeCall=ApiClient.getVendorService().getPagedType(AUTHORIZATION,param_request.getVendorID(), param_request.getPageSize(), param_request.getQueryString(), param_request.getCurrentPage(),id);
+        System.out.println("request url \n" + pagedCourtTypeResponeCall.request().url());
+
+        pagedCourtTypeResponeCall.enqueue(new Callback<PagedCourtTypeRespone>() {
+            @Override
+            public void onResponse(Call<PagedCourtTypeRespone> call, Response<PagedCourtTypeRespone> response) {
+                if(response.body() != null) {
+                    System.out.println("body: " + response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PagedCourtTypeRespone> call, Throwable t) {
+
+            }
+        });
+
+    }
 
 }
