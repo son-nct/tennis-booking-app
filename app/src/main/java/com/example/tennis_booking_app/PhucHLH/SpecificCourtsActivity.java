@@ -89,7 +89,7 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);*/
             LoadCourtType(2);
-            txtType.setText("Sân đang có ưu đãi");
+            txtType.setText("Sân đất nện");
         } else if (noiDung.equals("Sân cứng")) {
            /* arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "3 km", "4.2"));
             arrSan.add(new SanTennis("Sân cứng", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_hard, "9.1 km", "4.2"));
@@ -101,7 +101,7 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             sanAdapter = new SanAdapter(this, R.layout.list_court_near, arrSan);
             lvSpecific.setAdapter((ListAdapter) sanAdapter);*/
             LoadCourtType(3);
-            txtType.setText("Sân đang có ưu đãi");
+            txtType.setText("Sân cứng");
         } else if (noiDung.equals("Sân cỏ")) {
             /*arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "500 m", "4.2"));
             arrSan.add(new SanTennis("Sân cỏ", "36.57m x 18.29m", "150.000 vnđ ~ 300.000 vnđ", R.drawable.ic_grass, "2.2 km", "4.2"));
@@ -114,7 +114,7 @@ public class SpecificCourtsActivity extends AppCompatActivity {
             lvSpecific.setAdapter((ListAdapter) sanAdapter);*/
 
             LoadCourtType(1);
-            txtType.setText("Sân đang có ưu đãi");
+            txtType.setText("Sân cỏ");
         }
         else if (noiDung.equals("UD")) {
             loadPromoCourt();
