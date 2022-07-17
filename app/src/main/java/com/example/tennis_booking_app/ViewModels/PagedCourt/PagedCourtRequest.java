@@ -5,6 +5,7 @@ public class PagedCourtRequest {
     private int PageSize;
     private String queryString;
     private int CurrentPage;
+    private int typeId;
 
 
     public PagedCourtRequest() {
@@ -15,6 +16,22 @@ public class PagedCourtRequest {
         PageSize = pageSize;
         this.queryString = queryString;
         CurrentPage = currentPage;
+    }
+
+    public PagedCourtRequest(int vendorId, int pageSize, String queryString, int currentPage, int typeId) {
+        VendorId = vendorId;
+        PageSize = pageSize;
+        this.queryString = queryString;
+        CurrentPage = currentPage;
+        this.typeId = typeId;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
     }
 
     public int getVendorId() {

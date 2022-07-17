@@ -92,7 +92,7 @@ public class Promotion extends AppCompatActivity {
         param_request.setCurrentPage(1);
         loadingDialog.startLoadingDialog();
 
-        Call<PagedCourtResponse> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(AUTHORIZATION,param_request.getVendorId(), param_request.getPageSize(), param_request.getQueryString(), param_request.getCurrentPage());
+        Call<PagedCourtResponse> pagedCourtResponseCall = ApiClient.getCourtService().getPagedPromoCourt(AUTHORIZATION,param_request.getVendorId(), param_request.getPageSize(), param_request.getQueryString(), param_request.getCurrentPage());
         System.out.println("request url \n" + pagedCourtResponseCall.request().url());
 
         pagedCourtResponseCall.enqueue(new Callback<PagedCourtResponse>() {

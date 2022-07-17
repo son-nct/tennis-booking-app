@@ -73,16 +73,16 @@
             android:layout_marginTop="3dp"
             app:srcCompat="@drawable/ic_star_svgrepo_com" />
 
-        <TextView
-            android:id="@+id/txtKhoangCach"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="distance" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtKhoangCach"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="distance" />-->
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:srcCompat="@drawable/ic_location" />
+<!--        <ImageView-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            app:srcCompat="@drawable/ic_location" />-->
     </LinearLayout>
 
 

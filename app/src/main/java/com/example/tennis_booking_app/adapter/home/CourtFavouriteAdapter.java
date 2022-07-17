@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tennis_booking_app.Models.CourtSizeValue;
+import com.example.tennis_booking_app.Models.LoadImage;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.R;
@@ -65,40 +66,31 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        // array trả về từ Home
-        PagedCourtValue pagedCourtValue = arrPageCourtValue.get(position);
+        try {
+            // array trả về từ Home
+            PagedCourtValue pagedCourtValue = arrPageCourtValue.get(position);
 
-        //get sharedPreference
-
-
-//        Gson gson = new Gson();
-//        String json = sharedPrefs.getString("LIST_COURT_SIZE","");
-//        CourtSizeValue arrSize = gson.fromJson(json, CourtSizeValue.class);
-
-//        sharedPreferences = getSharedPreferences("MySharedPref", 0);
-//        //parse JSON TOKEN to object Token
-//        Gson gson = new Gson();
-//        String json = sharedPreferences.getString("TOKEN", "");
-//        TOKEN = gson.fromJson(json, Token.class);
-//        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
-
-        sharedPrefs = context.getSharedPreferences("MySharedPref", 0);
-        Gson gson = new Gson();
-        String json = sharedPrefs.getString("LIST_COURT_SIZE", "[]");
-        Type type = new TypeToken<ArrayList<CourtSizeValue>>() {}.getType();
-        List<CourtSizeValue> listCourtSize = gson.fromJson(json,type);
+            sharedPrefs = context.getSharedPreferences("MySharedPref", 0);
+            Gson gson = new Gson();
+            String json = sharedPrefs.getString("LIST_COURT_SIZE", "[]");
+            Type type = new TypeToken<ArrayList<CourtSizeValue>>() {}.getType();
+            List<CourtSizeValue> listCourtSize = gson.fromJson(json,type);
 
 
-        for (CourtSizeValue size : listCourtSize) {
-            if(size.getId() == pagedCourtValue.getCourtSizeId()) {
-                holder.txtSize.setText(size.getWidth() + "m " + "x" + size.getHeight() + "m ");
+            for (CourtSizeValue size : listCourtSize) {
+                if(size.getId() == pagedCourtValue.getCourtSizeId()) {
+                    holder.txtSize.setText(size.getWidth() + "m " + "x" + size.getHeight() + "m ");
+                }
             }
+            holder.txtCourtName.setText(pagedCourtValue.getName());
+            holder.txtAddress.setText("AAA");
+            holder.txtPrice.setText("123123123");
+            String imageUrl = pagedCourtValue.getImageUrl();
+            LoadImage loadImage = new LoadImage(holder.imgCourt);
+            loadImage.execute(imageUrl);
+        }catch(Exception e){
+            e.printStackTrace();
         }
-
-
-        holder.txtCourtName.setText(pagedCourtValue.getName());
-        holder.txtAddress.setText("AAA");
-        holder.txtPrice.setText("123123123");
 
 //        holder.imgCourt.setImageResource(court_fav.getImgCourt());
 //        holder.txtCourtName.setText(court_fav.getName());

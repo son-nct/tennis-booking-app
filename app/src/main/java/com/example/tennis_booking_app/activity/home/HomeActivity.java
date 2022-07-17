@@ -24,13 +24,13 @@ import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
 import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeResponse;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
+import com.example.tennis_booking_app.ViewModels.Vendor.VendorRequest;
+import com.example.tennis_booking_app.ViewModels.Vendor.VendorResponse;
 import com.example.tennis_booking_app.adapter.home.CourtFavouriteAdapter;
 import com.example.tennis_booking_app.DangXuat;
 import com.example.tennis_booking_app.adapter.home.HorizontalAdapter;
 import com.example.tennis_booking_app.LichSu;
-import com.example.tennis_booking_app.Models.Court;
 import com.example.tennis_booking_app.R;
-import com.example.tennis_booking_app.SanKM;
 import com.example.tennis_booking_app.PhucHLH.SearchPageActivity;
 import com.example.tennis_booking_app.PhucHLH.SpecificCourtsActivity;
 import com.google.gson.Gson;
@@ -44,12 +44,10 @@ import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
     ImageView imgSearchBar, imgHard, imgClay, imgGrass, imgUser, imgHistory, imgNearMe, imgPromo;
-    List<SanKM> arrSanPromo;
-    List<Court> arrCourtFav;
     HorizontalAdapter horizontalAdapter;
     RecyclerView viewPromo, viewFavCourt;
     TextView txtWelcome;
-    ArrayList<PagedCourtValue> arrPromoHome;
+    List<VendorResponse> arrPromoHome;
     ArrayList<PagedCourtValue> arrFavHome;
     List<PagedCourtResponse> arrAPIPaged;
     Token TOKEN;
@@ -75,8 +73,6 @@ public class HomeActivity extends AppCompatActivity {
 
         viewPromo = (RecyclerView) findViewById(R.id.viewPromo);
         viewFavCourt = (RecyclerView) findViewById(R.id.viewFavCourt);
-        arrSanPromo = new ArrayList<>();
-        arrCourtFav = new ArrayList<>();
 
 //        horizontalAdapter = new HorizontalAdapter(this, arrSanPromo);
 //        courtFavouriteAdapter = new CourtFavouriteAdapter(this, arrPromoHome);
@@ -102,8 +98,8 @@ public class HomeActivity extends AppCompatActivity {
 
         callSize();
 
-        loadHighRating();
         loadPromo();
+        loadHighRating();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#AFF8A3"));
@@ -145,7 +141,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("sandetail", "Sân cứng");
+                intent.putExtra("sandetail", "Hard");
                 startActivity(intent);
             }
         });
@@ -154,7 +150,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("sandetail", "Sân đất nện");
+                intent.putExtra("sandetail", "Clay");
                 startActivity(intent);
             }
         });
@@ -163,7 +159,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("sandetail", "Sân cỏ");
+                intent.putExtra("sandetail", "Grass");
                 startActivity(intent);
             }
         });
@@ -179,9 +175,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setWelcome() {
-        Intent intent = getIntent();
-//        String welcome = intent.getStringExtra("data");
-//        txtWelcome.setText("Xin chào " + welcome);
+        
     }
 
 //    private void initData() {
@@ -195,38 +189,32 @@ public class HomeActivity extends AppCompatActivity {
 //    }
 
     private void loadPromo(){
-        PagedCourtRequest paramsRequest = new PagedCourtRequest();
-        paramsRequest.setVendorId(11);
-        paramsRequest.setPageSize(10);
-        paramsRequest.setQueryString("");
-        paramsRequest.setCurrentPage(1);
+        VendorRequest vendorRequest = new VendorRequest();
+        vendorRequest.setPageSize(11);
 
-        Call<PagedCourtResponse> pagedCourtResponseCall = ApiClient.getVendorService().getPagedPromoCourt(AUTHORIZATION, paramsRequest.getVendorId(), paramsRequest.getPageSize(), paramsRequest.getQueryString(), paramsRequest.getCurrentPage());
-        System.out.println("request promo today url \n" + pagedCourtResponseCall.request().url());
-        pagedCourtResponseCall.enqueue(new Callback<PagedCourtResponse>() {
+        Call<List<VendorResponse>> vendorResponseCall = ApiClient.getVendorService().getPromotingVendorHome(AUTHORIZATION, vendorRequest.getPageSize());
+        System.out.println("request url \n" + vendorResponseCall.request().url());
+        vendorResponseCall.enqueue(new Callback<List<VendorResponse>>() {
             @Override
-            public void onResponse(Call<PagedCourtResponse> call, Response<PagedCourtResponse> response) {
-                if(response.code() == 200){
-                    // set layout
-                    LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-                    viewPromo.setLayoutManager(mLayoutManager);
+            public void onResponse(Call<List<VendorResponse>> call, Response<List<VendorResponse>> response) {
+                if(response.body() != null){
+                    // set horizontal view
+                    LinearLayoutManager mLayoutPromoting = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                    viewPromo.setLayoutManager(mLayoutPromoting);
                     viewPromo.setItemAnimator(new DefaultItemAnimator());
-
                     // handle api data
-                    arrPromoHome = new ArrayList<>();
-                    PagedCourtResponse pagedCourtResponse = response.body();
-                    arrPromoHome = (ArrayList) pagedCourtResponse.getValue();
-                    HorizontalAdapter horizontalPromoAdapter = new HorizontalAdapter(HomeActivity.this, arrPromoHome);
-
-                    // set adapter
-                    viewPromo.setLayoutManager(mLayoutManager);
-                    viewPromo.setAdapter(horizontalPromoAdapter);
-                    horizontalPromoAdapter.notifyDataSetChanged();
+                    arrPromoHome = (List) response.body();
+                    System.out.println("arr promo " + arrPromoHome);
+                    HorizontalAdapter courtPromotingAdapter = new HorizontalAdapter(HomeActivity.this, (ArrayList<VendorResponse>) arrPromoHome, sharedPreferences);
+                    // set Adapter
+                    viewPromo.setLayoutManager(mLayoutPromoting);
+                    viewPromo.setAdapter(courtPromotingAdapter);
+                    courtPromotingAdapter.notifyDataSetChanged();
                 }
             }
 
             @Override
-            public void onFailure(Call<PagedCourtResponse> call, Throwable t) {
+            public void onFailure(Call<List<VendorResponse>> call, Throwable t) {
 
             }
         });
@@ -240,7 +228,7 @@ public class HomeActivity extends AppCompatActivity {
         paramsRequest.setQueryString("");
         paramsRequest.setPageSize(7);
 
-        Call<PagedCourtResponse> pagedCourtResponseCall = ApiClient.getVendorService().getPagedListHighRating(AUTHORIZATION, paramsRequest.getVendorId(), paramsRequest.getPageSize(), paramsRequest.getQueryString(), paramsRequest.getCurrentPage());
+        Call<PagedCourtResponse> pagedCourtResponseCall = ApiClient.getCourtService().getPagedListHighRating(AUTHORIZATION, paramsRequest.getVendorId(), paramsRequest.getPageSize(), paramsRequest.getQueryString(), paramsRequest.getCurrentPage());
         System.out.println("request home url \n" + pagedCourtResponseCall.request().url());
             pagedCourtResponseCall.enqueue(new Callback<PagedCourtResponse>() {
                 @Override

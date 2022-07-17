@@ -6,6 +6,7 @@ import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.Service.CourtSizeService;
 import com.example.tennis_booking_app.Service.UserService;
 import com.example.tennis_booking_app.Service.CourtService;
+import com.example.tennis_booking_app.Service.VendorService;
 
 import java.io.IOException;
 
@@ -56,11 +57,15 @@ public class ApiClient {
         return getRetrofit().create(UserService.class);
     }
 
-    public static CourtService getVendorService() {
+    public static CourtService getCourtService() {
         return getRetrofit().create(CourtService.class);
     }
 
     public static CourtSizeService getCourtSizeService(){
         return getRetrofit().create(CourtSizeService.class);
+    }
+
+    public static VendorService getVendorService(){
+        return getRetrofit().create(VendorService.class);
     }
 }
