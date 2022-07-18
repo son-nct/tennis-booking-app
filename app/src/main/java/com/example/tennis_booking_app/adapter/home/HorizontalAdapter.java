@@ -92,7 +92,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             String imageURL = pagedCourtValue.getAvatarUrl();
             LoadImage loadImage = new LoadImage(holder.imgHinh);
             loadImage.execute(imageURL);
-            holder.txtKhoangCach.setText(pagedCourtValue.getDistance().equals(0) ? pagedCourtValue.getDistance() + "1km" : pagedCourtValue.getDistance() + "km" );
+            holder.txtKhoangCach.setText(pagedCourtValue.getDistance() + " km" );
 
             holder.rvSan.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -24,6 +24,8 @@ import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
 import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeResponse;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
+import com.example.tennis_booking_app.ViewModels.PromotingCourtHome.PromotingHomeRequest;
+import com.example.tennis_booking_app.ViewModels.PromotingCourtHome.PromotingHomeResponse;
 import com.example.tennis_booking_app.ViewModels.Vendor.VendorRequest;
 import com.example.tennis_booking_app.ViewModels.Vendor.VendorResponse;
 import com.example.tennis_booking_app.adapter.home.CourtFavouriteAdapter;
@@ -49,7 +51,9 @@ public class HomeActivity extends AppCompatActivity {
     TextView txtWelcome;
     List<VendorResponse> arrPromoHome;
     ArrayList<PagedCourtValue> arrFavHome;
+    List<PromotingHomeResponse> arrPromotingHome;
     List<PagedCourtResponse> arrAPIPaged;
+    List<PromotingHomeResponse> arrPromoResponse;
     Token TOKEN;
     String AUTHORIZATION;
     SharedPreferences sharedPreferences;
@@ -98,7 +102,8 @@ public class HomeActivity extends AppCompatActivity {
         callSize();
 
         loadPromo();
-        loadHighRating();
+//        loadHighRating();
+        getHighRating();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#AFF8A3"));
@@ -211,11 +216,11 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-
+/*
     private void loadHighRating() {
         PagedCourtRequest paramsRequest = new PagedCourtRequest();
         paramsRequest.setCurrentPage(1);
-        paramsRequest.setVendorId(11);
+        paramsRequest.setVendorId(520);
         paramsRequest.setQueryString("");
         paramsRequest.setPageSize(7);
 
@@ -248,6 +253,8 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
     }
+
+ */
 
     // call api court size
     public void callSize() {
@@ -289,4 +296,35 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    //  call 2rating
+    private void getHighRating(){
+        PromotingHomeRequest paramsRequest = new PromotingHomeRequest();
+        paramsRequest.setPageSize(10);
+
+        Call<List<PromotingHomeResponse>> promotingHomeCall = ApiClient.getCourtService().getHighRatingCourtHome(AUTHORIZATION, paramsRequest.getPageSize());
+        promotingHomeCall.enqueue(new Callback<List<PromotingHomeResponse>>() {
+            @Override
+            public void onResponse(Call<List<PromotingHomeResponse>> call, Response<List<PromotingHomeResponse>> response) {
+                if(response.body().size()>0){
+                    // set horizontal view
+                    LinearLayoutManager mLayoutFavourite = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                    viewFavCourt.setLayoutManager(mLayoutFavourite);
+                    viewFavCourt.setItemAnimator(new DefaultItemAnimator());
+                    // handle
+                    arrPromotingHome = response.body();
+                    System.out.println("arr promo response "+ arrPromotingHome);
+                    CourtFavouriteAdapter courtFavAdapter = new CourtFavouriteAdapter(HomeActivity.this, arrPromotingHome, sharedPreferences);
+                    // set adapter
+                    viewFavCourt.setLayoutManager(mLayoutFavourite);
+                    viewFavCourt.setAdapter(courtFavAdapter);
+                    courtFavAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<PromotingHomeResponse>> call, Throwable t) {
+
+            }
+        });
+    }
 }

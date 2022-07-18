@@ -8,13 +8,13 @@ public class PromotingHomeResponse {
     private int VendorId;
     private int TypeId;
     private int CourtSizeId;
-    private Date InsertedDate;
+    private String InsertedDate;
     private int InsertedBy;
     private boolean Active;
-    private int RatingAverage;
+    private double RatingAverage;
     private String ImageUrl;
 
-    public PromotingHomeResponse(int id, String name, int vendorId, int typeId, int courtSizeId, Date insertedDate, int insertedBy, boolean active, int ratingAverage, String imageUrl) {
+    public PromotingHomeResponse(int id, String name, int vendorId, int typeId, int courtSizeId, String insertedDate, int insertedBy, boolean active, double ratingAverage, String imageUrl) {
         Id = id;
         Name = name;
         VendorId = vendorId;
@@ -67,11 +67,11 @@ public class PromotingHomeResponse {
         CourtSizeId = courtSizeId;
     }
 
-    public Date getInsertedDate() {
+    public String getInsertedDate() {
         return InsertedDate;
     }
 
-    public void setInsertedDate(Date insertedDate) {
+    public void setInsertedDate(String insertedDate) {
         InsertedDate = insertedDate;
     }
 
@@ -91,11 +91,11 @@ public class PromotingHomeResponse {
         Active = active;
     }
 
-    public int getRatingAverage() {
+    public double getRatingAverage() {
         return RatingAverage;
     }
 
-    public void setRatingAverage(int ratingAverage) {
+    public void setRatingAverage(double ratingAverage) {
         RatingAverage = ratingAverage;
     }
 

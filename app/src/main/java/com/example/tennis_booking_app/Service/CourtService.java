@@ -2,6 +2,7 @@ package com.example.tennis_booking_app.Service;
 
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
+import com.example.tennis_booking_app.ViewModels.PromotingCourtHome.PromotingHomeResponse;
 
 import java.util.List;
 
@@ -24,4 +25,10 @@ public interface CourtService {
 
     @GET(COURT + "/GetPagedListCourtByType")
     Call<PagedCourtResponse> getPagedListCourtByType(@Header("Authorization") String access_token, @Query("PageSize") int PageSize, @Query("CurrentPage") int CurrentPage, @Query("typeId") int typeId);
+
+    @GET(COURT + "/PagedList")
+    Call<PagedCourtResponse> getPagedList(@Header("Authorization") String access_token, @Query("VendorId") int VendorId, @Query("PageSize") int pagesize, @Query("queryString") String queryString, @Query("CurrentPage") int currentPage);
+
+    @GET(COURT + "/GetHighRatingCourtHome")
+    Call<List<PromotingHomeResponse>> getHighRatingCourtHome(@Header("Authorization") String access_token, @Query("PageSize") int pagesize);
 }
