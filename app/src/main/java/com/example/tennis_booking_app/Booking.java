@@ -52,11 +52,11 @@ public class Booking extends AppCompatActivity {
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
         //CaChoi caChoi = (CaChoi) intent.getSerializableExtra("cachoi");
 
-        if (ten == null) {
-            txtTennis.setText(sanKM.getTen());
-        } else {
-            txtTennis.setText(ten.getTen());
-        }
+//        if (ten == null) {
+//            txtTennis.setText(sanKM.getTen());
+//        } else {
+//            txtTennis.setText(ten.getTen());
+//        }
 
 
         edtTime.setOnClickListener(new View.OnClickListener() {
