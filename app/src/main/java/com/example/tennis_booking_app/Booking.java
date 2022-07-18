@@ -2,6 +2,7 @@ package com.example.tennis_booking_app;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,21 +16,36 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.Slot.SlotValue;
+import com.example.tennis_booking_app.Models.Token;
+import com.example.tennis_booking_app.ViewModels.Booking.BookingRespone;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotRequest;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
+import com.google.gson.Gson;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Booking extends AppCompatActivity {
     EditText edtTime;
     TextView txtTennis;
     ListView lvCaChoi;
     CaChoiAdapter adapter;
-    ArrayList<CaChoi> arrCachoi;
+    //ArrayList<CaChoi> arrCachoi;
+    ArrayList<SlotValue> arrSlot;
     Intent intent, intentKM;
-    ArrayList<CaChoi> arrSlotSelected;
+    ArrayList<SlotValue> arrSlotSelected;
     Button btOK;
     CheckBox cbCachoi;
+    Token TOKEN;
+    String AUTHORIZATION;
 
 
     @Override
@@ -46,7 +62,7 @@ public class Booking extends AppCompatActivity {
         intent = getIntent();
         intentKM = getIntent();
 
-        arrSlotSelected = new ArrayList<CaChoi>();
+        arrSlotSelected = new ArrayList<SlotValue>();
 
         SanTennis ten = (SanTennis) intent.getSerializableExtra("sandetail");
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
@@ -71,7 +87,7 @@ public class Booking extends AppCompatActivity {
         lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CaChoi ca = arrCachoi.get(position);
+                SlotValue slot=arrSlot.get(position);
                 CheckBox cb_slot = (CheckBox) view.findViewById(R.id.cbCaChoi);
 
                 if(cb_slot.getVisibility() == View.VISIBLE) {
@@ -79,15 +95,15 @@ public class Booking extends AppCompatActivity {
                         cb_slot.setChecked(false);
 
                         if (arrSlotSelected.size() > 0) {
-                            for (CaChoi caChoi : arrSlotSelected) {
-                                if (caChoi.getId() == ca.getId()) {
+                            for (SlotValue caChoi : arrSlotSelected) {
+                                if (caChoi.getId() == slot.getId()) {
                                     arrSlotSelected.remove(caChoi);
                                 }
                             }
                         }
                     } else {
                         cb_slot.setChecked(true);
-                        addSelectedSlot(ca);
+                        addSelectedSlot(slot);
                     }
                 }
 
@@ -127,10 +143,10 @@ public class Booking extends AppCompatActivity {
         });
     }
 
-    private void addSelectedSlot(CaChoi ca) {
+    private void addSelectedSlot(SlotValue ca) {
         arrSlotSelected.add(ca);
         System.out.println("size: " + arrSlotSelected.size());
-        for (CaChoi cachoi : arrSlotSelected
+        for (SlotValue cachoi : arrSlotSelected
         ) {
             System.out.println(cachoi.toString());
         }
@@ -154,7 +170,7 @@ public class Booking extends AppCompatActivity {
     }
 
     private void anhxa() {
-        arrCachoi = new ArrayList<>();
+       /* arrCachoi = new ArrayList<>();
         arrCachoi.add(new CaChoi(1, "Slot 1", "7:00-8:30", "150000", "150000 vnđ",1));
         arrCachoi.add(new CaChoi(2, "Slot 2", "8:45-10:15", "150000", "150000 vnđ",2));
         arrCachoi.add(new CaChoi(3, "Slot 3", "10:30-12:00", "150000", "150000 vnđ",2));
@@ -163,9 +179,42 @@ public class Booking extends AppCompatActivity {
         arrCachoi.add(new CaChoi(6, "Slot 6", "16:00-17:30", "170000", "170000 vnđ",2));
         arrCachoi.add(new CaChoi(7, "Slot 7", "17:45-19:15", "200000", "200000 vnđ",1));
         arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000", "200000 vnđ",1));
+        */
+        //get sharedPreference
+        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sh.getString("TOKEN","");
+        TOKEN = gson.fromJson(json,Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
+        LoadSlot();
 
-        adapter = new CaChoiAdapter(this, R.layout.list_ca_choi, arrCachoi);
-        lvCaChoi.setAdapter(adapter);
+    }
+
+    private void LoadSlot(){
+        SlotRequest param_request=new SlotRequest();
+        param_request.setVendorId(520);
+        param_request.setCourtId(224);
+        param_request.setBookedPlayDate("2022-07-18");
+        param_request.setCourtTypeId(1);
+        Call<SlotRespone> slotResponeCall= ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
+        slotResponeCall.enqueue(new Callback<SlotRespone>() {
+            @Override
+            public void onResponse(Call<SlotRespone> call, Response<SlotRespone> response) {
+                if(response.body() != null){
+                    arrSlot=new ArrayList<>();
+                    SlotRespone slotRespone=response.body();
+                    arrSlot = (ArrayList) slotRespone.getValue();
+                    CaChoiAdapter adapter=new CaChoiAdapter(Booking.this,R.layout.list_history,arrSlot);
+                    lvCaChoi.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SlotRespone> call, Throwable t) {
+
+            }
+        });
     }
 
 }

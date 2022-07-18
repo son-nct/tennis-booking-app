@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.example.tennis_booking_app.Models.Slot.SlotValue;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -16,9 +18,9 @@ public class CaChoiAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private List<CaChoi> caChoiList;
+    private List<SlotValue> caChoiList;
 
-    public CaChoiAdapter(Context context, int layout, List<CaChoi> caChoiList) {
+    public CaChoiAdapter(Context context, int layout, List<SlotValue> caChoiList) {
         this.context = context;
         this.layout = layout;
         this.caChoiList = caChoiList;
@@ -51,11 +53,14 @@ public class CaChoiAdapter extends BaseAdapter {
         CheckBox cbCachoi=(CheckBox) convertView.findViewById(R.id.cbCaChoi);
         cbCachoi.setFocusable(false);
 
-        CaChoi caChoi=caChoiList.get(position);
+       /* SlotValue caChoi=caChoiList.get(position);
+
+        btCa.setText(caChoi.getNo());
+        txtThoiluong.setText(caChoi.getStartTime().toString() + caChoi.getEndTime().toString());
+        txtGia.setText(caChoi.getPrice());*/
 
 
-
-        if(caChoi.getStatus() == 2) {
+        /*if(caChoi.getStatus() == 2) {
 
             btCa.setTextColor(R.drawable.green);
             txtThoiluong.setTextColor(R.drawable.green);
@@ -68,7 +73,7 @@ public class CaChoiAdapter extends BaseAdapter {
 
         btCa.setText(caChoi.getSlot());
         txtThoiluong.setText(caChoi.getThoiluong());
-        txtGia.setText(caChoi.getPriceByName());
+        txtGia.setText(caChoi.getPriceByName());*/
 
         return convertView;
     }

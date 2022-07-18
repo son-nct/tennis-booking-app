@@ -8,22 +8,29 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.tennis_booking_app.Models.Booking.BookingDetail;
+import com.example.tennis_booking_app.Models.Booking.BookingValue;
+import com.example.tennis_booking_app.Models.Booking.Payment;
+import com.example.tennis_booking_app.Models.Booking.PaymentDetail;
+import com.example.tennis_booking_app.Models.CourtValue;
+import com.example.tennis_booking_app.Models.Slot.SlotValue;
+
 import java.util.List;
 
 public class LichSuAdapter extends BaseAdapter {
-    private Context context;
+    Context context;
     private int layout;
-    private List<History> historyList;
+    private List<BookingValue> bookingList;
 
-    public LichSuAdapter(Context context, int layout, List<History> historyList) {
+    public LichSuAdapter(Context context, int layout, List<BookingValue> bookingList) {
         this.context = context;
         this.layout = layout;
-        this.historyList = historyList;
+        this.bookingList = bookingList;
     }
 
     @Override
     public int getCount() {
-        return historyList.size();
+        return bookingList.size();
     }
 
     @Override
@@ -47,13 +54,19 @@ public class LichSuAdapter extends BaseAdapter {
         TextView txtNgayGio=(TextView) convertView.findViewById(R.id.txtNgayGio);
         TextView txtTienHis=(TextView) convertView.findViewById(R.id.txtTienHis);
 
-        History history=historyList.get(position);
+        /*BookingValue booking=bookingList.get(position);
+        CourtValue court=new CourtValue(booking.getBookingDetail().get(position).getCourtId());
+        SlotValue slot=new SlotValue(booking.getBookingDetail().get(position).getSlotId());
 
-        txtTenHis.setText(history.getTen());
-        txtCaHis.setText(history.getCa());
-        txtNgayGio.setText(history.getNgaygio());
-        txtTienHis.setText(history.getTien());
-        imgLogo.setImageResource(history.getAnh());
+        txtTenHis.setText(court.getName());
+        txtCaHis.setText(slot.getStartTime().getHours() + slot.getEndTime().getHours());*/
+
+        /*txtTenHis.setText(booking.getBookingDetail().get(position).getSlotId());
+
+        txtCaHis.setText(booking.getBooking().getSlotId());
+        txtNgayGio.setText(booking.get);
+        txtTienHis.setText(booking.getTotalPrice());
+        mgLogo.setImageResource(history.getAnh());*/
 
         return convertView;
     }
