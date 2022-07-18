@@ -14,4 +14,7 @@ public interface VendorService {
 
     @GET(VENDOR + "/GetPromotingVendorHome")
     Call<List<VendorResponse>> getPromotingVendorHome(@Header("Authorization") String access_token, @Query("pageSize") int pageSize);
+
+    @GET(VENDOR + "/GetOne")
+    Call<VendorResponse> getOneVendor(@Header("Authorization") String access_token, @Query("Id") int Id);
 }

@@ -59,7 +59,6 @@ public class SanAdapter extends BaseAdapter {
 //        TextView txtKhoangCach =(TextView) convertView.findViewById(R.id.txtKhoangCach);
         TextView txtRating =(TextView) convertView.findViewById(R.id.txtRating);
 
-
         try {
             PagedCourtValue pagedCourtValue = sanTennisList.get(position);
             // get shared prefs
@@ -73,7 +72,7 @@ public class SanAdapter extends BaseAdapter {
                     txtDientich.setText(size.getWidth() + "m " + "x" + size.getHeight() + "m ");
                 }
             }
-
+            txtTien.setText("100.000vnđ - 300.000vnđ");
             txtTen.setText(pagedCourtValue.getName());
             txtRating.setText(String.valueOf(pagedCourtValue.getRatingAverage()));
             String imageURL = pagedCourtValue.getImageUrl();

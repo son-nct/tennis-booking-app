@@ -8,17 +8,33 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.LoadImage;
+import com.example.tennis_booking_app.Models.PagedCourtValue;
+import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.PhucHLH.CourtDiscount;
 import com.example.tennis_booking_app.PhucHLH.CourtDiscountHorizontalAdapter;
+import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
+import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
+import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
+import com.example.tennis_booking_app.ViewModels.Vendor.VendorRequest;
+import com.example.tennis_booking_app.ViewModels.Vendor.VendorResponse;
+import com.example.tennis_booking_app.activity.home.HomeActivity;
+import com.example.tennis_booking_app.adapter.home.HorizontalAdapter;
+import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
@@ -26,18 +42,25 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class DetailsPromotion extends AppCompatActivity {
     ListView lvSanKM;
     SanKmAdapter adapter;
-    //    EditText edtCourtName;
-    ArrayList<SanKM> arrSanKM;
-    //    TextView txtRatingnReview;
-    TextView txtRating;
+    TextView txtTotalRate, txtVendorName, txtDistance, txtRating;
 
+    ImageView imgStore;
     RecyclerView viewCourtPromo;
     RecyclerView viewPromoCourt;
     CourtDiscountHorizontalAdapter courtDiscountHorizontalAdapter;
     List<CourtDiscount> arrCourtDiscount;
+    ArrayList<SanKM> arrSanKM;
+    Token TOKEN;
+    String AUTHORIZATION;
+    SharedPreferences sharedPreferences;
+    List<PagedCourtValue> arrResponseOfOneVendor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +68,11 @@ public class DetailsPromotion extends AppCompatActivity {
         setContentView(R.layout.activity_details_promotion);
 
         lvSanKM = (ListView) findViewById(R.id.lvSanKM);
-//        edtCourtName.setEnabled(false);
-        arrSanKM = new ArrayList<>();
+        txtTotalRate = findViewById(R.id.txtTotalRate);
+        txtVendorName = findViewById(R.id.txtVendorName);
+        txtDistance = findViewById(R.id.txtDistance);
         txtRating = findViewById(R.id.txtRatingAndComment);
+        imgStore = findViewById(R.id.imgStore);
         viewCourtPromo = findViewById(R.id.viewCourtPromo);
 
         // horizontal view promo
@@ -63,22 +88,34 @@ public class DetailsPromotion extends AppCompatActivity {
 
         // end of horizontal view promo
 
-        arrSanKM = new ArrayList<>();
 
-        arrSanKM.add(new SanKM("Sân 1A - Sân đất nện", "36.57m x 18.29m", "150.000 - 200.000 đ", "TENNIS10", R.drawable.tennis_clay, "5", "4.3"));
-        arrSanKM.add(new SanKM("Sân 2A - Sân PVC", "36.57m x 18.29m", "150.000 - 250.000 đ", "TENNIS10", R.drawable.tennis_grass, "4.6", "4.3"));
-        arrSanKM.add(new SanKM("Sân 2B - Sân cỏ", "36.57m x 18.29m", "150.000 - 300.000 đ", "TENNIS10", R.drawable.tennis_grass, "5", "4.3"));
+//        arrSanKM = new ArrayList<>();
+//        arrSanKM.add(new SanKM("Sân 1A - Sân đất nện", "36.57m x 18.29m", "150.000 - 200.000 đ", "TENNIS10", R.drawable.tennis_clay, "5", "4.3"));
+//        arrSanKM.add(new SanKM("Sân 2A - Sân PVC", "36.57m x 18.29m", "150.000 - 250.000 đ", "TENNIS10", R.drawable.tennis_grass, "4.6", "4.3"));
+//        arrSanKM.add(new SanKM("Sân 2B - Sân cỏ", "36.57m x 18.29m", "150.000 - 300.000 đ", "TENNIS10", R.drawable.tennis_grass, "5", "4.3"));
+//        adapter = new SanKmAdapter(this, arrSanKM);
+//        lvSanKM.setAdapter(adapter);
 
-        adapter = new SanKmAdapter(this, R.layout.list_san_promo, arrSanKM);
-        lvSanKM.setAdapter(adapter);
+        //get sharedPreference
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("TOKEN", "");
+        TOKEN = gson.fromJson(json, Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
 
-//        txtRatingnReview.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);
-//                startActivity(intent);
-//            }
-//        });
+        // get bundle from home
+        Intent intent = getIntent();
+        int vendorID = intent.getIntExtra("vendorID", -1);
+        checkVendorID(vendorID);
+
+        txtRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailsPromotion.this, DanhGia.class);
+                startActivity(intent);
+            }
+        });
         txtRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,9 +127,9 @@ public class DetailsPromotion extends AppCompatActivity {
         lvSanKM.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SanKM sanKM = arrSanKM.get(position);
+//                SanKM sanKM = arrSanKM.get(position);
                 Intent intent = new Intent(DetailsPromotion.this, Booking.class);
-                intent.putExtra("sanKMDetail", (Serializable) sanKM);
+//                intent.putExtra("sanKMDetail", (Serializable) sanKM);
                 startActivity(intent);
             }
         });
@@ -106,4 +143,74 @@ public class DetailsPromotion extends AppCompatActivity {
         arrCourtDiscount.add(new CourtDiscount("Mời bạn Lần Đầu", "Giảm 50.000đ", R.drawable.tennis_grass, "Nhập mã LANDAU để được ưu đãi 50.000đ khi đặt sân lần đầu"));
         courtDiscountHorizontalAdapter.notifyDataSetChanged();
     }
+
+    private void checkVendorID(int vendorID) {
+        if (vendorID == -1) {
+            Toast.makeText(this, "Không tìm được sân, thử lại", Toast.LENGTH_SHORT).show();
+        } else {
+            getVendorByID(vendorID);
+            loadCourtByVendorID(vendorID);
+        }
+    }
+
+    private void getVendorByID(int vendorID) {
+        VendorRequest vendorRequest = new VendorRequest();
+        vendorRequest.setPageSize(vendorID);
+        System.out.println("vendor id + " + vendorID);
+
+        Call<VendorResponse> vendorResponseCall = ApiClient.getVendorService().getOneVendor(AUTHORIZATION, vendorRequest.getPageSize());
+        System.out.println("request url \n" + vendorResponseCall.request().url());
+        vendorResponseCall.enqueue(new Callback<VendorResponse>() {
+            @Override
+            public void onResponse(Call<VendorResponse> call, Response<VendorResponse> response) {
+                try {
+                    VendorResponse vendorResponse = response.body();
+                    txtVendorName.setText(vendorResponse.getVendorName());
+                    txtDistance.setText(vendorResponse.getDistance());
+                    if (vendorResponse.getRatingAverage() == 0) {
+                        txtTotalRate.setText(String.valueOf(1));
+                    } else {
+                        txtTotalRate.setText(vendorResponse.getRatingAverage());
+                    }
+                    String imageURL = vendorResponse.getAvatarUrl();
+                    LoadImage loadImage = new LoadImage(imgStore);
+                    loadImage.execute(imageURL);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<VendorResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void loadCourtByVendorID(int vendorID){
+        PagedCourtRequest paramsRequest = new PagedCourtRequest();
+        paramsRequest.setVendorId(vendorID);
+        paramsRequest.setPageSize(6);
+        paramsRequest.setQueryString("");
+        paramsRequest.setCurrentPage(1);
+                                                                // PagedList?VendorId=11&PageSize=6&queryString=z&CurrentPage=1
+        Call<PagedCourtResponse> pagedCourtResponseCall = ApiClient.getCourtService().getPagedList(AUTHORIZATION, paramsRequest.getVendorId(), paramsRequest.getPageSize(), paramsRequest.getQueryString(), paramsRequest.getCurrentPage());
+        pagedCourtResponseCall.enqueue(new Callback<PagedCourtResponse>() {
+            @Override
+            public void onResponse(Call<PagedCourtResponse> call, Response<PagedCourtResponse> response) {
+                if(response.body() != null){
+                    arrResponseOfOneVendor = new ArrayList<>();
+                    arrResponseOfOneVendor = response.body().getValue();
+                    SanKmAdapter sanKmAdapter = new SanKmAdapter(DetailsPromotion.this, arrResponseOfOneVendor, sharedPreferences);
+                    lvSanKM.setAdapter(sanKmAdapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PagedCourtResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
 }

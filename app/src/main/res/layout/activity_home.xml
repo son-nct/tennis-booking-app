@@ -122,6 +122,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginLeft="100dp"
                         android:layout_marginTop="10dp">
 
@@ -138,29 +139,6 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="55dp"
                             android:text="Xem tất cả" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="240dp"
-                        android:layout_marginTop="10dp">
-
-                        <ImageView
-                            android:id="@+id/imgLocation"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_centerHorizontal="true"
-                            app:srcCompat="@drawable/ic_location_red" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="55dp"
-                            android:text="Gần tôi"
-                            android:textSize="14sp" />
-
                     </RelativeLayout>
 
 

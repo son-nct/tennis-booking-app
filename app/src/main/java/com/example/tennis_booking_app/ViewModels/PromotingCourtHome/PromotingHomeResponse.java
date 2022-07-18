@@ -1,23 +1,20 @@
-package com.example.tennis_booking_app.Models;
+package com.example.tennis_booking_app.ViewModels.PromotingCourtHome;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class PagedCourtValue implements Serializable {
+public class PromotingHomeResponse {
     private int Id;
     private String Name;
     private int VendorId;
     private int TypeId;
     private int CourtSizeId;
-    private Date InsertedDate;
+    private String InsertedDate;
     private int InsertedBy;
-    private Date UpdatedDate;
-    private int UpdatedBy;
     private boolean Active;
-    private int RatingAverage;
+    private double RatingAverage;
     private String ImageUrl;
 
-    public PagedCourtValue(int id, String name, int vendorId, int typeId, int courtSizeId, Date insertedDate, int insertedBy, Date updatedDate, int updatedBy, boolean active, int ratingAverage, String imageUrl) {
+    public PromotingHomeResponse(int id, String name, int vendorId, int typeId, int courtSizeId, String insertedDate, int insertedBy, boolean active, double ratingAverage, String imageUrl) {
         Id = id;
         Name = name;
         VendorId = vendorId;
@@ -25,8 +22,6 @@ public class PagedCourtValue implements Serializable {
         CourtSizeId = courtSizeId;
         InsertedDate = insertedDate;
         InsertedBy = insertedBy;
-        UpdatedDate = updatedDate;
-        UpdatedBy = updatedBy;
         Active = active;
         RatingAverage = ratingAverage;
         ImageUrl = imageUrl;
@@ -72,11 +67,11 @@ public class PagedCourtValue implements Serializable {
         CourtSizeId = courtSizeId;
     }
 
-    public Date getInsertedDate() {
+    public String getInsertedDate() {
         return InsertedDate;
     }
 
-    public void setInsertedDate(Date insertedDate) {
+    public void setInsertedDate(String insertedDate) {
         InsertedDate = insertedDate;
     }
 
@@ -88,22 +83,6 @@ public class PagedCourtValue implements Serializable {
         InsertedBy = insertedBy;
     }
 
-    public Date getUpdatedDate() {
-        return UpdatedDate;
-    }
-
-    public void setUpdatedDate(Date updatedDate) {
-        UpdatedDate = updatedDate;
-    }
-
-    public int getUpdatedBy() {
-        return UpdatedBy;
-    }
-
-    public void setUpdatedBy(int updatedBy) {
-        UpdatedBy = updatedBy;
-    }
-
     public boolean isActive() {
         return Active;
     }
@@ -112,11 +91,11 @@ public class PagedCourtValue implements Serializable {
         Active = active;
     }
 
-    public int getRatingAverage() {
+    public double getRatingAverage() {
         return RatingAverage;
     }
 
-    public void setRatingAverage(int ratingAverage) {
+    public void setRatingAverage(double ratingAverage) {
         RatingAverage = ratingAverage;
     }
 
