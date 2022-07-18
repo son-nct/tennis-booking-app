@@ -37,7 +37,7 @@ public class SpecificCourtsActivity extends AppCompatActivity {
 
     TextView txtType;
     ListView lvSpecific;
-    List<PagedCourtValue> arrSanCo, arrSanCung, arrSanDat;
+    List<PagedCourtValue> arrSanCo;
     Adapter sanAdapter;
     String noiDung = null;
     Token TOKEN;

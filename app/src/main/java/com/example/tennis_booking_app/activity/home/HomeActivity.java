@@ -66,7 +66,6 @@ public class HomeActivity extends AppCompatActivity {
         imgGrass = (ImageView) findViewById(R.id.imgGrass);
         imgUser = (ImageView) findViewById(R.id.imgUser);
         imgHistory = (ImageView) findViewById(R.id.imgHistory);
-        imgNearMe = (ImageView) findViewById(R.id.imgLocation);
         txtWelcome = (TextView) findViewById(R.id.txtWelcome);
         imgPromo = (ImageView) findViewById(R.id.imgPromo);
         arrAPIPaged = new ArrayList<>();
@@ -164,18 +163,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        imgNearMe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, SpecificCourtsActivity.class);
-                intent.putExtra("sandetail", "Gần tôi");
-                startActivity(intent);
-            }
-        });
     }
 
     private void setWelcome() {
-        
+        txtWelcome.setText("Xin chào " + TOKEN.getFullName() + "!");
     }
 
 //    private void initData() {

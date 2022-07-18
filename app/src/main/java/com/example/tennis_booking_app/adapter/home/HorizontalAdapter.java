@@ -55,7 +55,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         }
     }
 
-    public HorizontalAdapter( Context context,ArrayList<VendorResponse> arrPromoValue, SharedPreferences sharedPreferences) {
+    public HorizontalAdapter(Context context, ArrayList<VendorResponse> arrPromoValue, SharedPreferences sharedPreferences) {
         this.arrPromoValue = arrPromoValue;
         this.context = context;
         this.sharedPreferences = sharedPreferences;
@@ -81,7 +81,8 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             sharedPreferences = context.getSharedPreferences("MySharedPref", 0);
             Gson gson = new Gson();
             String json = sharedPreferences.getString("LIST_COURT_SIZE", "[]");
-            Type type = new TypeToken<ArrayList<CourtSizeValue>>(){}.getType();
+            Type type = new TypeToken<ArrayList<CourtSizeValue>>() {
+            }.getType();
             List<CourtSizeValue> listCourtSize = gson.fromJson(json, type);
 
             holder.txtTenSanPromo.setText(pagedCourtValue.getVendorName());
@@ -91,9 +92,17 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             String imageURL = pagedCourtValue.getAvatarUrl();
             LoadImage loadImage = new LoadImage(holder.imgHinh);
             loadImage.execute(imageURL);
+            holder.txtKhoangCach.setText(pagedCourtValue.getDistance().equals(0) ? pagedCourtValue.getDistance() + "1km" : pagedCourtValue.getDistance() + "km" );
 
-            holder.txtKhoangCach.setText((String.valueOf(pagedCourtValue.getDistance()))+ "km");
-        }catch(Exception e){
+            holder.rvSan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, DetailsPromotion.class);
+                    intent.putExtra("vendorID", pagedCourtValue.getId());
+                    context.startActivity(intent);
+                }
+            });
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

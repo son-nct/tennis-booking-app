@@ -18,6 +18,7 @@ public class PagedCourtRequest {
         CurrentPage = currentPage;
     }
 
+
     public PagedCourtRequest(int vendorId, int pageSize, String queryString, int currentPage, int typeId) {
         VendorId = vendorId;
         PageSize = pageSize;

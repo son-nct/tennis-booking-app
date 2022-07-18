@@ -1,6 +1,7 @@
 package com.example.tennis_booking_app.adapter.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tennis_booking_app.DetailsPromotion;
 import com.example.tennis_booking_app.Models.CourtSizeValue;
 import com.example.tennis_booking_app.Models.LoadImage;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
@@ -88,6 +90,15 @@ public class CourtFavouriteAdapter extends RecyclerView.Adapter<CourtFavouriteAd
             String imageUrl = pagedCourtValue.getImageUrl();
             LoadImage loadImage = new LoadImage(holder.imgCourt);
             loadImage.execute(imageUrl);
+
+            holder.rvFavCourt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, DetailsPromotion.class);
+                    intent.putExtra("vendorID", pagedCourtValue.getVendorId());
+                    context.startActivity(intent);
+                }
+            });
         }catch(Exception e){
             e.printStackTrace();
         }

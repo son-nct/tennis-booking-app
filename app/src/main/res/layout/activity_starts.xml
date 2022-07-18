@@ -45,8 +45,7 @@
                 style="@style/modifiedEditText"
                 android:hint="Tên tài khoản"
                 android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:text="phuchlh1" />
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -59,8 +58,7 @@
                 style="@style/modifiedEditText"
                 android:hint="Mật khẩu"
                 android:inputType="textPassword"
-                android:maxLines="1"
-                android:text="admin123" />
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
