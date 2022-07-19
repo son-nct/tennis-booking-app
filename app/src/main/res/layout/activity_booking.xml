@@ -41,8 +41,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="120dp"
         android:fontFamily="@font/inter"
         android:text="Chọn ngày chơi:"
         android:textColor="@color/black"
@@ -95,13 +95,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <EditText
+    <TextView
         android:id="@+id/edtTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="276dp"
-        android:layout_marginTop="100dp"
-        android:hint="dd/MM/yyyy"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="120dp"
+        android:hint="yyyy-MM-dd"
         android:textSize="20dp"
         android:textColor="@color/black"
         android:textStyle="italic"

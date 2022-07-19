@@ -9,6 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.example.tennis_booking_app.Models.Slot.SlotValue;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -16,17 +19,17 @@ public class CaChoiAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private List<CaChoi> caChoiList;
+    private List<SlotValue> slotList;
 
-    public CaChoiAdapter(Context context, int layout, List<CaChoi> caChoiList) {
+    public CaChoiAdapter(Context context, int layout, List<SlotValue> slotList) {
         this.context = context;
         this.layout = layout;
-        this.caChoiList = caChoiList;
+        this.slotList = slotList;
     }
 
     @Override
     public int getCount() {
-        return caChoiList.size();
+        return slotList.size();
     }
 
     @Override
@@ -51,7 +54,16 @@ public class CaChoiAdapter extends BaseAdapter {
         CheckBox cbCachoi=(CheckBox) convertView.findViewById(R.id.cbCaChoi);
         cbCachoi.setFocusable(false);
 
-        CaChoi caChoi=caChoiList.get(position);
+
+        SlotValue slotValue=slotList.get(position);
+        btCa.setText(slotValue.getNo());
+        txtThoiluong.setText(slotValue.getStartTime());
+        txtGia.setText(slotValue.getPrice());
+
+        System.out.println(btCa.getText().toString()+" dm may thg lon "+txtGia.getText().toString());
+        return convertView;
+
+       /* SlotValue caChoi=caChoiList.get(position);
 
 
 
@@ -68,8 +80,6 @@ public class CaChoiAdapter extends BaseAdapter {
 
         btCa.setText(caChoi.getSlot());
         txtThoiluong.setText(caChoi.getThoiluong());
-        txtGia.setText(caChoi.getPriceByName());
-
-        return convertView;
+        txtGia.setText(caChoi.getPriceByName());*/
     }
 }
