@@ -203,11 +203,6 @@ public class Booking extends AppCompatActivity {
         */
         //get sharedPreference
     }
-<<<<<<< Updated upstream
-    
-=======
-
->>>>>>> Stashed changes
 
     private void LoadSlot(String a) {
         SlotRequest param_request = new SlotRequest();
