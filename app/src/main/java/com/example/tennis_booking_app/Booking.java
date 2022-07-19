@@ -143,12 +143,9 @@ public class Booking extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("arrSlotSelected", (Serializable) arrSlotSelected);
                         bundle.putSerializable("courtValue", (Serializable)  value);
-
-                        intentConfirm.putExtra("data", bundle);
                         startActivity(intentConfirm);
                     }
                 }
-
             }
         });
     }
