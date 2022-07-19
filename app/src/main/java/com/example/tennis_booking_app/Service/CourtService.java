@@ -1,6 +1,7 @@
 package com.example.tennis_booking_app.Service;
 
 import com.example.tennis_booking_app.ViewModels.Court.CourtRespone;
+import com.example.tennis_booking_app.ViewModels.Court.GetOneCourtResponse;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.example.tennis_booking_app.ViewModels.PromotingCourtHome.PromotingHomeResponse;
@@ -35,4 +36,7 @@ public interface CourtService {
 
     @GET(COURT + "/GetHighRatingCourtHome")
     Call<List<PromotingHomeResponse>> getHighRatingCourtHome(@Header("Authorization") String access_token, @Query("PageSize") int pagesize);
+
+    @GET(COURT + "/GetOne")
+    Call<GetOneCourtResponse> getOneCourt(@Header("Authorization") String access_token, @Query("Id") int Id);
 }

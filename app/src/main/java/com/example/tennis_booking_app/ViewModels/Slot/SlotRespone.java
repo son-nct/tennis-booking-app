@@ -2,112 +2,133 @@ package com.example.tennis_booking_app.ViewModels.Slot;
 
 import com.example.tennis_booking_app.Models.Slot.SlotValue;
 
+import java.util.Date;
 import java.util.List;
 
 public class SlotRespone {
-    private int Count,FirstItemOnPage,PageNumber,PageCount,PageSize,LastItemOnPage;
-    private boolean HasNextPage,HasPreviousPage,IsFirstPage,IsLastPage;
-    List<SlotValue> Value;
+    private int Id,No,Price,InsertedBy,UpdatedBy,VendorId,ApplyTypeId,StatusId;
+    private Date InsertedDate,UpdatedDate;
+    private boolean Active;
+    private String StartTime;
+    private String EndTime;
 
-    public SlotRespone(int count, int firstItemOnPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, List<SlotValue> value) {
-        Count = count;
-        FirstItemOnPage = firstItemOnPage;
-        PageNumber = pageNumber;
-        PageCount = pageCount;
-        PageSize = pageSize;
-        LastItemOnPage = lastItemOnPage;
-        HasNextPage = hasNextPage;
-        HasPreviousPage = hasPreviousPage;
-        IsFirstPage = isFirstPage;
-        IsLastPage = isLastPage;
-        Value = value;
+    public SlotRespone(int id, int no, int price, int insertedBy, int updatedBy, int vendorId, int applyTypeId, int statusId, Date insertedDate, Date updatedDate, boolean active, String startTime, String endTime) {
+        Id = id;
+        No = no;
+        Price = price;
+        InsertedBy = insertedBy;
+        UpdatedBy = updatedBy;
+        VendorId = vendorId;
+        ApplyTypeId = applyTypeId;
+        StatusId = statusId;
+        InsertedDate = insertedDate;
+        UpdatedDate = updatedDate;
+        Active = active;
+        StartTime = startTime;
+        EndTime = endTime;
     }
 
-    public int getCount() {
-        return Count;
+    public int getId() {
+        return Id;
     }
 
-    public void setCount(int count) {
-        Count = count;
+    public void setId(int id) {
+        Id = id;
     }
 
-    public int getFirstItemOnPage() {
-        return FirstItemOnPage;
+    public int getNo() {
+        return No;
     }
 
-    public void setFirstItemOnPage(int firstItemOnPage) {
-        FirstItemOnPage = firstItemOnPage;
+    public void setNo(int no) {
+        No = no;
     }
 
-    public int getPageNumber() {
-        return PageNumber;
+    public int getPrice() {
+        return Price;
     }
 
-    public void setPageNumber(int pageNumber) {
-        PageNumber = pageNumber;
+    public void setPrice(int price) {
+        Price = price;
     }
 
-    public int getPageCount() {
-        return PageCount;
+    public int getInsertedBy() {
+        return InsertedBy;
     }
 
-    public void setPageCount(int pageCount) {
-        PageCount = pageCount;
+    public void setInsertedBy(int insertedBy) {
+        InsertedBy = insertedBy;
     }
 
-    public int getPageSize() {
-        return PageSize;
+    public int getUpdatedBy() {
+        return UpdatedBy;
     }
 
-    public void setPageSize(int pageSize) {
-        PageSize = pageSize;
+    public void setUpdatedBy(int updatedBy) {
+        UpdatedBy = updatedBy;
     }
 
-    public int getLastItemOnPage() {
-        return LastItemOnPage;
+    public int getVendorId() {
+        return VendorId;
     }
 
-    public void setLastItemOnPage(int lastItemOnPage) {
-        LastItemOnPage = lastItemOnPage;
+    public void setVendorId(int vendorId) {
+        VendorId = vendorId;
     }
 
-    public boolean isHasNextPage() {
-        return HasNextPage;
+    public int getApplyTypeId() {
+        return ApplyTypeId;
     }
 
-    public void setHasNextPage(boolean hasNextPage) {
-        HasNextPage = hasNextPage;
+    public void setApplyTypeId(int applyTypeId) {
+        ApplyTypeId = applyTypeId;
     }
 
-    public boolean isHasPreviousPage() {
-        return HasPreviousPage;
+    public int getStatusId() {
+        return StatusId;
     }
 
-    public void setHasPreviousPage(boolean hasPreviousPage) {
-        HasPreviousPage = hasPreviousPage;
+    public void setStatusId(int statusId) {
+        StatusId = statusId;
     }
 
-    public boolean isFirstPage() {
-        return IsFirstPage;
+    public Date getInsertedDate() {
+        return InsertedDate;
     }
 
-    public void setFirstPage(boolean firstPage) {
-        IsFirstPage = firstPage;
+    public void setInsertedDate(Date insertedDate) {
+        InsertedDate = insertedDate;
     }
 
-    public boolean isLastPage() {
-        return IsLastPage;
+    public Date getUpdatedDate() {
+        return UpdatedDate;
     }
 
-    public void setLastPage(boolean lastPage) {
-        IsLastPage = lastPage;
+    public void setUpdatedDate(Date updatedDate) {
+        UpdatedDate = updatedDate;
     }
 
-    public List<SlotValue> getValue() {
-        return Value;
+    public boolean isActive() {
+        return Active;
     }
 
-    public void setValue(List<SlotValue> value) {
-        Value = value;
+    public void setActive(boolean active) {
+        Active = active;
+    }
+
+    public String getStartTime() {
+        return StartTime;
+    }
+
+    public void setStartTime(String startTime) {
+        StartTime = startTime;
+    }
+
+    public String getEndTime() {
+        return EndTime;
+    }
+
+    public void setEndTime(String endTime) {
+        EndTime = endTime;
     }
 }

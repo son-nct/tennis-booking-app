@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/green"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -21,10 +19,6 @@
         android:layout_height="80dp"
         android:layout_marginBottom="4dp"
         android:background="@drawable/green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -33,7 +27,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
         android:src="@drawable/line"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -41,44 +34,35 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="116dp"
         android:fontFamily="@font/inter"
         android:text="Chọn ngày chơi:"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="14dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="172dp"
         android:fontFamily="@font/inter"
         android:text="Ca chơi"
         android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="14dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
+        android:layout_marginStart="165dp"
         android:layout_marginTop="172dp"
         android:fontFamily="@font/inter"
         android:text="Thời Lượng"
         android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="14dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -89,24 +73,20 @@
         android:fontFamily="@font/inter"
         android:text="Giá Tiền"
         android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="14dp"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edtTime"
         android:layout_width="wrap_content"
+        android:focusable="false"
         android:layout_height="wrap_content"
-        android:layout_marginStart="276dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="100dp"
         android:hint="dd/MM/yyyy"
-        android:textSize="20dp"
         android:textColor="@color/black"
+        android:textSize="20dp"
         android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -119,47 +99,25 @@
         android:text="Tên Sân"
         android:textColor="@color/black"
         android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ListView
         android:id="@+id/lvCaChoi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        android:descendantFocusability="blocksDescendants"
+        android:layout_width="414dp"
+        android:layout_height="500dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="740dp"
+        android:backgroundTint="@color/green_main"
         android:drawableTint="@color/green_main"
         android:text="Tiếp Tục"
-        android:layout_marginBottom="18dp"
-        android:fontFamily="@font/allerta"
-        android:backgroundTint="@color/green_main"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-<!--    <Button-->
-<!--        android:layout_width="340dp"-->
-<!--        android:background="re"-->
-<!--        android:layout_height="45dp"-->
-<!--        android:layout_marginBottom="24dp"-->
-<!--        android:text="Tiếp Tục"-->
-<!--        android:textSize="20dp"-->
-<!--        android:textColor="@color/black"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        tools:ignore="MissingConstraints" />-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -2,6 +2,7 @@ package com.example.tennis_booking_app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.tennis_booking_app.Models.Slot.SlotValue;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,18 +19,18 @@ import java.util.List;
 public class CaChoiAdapter extends BaseAdapter {
 
     private Context context;
-    private int layout;
-    private List<SlotValue> caChoiList;
+    SharedPreferences sharedPreferences;
+    private List<SlotRespone> arrSlot;
 
-    public CaChoiAdapter(Context context, int layout, List<SlotValue> caChoiList) {
+    public CaChoiAdapter(Context context, List<SlotRespone> arrSlot, SharedPreferences sharedPreferences) {
         this.context = context;
-        this.layout = layout;
-        this.caChoiList = caChoiList;
+        this.sharedPreferences = sharedPreferences;
+        this.arrSlot = arrSlot;
     }
 
     @Override
     public int getCount() {
-        return caChoiList.size();
+        return arrSlot.size();
     }
 
     @Override
@@ -44,14 +46,23 @@ public class CaChoiAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView=inflater.inflate(layout,null);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = inflater.inflate(R.layout.list_ca_choi, null);
 
-        TextView btCa=(TextView) convertView.findViewById(R.id.btSLot);
-        TextView txtThoiluong=(TextView) convertView.findViewById(R.id.txtThoi);
-        TextView txtGia=(TextView) convertView.findViewById(R.id.txtGia);
-        CheckBox cbCachoi=(CheckBox) convertView.findViewById(R.id.cbCaChoi);
+        TextView txtSlot = (TextView) convertView.findViewById(R.id.btSLot);
+        TextView txtThoiluong = (TextView) convertView.findViewById(R.id.txtThoi);
+        TextView txtGia = (TextView) convertView.findViewById(R.id.txtGia);
+        CheckBox cbCachoi = (CheckBox) convertView.findViewById(R.id.cbCaChoi);
         cbCachoi.setFocusable(false);
+
+        SlotRespone slot = arrSlot.get(position);
+
+        String startTime = slot.getStartTime().substring(0, 5);
+        String endTime = slot.getEndTime().substring(0, 5);
+        txtThoiluong.setText(startTime + " - "+ endTime);
+
+        txtGia.setText(slot.getPrice()+"");
+        txtSlot.setText(slot.getNo()+"");
 
        /* SlotValue caChoi=caChoiList.get(position);
 

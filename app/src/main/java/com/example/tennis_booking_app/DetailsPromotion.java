@@ -170,7 +170,7 @@ public class DetailsPromotion extends AppCompatActivity {
                     if (vendorResponse.getRatingAverage() == 0) {
                         txtTotalRate.setText(String.valueOf(1));
                     } else {
-                        txtTotalRate.setText(vendorResponse.getRatingAverage());
+                        txtTotalRate.setText(vendorResponse.getRatingAverage() + "");
                     }
                     String imageURL = vendorResponse.getAvatarUrl();
                     LoadImage loadImage = new LoadImage(imgStore);
