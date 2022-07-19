@@ -1,21 +1,22 @@
 package com.example.tennis_booking_app.Models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Voucher {
-    public int Id ;
-    public int VendorId ;
-    public String Code ;
-    public Date EffectiveDate ;
-    public Date ExpiredDate ;
-    public String Name ;
-    public String Description ;
-    public String ImageUrl ;
-    public Date InsertedDate ;
-    public int InsertedBy ;
-    public int ApplyTypeId ;
-    public boolean Active ;
-    public int DiscountPrice ;
+public class Voucher implements Serializable {
+    public int Id;
+    public int VendorId;
+    public String Code;
+    public Date EffectiveDate;
+    public Date ExpiredDate;
+    public String Name;
+    public String Description;
+    public String ImageUrl;
+    public Date InsertedDate;
+    public int InsertedBy;
+    public int ApplyTypeId;
+    public boolean Active;
+    public int DiscountPrice;
 
     public int getId() {
         return Id;

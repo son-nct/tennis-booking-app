@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,9 +16,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
-import com.example.tennis_booking_app.Models.Slot.SlotValue;
+import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
-import com.example.tennis_booking_app.ViewModels.Booking.BookingRespone;
 import com.example.tennis_booking_app.ViewModels.Slot.SlotRequest;
 import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
 import com.google.gson.Gson;
@@ -35,20 +33,22 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Booking extends AppCompatActivity {
-    EditText edtTime;
+    TextView edtTime;
     TextView txtTennis;
     ListView lvCaChoi;
     CaChoiAdapter adapter;
     //ArrayList<CaChoi> arrCachoi;
     List<SlotRespone> arrSlot;
-    Intent intent, intentKM;
+    Intent intent, intentKM, intentOBJ;
     ArrayList<SlotRespone> arrSlotSelected;
     Button btOK;
     CheckBox cbCachoi;
     Token TOKEN;
     String AUTHORIZATION;
+    String timeTaken;
     SharedPreferences sharedPreferences;
-
+    PagedCourtValue value;
+    SimpleDateFormat simpleDateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,56 +56,67 @@ public class Booking extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
 
         txtTennis = (TextView) findViewById(R.id.txtTennis);
-        edtTime = (EditText) findViewById(R.id.edtTime);
+        edtTime = findViewById(R.id.edtTime);
         lvCaChoi = (ListView) findViewById(R.id.lvCaChoi);
         btOK = (Button) findViewById(R.id.btOK);
         cbCachoi = (CheckBox) findViewById(R.id.cbCaChoi);
+        arrSlotSelected = new ArrayList<>();
 
         intent = getIntent();
         intentKM = getIntent();
 
         SanTennis ten = (SanTennis) intent.getSerializableExtra("sandetail");
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
+
+        intentOBJ = getIntent();
+        value = (PagedCourtValue) intentOBJ.getSerializableExtra("courtOBJ");
+        txtTennis.setText(value.getName());
+
         //CaChoi caChoi = (CaChoi) intent.getSerializableExtra("cachoi");
 
-//        if (ten == null) {
-//            txtTennis.setText(sanKM.getTen());
-//        } else {
-//            txtTennis.setText(ten.getTen());
-//        }
-
+        sharedPreferences = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("TOKEN", "");
+        TOKEN = gson.fromJson(json, Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
 
         edtTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chonngay();
+                Calendar calendar = Calendar.getInstance();
+                int dd = calendar.get(Calendar.DATE);
+                int MM = calendar.get(Calendar.MONTH);
+                int yyyy = calendar.get(Calendar.YEAR);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Booking.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        calendar.set(year, month, day);
+                        simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        timeTaken = simpleDateFormat.format(calendar.getTime());
+                        edtTime.setText(timeTaken);
+                        System.out.println("fsfwefefe " + timeTaken);
+                        LoadSlot(timeTaken);
+                    }
+                }, yyyy, MM, dd);
+                datePickerDialog.show();
             }
         });
-
-        anhxa();
-        sharedPreferences = getSharedPreferences("MySharedPref", 0);
-        //parse JSON TOKEN to object Token
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString("TOKEN","");
-        TOKEN = gson.fromJson(json,Token.class);
-        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
-        LoadSlot();
-
 
         lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SlotRespone slot =arrSlot.get(position);
+                SlotRespone slot = arrSlot.get(position);
                 CheckBox cb_slot = (CheckBox) view.findViewById(R.id.cbCaChoi);
 
-                if(cb_slot.getVisibility() == View.VISIBLE) {
+                if (cb_slot.getVisibility() == View.VISIBLE) {
                     if (cb_slot.isChecked()) {
                         cb_slot.setChecked(false);
-
-                        if (arrSlotSelected.size() > 0) {
-                            for (SlotRespone caChoi : arrSlotSelected) {
+                        if (arrSlot.size() > 0) {
+                            for (SlotRespone caChoi : arrSlot) {
                                 if (caChoi.getId() == slot.getId()) {
-                                    arrSlotSelected.remove(caChoi);
+                                    arrSlot.remove(caChoi);
                                 }
                             }
                         }
@@ -114,9 +125,6 @@ public class Booking extends AppCompatActivity {
                         addSelectedSlot(slot);
                     }
                 }
-
-
-
             }
         });
 
@@ -124,13 +132,7 @@ public class Booking extends AppCompatActivity {
         btOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(Booking.this, ConfirmBooking.class);
-                if (ten != null) {
-                    intent.putExtra("sandetail2", (Serializable) ten);
-                }
-                if (sanKM != null) {
-                    intent.putExtra("sandetailKM", (Serializable) sanKM);
-                }
+                Intent intentConfirm = new Intent(Booking.this, ConfirmBooking.class);
 
                 if (arrSlotSelected.size() == 0) {
                     Toast.makeText(Booking.this, "Xin vui lòng chọn ca chơi !", Toast.LENGTH_LONG).show();
@@ -140,10 +142,10 @@ public class Booking extends AppCompatActivity {
                     } else {
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("arrSlotSelected", (Serializable) arrSlotSelected);
-                        bundle.putString("date", edtTime.getText().toString());
+                        bundle.putSerializable("courtValue", (Serializable)  value);
 
-                        intent.putExtra("data", bundle);
-                        startActivity(intent);
+                        intentConfirm.putExtra("data", bundle);
+                        startActivity(intentConfirm);
                     }
                 }
 
@@ -152,58 +154,29 @@ public class Booking extends AppCompatActivity {
     }
 
     private void addSelectedSlot(SlotRespone ca) {
+        System.out.println("ca choi " + ca);
         arrSlotSelected.add(ca);
         System.out.println("size: " + arrSlotSelected.size());
-        for (SlotRespone cachoi : arrSlotSelected
-        ) {
+        for (SlotRespone cachoi : arrSlotSelected) {
             System.out.println(cachoi.toString());
         }
     }
 
-    private void chonngay() {
-        Calendar calendar = Calendar.getInstance();
-        int dd = calendar.get(Calendar.DATE);
-        int MM = calendar.get(Calendar.MONTH);
-        int yyyy = calendar.get(Calendar.YEAR);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                calendar.set(year, month, day);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                edtTime.setText(simpleDateFormat.format(calendar.getTime()));
-            }
-        }, yyyy, MM, dd);
-        datePickerDialog.show();
-    }
-
-    private void anhxa() {
-       /* arrCachoi = new ArrayList<>();
-        arrCachoi.add(new CaChoi(1, "Slot 1", "7:00-8:30", "150000", "150000 vnđ",1));
-        arrCachoi.add(new CaChoi(2, "Slot 2", "8:45-10:15", "150000", "150000 vnđ",2));
-        arrCachoi.add(new CaChoi(3, "Slot 3", "10:30-12:00", "150000", "150000 vnđ",2));
-        arrCachoi.add(new CaChoi(4, "Slot 4", "12:30-14:00", "170000", "170000 vnđ",1));
-        arrCachoi.add(new CaChoi(5, "Slot 5", "14:00-15:45", "170000", "170000 vnđ",1));
-        arrCachoi.add(new CaChoi(6, "Slot 6", "16:00-17:30", "170000", "170000 vnđ",2));
-        arrCachoi.add(new CaChoi(7, "Slot 7", "17:45-19:15", "200000", "200000 vnđ",1));
-        arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000", "200000 vnđ",1));
-        */
-        //get sharedPreference
-    }
-
-    private void LoadSlot(){
-        SlotRequest param_request=new SlotRequest();
-        param_request.setVendorId(520);
-        param_request.setCourtId(224);
-        param_request.setBookedPlayDate("2022-07-18");
-        param_request.setCourtTypeId(1);
-        Call<List<SlotRespone>> slotResponeCall= ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
+    private void LoadSlot(String time) {
+        SlotRequest param_request = new SlotRequest();
+        param_request.setVendorId(value.getVendorId());
+        param_request.setCourtId(value.getId());
+        param_request.setBookedPlayDate(time);
+        System.out.println("time taken + " + time);
+        param_request.setCourtTypeId(value.getCourtSizeId());
+        Call<List<SlotRespone>> slotResponeCall = ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
         slotResponeCall.enqueue(new Callback<List<SlotRespone>>() {
             @Override
             public void onResponse(Call<List<SlotRespone>> call, Response<List<SlotRespone>> response) {
-                if(response.body().size() > 0){
+                if (response.body().size() > 0) {
                     arrSlot = response.body();
-                    CaChoiAdapter adapter=new CaChoiAdapter(Booking.this,arrSlot,  sharedPreferences);
+                    CaChoiAdapter adapter = new CaChoiAdapter(Booking.this, arrSlot, sharedPreferences);
                     lvCaChoi.setAdapter(adapter);
                 }
             }

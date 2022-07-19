@@ -9,6 +9,7 @@ import com.example.tennis_booking_app.Service.SlotService;
 import com.example.tennis_booking_app.Service.UserService;
 import com.example.tennis_booking_app.Service.CourtService;
 import com.example.tennis_booking_app.Service.VendorService;
+import com.example.tennis_booking_app.Service.VoucherService;
 
 import java.io.IOException;
 
@@ -75,5 +76,9 @@ public class ApiClient {
     }
     public static SlotService getSlotService(){
         return getRetrofit().create(SlotService.class);
+    }
+
+    public static VoucherService getVoucherService(){
+        return getRetrofit().create(VoucherService.class);
     }
 }

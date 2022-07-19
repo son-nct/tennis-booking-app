@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +26,7 @@ import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.LoadImage;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
+import com.example.tennis_booking_app.Models.Voucher;
 import com.example.tennis_booking_app.PhucHLH.CourtDiscount;
 import com.example.tennis_booking_app.PhucHLH.CourtDiscountHorizontalAdapter;
 import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
@@ -32,6 +34,8 @@ import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.example.tennis_booking_app.ViewModels.Vendor.VendorRequest;
 import com.example.tennis_booking_app.ViewModels.Vendor.VendorResponse;
+import com.example.tennis_booking_app.ViewModels.Voucher.VoucherRequest;
+import com.example.tennis_booking_app.ViewModels.Voucher.VoucherResponse;
 import com.example.tennis_booking_app.activity.home.HomeActivity;
 import com.example.tennis_booking_app.adapter.home.HorizontalAdapter;
 import com.google.gson.Gson;
@@ -61,7 +65,7 @@ public class DetailsPromotion extends AppCompatActivity {
     String AUTHORIZATION;
     SharedPreferences sharedPreferences;
     List<PagedCourtValue> arrResponseOfOneVendor;
-
+    List<Voucher> arrVoucher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,24 +81,16 @@ public class DetailsPromotion extends AppCompatActivity {
 
         // horizontal view promo
         viewPromoCourt = (RecyclerView) findViewById(R.id.viewCourtPromo);
-        arrCourtDiscount = new ArrayList<>();
-        courtDiscountHorizontalAdapter = new CourtDiscountHorizontalAdapter(arrCourtDiscount, this);
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        viewPromoCourt.setLayoutManager(mLayoutManager);
-        viewPromoCourt.setItemAnimator(new DefaultItemAnimator());
-        viewPromoCourt.setAdapter(courtDiscountHorizontalAdapter);
-        initdata();
-
+//        arrCourtDiscount = new ArrayList<>();
+//        courtDiscountHorizontalAdapter = new CourtDiscountHorizontalAdapter(arrCourtDiscount, this);
+//        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+//        mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//        viewPromoCourt.setLayoutManager(mLayoutManager);
+//        viewPromoCourt.setItemAnimator(new DefaultItemAnimator());
+//        viewPromoCourt.setAdapter(courtDiscountHorizontalAdapter);
+//        initdata();
         // end of horizontal view promo
 
-
-//        arrSanKM = new ArrayList<>();
-//        arrSanKM.add(new SanKM("Sân 1A - Sân đất nện", "36.57m x 18.29m", "150.000 - 200.000 đ", "TENNIS10", R.drawable.tennis_clay, "5", "4.3"));
-//        arrSanKM.add(new SanKM("Sân 2A - Sân PVC", "36.57m x 18.29m", "150.000 - 250.000 đ", "TENNIS10", R.drawable.tennis_grass, "4.6", "4.3"));
-//        arrSanKM.add(new SanKM("Sân 2B - Sân cỏ", "36.57m x 18.29m", "150.000 - 300.000 đ", "TENNIS10", R.drawable.tennis_grass, "5", "4.3"));
-//        adapter = new SanKmAdapter(this, arrSanKM);
-//        lvSanKM.setAdapter(adapter);
 
         //get sharedPreference
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", 0);
@@ -108,7 +104,6 @@ public class DetailsPromotion extends AppCompatActivity {
         Intent intent = getIntent();
         int vendorID = intent.getIntExtra("vendorID", -1);
         checkVendorID(vendorID);
-
         txtRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,15 +129,24 @@ public class DetailsPromotion extends AppCompatActivity {
             }
         });
 
+        lvSanKM.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                PagedCourtValue value = new PagedCourtValue();
+
+            }
+        });
+
 
     }
 
-    private void initdata() {
-        arrCourtDiscount.add(new CourtDiscount("Khách Quen Thân Yêu", "Giảm 20.000đ", R.drawable.tennis_clay, "Nhập mã KHACHQUEN để được ưu đãi 20.000đ khi đặt sân từ 3 lần trở lên"));
-        arrCourtDiscount.add(new CourtDiscount("Cuối Tuần Vui Vẻ", "Giảm 30.000đ", R.drawable.tennis_grass, "Nhập mã CUOITUAN để được ưu đãi 30.000đ khi đặt sân vào T7 & Chủ Nhật"));
-        arrCourtDiscount.add(new CourtDiscount("Mời bạn Lần Đầu", "Giảm 50.000đ", R.drawable.tennis_grass, "Nhập mã LANDAU để được ưu đãi 50.000đ khi đặt sân lần đầu"));
-        courtDiscountHorizontalAdapter.notifyDataSetChanged();
-    }
+//    private void initdata() {
+//        arrCourtDiscount.add(new CourtDiscount("Khách Quen Thân Yêu", "Giảm 20.000đ", R.drawable.tennis_clay, "Nhập mã KHACHQUEN để được ưu đãi 20.000đ khi đặt sân từ 3 lần trở lên"));
+//        arrCourtDiscount.add(new CourtDiscount("Cuối Tuần Vui Vẻ", "Giảm 30.000đ", R.drawable.tennis_grass, "Nhập mã CUOITUAN để được ưu đãi 30.000đ khi đặt sân vào T7 & Chủ Nhật"));
+//        arrCourtDiscount.add(new CourtDiscount("Mời bạn Lần Đầu", "Giảm 50.000đ", R.drawable.tennis_grass, "Nhập mã LANDAU để được ưu đãi 50.000đ khi đặt sân lần đầu"));
+//        courtDiscountHorizontalAdapter.notifyDataSetChanged();
+//    }
 
     private void checkVendorID(int vendorID) {
         if (vendorID == -1) {
@@ -150,6 +154,7 @@ public class DetailsPromotion extends AppCompatActivity {
         } else {
             getVendorByID(vendorID);
             loadCourtByVendorID(vendorID);
+            loadVoucher(vendorID);
         }
     }
 
@@ -213,4 +218,40 @@ public class DetailsPromotion extends AppCompatActivity {
         });
     }
 
+    private void loadVoucher(int vendorID){
+        VoucherRequest paramsRequest = new VoucherRequest();
+        paramsRequest.setVendorId(vendorID);
+
+        Call<VoucherResponse> vendorResponseCall = ApiClient.getVoucherService().getPagedVoucher(AUTHORIZATION, paramsRequest.getVendorId());
+        vendorResponseCall.enqueue(new Callback<VoucherResponse>() {
+            @Override
+            public void onResponse(Call<VoucherResponse> call, Response<VoucherResponse> response) {
+                if(response.body() !=null){
+                    // set horizontal view
+                    LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+                    mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                    // handle API
+                    arrVoucher = response.body().getValue();
+                    System.out.println("voucher value " + arrVoucher);
+                    courtDiscountHorizontalAdapter = new CourtDiscountHorizontalAdapter(arrVoucher, DetailsPromotion.this);
+                    // display horizontal view
+                    viewPromoCourt.setLayoutManager(mLayoutManager);
+                    viewPromoCourt.setItemAnimator(new DefaultItemAnimator());
+                    viewPromoCourt.setAdapter(courtDiscountHorizontalAdapter);
+                    courtDiscountHorizontalAdapter.notifyDataSetChanged();
+                    // send data to confirm booking
+                    Bundle bundle = new Bundle();
+                    Intent intentVoucher = new Intent(DetailsPromotion.this, ConfirmBooking.class);
+                    bundle.putSerializable("voucherARR", (Serializable) arrVoucher);
+                    intentVoucher.putExtra("voucher", bundle);
+                    startActivity(intentVoucher);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<VoucherResponse> call, Throwable t) {
+
+            }
+        });
+    }
 }

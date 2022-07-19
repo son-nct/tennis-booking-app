@@ -2,10 +2,11 @@ package com.example.tennis_booking_app.ViewModels.Slot;
 
 import com.example.tennis_booking_app.Models.Slot.SlotValue;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class SlotRespone {
+public class SlotRespone implements Serializable {
     private int Id,No,Price,InsertedBy,UpdatedBy,VendorId,ApplyTypeId,StatusId;
     private Date InsertedDate,UpdatedDate;
     private boolean Active;

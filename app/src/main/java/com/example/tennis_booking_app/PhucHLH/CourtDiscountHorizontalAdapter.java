@@ -13,7 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tennis_booking_app.DetailsPromotion;
+import com.example.tennis_booking_app.Models.Voucher;
 import com.example.tennis_booking_app.R;
+import com.example.tennis_booking_app.Service.VoucherService;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,11 +26,11 @@ import java.util.List;
 
 public class CourtDiscountHorizontalAdapter extends RecyclerView.Adapter<CourtDiscountHorizontalAdapter.MyDiscountHorizontalViewHolder> {
 
-    private List<CourtDiscount> arrCourtDiscount;
+    private List<Voucher> arrVoucher;
     Context context;
 
-    public CourtDiscountHorizontalAdapter(List<CourtDiscount> arrCourtDiscount, Context context) {
-        this.arrCourtDiscount = arrCourtDiscount;
+    public CourtDiscountHorizontalAdapter(List<Voucher> arrVoucher, Context context) {
+        this.arrVoucher = arrVoucher;
         this.context = context;
     }
 
@@ -44,10 +46,9 @@ public class CourtDiscountHorizontalAdapter extends RecyclerView.Adapter<CourtDi
 
     @Override
     public void onBindViewHolder(@NonNull MyDiscountHorizontalViewHolder holder, int position) {
-        CourtDiscount courtDiscount = arrCourtDiscount.get(position);
-        holder.imgHinh.setImageResource(courtDiscount.getCourtImage());
-        holder.txtTen.setText(courtDiscount.getCourtName());
-        holder.txtDiscountText.setText(courtDiscount.getDiscountText());
+        Voucher voucher = arrVoucher.get(position);
+        holder.txtDiscountText.setText(voucher.getDescription());
+        holder.txtTen.setText(voucher.getName());
 
         holder.rcvPromoCourt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,9 +62,9 @@ public class CourtDiscountHorizontalAdapter extends RecyclerView.Adapter<CourtDi
                 TextView txtShortDiscount = dialog.findViewById(R.id.txtShortDiscount);
                 TextView txtDiscountDescription = dialog.findViewById(R.id.txtDiscountDescription);
 
-                txtPromoTitle.setText(courtDiscount.getCourtName());
-                txtShortDiscount.setText(courtDiscount.getDiscountText());
-                txtDiscountDescription.setText(courtDiscount.getDiscountDescription());
+                txtPromoTitle.setText(voucher.getName());
+                txtShortDiscount.setText(voucher.getDiscountPrice()+ "");
+                txtDiscountDescription.setText(voucher.getDescription());
                 dialog.show();
             }
         });
@@ -73,7 +74,7 @@ public class CourtDiscountHorizontalAdapter extends RecyclerView.Adapter<CourtDi
 
     @Override
     public int getItemCount() {
-        return arrCourtDiscount.size();
+        return arrVoucher.size();
     }
 
 

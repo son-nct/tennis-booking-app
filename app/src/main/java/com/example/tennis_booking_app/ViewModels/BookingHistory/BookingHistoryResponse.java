@@ -1,16 +1,16 @@
-package com.example.tennis_booking_app.ViewModels.Booking;
+package com.example.tennis_booking_app.ViewModels.BookingHistory;
 
 import com.example.tennis_booking_app.Models.Booking.BookingValue;
 
 import java.util.List;
 
-public class BookingRespone {
+public class BookingHistoryResponse {
     private int Count,FirstItemOnPage,PageNumber,PageCount,PageSize,LastItemOnPage;
     private boolean HasNextPage,HasPreviousPage,IsFirstPage,IsLastPage;
 
     List<BookingValue> Value;
 
-    public BookingRespone(int count, int firstItemOnPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, List<BookingValue> value) {
+    public BookingHistoryResponse(int count, int firstItemOnPage, int pageNumber, int pageCount, int pageSize, int lastItemOnPage, boolean hasNextPage, boolean hasPreviousPage, boolean isFirstPage, boolean isLastPage, List<BookingValue> value) {
         Count = count;
         FirstItemOnPage = firstItemOnPage;
         PageNumber = pageNumber;

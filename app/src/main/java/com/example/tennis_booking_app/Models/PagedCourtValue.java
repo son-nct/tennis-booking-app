@@ -32,6 +32,9 @@ public class PagedCourtValue implements Serializable {
         ImageUrl = imageUrl;
     }
 
+    public PagedCourtValue() {
+    }
+
     public int getId() {
         return Id;
     }

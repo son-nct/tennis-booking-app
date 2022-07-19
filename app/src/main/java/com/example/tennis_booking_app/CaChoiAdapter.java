@@ -56,11 +56,11 @@ public class CaChoiAdapter extends BaseAdapter {
         cbCachoi.setFocusable(false);
 
         SlotRespone slot = arrSlot.get(position);
+        cbCachoi.setClickable(slot.getStatusId() == 2 || slot.getStatusId() == 3 ? false : true);
 
         String startTime = slot.getStartTime().substring(0, 5);
         String endTime = slot.getEndTime().substring(0, 5);
         txtThoiluong.setText(startTime + " - "+ endTime);
-
         txtGia.setText(slot.getPrice()+"");
         txtSlot.setText(slot.getNo()+"");
 

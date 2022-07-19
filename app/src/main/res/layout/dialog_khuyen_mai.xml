@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/green">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -16,35 +15,10 @@
         android:layout_width="150dp"
         android:layout_height="150dp"/>
 
-
-    <Button
-        android:id="@+id/btKM1"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/cus"
-        android:text="GIA 20.000VND DAT TREN 3 LAN"
-        android:textColor="@color/green" />
-
-    <Button
-        android:id="@+id/btKM2"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="260dp"
-        android:background="@drawable/cus"
-        android:text="CUOI TUAN VUI VE GIAM 30.000VND"
-        android:textColor="@color/green" />
-
-    <Button
-        android:id="@+id/btKM3"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="320dp"
-        android:background="@drawable/cus"
-        android:text="LAN DAU DAT GIAM 50.000NVD"
-        android:textColor="@color/green" />
+    <ListView
+        android:id="@+id/lvVoucher"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="190dp" />
 
 </RelativeLayout>

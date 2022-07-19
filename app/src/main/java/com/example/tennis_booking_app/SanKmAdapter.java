@@ -15,10 +15,12 @@ import android.widget.TextView;
 import com.example.tennis_booking_app.Models.CourtSizeValue;
 import com.example.tennis_booking_app.Models.LoadImage;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
+import com.example.tennis_booking_app.Models.Voucher;
 import com.example.tennis_booking_app.ViewModels.Vendor.VendorResponse;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,7 @@ public class SanKmAdapter extends BaseAdapter {
         this.arrSanKM = arrSanKM;
         this.sharedPreferences = sharedPreferences;
     }
+
 
     @Override
     public int getCount() {
@@ -85,7 +88,7 @@ public class SanKmAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, Booking.class);
-                    intent.putExtra("courtIDKM", value.getId());
+                    intent.putExtra("courtOBJ", (Serializable) value);
                     context.startActivity(intent);
                 }
             });
