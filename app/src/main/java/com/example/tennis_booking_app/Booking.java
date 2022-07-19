@@ -203,19 +203,7 @@ public class Booking extends AppCompatActivity {
         */
         //get sharedPreference
     }
-
-        CaChoiAdapter adapter=new CaChoiAdapter(Booking.this,R.layout.list_history,arrCachoi);
-        lvCaChoi.setAdapter(adapter);
-        *//*
-        //get sharedPreference
-        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
-        //parse JSON TOKEN to object Token
-        Gson gson = new Gson();
-        String json = sh.getString("TOKEN","");
-        TOKEN = gson.fromJson(json,Token.class);
-        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
-        LoadSlot();
-    }*/
+    
 
     private void LoadSlot(String a) {
         SlotRequest param_request = new SlotRequest();
