@@ -1,7 +1,6 @@
 package com.example.tennis_booking_app;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,19 +9,17 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.example.tennis_booking_app.Models.Slot.SlotValue;
-import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotResponse;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class CaChoiAdapter extends BaseAdapter {
 
     private Context context;
     SharedPreferences sharedPreferences;
-    private List<SlotRespone> arrSlot;
+    private List<SlotResponse> arrSlot;
 
-    public CaChoiAdapter(Context context, List<SlotRespone> arrSlot, SharedPreferences sharedPreferences) {
+    public CaChoiAdapter(Context context, List<SlotResponse> arrSlot, SharedPreferences sharedPreferences) {
         this.context = context;
         this.sharedPreferences = sharedPreferences;
         this.arrSlot = arrSlot;
@@ -55,7 +52,7 @@ public class CaChoiAdapter extends BaseAdapter {
         CheckBox cbCachoi = (CheckBox) convertView.findViewById(R.id.cbCaChoi);
         cbCachoi.setFocusable(false);
 
-        SlotRespone slot = arrSlot.get(position);
+        SlotResponse slot = arrSlot.get(position);
         cbCachoi.setClickable(slot.getStatusId() == 2 || slot.getStatusId() == 3 ? false : true);
 
         String startTime = slot.getStartTime().substring(0, 5);

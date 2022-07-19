@@ -19,7 +19,7 @@ import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.ViewModels.Slot.SlotRequest;
-import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotResponse;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
@@ -38,9 +38,9 @@ public class Booking extends AppCompatActivity {
     ListView lvCaChoi;
     CaChoiAdapter adapter;
     //ArrayList<CaChoi> arrCachoi;
-    List<SlotRespone> arrSlot;
+    List<SlotResponse> arrSlot;
     Intent intent, intentKM, intentOBJ;
-    ArrayList<SlotRespone> arrSlotSelected;
+    ArrayList<SlotResponse> arrSlotSelected;
     Button btOK;
     CheckBox cbCachoi;
     Token TOKEN;
@@ -107,14 +107,14 @@ public class Booking extends AppCompatActivity {
         lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SlotRespone slot = arrSlot.get(position);
+                SlotResponse slot = arrSlot.get(position);
                 CheckBox cb_slot = (CheckBox) view.findViewById(R.id.cbCaChoi);
 
                 if (cb_slot.getVisibility() == View.VISIBLE) {
                     if (cb_slot.isChecked()) {
                         cb_slot.setChecked(false);
                         if (arrSlot.size() > 0) {
-                            for (SlotRespone caChoi : arrSlot) {
+                            for (SlotResponse caChoi : arrSlot) {
                                 if (caChoi.getId() == slot.getId()) {
                                     arrSlot.remove(caChoi);
                                 }
@@ -132,29 +132,25 @@ public class Booking extends AppCompatActivity {
         btOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentConfirm = new Intent(Booking.this, ConfirmBooking.class);
-
                 if (arrSlotSelected.size() == 0) {
                     Toast.makeText(Booking.this, "Xin vui lòng chọn ca chơi !", Toast.LENGTH_LONG).show();
                 } else {
-                    if (edtTime.length() == 0) {
-                        Toast.makeText(Booking.this, "Xin vui lòng chọn ngày đặt !", Toast.LENGTH_LONG).show();
-                    } else {
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("arrSlotSelected", (Serializable) arrSlotSelected);
-                        bundle.putSerializable("courtValue", (Serializable)  value);
-                        startActivity(intentConfirm);
-                    }
+                    Intent intentConfirm = new Intent(Booking.this, ConfirmBooking.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("arrSlotSelected", (Serializable) arrSlotSelected);
+                    bundle.putSerializable("courtValue", (Serializable) value);
+                    intentConfirm.putExtra("data", bundle);
+                    startActivity(intentConfirm);
                 }
             }
         });
     }
 
-    private void addSelectedSlot(SlotRespone ca) {
+    private void addSelectedSlot(SlotResponse ca) {
         System.out.println("ca choi " + ca);
         arrSlotSelected.add(ca);
         System.out.println("size: " + arrSlotSelected.size());
-        for (SlotRespone cachoi : arrSlotSelected) {
+        for (SlotResponse cachoi : arrSlotSelected) {
             System.out.println(cachoi.toString());
         }
     }
@@ -167,10 +163,10 @@ public class Booking extends AppCompatActivity {
         param_request.setBookedPlayDate(time);
         System.out.println("time taken + " + time);
         param_request.setCourtTypeId(value.getCourtSizeId());
-        Call<List<SlotRespone>> slotResponeCall = ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
-        slotResponeCall.enqueue(new Callback<List<SlotRespone>>() {
+        Call<List<SlotResponse>> slotResponeCall = ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
+        slotResponeCall.enqueue(new Callback<List<SlotResponse>>() {
             @Override
-            public void onResponse(Call<List<SlotRespone>> call, Response<List<SlotRespone>> response) {
+            public void onResponse(Call<List<SlotResponse>> call, Response<List<SlotResponse>> response) {
                 if (response.body().size() > 0) {
                     arrSlot = response.body();
                     CaChoiAdapter adapter = new CaChoiAdapter(Booking.this, arrSlot, sharedPreferences);
@@ -179,7 +175,7 @@ public class Booking extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<SlotRespone>> call, Throwable t) {
+            public void onFailure(Call<List<SlotResponse>> call, Throwable t) {
 
             }
         });

@@ -235,6 +235,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="584dp"
+        android:text="Được ưu đãi:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtUuDai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="584dp"
+        android:text="0 vnd"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/edtPromo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -250,10 +273,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="624dp"
         android:src="@drawable/line"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -261,8 +284,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="600dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="656dp"
         android:text="Tổng:"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -274,10 +297,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="656dp"
         android:text="Tổng phí"
-        android:textStyle="italic"
         android:textSize="20dp"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
