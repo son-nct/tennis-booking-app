@@ -35,19 +35,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Booking extends AppCompatActivity {
-    EditText edtTime;
+    TextView edtTime;
     TextView txtTennis;
     ListView lvCaChoi;
     CaChoiAdapter adapter;
-    //ArrayList<CaChoi> arrCachoi;
-    List<SlotRespone> arrSlot;
+    ArrayList<SlotValue> arrSlot;
     Intent intent, intentKM;
     ArrayList<SlotRespone> arrSlotSelected;
     Button btOK;
     CheckBox cbCachoi;
     Token TOKEN;
     String AUTHORIZATION;
-    SharedPreferences sharedPreferences;
+    String timeTaken;
 
 
     @Override
@@ -56,7 +55,7 @@ public class Booking extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
 
         txtTennis = (TextView) findViewById(R.id.txtTennis);
-        edtTime = (EditText) findViewById(R.id.edtTime);
+        edtTime = (TextView) findViewById(R.id.edtTime);
         lvCaChoi = (ListView) findViewById(R.id.lvCaChoi);
         btOK = (Button) findViewById(R.id.btOK);
         cbCachoi = (CheckBox) findViewById(R.id.cbCaChoi);
@@ -68,37 +67,54 @@ public class Booking extends AppCompatActivity {
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
         //CaChoi caChoi = (CaChoi) intent.getSerializableExtra("cachoi");
 
-//        if (ten == null) {
-//            txtTennis.setText(sanKM.getTen());
-//        } else {
-//            txtTennis.setText(ten.getTen());
-//        }
+        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sh.getString("TOKEN", "");
+        TOKEN = gson.fromJson(json, Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
+
+        if (ten == null) {
+            txtTennis.setText(sanKM.getTen());
+        } else {
+            txtTennis.setText(ten.getTen());
+        }
 
 
         edtTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chonngay();
+                Calendar calendar = Calendar.getInstance();
+                int dd = calendar.get(Calendar.DATE);
+                int MM = calendar.get(Calendar.MONTH);
+                int yyyy = calendar.get(Calendar.YEAR);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Booking.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        calendar.set(year, month, day);
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        timeTaken = simpleDateFormat.format(calendar.getTime());
+                        edtTime.append(timeTaken);
+                        System.out.println("asdasdasdsa " + timeTaken);
+                    }
+                }, yyyy, MM, dd);
+                datePickerDialog.show();
+
             }
         });
 
-        anhxa();
-        sharedPreferences = getSharedPreferences("MySharedPref", 0);
-        //parse JSON TOKEN to object Token
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString("TOKEN","");
-        TOKEN = gson.fromJson(json,Token.class);
-        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
-        LoadSlot();
+        LoadSlot(edtTime.getText().toString());
+        //anhxa();
 
 
         lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SlotRespone slot =arrSlot.get(position);
+                SlotValue slot = arrSlot.get(position);
                 CheckBox cb_slot = (CheckBox) view.findViewById(R.id.cbCaChoi);
 
-                if(cb_slot.getVisibility() == View.VISIBLE) {
+                if (cb_slot.getVisibility() == View.VISIBLE) {
                     if (cb_slot.isChecked()) {
                         cb_slot.setChecked(false);
 
@@ -114,12 +130,8 @@ public class Booking extends AppCompatActivity {
                         addSelectedSlot(slot);
                     }
                 }
-
-
-
             }
         });
-
 
         btOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,7 +172,7 @@ public class Booking extends AppCompatActivity {
         }
     }
 
-    private void chonngay() {
+   /* private void chonngay() {
         Calendar calendar = Calendar.getInstance();
         int dd = calendar.get(Calendar.DATE);
         int MM = calendar.get(Calendar.MONTH);
@@ -171,14 +183,15 @@ public class Booking extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 calendar.set(year, month, day);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                edtTime.setText(simpleDateFormat.format(calendar.getTime()));
+                String a=simpleDateFormat.format(calendar.getTime());
+                edtTime.append(a);
             }
         }, yyyy, MM, dd);
         datePickerDialog.show();
-    }
+    }*/
 
-    private void anhxa() {
-       /* arrCachoi = new ArrayList<>();
+    /* private void anhxa() {
+     *//* arrCachoi = new ArrayList<>();
         arrCachoi.add(new CaChoi(1, "Slot 1", "7:00-8:30", "150000", "150000 vnđ",1));
         arrCachoi.add(new CaChoi(2, "Slot 2", "8:45-10:15", "150000", "150000 vnđ",2));
         arrCachoi.add(new CaChoi(3, "Slot 3", "10:30-12:00", "150000", "150000 vnđ",2));
@@ -191,25 +204,40 @@ public class Booking extends AppCompatActivity {
         //get sharedPreference
     }
 
-    private void LoadSlot(){
-        SlotRequest param_request=new SlotRequest();
+        CaChoiAdapter adapter=new CaChoiAdapter(Booking.this,R.layout.list_history,arrCachoi);
+        lvCaChoi.setAdapter(adapter);
+        *//*
+        //get sharedPreference
+        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        //parse JSON TOKEN to object Token
+        Gson gson = new Gson();
+        String json = sh.getString("TOKEN","");
+        TOKEN = gson.fromJson(json,Token.class);
+        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
+        LoadSlot();
+    }*/
+
+    private void LoadSlot(String a) {
+        SlotRequest param_request = new SlotRequest();
         param_request.setVendorId(520);
         param_request.setCourtId(224);
-        param_request.setBookedPlayDate("2022-07-18");
+        param_request.setBookedPlayDate(a);
         param_request.setCourtTypeId(1);
-        Call<List<SlotRespone>> slotResponeCall= ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
-        slotResponeCall.enqueue(new Callback<List<SlotRespone>>() {
+        Call<SlotRespone> slotResponeCall = ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
+        slotResponeCall.enqueue(new Callback<SlotRespone>() {
             @Override
-            public void onResponse(Call<List<SlotRespone>> call, Response<List<SlotRespone>> response) {
-                if(response.body().size() > 0){
-                    arrSlot = response.body();
-                    CaChoiAdapter adapter=new CaChoiAdapter(Booking.this,arrSlot,  sharedPreferences);
+            public void onResponse(Call<SlotRespone> call, Response<SlotRespone> response) {
+                if (response.body() != null) {
+                    arrSlot = new ArrayList<>();
+                    SlotRespone slotRespone = response.body();
+                    arrSlot = (ArrayList) slotRespone.getValue();
+                    CaChoiAdapter adapter = new CaChoiAdapter(Booking.this, R.layout.list_history, arrSlot);
                     lvCaChoi.setAdapter(adapter);
                 }
             }
 
             @Override
-            public void onFailure(Call<List<SlotRespone>> call, Throwable t) {
+            public void onFailure(Call<SlotRespone> call, Throwable t) {
 
             }
         });

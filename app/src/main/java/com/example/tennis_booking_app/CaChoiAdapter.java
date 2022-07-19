@@ -19,18 +19,18 @@ import java.util.List;
 public class CaChoiAdapter extends BaseAdapter {
 
     private Context context;
-    SharedPreferences sharedPreferences;
-    private List<SlotRespone> arrSlot;
+    private int layout;
+    private List<SlotValue> slotList;
 
-    public CaChoiAdapter(Context context, List<SlotRespone> arrSlot, SharedPreferences sharedPreferences) {
+    public CaChoiAdapter(Context context, int layout, List<SlotValue> slotList) {
         this.context = context;
-        this.sharedPreferences = sharedPreferences;
-        this.arrSlot = arrSlot;
+        this.layout = layout;
+        this.slotList = slotList;
     }
 
     @Override
     public int getCount() {
-        return arrSlot.size();
+        return slotList.size();
     }
 
     @Override
@@ -55,16 +55,20 @@ public class CaChoiAdapter extends BaseAdapter {
         CheckBox cbCachoi = (CheckBox) convertView.findViewById(R.id.cbCaChoi);
         cbCachoi.setFocusable(false);
 
-        SlotRespone slot = arrSlot.get(position);
 
-        String startTime = slot.getStartTime().substring(0, 5);
-        String endTime = slot.getEndTime().substring(0, 5);
-        txtThoiluong.setText(startTime + " - "+ endTime);
+        SlotValue slotValue=slotList.get(position);
+        btCa.setText(slotValue.getNo());
+        txtThoiluong.setText(slotValue.getStartTime());
+        txtGia.setText(slotValue.getPrice());
 
-        txtGia.setText(slot.getPrice()+"");
-        txtSlot.setText(slot.getNo()+"");
+        System.out.println(btCa.getText().toString()+" dm may thg lon "+txtGia.getText().toString());
+        return convertView;
 
        /* SlotValue caChoi=caChoiList.get(position);
+
+
+
+        if(caChoi.getStatus() == 2) {
 
         btCa.setText(caChoi.getNo());
         txtThoiluong.setText(caChoi.getStartTime().toString() + caChoi.getEndTime().toString());
@@ -85,7 +89,5 @@ public class CaChoiAdapter extends BaseAdapter {
         btCa.setText(caChoi.getSlot());
         txtThoiluong.setText(caChoi.getThoiluong());
         txtGia.setText(caChoi.getPriceByName());*/
-
-        return convertView;
     }
 }
