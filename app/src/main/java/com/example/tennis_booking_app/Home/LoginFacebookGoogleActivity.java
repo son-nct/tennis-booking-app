@@ -1,4 +1,4 @@
-package com.example.tennis_booking_app.PhucHLH;
+package com.example.tennis_booking_app.Home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.StartsActivity;
-import com.example.tennis_booking_app.activity.home.HomeActivity;
 
 public class LoginFacebookGoogleActivity extends AppCompatActivity {
 

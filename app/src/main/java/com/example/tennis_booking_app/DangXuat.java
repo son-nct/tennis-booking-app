@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tennis_booking_app.PhucHLH.ReadyLogin;
+import com.example.tennis_booking_app.Home.ReadyLogin;
 
 public class DangXuat extends AppCompatActivity {
     Button btDangxuat;

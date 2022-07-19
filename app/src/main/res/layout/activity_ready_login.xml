@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#22C866"
     android:fitsSystemWindows="true"
-    tools:context=".PhucHLH.MainActivity"
+    tools:context=".Home.MainActivity"
     tools:ignore="MissingDefaultResource">
 
     <TextView
