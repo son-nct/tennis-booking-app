@@ -10,14 +10,25 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.Models.Voucher;
+import com.example.tennis_booking_app.PhucHLH.CourtDiscountHorizontalAdapter;
 import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
+import com.example.tennis_booking_app.ViewModels.Voucher.VoucherRequest;
+import com.example.tennis_booking_app.ViewModels.Voucher.VoucherResponse;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ConfirmBooking extends AppCompatActivity {
     TextView txtVendorID, txtCourtName, txtDientich2,
@@ -26,14 +37,12 @@ public class ConfirmBooking extends AppCompatActivity {
     Button btNhan, btKM1, btKM2, btKM3;
     Intent intent1, intentKM, intentConfirm, intentValue, intentVoucher;
     ArrayList<SlotRespone> arrSelected;
-    int sum = 0;
+    int sum=0;
     PagedCourtValue courtValue;
-    ArrayList<Voucher> arrVoucher;
+    List<Voucher> arrVoucher;
     Token TOKEN;
     String AUTHORIZATION;
     SharedPreferences sharedPreferences;
-    Bundle bundle, bundleVoucher;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,31 +63,27 @@ public class ConfirmBooking extends AppCompatActivity {
 
         intent1 = getIntent();
         intentKM = getIntent();
-        intentConfirm = getIntent();
         intentValue = getIntent();
         intentVoucher = getIntent();
 
+        //SanTennis ten2 = (SanTennis) intent1.getSerializableExtra("sandetail2");
+//        SanKM tenKM = (SanKM) intentKM.getSerializableExtra("sandetailKM");
 
-//get sharedPreference
-        sharedPreferences = getSharedPreferences("MySharedPref", 0);
+        intentConfirm = getIntent();
+        Bundle bundle = intentConfirm.getBundleExtra("data");
+        arrSelected = (ArrayList<SlotRespone>) bundle.getSerializable("arrSlotSelected");
+        courtValue = (PagedCourtValue) bundle.getSerializable("courtValue");
+
+
+        loadVoucher(courtValue.getVendorId());
+
+        //get sharedPreference
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", 0);
         //parse JSON TOKEN to object Token
         Gson gson = new Gson();
         String json = sharedPreferences.getString("TOKEN", "");
         TOKEN = gson.fromJson(json, Token.class);
         AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
-
-        //SanTennis ten2 = (SanTennis) intent1.getSerializableExtra("sandetail2");
-//        SanKM tenKM = (SanKM) intentKM.getSerializableExtra("sandetailKM");
-
-        bundle = intentConfirm.getBundleExtra("data");
-        arrSelected = (ArrayList<SlotRespone>) bundle.getSerializable("arrSlotSelected");
-        courtValue = (PagedCourtValue) bundle.getSerializable("courtValue");
-
-//        bundleVoucher = intentVoucher.getBundleExtra("voucher");
-//        arrVoucher = (ArrayList<Voucher>) bundleVoucher.getSerializable("voucherARR");
-
-
-
 
 
        /* if (ten2 != null) {
@@ -102,8 +107,6 @@ public class ConfirmBooking extends AppCompatActivity {
         }*/
 
         if (courtValue != null) {
-            //CaChoi caChoi2 = (CaChoi) intent1.getSerializableExtra("cadetail");
-            String d = bundle.getString("date");
             txtVendorID.setText(courtValue.getName());
             txtCourtName.setText(courtValue.getName());
 //            txtDientich2.setText(courtValue.getDientich());
@@ -112,24 +115,18 @@ public class ConfirmBooking extends AppCompatActivity {
                 String selected_slot_price = "";
 
                 for (SlotRespone caChoi : arrSelected) {
-                    selected_slot += caChoi.getStartTime() + ", ";
-                    selected_slot_price += caChoi.getPrice() + ", ";
-                    sum += Integer.parseInt(caChoi.getPrice() + "");
+                    selected_slot += caChoi.getStartTime()+ ", ";
+                    selected_slot_price += caChoi.getPrice()+ ", ";
+                    sum += Integer.parseInt(caChoi.getPrice()+ "");
 
                 }
 
                 txtSlot.setText(selected_slot);
                 txtGia.setText(selected_slot_price);
-                txtThanhGia.setText(sum + " vnđ");
-                txtTongGia.setText(sum + " vnđ");
-//                    txtTong.setText(sum);
-
-//                System.out.println("slot : "+ selected_slot);
-//                System.out.println("price_slot : "+ selected_slot_price);
-//                System.out.println("price : "+ sum);
+                txtThanhGia.setText(sum+" vnđ");
+                txtTongGia.setText(sum+" vnđ");
             }
-
-            txtNgay.setText(d);
+            txtNgay.setText("");
         }
 
         edtPromo.setOnClickListener(new View.OnClickListener() {
@@ -140,13 +137,13 @@ public class ConfirmBooking extends AppCompatActivity {
         });
 
 
-        btNhan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent1 = new Intent(ConfirmBooking.this, ChucMung.class);
-                startActivity(intent1);
-            }
-        });
+//        btNhan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                intent1 = new Intent(ConfirmBooking.this, ChucMung.class);
+//                startActivity(intent1);
+//            }
+//        });
 
     }
 
@@ -154,11 +151,7 @@ public class ConfirmBooking extends AppCompatActivity {
         Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_khuyen_mai);
-        dialog.setCanceledOnTouchOutside(false);
-
-        DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(ConfirmBooking.this, arrVoucher, sharedPreferences);
-
-
+        dialog.setCanceledOnTouchOutside(true);
 //        btKM1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -187,5 +180,29 @@ public class ConfirmBooking extends AppCompatActivity {
 //            }
 //        });
         dialog.show();
+    }
+
+    private void loadVoucher(int vendorID){
+        VoucherRequest paramsRequest = new VoucherRequest();
+        paramsRequest.setVendorId(vendorID);
+
+        Call<VoucherResponse> vendorResponseCall = ApiClient.getVoucherService().getPagedVoucher(AUTHORIZATION, paramsRequest.getVendorId());
+        vendorResponseCall.enqueue(new Callback<VoucherResponse>() {
+            @Override
+            public void onResponse(Call<VoucherResponse> call, Response<VoucherResponse> response) {
+                if(response.body() !=null){
+                    // handle API
+                    arrVoucher = response.body().getValue();
+                    System.out.println("voucher value " + arrVoucher);
+                    DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(ConfirmBooking.this, arrVoucher, sharedPreferences);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<VoucherResponse> call, Throwable t) {
+
+            }
+        });
     }
 }

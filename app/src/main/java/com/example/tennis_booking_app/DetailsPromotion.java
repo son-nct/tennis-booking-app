@@ -239,12 +239,13 @@ public class DetailsPromotion extends AppCompatActivity {
                     viewPromoCourt.setItemAnimator(new DefaultItemAnimator());
                     viewPromoCourt.setAdapter(courtDiscountHorizontalAdapter);
                     courtDiscountHorizontalAdapter.notifyDataSetChanged();
+
                     // send data to confirm booking
-                    Bundle bundle = new Bundle();
-                    Intent intentVoucher = new Intent(DetailsPromotion.this, ConfirmBooking.class);
-                    bundle.putSerializable("voucherARR", (Serializable) arrVoucher);
-                    intentVoucher.putExtra("voucher", bundle);
-                    startActivity(intentVoucher);
+//                    Bundle bundle = new Bundle();
+//                    Intent intentVoucher = new Intent(DetailsPromotion.this, ConfirmBooking.class);
+//                    bundle.putSerializable("voucherARR", (Serializable) arrVoucher);
+//                    intentVoucher.putExtra("voucher", bundle);
+//                    startActivity(intentVoucher);
                 }
             }
 
