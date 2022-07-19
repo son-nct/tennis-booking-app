@@ -2,6 +2,7 @@ package com.example.tennis_booking_app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,13 +46,13 @@ public class CaChoiAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView=inflater.inflate(layout,null);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = inflater.inflate(R.layout.list_ca_choi, null);
 
-        TextView btCa=(TextView) convertView.findViewById(R.id.btSLot);
-        TextView txtThoiluong=(TextView) convertView.findViewById(R.id.txtThoi);
-        TextView txtGia=(TextView) convertView.findViewById(R.id.txtGia);
-        CheckBox cbCachoi=(CheckBox) convertView.findViewById(R.id.cbCaChoi);
+        TextView txtSlot = (TextView) convertView.findViewById(R.id.btSLot);
+        TextView txtThoiluong = (TextView) convertView.findViewById(R.id.txtThoi);
+        TextView txtGia = (TextView) convertView.findViewById(R.id.txtGia);
+        CheckBox cbCachoi = (CheckBox) convertView.findViewById(R.id.cbCaChoi);
         cbCachoi.setFocusable(false);
 
 
@@ -68,6 +69,13 @@ public class CaChoiAdapter extends BaseAdapter {
 
 
         if(caChoi.getStatus() == 2) {
+
+        btCa.setText(caChoi.getNo());
+        txtThoiluong.setText(caChoi.getStartTime().toString() + caChoi.getEndTime().toString());
+        txtGia.setText(caChoi.getPrice());*/
+
+
+        /*if(caChoi.getStatus() == 2) {
 
             btCa.setTextColor(R.drawable.green);
             txtThoiluong.setTextColor(R.drawable.green);

@@ -1,14 +1,8 @@
 package com.example.tennis_booking_app;
 
-import static com.example.tennis_booking_app.R.drawable.discount;
-
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
-import com.example.tennis_booking_app.PhucHLH.SpecificCourtsActivity;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.google.gson.Gson;
@@ -35,7 +28,7 @@ import retrofit2.Response;
 #                                _oo0oo_							#
 #                               088888880							#
 #                               88" . "88							#
-#                               (| 😑 |)							#
+#                              (| __ __ |)							#
 #                                0\ = /0							#
 #                             ___/'---'\___							#
 #                           .' \\|     |// '. 						#

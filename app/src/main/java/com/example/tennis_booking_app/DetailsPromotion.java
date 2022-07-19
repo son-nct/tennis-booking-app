@@ -1,22 +1,16 @@
 package com.example.tennis_booking_app;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,20 +19,14 @@ import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.LoadImage;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
-import com.example.tennis_booking_app.PhucHLH.CourtDiscount;
-import com.example.tennis_booking_app.PhucHLH.CourtDiscountHorizontalAdapter;
-import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
+import com.example.tennis_booking_app.Home.CourtDiscount;
+import com.example.tennis_booking_app.Home.CourtDiscountHorizontalAdapter;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.example.tennis_booking_app.ViewModels.Vendor.VendorRequest;
 import com.example.tennis_booking_app.ViewModels.Vendor.VendorResponse;
-import com.example.tennis_booking_app.activity.home.HomeActivity;
-import com.example.tennis_booking_app.adapter.home.HorizontalAdapter;
 import com.google.gson.Gson;
 
-import org.w3c.dom.Text;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -170,7 +158,7 @@ public class DetailsPromotion extends AppCompatActivity {
                     if (vendorResponse.getRatingAverage() == 0) {
                         txtTotalRate.setText(String.valueOf(1));
                     } else {
-                        txtTotalRate.setText(vendorResponse.getRatingAverage());
+                        txtTotalRate.setText(vendorResponse.getRatingAverage() + "");
                     }
                     String imageURL = vendorResponse.getAvatarUrl();
                     LoadImage loadImage = new LoadImage(imgStore);

@@ -22,7 +22,6 @@ import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.Promotion;
 import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeRequest;
 import com.example.tennis_booking_app.ViewModels.CourtSize.CourtSizeResponse;
-import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.example.tennis_booking_app.ViewModels.PromotingCourtHome.PromotingHomeRequest;
 import com.example.tennis_booking_app.ViewModels.PromotingCourtHome.PromotingHomeResponse;
@@ -33,8 +32,8 @@ import com.example.tennis_booking_app.DangXuat;
 import com.example.tennis_booking_app.adapter.home.HorizontalAdapter;
 import com.example.tennis_booking_app.LichSu;
 import com.example.tennis_booking_app.R;
-import com.example.tennis_booking_app.PhucHLH.SearchPageActivity;
-import com.example.tennis_booking_app.PhucHLH.SpecificCourtsActivity;
+import com.example.tennis_booking_app.Home.SearchPageActivity;
+import com.example.tennis_booking_app.Home.SpecificCourtsActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

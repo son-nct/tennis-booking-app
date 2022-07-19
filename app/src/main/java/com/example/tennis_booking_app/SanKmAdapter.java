@@ -3,6 +3,7 @@ package com.example.tennis_booking_app;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,10 +80,12 @@ public class SanKmAdapter extends BaseAdapter {
                     txtDientichKM.setText(size.getWidth() + "m " + "x" + size.getHeight() + "m ");
                 }
             }
+
             loKM.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, Booking.class);
+                    intent.putExtra("courtIDKM", value.getId());
                     context.startActivity(intent);
                 }
             });

@@ -3,7 +3,9 @@ package com.example.tennis_booking_app.Clients;
 import androidx.annotation.NonNull;
 
 import com.example.tennis_booking_app.Models.Token;
+import com.example.tennis_booking_app.Service.BookingService;
 import com.example.tennis_booking_app.Service.CourtSizeService;
+import com.example.tennis_booking_app.Service.SlotService;
 import com.example.tennis_booking_app.Service.UserService;
 import com.example.tennis_booking_app.Service.CourtService;
 import com.example.tennis_booking_app.Service.VendorService;
@@ -67,5 +69,11 @@ public class ApiClient {
 
     public static VendorService getVendorService(){
         return getRetrofit().create(VendorService.class);
+    }
+    public static BookingService getBookingService(){
+        return getRetrofit().create(BookingService.class);
+    }
+    public static SlotService getSlotService(){
+        return getRetrofit().create(SlotService.class);
     }
 }

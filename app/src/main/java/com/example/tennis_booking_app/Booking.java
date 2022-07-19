@@ -2,6 +2,7 @@ package com.example.tennis_booking_app;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,10 +16,23 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.Slot.SlotValue;
+import com.example.tennis_booking_app.Models.Token;
+import com.example.tennis_booking_app.ViewModels.Booking.BookingRespone;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotRequest;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
+import com.google.gson.Gson;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Booking extends AppCompatActivity {
     TextView edtTime;
@@ -27,7 +41,7 @@ public class Booking extends AppCompatActivity {
     CaChoiAdapter adapter;
     ArrayList<SlotValue> arrSlot;
     Intent intent, intentKM;
-    ArrayList<CaChoi> arrSlotSelected;
+    ArrayList<SlotRespone> arrSlotSelected;
     Button btOK;
     CheckBox cbCachoi;
     Token TOKEN;
@@ -48,8 +62,6 @@ public class Booking extends AppCompatActivity {
 
         intent = getIntent();
         intentKM = getIntent();
-
-        arrSlotSelected = new ArrayList<CaChoi>();
 
         SanTennis ten = (SanTennis) intent.getSerializableExtra("sandetail");
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
@@ -95,6 +107,7 @@ public class Booking extends AppCompatActivity {
         LoadSlot(edtTime.getText().toString());
         //anhxa();
 
+
         lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -106,15 +119,15 @@ public class Booking extends AppCompatActivity {
                         cb_slot.setChecked(false);
 
                         if (arrSlotSelected.size() > 0) {
-                            for (CaChoi caChoi : arrSlotSelected) {
-                                if (caChoi.getId() == ca.getId()) {
+                            for (SlotRespone caChoi : arrSlotSelected) {
+                                if (caChoi.getId() == slot.getId()) {
                                     arrSlotSelected.remove(caChoi);
                                 }
                             }
                         }
                     } else {
                         cb_slot.setChecked(true);
-                        addSelectedSlot(ca);
+                        addSelectedSlot(slot);
                     }
                 }
             }
@@ -150,10 +163,10 @@ public class Booking extends AppCompatActivity {
         });
     }
 
-    private void addSelectedSlot(CaChoi ca) {
+    private void addSelectedSlot(SlotRespone ca) {
         arrSlotSelected.add(ca);
         System.out.println("size: " + arrSlotSelected.size());
-        for (CaChoi cachoi : arrSlotSelected
+        for (SlotRespone cachoi : arrSlotSelected
         ) {
             System.out.println(cachoi.toString());
         }
@@ -187,19 +200,9 @@ public class Booking extends AppCompatActivity {
         arrCachoi.add(new CaChoi(6, "Slot 6", "16:00-17:30", "170000", "170000 vnđ",2));
         arrCachoi.add(new CaChoi(7, "Slot 7", "17:45-19:15", "200000", "200000 vnđ",1));
         arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000", "200000 vnđ",1));
-
-        CaChoiAdapter adapter=new CaChoiAdapter(Booking.this,R.layout.list_history,arrCachoi);
-        lvCaChoi.setAdapter(adapter);
-        *//*
+        */
         //get sharedPreference
-        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
-        //parse JSON TOKEN to object Token
-        Gson gson = new Gson();
-        String json = sh.getString("TOKEN","");
-        TOKEN = gson.fromJson(json,Token.class);
-        AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
-        LoadSlot();
-    }*/
+    }
 
     private void LoadSlot(String a) {
         SlotRequest param_request = new SlotRequest();

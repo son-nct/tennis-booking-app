@@ -1,32 +1,24 @@
-package com.example.tennis_booking_app.PhucHLH;
+package com.example.tennis_booking_app.Home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Adapter;
-import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.tennis_booking_app.DetailsPromotion;
 import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
-import com.example.tennis_booking_app.PromoAdapter;
 import com.example.tennis_booking_app.R;
 import com.example.tennis_booking_app.SanAdapter;
-import com.example.tennis_booking_app.SanTennis;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtRequest;
 import com.example.tennis_booking_app.ViewModels.PagedCourt.PagedCourtResponse;
 import com.google.gson.Gson;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
