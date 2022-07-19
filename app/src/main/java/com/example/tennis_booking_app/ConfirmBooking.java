@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,9 @@ public class ConfirmBooking extends AppCompatActivity {
     String AUTHORIZATION;
     SharedPreferences sharedPreferences;
     Bundle bundle, bundleVoucher;
+    ArrayList<VoidcherTest> listVoicher;
+    VoicherAdapter adapter;
+    ListView lvVoucher;
 
 
     @Override
@@ -156,7 +160,14 @@ public class ConfirmBooking extends AppCompatActivity {
         dialog.setContentView(R.layout.dialog_khuyen_mai);
         dialog.setCanceledOnTouchOutside(false);
 
+        lvVoucher=dialog.findViewById(R.id.lvVoucher);
+        listVoicher=new ArrayList<>();
+        listVoicher.add(new VoidcherTest("cuoi tuan","20000"));
+        adapter=new VoicherAdapter(dialog.getContext(),R.layout.list_voicher,listVoicher);
+        lvVoucher.setAdapter(adapter);
+
         DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(ConfirmBooking.this, arrVoucher, sharedPreferences);
+        dialog.show();
 
 
 //        btKM1.setOnClickListener(new View.OnClickListener() {
@@ -186,6 +197,6 @@ public class ConfirmBooking extends AppCompatActivity {
 //                dialog.dismiss();
 //            }
 //        });
-        dialog.show();
+
     }
 }
