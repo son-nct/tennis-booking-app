@@ -39,7 +39,7 @@ public class Booking extends AppCompatActivity {
     TextView txtTennis;
     ListView lvCaChoi;
     CaChoiAdapter adapter;
-    ArrayList<SlotValue> arrSlot;
+    List<SlotRespone> arrSlot;
     Intent intent, intentKM;
     ArrayList<SlotRespone> arrSlotSelected;
     Button btOK;
@@ -47,7 +47,7 @@ public class Booking extends AppCompatActivity {
     Token TOKEN;
     String AUTHORIZATION;
     String timeTaken;
-
+    SharedPreferences sh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class Booking extends AppCompatActivity {
         SanKM sanKM = (SanKM) intentKM.getSerializableExtra("sanKMDetail");
         //CaChoi caChoi = (CaChoi) intent.getSerializableExtra("cachoi");
 
-        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+        sh = getSharedPreferences("MySharedPref", 0);
         //parse JSON TOKEN to object Token
         Gson gson = new Gson();
         String json = sh.getString("TOKEN", "");
@@ -111,7 +111,7 @@ public class Booking extends AppCompatActivity {
         lvCaChoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SlotValue slot = arrSlot.get(position);
+                SlotRespone slot = arrSlot.get(position);
                 CheckBox cb_slot = (CheckBox) view.findViewById(R.id.cbCaChoi);
 
                 if (cb_slot.getVisibility() == View.VISIBLE) {
@@ -202,7 +202,6 @@ public class Booking extends AppCompatActivity {
         arrCachoi.add(new CaChoi(8, "Slot 8", "19:30-21:00", "200000", "200000 vnđ",1));
         */
         //get sharedPreference
-    }
 
     private void LoadSlot(String a) {
         SlotRequest param_request = new SlotRequest();
@@ -210,21 +209,19 @@ public class Booking extends AppCompatActivity {
         param_request.setCourtId(224);
         param_request.setBookedPlayDate(a);
         param_request.setCourtTypeId(1);
-        Call<SlotRespone> slotResponeCall = ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
-        slotResponeCall.enqueue(new Callback<SlotRespone>() {
+        Call<List<SlotRespone>> slotResponeCall = ApiClient.getSlotService().getSlotbyDate(AUTHORIZATION, param_request.getVendorId(), param_request.getCourtId(), param_request.getBookedPlayDate(), param_request.getCourtTypeId());
+        slotResponeCall.enqueue(new Callback<List<SlotRespone>>() {
             @Override
-            public void onResponse(Call<SlotRespone> call, Response<SlotRespone> response) {
+            public void onResponse(Call<List<SlotRespone>> call, Response<List<SlotRespone>> response) {
                 if (response.body() != null) {
-                    arrSlot = new ArrayList<>();
-                    SlotRespone slotRespone = response.body();
-                    arrSlot = (ArrayList) slotRespone.getValue();
-                    CaChoiAdapter adapter = new CaChoiAdapter(Booking.this, R.layout.list_history, arrSlot);
+                    arrSlot = (List) response.body();
+                    CaChoiAdapter adapter = new CaChoiAdapter(Booking.this, arrSlot, sh);
                     lvCaChoi.setAdapter(adapter);
                 }
             }
 
             @Override
-            public void onFailure(Call<SlotRespone> call, Throwable t) {
+            public void onFailure(Call<List<SlotRespone>> call, Throwable t) {
 
             }
         });

@@ -19,12 +19,12 @@ import java.util.List;
 public class CaChoiAdapter extends BaseAdapter {
 
     private Context context;
-    private int layout;
-    private List<SlotValue> slotList;
+    SharedPreferences sharedPreferences;
+    private List<SlotRespone> slotList;
 
-    public CaChoiAdapter(Context context, int layout, List<SlotValue> slotList) {
+    public CaChoiAdapter(Context context, List<SlotRespone> slotList, SharedPreferences sharedPreferences) {
         this.context = context;
-        this.layout = layout;
+        this.sharedPreferences = sharedPreferences;
         this.slotList = slotList;
     }
 
@@ -56,12 +56,12 @@ public class CaChoiAdapter extends BaseAdapter {
         cbCachoi.setFocusable(false);
 
 
-        SlotValue slotValue=slotList.get(position);
-        btCa.setText(slotValue.getNo());
+        SlotRespone slotValue=slotList.get(position);
+        txtSlot.setText(slotValue.getNo());
         txtThoiluong.setText(slotValue.getStartTime());
         txtGia.setText(slotValue.getPrice());
 
-        System.out.println(btCa.getText().toString()+" dm may thg lon "+txtGia.getText().toString());
+        System.out.println(txtSlot.getText().toString()+" dm may thg lon "+txtGia.getText().toString());
         return convertView;
 
        /* SlotValue caChoi=caChoiList.get(position);
