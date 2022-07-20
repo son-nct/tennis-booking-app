@@ -44,14 +44,10 @@ public class ConfirmBooking extends AppCompatActivity {
     Token TOKEN;
     String AUTHORIZATION;
     SharedPreferences sharedPreferences;
-<<<<<<< HEAD
     Bundle bundle, bundleVoucher;
     ArrayList<VoidcherTest> listVoicher;
     VoicherAdapter adapter;
     ListView lvVoucher;
-
-=======
->>>>>>> 2eadbbc1a24c6e202a6138e4116cfcba9e5491c5
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,7 +156,6 @@ public class ConfirmBooking extends AppCompatActivity {
         Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_khuyen_mai);
-<<<<<<< HEAD
         dialog.setCanceledOnTouchOutside(false);
 
         lvVoucher=dialog.findViewById(R.id.lvVoucher);
@@ -172,10 +167,8 @@ public class ConfirmBooking extends AppCompatActivity {
         DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(ConfirmBooking.this, arrVoucher, sharedPreferences);
         dialog.show();
 
-
-=======
         dialog.setCanceledOnTouchOutside(true);
->>>>>>> 2eadbbc1a24c6e202a6138e4116cfcba9e5491c5
+
 //        btKM1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

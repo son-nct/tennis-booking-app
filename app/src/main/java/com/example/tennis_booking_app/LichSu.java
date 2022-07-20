@@ -24,6 +24,7 @@ public class LichSu extends AppCompatActivity {
     Token TOKEN;
     String AUTHORIZATION;
     ArrayList<BookingValue> arrBooking;
+    SharedPreferences sh;
 
     //ArrayList<History> arrHis;
     @Override
@@ -58,7 +59,7 @@ public class LichSu extends AppCompatActivity {
         });*/
 
         //get sharedPreference
-        SharedPreferences sh = getSharedPreferences("MySharedPref", 0);
+       sh = getSharedPreferences("MySharedPref", 0);
         //parse JSON TOKEN to object Token
         Gson gson = new Gson();
         String json = sh.getString("TOKEN","");
@@ -82,7 +83,7 @@ public class LichSu extends AppCompatActivity {
                     arrBooking=new ArrayList<>();
                     BookingHistoryResponse bookingRespone=response.body();
                     arrBooking = (ArrayList) bookingRespone.getValue();
-                    LichSuAdapter adapter=new LichSuAdapter(LichSu.this,R.layout.list_history,arrBooking);
+                    LichSuAdapter adapter=new LichSuAdapter(LichSu.this,sh,arrBooking);
                     lvHis.setAdapter(adapter);
                 }
             }

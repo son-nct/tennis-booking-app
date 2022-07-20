@@ -1,6 +1,7 @@
 package com.example.tennis_booking_app;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,12 @@ import java.util.List;
 
 public class LichSuAdapter extends BaseAdapter {
     Context context;
-    private int layout;
+    private SharedPreferences sharedPreferences;
     private List<BookingValue> bookingList;
 
-    public LichSuAdapter(Context context, int layout, List<BookingValue> bookingList) {
+    public LichSuAdapter(Context context, SharedPreferences sharedPreferences, List<BookingValue> bookingList) {
         this.context = context;
-        this.layout = layout;
+        this.sharedPreferences = sharedPreferences;
         this.bookingList = bookingList;
     }
 
@@ -46,7 +47,7 @@ public class LichSuAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView=inflater.inflate(layout,null);
+        convertView=inflater.inflate(R.layout.list_history,null);
 
         ImageView imgLogo=(ImageView) convertView.findViewById(R.id.imgLogo);
         TextView txtTenHis=(TextView) convertView.findViewById(R.id.txtTenHis);
