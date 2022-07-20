@@ -94,6 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         TOKEN = gson.fromJson(json, Token.class);
         AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
 
+        System.out.println("user id" + TOKEN.getUserId());
 
         setWelcome();
 

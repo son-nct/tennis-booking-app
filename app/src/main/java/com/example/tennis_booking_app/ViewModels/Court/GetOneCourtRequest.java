@@ -7,6 +7,7 @@ public class GetOneCourtRequest {
         Id = id;
     }
 
+
     public GetOneCourtRequest() {
     }
 

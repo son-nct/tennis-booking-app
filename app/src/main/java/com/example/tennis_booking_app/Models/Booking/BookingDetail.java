@@ -3,33 +3,54 @@ package com.example.tennis_booking_app.Models.Booking;
 import java.util.Date;
 
 public class BookingDetail {
-    private int Id,BookingId,CourtId,SlotId,TotalPrice,TotalPriceAfterDiscount,
-            VoucherId,StatusId,InsertedBy,UpdateBy,RatedStar;
-    private Date BookedPlayDate,InsertedDate,UpdatedDate;
+    private int Id;
+    private int BookingId;
+    private int CourtId;
+    private int SlotId;
+    private String BookedPlayDate;
+    private int TotalPrice;
+    private int TotalPriceAfterDiscount;
+    private int VoucherId;
+    private int StatusId;
+    private Date InsertedDate;
+    private int InsertedBy;
+    private Date UpdatedDate;
+    private int UpdateBy;
     private boolean Active;
+    private int RatedStar;
     private String Note;
 
-    public BookingDetail() {
-    }
-
-    public BookingDetail(int id, int bookingId, int courtId, int slotId, int totalPrice, int totalPriceAfterDiscount, int voucherId, int statusId, int insertedBy, int updateBy, int ratedStar, Date bookedPlayDate, Date insertedDate, Date updatedDate, boolean active, String note) {
+    public BookingDetail(int id, int bookingId, int courtId, int slotId, String bookedPlayDate, int totalPrice, int totalPriceAfterDiscount, int voucherId, int statusId, Date insertedDate, int insertedBy, Date updatedDate, int updateBy, boolean active, int ratedStar, String note) {
         Id = id;
         BookingId = bookingId;
         CourtId = courtId;
         SlotId = slotId;
+        BookedPlayDate = bookedPlayDate;
         TotalPrice = totalPrice;
         TotalPriceAfterDiscount = totalPriceAfterDiscount;
         VoucherId = voucherId;
         StatusId = statusId;
-        InsertedBy = insertedBy;
-        UpdateBy = updateBy;
-        RatedStar = ratedStar;
-        BookedPlayDate = bookedPlayDate;
         InsertedDate = insertedDate;
+        InsertedBy = insertedBy;
         UpdatedDate = updatedDate;
+        UpdateBy = updateBy;
+        Active = active;
+        RatedStar = ratedStar;
+        Note = note;
+    }
+
+        public BookingDetail(int courtId, int slotId, String bookedPlayDate, int totalPrice, int totalPriceAfterDiscount, int voucherId, int statusId, boolean active, int ratedStar, String note) {
+        CourtId = courtId;
+        SlotId = slotId;
+        BookedPlayDate = bookedPlayDate;
+        TotalPrice = totalPrice;
+        TotalPriceAfterDiscount = totalPriceAfterDiscount;
+        VoucherId = voucherId;
+        StatusId = statusId;
         Active = active;
         Note = note;
     }
+
 
     public int getId() {
         return Id;
@@ -61,6 +82,14 @@ public class BookingDetail {
 
     public void setSlotId(int slotId) {
         SlotId = slotId;
+    }
+
+    public String getBookedPlayDate() {
+        return BookedPlayDate;
+    }
+
+    public void setBookedPlayDate(String bookedPlayDate) {
+        BookedPlayDate = bookedPlayDate;
     }
 
     public int getTotalPrice() {
@@ -95,44 +124,20 @@ public class BookingDetail {
         StatusId = statusId;
     }
 
-    public int getInsertedBy() {
-        return InsertedBy;
-    }
-
-    public void setInsertedBy(int insertedBy) {
-        InsertedBy = insertedBy;
-    }
-
-    public int getUpdateBy() {
-        return UpdateBy;
-    }
-
-    public void setUpdateBy(int updateBy) {
-        UpdateBy = updateBy;
-    }
-
-    public int getRatedStar() {
-        return RatedStar;
-    }
-
-    public void setRatedStar(int ratedStar) {
-        RatedStar = ratedStar;
-    }
-
-    public Date getBookedPlayDate() {
-        return BookedPlayDate;
-    }
-
-    public void setBookedPlayDate(Date bookedPlayDate) {
-        BookedPlayDate = bookedPlayDate;
-    }
-
     public Date getInsertedDate() {
         return InsertedDate;
     }
 
     public void setInsertedDate(Date insertedDate) {
         InsertedDate = insertedDate;
+    }
+
+    public int getInsertedBy() {
+        return InsertedBy;
+    }
+
+    public void setInsertedBy(int insertedBy) {
+        InsertedBy = insertedBy;
     }
 
     public Date getUpdatedDate() {
@@ -143,12 +148,28 @@ public class BookingDetail {
         UpdatedDate = updatedDate;
     }
 
+    public int getUpdateBy() {
+        return UpdateBy;
+    }
+
+    public void setUpdateBy(int updateBy) {
+        UpdateBy = updateBy;
+    }
+
     public boolean isActive() {
         return Active;
     }
 
     public void setActive(boolean active) {
         Active = active;
+    }
+
+    public int getRatedStar() {
+        return RatedStar;
+    }
+
+    public void setRatedStar(int ratedStar) {
+        RatedStar = ratedStar;
     }
 
     public String getNote() {

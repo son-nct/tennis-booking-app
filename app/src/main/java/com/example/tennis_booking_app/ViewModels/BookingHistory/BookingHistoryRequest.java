@@ -5,15 +5,25 @@ public class BookingHistoryRequest {
     private int PageSize;
     private String QueryString;
     private int CurrentPage;
+    private int userId;
 
     public BookingHistoryRequest() {
     }
 
-    public BookingHistoryRequest(int vendorId, int pageSize, String queryString, int currentPage) {
+    public BookingHistoryRequest(int vendorId, int pageSize, String queryString, int currentPage, int userId) {
         VendorId = vendorId;
         PageSize = pageSize;
         QueryString = queryString;
         CurrentPage = currentPage;
+        this.userId = userId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getVendorId() {

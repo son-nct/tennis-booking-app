@@ -7,6 +7,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.Booking.BookingDetail;
 import com.example.tennis_booking_app.Models.Booking.BookingValue;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.ViewModels.BookingHistory.BookingHistoryRequest;
@@ -14,6 +15,7 @@ import com.example.tennis_booking_app.ViewModels.BookingHistory.BookingHistoryRe
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,8 +25,9 @@ public class LichSu extends AppCompatActivity {
     ListView lvHis;
     Token TOKEN;
     String AUTHORIZATION;
-    ArrayList<BookingValue> arrBooking;
+    List<BookingValue> arrBookingValue;
     SharedPreferences sh;
+    List<BookingDetail> arrBookingDetail;
 
     //ArrayList<History> arrHis;
     @Override
@@ -65,25 +68,20 @@ public class LichSu extends AppCompatActivity {
         String json = sh.getString("TOKEN","");
         TOKEN = gson.fromJson(json,Token.class);
         AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
-        LoadBooking();
+        LoadBooking(TOKEN.getUserId());
     }
 
-    private void LoadBooking() {
+    private void LoadBooking(int userID) {
         BookingHistoryRequest param_request = new BookingHistoryRequest();
-        param_request.setVendorId(520);
-        param_request.setPageSize(30);
-        param_request.setQueryString("");
-        param_request.setCurrentPage(1);
+        param_request.setUserId(userID);
 
-        Call<BookingHistoryResponse> bookingResponeCall = ApiClient.getBookingService().getBooking(AUTHORIZATION, param_request.getVendorId(), param_request.getPageSize(), param_request.getQueryString(), param_request.getCurrentPage());
+        Call<BookingHistoryResponse> bookingResponeCall = ApiClient.getBookingService().getBooking(AUTHORIZATION, param_request.getUserId());
         bookingResponeCall.enqueue(new Callback<BookingHistoryResponse>() {
             @Override
             public void onResponse(Call<BookingHistoryResponse> call, Response<BookingHistoryResponse> response) {
                 if (response.body() != null){
-                    arrBooking=new ArrayList<>();
-                    BookingHistoryResponse bookingRespone=response.body();
-                    arrBooking = (ArrayList) bookingRespone.getValue();
-                    LichSuAdapter adapter=new LichSuAdapter(LichSu.this,sh,arrBooking);
+                    arrBookingValue =(List) response.body().getValue();
+                    LichSuAdapter adapter = new LichSuAdapter(LichSu.this, sh, arrBookingValue);
                     lvHis.setAdapter(adapter);
                 }
             }

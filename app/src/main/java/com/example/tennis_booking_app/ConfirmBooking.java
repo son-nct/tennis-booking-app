@@ -10,18 +10,23 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
+import com.example.tennis_booking_app.Models.Booking.BookingDetail;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.Models.Voucher;
+import com.example.tennis_booking_app.ViewModels.Booking.BookingRequest;
+import com.example.tennis_booking_app.ViewModels.Booking.BookingResponse;
 import com.example.tennis_booking_app.ViewModels.Slot.SlotResponse;
 import com.example.tennis_booking_app.ViewModels.Voucher.VoucherRequest;
 import com.example.tennis_booking_app.ViewModels.Voucher.VoucherResponse;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,7 +51,10 @@ public class ConfirmBooking extends AppCompatActivity {
     TextView txtCourtNameHorizontalPromo, txtDiscount;
     Voucher voucherSelected;
     SharedPreferences shs;
-
+    String datePick;
+    List<BookingDetail> arrBooking;
+    List<BookingResponse> arrBookingResponse;
+    Voucher voucherClick = new Voucher();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +70,8 @@ public class ConfirmBooking extends AppCompatActivity {
         txtNgay = (TextView) findViewById(R.id.txtNgay);
         txtUuDai = (TextView) findViewById(R.id.txtUuDai);
         edtPromo = (TextView) findViewById(R.id.edtPromo);
-        btNhan = (Button) findViewById(R.id.btNhan);
+        btNhan = (Button) findViewById(R.id.btnXacNhan);
+        arrBooking = new ArrayList<>();
 
 
         intent1 = getIntent();
@@ -77,6 +86,7 @@ public class ConfirmBooking extends AppCompatActivity {
         Bundle bundleConfirm = intentConfirm.getBundleExtra("data");
         arrSelected = (List<SlotResponse>) bundleConfirm.getSerializable("arrSlotSelected");
         courtValue = (PagedCourtValue) bundleConfirm.getSerializable("courtValue");
+        datePick = (String) bundleConfirm.getString("datePick");
 
 
 
@@ -116,26 +126,13 @@ public class ConfirmBooking extends AppCompatActivity {
                 txtThanhGia.setText(sum + " vnđ");
                 txtTongGia.setText(sum + " vnđ");
             }
-            txtNgay.setText("");
+            txtNgay.setText(datePick);
         }
 
         edtPromo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadVoucher(courtValue.getVendorId());
-
-//                    Intent intentSelected = getIntent();
-//                    Bundle bundleSelected = intentSelected.getBundleExtra("SelectData");
-//                    voucherSelected = (Voucher) bundleSelected.getSerializable("PromoSelected");
-//                    System.out.println("voucher selected "+ voucherSelected.getName());
-//                    edtPromo.setText(voucherSelected.getName());
-
-//                shs = getSharedPreferences("MySharedPref", 0);
-//                Gson gson = new Gson();
-//                String json = shs.getString("VOUCHER_SELECTED", "");
-//                voucherSelected = gson.fromJson(json, Voucher.class);
-//                edtPromo.setText(voucherSelected.getName());
-
             }
 
         });
@@ -148,6 +145,18 @@ public class ConfirmBooking extends AppCompatActivity {
 //                startActivity(intent1);
 //            }
 //        });
+
+        btNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int vendorID = courtValue.getVendorId();
+                int tongGia = Integer.parseInt(txtTongGia.getText().toString().substring(0, txtTongGia.getText().length()-3).trim());
+                int thanhGia = Integer.parseInt(txtThanhGia.getText().toString().substring(0, txtThanhGia.length()-3).trim());
+                int voucherId = voucherClick.getId();
+
+                booking(vendorID, tongGia, thanhGia, voucherId);
+            }
+        });
 
     }
 
@@ -177,7 +186,6 @@ public class ConfirmBooking extends AppCompatActivity {
                     lvVoucher.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Voucher voucherClick = new Voucher();
                             voucherClick = arrVoucher.get(position);
                             System.out.println("voucher click = " + voucherClick);
                             edtPromo.setText(voucherClick.getName());
@@ -185,7 +193,7 @@ public class ConfirmBooking extends AppCompatActivity {
                             String gia = txtThanhGia.getText().toString().substring(0, txtThanhGia.getText().length()-3);
                             System.out.println("giaaaaaaaaaaaaaaaa " + gia);
                             int ketqua = Integer.parseInt(gia.trim()) - (voucherClick.getDiscountPrice());
-                            txtUuDai.setText(String.valueOf(voucherClick.getDiscountPrice()));
+                            txtUuDai.setText(String.valueOf(voucherClick.getDiscountPrice())+ " vnd");
                             txtTongGia.setText(String.valueOf(ketqua)+" vnd");
                         }
                     });
@@ -195,6 +203,47 @@ public class ConfirmBooking extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<VoucherResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void booking(int vendorID, int tongGia, int thanhGia, int voucherId){
+        BookingRequest paramsRequest = new BookingRequest();
+        paramsRequest.setVendorId(vendorID);
+        paramsRequest.setTotalPrice(tongGia);
+        paramsRequest.setNote("Đặt sân");
+        paramsRequest.setStatusId(1);
+        paramsRequest.setReasonOfChange("tạo mới");
+        // courtValue.getName()
+        for (SlotResponse slot : arrSelected) {
+            int courtId = courtValue.getId();
+            int slotId = slot.getId();
+            int totalPrice = thanhGia;
+            int totalPriceAfterDiscount = tongGia;
+            int statusId = 1;
+            boolean active = true;
+            int ratedStar = 0;
+            String note = "Đặt sân";
+            BookingDetail bookingDetail = new BookingDetail(courtId, slotId, datePick, totalPrice, totalPriceAfterDiscount, voucherId, statusId, active, ratedStar, note);
+            arrBooking.add(bookingDetail);
+            System.out.println("booking detail "+ bookingDetail.getNote());
+        }
+        paramsRequest.setBookingDetail(arrBooking);
+
+        Call<BookingResponse> bookingRequestCall = ApiClient.getBookingService().bookingOneCourt(AUTHORIZATION, paramsRequest);
+        bookingRequestCall.enqueue(new Callback<BookingResponse>() {
+            @Override
+            public void onResponse(Call<BookingResponse> call, Response<BookingResponse> response) {
+                if(response.body() != null){
+                    BookingResponse bookingResponse = response.body();
+                    Intent intentSuccess = new Intent(ConfirmBooking.this, ChucMung.class);
+                    startActivity(intentSuccess);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BookingResponse> call, Throwable t) {
 
             }
         });

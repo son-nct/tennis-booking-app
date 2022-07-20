@@ -1,5 +1,7 @@
 package com.example.tennis_booking_app.Service;
 
+import com.example.tennis_booking_app.ViewModels.Court.GetOneCourtResponse;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotGetOneResponse;
 import com.example.tennis_booking_app.ViewModels.Slot.SlotResponse;
 
 import java.util.List;
@@ -17,4 +19,7 @@ public interface SlotService {
 
     @GET("Slot/PagedList")
     Call<SlotResponse> getSlot(@Header("Authorization") String access_token, @Query("VendorId") int VendorId, @Query("PageSize") int pagesize, @Query("queryString") String queryString, @Query("CurrentPage") int currentPage);
+
+    @GET("Slot/GetOne")
+    Call<SlotGetOneResponse> getOne(@Header("Authorization") String access_token, @Query("Id") int id);
 }
