@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +44,7 @@ public class ConfirmBooking extends AppCompatActivity {
     Token TOKEN;
     String AUTHORIZATION;
     SharedPreferences sharedPreferences;
+    ListView lvVoucher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +77,7 @@ public class ConfirmBooking extends AppCompatActivity {
         courtValue = (PagedCourtValue) bundle.getSerializable("courtValue");
 
 
-        loadVoucher(courtValue.getVendorId());
+
 
         //get sharedPreference
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", 0);
@@ -86,25 +88,7 @@ public class ConfirmBooking extends AppCompatActivity {
         AUTHORIZATION = "Bearer " + TOKEN.getAccessToken();
 
 
-       /* if (ten2 != null) {
-            CaChoi caChoi2 = (CaChoi) intent1.getSerializableExtra("cadetail");
-            String d = bundle.getString("date");
-            txtTennis2.setText(ten2.getTen());
-            txtTennis21.setText(ten2.getTen());
-            txtDientich2.setText(ten2.getDientich());
-            if (arrSelected.size() > 0) {
-                int sum=0;
-                for (CaChoi caChoi : arrSelected) {
-                    txtSlot.setText(caChoi.getThoiluong() + ", ");
-                    txtGia.setText(caChoi.getGia() + ", ");
-                    txtGia2.setText(caChoi.getGia() + ", ");
-                    sum+= Integer.parseInt(caChoi.getGia());
-                    txtTong.setText(sum);
-                }
-            }
 
-            txtNgay.setText(d);
-        }*/
 
         if (courtValue != null) {
             txtVendorID.setText(courtValue.getName());
@@ -132,7 +116,7 @@ public class ConfirmBooking extends AppCompatActivity {
         edtPromo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadDialogKM();
+                loadVoucher(courtValue.getVendorId());
             }
         });
 
@@ -147,40 +131,6 @@ public class ConfirmBooking extends AppCompatActivity {
 
     }
 
-    private void loadDialogKM() {
-        Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_khuyen_mai);
-        dialog.setCanceledOnTouchOutside(true);
-//        btKM1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                edtPromo.setText("NGUOIQUEN");
-//                int total = sum - 20000;
-//                txtTongGia.setText(total+" vnđ");
-//                dialog.dismiss();
-//            }
-//        });
-//        btKM2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                edtPromo.setText("CUOITUAN");
-//                int total = sum - 30000;
-//                txtTongGia.setText(total+" vnđ");
-//                dialog.dismiss();
-//            }
-//        });
-//        btKM3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                edtPromo.setText("LANDAU");
-//                int total = sum - 50000;
-//                txtTongGia.setText(total+" vnđ");
-//                dialog.dismiss();
-//            }
-//        });
-        dialog.show();
-    }
 
     private void loadVoucher(int vendorID){
         VoucherRequest paramsRequest = new VoucherRequest();
@@ -193,8 +143,15 @@ public class ConfirmBooking extends AppCompatActivity {
                 if(response.body() !=null){
                     // handle API
                     arrVoucher = response.body().getValue();
-                    System.out.println("voucher value " + arrVoucher);
-                    DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(ConfirmBooking.this, arrVoucher, sharedPreferences);
+                    Dialog dialog = new Dialog(ConfirmBooking.this);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.dialog_khuyen_mai);
+                    dialog.setCanceledOnTouchOutside(true);
+
+                    lvVoucher=dialog.findViewById(R.id.lvVoucher);
+                    DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(dialog.getContext(), arrVoucher, sharedPreferences);
+                    lvVoucher.setAdapter(voucherAdapter);
+                    dialog.show();
 
                 }
             }

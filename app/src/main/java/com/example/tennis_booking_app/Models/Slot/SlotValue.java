@@ -10,6 +10,10 @@ public class SlotValue {
     private String StartTime;
     private String EndTime;
 
+    public SlotValue(int id) {
+        Id = id;
+    }
+
     public SlotValue(int id, int no, int price, int insertedBy, int updatedBy, int vendorId, int applyTypeId, int statusId, Date insertedDate, Date updatedDate, boolean active, String startTime, String endTime) {
         Id = id;
         No = no;
