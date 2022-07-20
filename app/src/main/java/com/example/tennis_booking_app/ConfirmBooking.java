@@ -6,25 +6,22 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.tennis_booking_app.Clients.ApiClient;
 import com.example.tennis_booking_app.Models.PagedCourtValue;
 import com.example.tennis_booking_app.Models.Token;
 import com.example.tennis_booking_app.Models.Voucher;
-import com.example.tennis_booking_app.PhucHLH.CourtDiscountHorizontalAdapter;
-import com.example.tennis_booking_app.ViewModels.Slot.SlotRespone;
+import com.example.tennis_booking_app.ViewModels.Slot.SlotResponse;
 import com.example.tennis_booking_app.ViewModels.Voucher.VoucherRequest;
 import com.example.tennis_booking_app.ViewModels.Voucher.VoucherResponse;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -33,19 +30,25 @@ import retrofit2.Response;
 
 public class ConfirmBooking extends AppCompatActivity {
     TextView txtVendorID, txtCourtName, txtDientich2,
-            txtSlot, txtGia, txtNgay, txtThanhGia, txtTongGia;
+            txtSlot, txtGia, txtNgay, txtThanhGia, txtTongGia, txtUuDai;
     TextView edtPromo;
     Button btNhan, btKM1, btKM2, btKM3;
-    Intent intent1, intentKM, intentConfirm, intentValue, intentVoucher;
-    ArrayList<SlotRespone> arrSelected;
-    int sum=0;
+    Intent intent1, intentKM, intentValue, intentVoucher;
+    List<SlotResponse> arrSelected;
+    int sum = 0;
     PagedCourtValue courtValue;
     List<Voucher> arrVoucher;
     Token TOKEN;
     String AUTHORIZATION;
     SharedPreferences sharedPreferences;
     ListView lvVoucher;
+<<<<<<< HEAD
 
+=======
+    TextView txtCourtNameHorizontalPromo, txtDiscount;
+    Voucher voucherSelected;
+    SharedPreferences shs;
+>>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,7 @@ public class ConfirmBooking extends AppCompatActivity {
         txtThanhGia = (TextView) findViewById(R.id.txtThanhGia);
         txtTongGia = (TextView) findViewById(R.id.txtTongGia);
         txtNgay = (TextView) findViewById(R.id.txtNgay);
+        txtUuDai = (TextView) findViewById(R.id.txtUuDai);
         edtPromo = (TextView) findViewById(R.id.edtPromo);
         btNhan = (Button) findViewById(R.id.btNhan);
 
@@ -71,13 +75,17 @@ public class ConfirmBooking extends AppCompatActivity {
         //SanTennis ten2 = (SanTennis) intent1.getSerializableExtra("sandetail2");
 //        SanKM tenKM = (SanKM) intentKM.getSerializableExtra("sandetailKM");
 
-        intentConfirm = getIntent();
-        Bundle bundle = intentConfirm.getBundleExtra("data");
-        arrSelected = (ArrayList<SlotRespone>) bundle.getSerializable("arrSlotSelected");
-        courtValue = (PagedCourtValue) bundle.getSerializable("courtValue");
+        Intent intentConfirm = getIntent();
+        Bundle bundleConfirm = intentConfirm.getBundleExtra("data");
+        arrSelected = (List<SlotResponse>) bundleConfirm.getSerializable("arrSlotSelected");
+        courtValue = (PagedCourtValue) bundleConfirm.getSerializable("courtValue");
 
 
+<<<<<<< HEAD
 
+=======
+//        loadVoucher(courtValue.getVendorId());
+>>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
 
         //get sharedPreference
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", 0);
@@ -98,17 +106,17 @@ public class ConfirmBooking extends AppCompatActivity {
                 String selected_slot = "";
                 String selected_slot_price = "";
 
-                for (SlotRespone caChoi : arrSelected) {
-                    selected_slot += caChoi.getStartTime()+ ", ";
-                    selected_slot_price += caChoi.getPrice()+ ", ";
-                    sum += Integer.parseInt(caChoi.getPrice()+ "");
+                for (SlotResponse caChoi : arrSelected) {
+                    selected_slot += caChoi.getStartTime() + ", ";
+                    selected_slot_price += caChoi.getPrice() + ", ";
+                    sum += Integer.parseInt(caChoi.getPrice() + "");
 
                 }
 
                 txtSlot.setText(selected_slot);
                 txtGia.setText(selected_slot_price);
-                txtThanhGia.setText(sum+" vnđ");
-                txtTongGia.setText(sum+" vnđ");
+                txtThanhGia.setText(sum + " vnđ");
+                txtTongGia.setText(sum + " vnđ");
             }
             txtNgay.setText("");
         }
@@ -117,7 +125,22 @@ public class ConfirmBooking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadVoucher(courtValue.getVendorId());
+<<<<<<< HEAD
+=======
+//                    Intent intentSelected = getIntent();
+//                    Bundle bundleSelected = intentSelected.getBundleExtra("SelectData");
+//                    voucherSelected = (Voucher) bundleSelected.getSerializable("PromoSelected");
+//                    System.out.println("voucher selected "+ voucherSelected.getName());
+//                    edtPromo.setText(voucherSelected.getName());
+
+//                shs = getSharedPreferences("MySharedPref", 0);
+//                Gson gson = new Gson();
+//                String json = shs.getString("VOUCHER_SELECTED", "");
+//                voucherSelected = gson.fromJson(json, Voucher.class);
+//                edtPromo.setText(voucherSelected.getName());
+>>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
             }
+
         });
 
 
@@ -131,8 +154,12 @@ public class ConfirmBooking extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
 
     private void loadVoucher(int vendorID){
+=======
+    private void loadVoucher(int vendorID) {
+>>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
         VoucherRequest paramsRequest = new VoucherRequest();
         paramsRequest.setVendorId(vendorID);
 
@@ -140,19 +167,40 @@ public class ConfirmBooking extends AppCompatActivity {
         vendorResponseCall.enqueue(new Callback<VoucherResponse>() {
             @Override
             public void onResponse(Call<VoucherResponse> call, Response<VoucherResponse> response) {
-                if(response.body() !=null){
-                    // handle API
+                if (response.body() != null) {
                     arrVoucher = response.body().getValue();
                     Dialog dialog = new Dialog(ConfirmBooking.this);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setContentView(R.layout.dialog_khuyen_mai);
                     dialog.setCanceledOnTouchOutside(true);
+<<<<<<< HEAD
 
                     lvVoucher=dialog.findViewById(R.id.lvVoucher);
                     DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(dialog.getContext(), arrVoucher, sharedPreferences);
                     lvVoucher.setAdapter(voucherAdapter);
                     dialog.show();
 
+=======
+                    lvVoucher = dialog.findViewById(R.id.lvVoucher);
+                    DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(dialog.getContext(), arrVoucher, sharedPreferences);
+                    lvVoucher.setAdapter(voucherAdapter);
+                    lvVoucher.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Voucher voucherClick = new Voucher();
+                            voucherClick = arrVoucher.get(position);
+                            System.out.println("voucher click = " + voucherClick);
+                            edtPromo.setText(voucherClick.getName());
+                            dialog.dismiss();
+                            String gia = txtThanhGia.getText().toString().substring(0, txtThanhGia.getText().length()-3);
+                            System.out.println("giaaaaaaaaaaaaaaaa " + gia);
+                            int ketqua = Integer.parseInt(gia.trim()) - (voucherClick.getDiscountPrice());
+                            txtUuDai.setText(String.valueOf(voucherClick.getDiscountPrice()));
+                            txtTongGia.setText(String.valueOf(ketqua)+" vnd");
+                        }
+                    });
+                    dialog.show();
+>>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
                 }
             }
 

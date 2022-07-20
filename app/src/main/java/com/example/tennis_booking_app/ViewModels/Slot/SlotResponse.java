@@ -6,14 +6,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class SlotRespone implements Serializable {
+public class SlotResponse implements Serializable {
     private int Id,No,Price,InsertedBy,UpdatedBy,VendorId,ApplyTypeId,StatusId;
     private Date InsertedDate,UpdatedDate;
     private boolean Active;
     private String StartTime;
     private String EndTime;
 
-    public SlotRespone(int id, int no, int price, int insertedBy, int updatedBy, int vendorId, int applyTypeId, int statusId, Date insertedDate, Date updatedDate, boolean active, String startTime, String endTime) {
+    public SlotResponse(int id, int no, int price, int insertedBy, int updatedBy, int vendorId, int applyTypeId, int statusId, Date insertedDate, Date updatedDate, boolean active, String startTime, String endTime) {
         Id = id;
         No = no;
         Price = price;
