@@ -42,13 +42,11 @@ public class ConfirmBooking extends AppCompatActivity {
     String AUTHORIZATION;
     SharedPreferences sharedPreferences;
     ListView lvVoucher;
-<<<<<<< HEAD
 
-=======
     TextView txtCourtNameHorizontalPromo, txtDiscount;
     Voucher voucherSelected;
     SharedPreferences shs;
->>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,11 +79,11 @@ public class ConfirmBooking extends AppCompatActivity {
         courtValue = (PagedCourtValue) bundleConfirm.getSerializable("courtValue");
 
 
-<<<<<<< HEAD
 
-=======
+
+
 //        loadVoucher(courtValue.getVendorId());
->>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
+
 
         //get sharedPreference
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", 0);
@@ -125,8 +123,7 @@ public class ConfirmBooking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadVoucher(courtValue.getVendorId());
-<<<<<<< HEAD
-=======
+
 //                    Intent intentSelected = getIntent();
 //                    Bundle bundleSelected = intentSelected.getBundleExtra("SelectData");
 //                    voucherSelected = (Voucher) bundleSelected.getSerializable("PromoSelected");
@@ -138,7 +135,7 @@ public class ConfirmBooking extends AppCompatActivity {
 //                String json = shs.getString("VOUCHER_SELECTED", "");
 //                voucherSelected = gson.fromJson(json, Voucher.class);
 //                edtPromo.setText(voucherSelected.getName());
->>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
+
             }
 
         });
@@ -154,12 +151,10 @@ public class ConfirmBooking extends AppCompatActivity {
 
     }
 
-<<<<<<< HEAD
 
-    private void loadVoucher(int vendorID){
-=======
+
     private void loadVoucher(int vendorID) {
->>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
+
         VoucherRequest paramsRequest = new VoucherRequest();
         paramsRequest.setVendorId(vendorID);
 
@@ -173,17 +168,12 @@ public class ConfirmBooking extends AppCompatActivity {
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setContentView(R.layout.dialog_khuyen_mai);
                     dialog.setCanceledOnTouchOutside(true);
-<<<<<<< HEAD
+
 
                     lvVoucher=dialog.findViewById(R.id.lvVoucher);
                     DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(dialog.getContext(), arrVoucher, sharedPreferences);
                     lvVoucher.setAdapter(voucherAdapter);
-                    dialog.show();
 
-=======
-                    lvVoucher = dialog.findViewById(R.id.lvVoucher);
-                    DialogVoucherAdapter voucherAdapter = new DialogVoucherAdapter(dialog.getContext(), arrVoucher, sharedPreferences);
-                    lvVoucher.setAdapter(voucherAdapter);
                     lvVoucher.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -200,7 +190,6 @@ public class ConfirmBooking extends AppCompatActivity {
                         }
                     });
                     dialog.show();
->>>>>>> 56b756a99f0a48250fca0d286c5e0b2dd15ea1ce
                 }
             }
 
